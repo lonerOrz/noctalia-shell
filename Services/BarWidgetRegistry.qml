@@ -20,6 +20,7 @@ Singleton {
                            "DarkMode": darkMode,
                            "KeepAwake": keepAwakeComponent,
                            "KeyboardLayout": keyboardLayoutComponent,
+                           "Lyrics": lyricsComponent,
                            "MediaMini": mediaMiniComponent,
                            "Microphone": microphoneComponent,
                            "NightLight": nightLightComponent,
@@ -165,6 +166,9 @@ Singleton {
   property Component keepAwakeComponent: Component {
     KeepAwake {}
   }
+  property Component lyricsComponent: Component {
+    Lyrics {}
+  }
   property Component mediaMiniComponent: Component {
     MediaMini {}
   }
@@ -237,5 +241,25 @@ Singleton {
   // Helper function to check if widget has user settings
   function widgetHasUserSettings(id) {
     return (widgetMetadata[id] !== undefined) && (widgetMetadata[id].allowUserSettings === true)
+  }
+
+  function getNPillDirection(widget) {
+    try {
+      if (widget.barSection === "leftSection") {
+        return true
+      } else if (widget.barSection === "rightSection") {
+        return false
+      } else {
+        // middle section
+        if (widget.sectionWidgetIndex < widget.sectionWidgetsCount / 2) {
+          return false
+        } else {
+          return true
+        }
+      }
+    } catch (e) {
+      Logger.error(e)
+    }
+    return false
   }
 }
