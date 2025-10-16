@@ -16,8 +16,8 @@ Popup {
   property string widgetId: ""
 
   // Center popup in parent
-  x: (parent.width - width) * 0.5
-  y: (parent.height - height) * 0.5
+  x: parent ? (parent.width - width) * 0.5 : 0
+  y: parent ? (parent.height - height) * 0.5 : 0
 
   width: Math.max(content.implicitWidth + padding * 2, 500)
   height: content.implicitHeight + padding * 2
