@@ -18,7 +18,7 @@ Singleton {
   }                                                                                                            
                                                                                                                
   Component.onCompleted: {                                                                                     
-    Logger.log("LyricsService", "Service started");                                                            
+    Logger.i("LyricsService", "Service started");                                                            
   }                                                                                                            
                                                                                                                
   Process {                                                                                                    
@@ -27,12 +27,12 @@ Singleton {
     command: ["sh", "-c", "stdbuf -oL lrcsnc -c ~/.config/lrcsnc/config.yaml"]                                 
                                                                                                                
     onStarted: {                                                                                               
-      Logger.log("LyricsService", "Process started");                                                          
+      Logger.i("LyricsService", "Process started");                                                          
       root.lyrics = ""                                                                                         
     }                                                                                                          
                                                                                                                
     onExited: (exitCode, exitStatus) => {                                                                      
-      Logger.warn("LyricsService", "Process exited with code:", exitCode, "status:", exitStatus);              
+      Logger.w("LyricsService", "Process exited with code:", exitCode, "status:", exitStatus);              
       root.lyrics = ""                                                                                         
     }                                                                                                          
                                                                                                                
@@ -44,7 +44,7 @@ Singleton {
                                                                                                                
     stderr: SplitParser {                                                                                      
       onRead: data => {                                                                                        
-        Logger.error("LyricsService", "stderr:", data);                                                        
+        Logger.e("LyricsService", "stderr:", data);                                                        
       }                                                                                                        
     }                                                                                                          
   }                                                                                                            
