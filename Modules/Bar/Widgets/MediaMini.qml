@@ -86,6 +86,7 @@ Item {
     visible: false
     text: titleText.text
     font: titleText.font
+    applyUiScale: false
     pointSize: Style.fontSizeS * scaling
   }
 
@@ -175,8 +176,8 @@ Item {
           spacing: 0
 
           Item {
-            Layout.preferredWidth: Math.round(21 * Style.uiScaleRatio * scaling)
-            Layout.preferredHeight: Math.round(21 * Style.uiScaleRatio * scaling)
+            Layout.preferredWidth: Math.round(21 * scaling)
+            Layout.preferredHeight: Math.round(21 * scaling)
 
             NImageCircled {
               id: trackArt
@@ -299,6 +300,7 @@ Item {
               NText {
                 text: hasActivePlayer ? getTitle() : placeholderText
                 font: titleText.font
+                applyUiScale: false
                 pointSize: Style.fontSizeS * scaling
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: hasActivePlayer ? Text.AlignLeft : Text.AlignHCenter

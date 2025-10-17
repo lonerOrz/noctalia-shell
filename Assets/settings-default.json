@@ -1,5 +1,6 @@
 {
-  "settingsVersion": 15,
+  "settingsVersion": 16,
+  "setupCompleted": false,
   "bar": {
     "position": "top",
     "backgroundOpacity": 1,
@@ -68,6 +69,7 @@
   },
   "location": {
     "name": "Tokyo",
+    "weatherEnabled": true,
     "useFahrenheit": false,
     "use12hourFormat": false,
     "showWeekNumberInCalendar": false

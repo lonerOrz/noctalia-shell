@@ -576,6 +576,10 @@
           "label": "Clima",
           "description": "Elige tu unidad de temperatura preferida."
         },
+        "enabled": {
+          "label": "Activar clima",
+          "description": "Mostrar información del clima en toda la interfaz y obtener datos meteorológicos. Cuando está desactivado, todos los elementos del clima estarán ocultos y no se realizarán solicitudes de red."
+        },
         "fahrenheit": {
           "label": "Mostrar temperatura en Fahrenheit (°F)",
           "description": "Muestra la temperatura en Fahrenheit en lugar de Celsius."
@@ -1186,6 +1190,9 @@
   "calendar": {
     "panel": {
       "week": "Semana"
+    },
+    "weather": {
+      "loading": "Cargando el clima…"
     }
   },
   "tooltips": {
@@ -1305,7 +1312,8 @@
         "bottom_left": "Inferior izquierda",
         "bottom_right": "Inferior derecha",
         "bottom_center": "Inferior central",
-        "top_center": "Superior central"
+        "top_center": "Superior central",
+        "center": "Centro"
       },
       "quickSettingsStyle": {
         "modern": "Moderno",
@@ -1615,12 +1623,46 @@
     "discharging-rate": "Tasa de descarga: {rate} W.",
     "charging": "Cargando.",
     "discharging": "Descargando.",
+    "plugged-in": "Conectado.",
+    "idle": "Inactivo.",
+    "time-left": "Tiempo restante: {time}.",
+    "time-until-full": "Tiempo hasta carga completa: {time}.",
+    "health": "Salud: {percent}%",
     "panel": {
       "title": "Umbral de carga",
       "full": "Capacidad total ({percent}%)",
       "balanced": "Equilibrado ({percent}%)",
       "lifespan": "Vida útil prolongada ({percent}%)",
       "disabled": "Administrador de batería deshabilitado"
+    }
+  },
+  "setup": {
+    "customize": {
+      "header": "Personaliza tu experiencia",
+      "subheader": "Ajusta la posición de la barra, densidad, escala y más."
+    },
+    "appearance": {
+      "header": "Apariencia",
+      "subheader": "Elige modo oscuro y fuentes de color (Matugen o predefinido)."
+    },
+    "wallpaper": {
+      "header": "Elige tu fondo",
+      "subheader": "Define el ambiente con un bonito fondo.",
+      "select-prompt": "Selecciona un fondo abajo",
+      "preview-error": "No se pudo cargar la imagen",
+      "none-in-dir": "No se encontraron fondos en el directorio",
+      "no-dir": "No se seleccionó un directorio de fondos",
+      "no-valid": "No se encontraron imágenes válidas en: {dir}",
+      "choose-dir": "Elige un directorio que contenga tus fondos",
+      "dir": {
+        "label": "Directorio de fondos",
+        "description": "Elige la carpeta que contiene tus fondos",
+        "browse": "Seleccionar carpeta",
+        "select-title": "Seleccionar carpeta de fondos"
+      }
+    },
+    "welcome": {
+      "note": "Solo algunos conceptos básicos para empezar: todas las opciones están en Configuración."
     }
   }
 }
