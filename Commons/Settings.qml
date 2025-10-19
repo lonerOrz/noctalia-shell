@@ -191,6 +191,8 @@ Singleton {
       property real animationSpeed: 1.0
       property bool animationDisabled: false
       property bool compactLockScreen: false
+      property bool lockOnSuspend: true
+      property string language: ""
     }
 
     // location
@@ -292,6 +294,7 @@ Singleton {
       property string displayMode: "always_visible" // "always_visible", "auto_hide", "exclusive"
       property real backgroundOpacity: 1.0
       property real floatingRatio: 1.0
+      property real size: 1
       property bool onlySameOutput: true
       property list<string> monitors: []
       // Desktop entry IDs pinned to the dock (e.g., "org.kde.konsole", "firefox.desktop")
@@ -342,7 +345,6 @@ Singleton {
       property string fontFixed: "DejaVu Sans Mono"
       property real fontDefaultScale: 1.0
       property real fontFixedScale: 1.0
-      property bool idleInhibitorEnabled: false
       property bool tooltipsEnabled: true
     }
 
@@ -355,6 +357,9 @@ Singleton {
       property bool useWallpaperColors: false
       property string predefinedScheme: "Noctalia (default)"
       property bool darkMode: true
+      property string schedulingMode: "off"
+      property string manualSunrise: "06:30"
+      property string manualSunset: "18:30"
       property string matugenSchemeType: "scheme-fruit-salad"
       property bool generateTemplatesForPredefined: true
     }

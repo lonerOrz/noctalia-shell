@@ -86,10 +86,12 @@ ShellRoot {
         BarWidgetRegistry.init()
         LocationService.init()
         NightLightService.apply()
+        DarkModeService.init()
         FontService.init()
         HooksService.init()
         BluetoothService.init()
         BatteryService.init()
+        IdleInhibitorService.init()
       }
 
       Background {}
@@ -189,16 +191,28 @@ ShellRoot {
     function onSettingsLoaded() {
       // Only open the setup wizard for new users
       if (!Settings.data.setupCompleted) {
-        if (DistroService && DistroService.isNixOS) {
-          Settings.data.setupCompleted = true
-          return
-        }
-        if (Settings.data.settingsVersion >= Settings.settingsVersion) {
-          setupWizardLoader.active = true
-        } else {
-          Settings.data.setupCompleted = true
-        }
+        checkSetupWizard()
       }
+    }
+  }
+
+  function checkSetupWizard() {
+    // Wait for distro service
+    if (!DistroService.isReady) {
+      Qt.callLater(checkSetupWizard)
+      return
+    }
+
+    // No setup wizard on NixOS
+    if (DistroService.isNixOS) {
+      Settings.data.setupCompleted = true
+      return
+    }
+
+    if (Settings.data.settingsVersion >= Settings.settingsVersion) {
+      setupWizardLoader.active = true
+    } else {
+      Settings.data.setupCompleted = true
     }
   }
 }

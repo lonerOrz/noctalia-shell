@@ -32,6 +32,16 @@
           "reset": "Eckenradius des Bildschirms zurücksetzen"
         }
       },
+      "lockscreen": {
+        "section": {
+          "label": "Sperrbildschirm",
+          "description": "Sperrbildschirm-Verhalten konfigurieren."
+        },
+        "lock-on-suspend": {
+          "label": "Beim Standby sperren",
+          "description": "Bildschirm automatisch sperren, wenn das System in den Standby-Modus wechselt."
+        }
+      },
       "fonts": {
         "section": {
           "label": "Schriftarten",
@@ -58,6 +68,17 @@
           }
         },
         "reset-scaling": "Skalierung zurücksetzen"
+      },
+      "language": {
+        "section": {
+          "label": "Sprache",
+          "description": "Wählen Sie Ihre bevorzugte Sprache für die Anwendung."
+        },
+        "select": {
+          "label": "Anwendungssprache",
+          "description": "Wählen Sie die in der Anwendungsoberfläche verwendete Sprache.",
+          "auto-detect": "Automatisch"
+        }
       }
     },
     "audio": {
@@ -260,6 +281,10 @@
         "floating-distance": {
           "label": "Dock-Schwebeabstand",
           "description": "Schwebeabstand vom Bildschirmrand anpassen."
+        },
+        "icon-size": {
+          "label": "Dock-Größe",
+          "description": "Gesamtgröße des Docks anpassen."
         },
         "colorize-icons": {
           "label": "Symbole einfärben",
@@ -475,10 +500,6 @@
           "label": "Farbquelle",
           "description": "Haupteinstellungen für Noctalias Farben."
         },
-        "dark-mode": {
-          "label": "Dunkler Modus",
-          "description": "Wechselt zu einem dunkleren Theme für einfachere Betrachtung bei Nacht."
-        },
         "use-wallpaper-colors": {
           "label": "Hintergrundbild-Farben verwenden",
           "description": "Farbschemata aus Ihrem Hintergrundbild mit Matugen generieren. Extrahiert automatisch Farben für ein kohärentes Design."
@@ -486,6 +507,19 @@
         "matugen-scheme-type": {
           "label": "Matugen-Schema-Typ",
           "description": "Wähle einen Farbstil für Matugen aus."
+        }
+      },
+      "dark-mode": {
+        "switch": {
+          "label": "Dunkler Modus",
+          "description": "Wechselt zu einem dunkleren Theme für einfachere Betrachtung bei Nacht."
+        },
+        "mode": {
+          "label": "Automatischer dunkler Modus",
+          "description": "Ermöglicht automatisches Wechseln zwischen dem hellen und dunklen Modus.",
+          "off": "Aus",
+          "manual": "Manuell",
+          "location": "Standort"
         }
       },
       "predefined": {
@@ -537,7 +571,7 @@
           },
           "discord": {
             "description": "Schreibt {filepath} für {client}",
-            "description-missing": "Kein Discord-Client erkannt. Installieren Sie vesktop, webcord, armcord, equibop, lightcord oder dorion."
+            "description-missing": "Kein Discord-Client erkannt. Installieren Sie vencord, vesktop, webcord, armcord, equibop, lightcord oder dorion."
           },
           "pywalfox": {
             "description": "Schreibt {filepath} und führt pywalfox update aus",
@@ -549,7 +583,7 @@
           "description": "Zusätzliche Konfigurationsoptionen.",
           "user-templates": {
             "label": "Benutzer-Vorlagen",
-            "description": "Benutzerdefinierte Matugen-Konfiguration aus ~/.config/matugen/config.toml aktivieren"
+            "description": "Benutzerdefinierte Matugen-Konfiguration aktivieren. Eine Vorlagendatei wird beim ersten Aktivieren unter ~/.config/noctalia/user-templates.toml erstellt"
           }
         },
         "section": {
@@ -746,7 +780,7 @@
           "label": "Widgets für Kurzbefehle"
         },
         "sectionLeft": "Links",
-        "sectionRight": "Richtig"
+        "sectionRight": "Rechts"
       }
     },
     "user-interface": {
@@ -918,9 +952,13 @@
           "label": "Scrollmodus",
           "description": "Steuern, wann Textscrolling für lange Fenstertitel aktiviert ist."
         },
-        "width": {
-          "description": "Steuert die horizontale Größe des Widgets.",
-          "label": "Widget-Breite"
+        "max-width": {
+          "label": "Maximale Breite",
+          "description": "Stellt die maximale Horizontalgröße des Widgets ein. Das Widget wird sich an kürzere Inhalte anpassen."
+        },
+        "use-fixed-width": {
+          "label": "Feste Breite verwenden",
+          "description": "Wenn aktiviert, verwendet das Widget immer die maximale Breite, anstatt sich dynamisch an den Inhalt anzupassen."
         },
         "colorize-icons": {
           "label": "Symbole einfärben",
@@ -1070,6 +1108,14 @@
         "visualizer-type": {
           "label": "Visualizer-Typ",
           "description": "Stil des Audio-Visualizers auswählen."
+        },
+        "max-width": {
+          "label": "Maximale Breite",
+          "description": "Stellt die maximale Horizontalgröße des Widgets ein. Das Widget wird sich an kürzere Inhalte anpassen."
+        },
+        "use-fixed-width": {
+          "label": "Feste Breite verwenden",
+          "description": "Wenn aktiviert, verwendet das Widget immer die maximale Breite, anstatt sich dynamisch an den Inhalt anzupassen."
         },
         "scrolling-mode": {
           "label": "Scrollmodus",

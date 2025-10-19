@@ -32,6 +32,16 @@
           "reset": "Réinitialiser le rayon des coins de l'écran"
         }
       },
+      "lockscreen": {
+        "section": {
+          "label": "Écran de verrouillage",
+          "description": "Configurer le comportement de l'écran de verrouillage."
+        },
+        "lock-on-suspend": {
+          "label": "Verrouiller lors de la suspension",
+          "description": "Verrouiller automatiquement l'écran lors de la mise en veille du système."
+        }
+      },
       "fonts": {
         "section": {
           "label": "Polices",
@@ -58,6 +68,17 @@
           }
         },
         "reset-scaling": "Réinitialiser l'échelle"
+      },
+      "language": {
+        "section": {
+          "label": "Langue",
+          "description": "Choisissez votre langue préférée pour l'application."
+        },
+        "select": {
+          "label": "Langue de l'application",
+          "description": "Sélectionnez la langue utilisée dans l'interface de l'application.",
+          "auto-detect": "Automatique"
+        }
       }
     },
     "audio": {
@@ -260,6 +281,10 @@
         "floating-distance": {
           "label": "Distance de flottaison du dock",
           "description": "Ajustez la distance de flottaison par rapport au bord de l'écran."
+        },
+        "icon-size": {
+          "label": "Taille du Dock",
+          "description": "Ajuster la taille globale du Dock."
         },
         "colorize-icons": {
           "label": "Coloriser les icônes",
@@ -475,10 +500,6 @@
           "label": "Source des couleurs",
           "description": "Paramètres principaux pour les couleurs de Noctalia."
         },
-        "dark-mode": {
-          "label": "Mode sombre",
-          "description": "Passe à un thème plus sombre pour une visualisation plus facile la nuit."
-        },
         "use-wallpaper-colors": {
           "label": "Utiliser les couleurs du fond d'écran",
           "description": "Générer des schémas de couleurs à partir de votre fond d'écran avec Matugen. Extrait automatiquement les couleurs pour créer un thème cohérent."
@@ -486,6 +507,12 @@
         "matugen-scheme-type": {
           "label": "Type de schéma Matugen",
           "description": "Choisissez l'algorithme de génération de schéma de couleurs pour Matugen."
+        }
+      },
+      "dark-mode": {
+        "switch": {
+          "label": "Mode sombre",
+          "description": "Passe à un thème plus sombre pour une visualisation plus facile la nuit."
         }
       },
       "predefined": {
@@ -537,7 +564,7 @@
           },
           "discord": {
             "description": "Écrire {filepath} pour {client}",
-            "description-missing": "Aucun client Discord détecté. Installez vesktop, webcord, armcord, equibop, lightcord ou dorion."
+            "description-missing": "Aucun client Discord détecté. Installez vencord, vesktop, webcord, armcord, equibop, lightcord ou dorion."
           },
           "pywalfox": {
             "description": "Écrire ~/.cache/wal/colors.json et exécuter pywalfox update",
@@ -549,7 +576,7 @@
           "description": "Options de configuration supplémentaires.",
           "user-templates": {
             "label": "Modèles utilisateur",
-            "description": "Activer la configuration Matugen définie par l'utilisateur depuis ~/.config/matugen/config.toml"
+            "description": "Activer la configuration Matugen définie par l'utilisateur. Un fichier modèle sera créé dans ~/.config/noctalia/user-templates.toml lors de la première activation"
           }
         },
         "section": {
@@ -901,9 +928,13 @@
           "label": "Mode de masquage",
           "description": "Contrôle le comportement du widget lorsqu'aucune fenêtre n'est active."
         },
-        "width": {
-          "description": "Contrôle la taille horizontale du widget.",
-          "label": "Largeur du widget"
+        "max-width": {
+          "label": "Largeur Maximale",
+          "description": "Définit la taille horizontale maximale du widget. Le widget se rétrécira pour s'adapter à un contenu plus court."
+        },
+        "use-fixed-width": {
+          "label": "Utiliser une Largeur Fixe",
+          "description": "Lorsque activé, le widget utilisera toujours la largeur maximale au lieu de s'ajuster dynamiquement au contenu."
         },
         "colorize-icons": {
           "label": "Coloriser les icônes",
@@ -1049,6 +1080,14 @@
         "visualizer-type": {
           "label": "Type de visualiseur",
           "description": "Choisir le style de visualiseur audio à afficher."
+        },
+        "max-width": {
+          "label": "Largeur Maximale",
+          "description": "Définit la taille horizontale maximale du widget. Le widget se rétrécira pour s'adapter à un contenu plus court."
+        },
+        "use-fixed-width": {
+          "label": "Utiliser une Largeur Fixe",
+          "description": "Lorsque activé, le widget utilisera toujours la largeur maximale au lieu de s'ajuster dynamiquement au contenu."
         },
         "scrolling-mode": {
           "label": "Mode de défilement",
