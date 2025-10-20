@@ -562,6 +562,10 @@
             "description": "写入 {filepath} 并重新加载",
             "description-missing": "需要安装 {app}"
           },
+          "vicinae": {
+            "description": "写入 {filepath} 并重新加载",
+            "description-missing": "需要安装 {app}"
+          },
           "discord": {
             "description": "为 {client} 写入 {filepath}",
             "description-missing": "未检测到 Discord 客户端。请安装 vencord、vesktop、webcord、armcord、equibop、lightcord 或 dorion。"
@@ -903,6 +907,9 @@
       },
       "cancel": "取消",
       "apply": "应用"
+    },
+    "text-input": {
+      "clear": "清除"
     }
   },
   "bar": {
@@ -1237,6 +1244,8 @@
   "tooltips": {
     "refresh": "刷新",
     "close": "关闭",
+    "up": "向上",
+    "home": "主目录",
     "refresh-wallpaper-list": "刷新壁纸列表",
     "refresh-devices": "刷新设备",
     "forget-network": "忘记网络",

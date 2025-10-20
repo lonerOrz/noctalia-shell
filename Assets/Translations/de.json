@@ -569,6 +569,10 @@
             "description": "Schreibt {filepath} und lädt neu",
             "description-missing": "Erfordert fuzzel Starter"
           },
+          "vicinae": {
+            "description": "Schreibt {filepath} und lädt neu",
+            "description-missing": "Erfordert {app} Starter"
+          },
           "discord": {
             "description": "Schreibt {filepath} für {client}",
             "description-missing": "Kein Discord-Client erkannt. Installieren Sie vencord, vesktop, webcord, armcord, equibop, lightcord oder dorion."
@@ -927,6 +931,9 @@
       },
       "cancel": "Abbrechen",
       "apply": "Anwenden"
+    },
+    "text-input": {
+      "clear": "Löschen"
     }
   },
   "bar": {
@@ -1261,6 +1268,8 @@
   "tooltips": {
     "refresh": "Aktualisieren",
     "close": "Schließen",
+    "up": "Nach oben",
+    "home": "Home",
     "refresh-wallpaper-list": "Hintergrundbild-Liste aktualisieren",
     "refresh-devices": "Geräte aktualisieren",
     "forget-network": "Netzwerk vergessen",
