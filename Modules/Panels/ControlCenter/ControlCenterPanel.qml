@@ -69,7 +69,8 @@ SmartPanel {
   readonly property int profileHeight: Math.round(64 * Style.uiScaleRatio)
   readonly property int shortcutsHeight: Math.round(52 * Style.uiScaleRatio)
   readonly property int audioHeight: Math.round(60 * Style.uiScaleRatio)
-  readonly property int mediaSysMonHeight: Math.round(260 * Style.uiScaleRatio)
+  readonly property int weatherHeight: Math.round(130 * Style.uiScaleRatio)
+  readonly property int mediaSysMonHeight: Math.round(130 * Style.uiScaleRatio)
 
   // We keep a dynamic weather height due to a more complex layout and font scaling
   property int weatherHeight: Math.round(210 * Style.uiScaleRatio)

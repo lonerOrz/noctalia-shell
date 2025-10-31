@@ -21,8 +21,8 @@ NBox {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.top: parent.top
-    anchors.margins: Style.marginXL
-    spacing: Style.marginM
+    anchors.margins: Style.marginM
+    spacing: Style.marginS
     clip: true
 
     RowLayout {
@@ -34,7 +34,7 @@ NBox {
       NIcon {
         Layout.alignment: Qt.AlignVCenter
         icon: weatherReady ? LocationService.weatherSymbolFromCode(LocationService.data.weather.current_weather.weathercode) : ""
-        pointSize: Style.fontSizeXXXL * 1.75
+        pointSize: Style.fontSizeXXL
         color: Color.mPrimary
       }
 
@@ -46,7 +46,7 @@ NBox {
             const chunks = Settings.data.location.name.split(",");
             return chunks[0];
           }
-          pointSize: Style.fontSizeL
+          pointSize: Style.fontSizeM
           font.weight: Style.fontWeightBold
           visible: showLocation
         }
@@ -67,7 +67,7 @@ NBox {
               temp = Math.round(temp);
               return `${temp}°${suffix}`;
             }
-            pointSize: showLocation ? Style.fontSizeXL : Style.fontSizeXL * 1.6
+            pointSize: showLocation ? Style.fontSizeL : Style.fontSizeL * 1.6
             font.weight: Style.fontWeightBold
           }
 
@@ -90,7 +90,7 @@ NBox {
       visible: weatherReady
       Layout.fillWidth: true
       Layout.alignment: Qt.AlignVCenter
-      spacing: Style.marginM
+      spacing: Style.marginS
 
       Repeater {
         model: weatherReady ? Math.min(root.forecastDays, LocationService.data.weather.daily.time.length) : 0
@@ -107,11 +107,12 @@ NBox {
               return I18n.locale.toString(weatherDate, "ddd");
             }
             color: Color.mOnSurface
+            pointSize: Style.fontSizeXS
           }
           NIcon {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             icon: LocationService.weatherSymbolFromCode(LocationService.data.weather.daily.weathercode[index])
-            pointSize: Style.fontSizeXXL * 1.6
+            pointSize: Style.fontSizeXL
             color: Color.mPrimary
           }
           NText {
