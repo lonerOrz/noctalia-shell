@@ -7,8 +7,8 @@ import qs.Widgets
 
 NBox {
     id: root
-    width: 90
-    height: 90
+    width: Math.round(100 * Style.uiScaleRatio)
+    height: Math.round(100 * Style.uiScaleRatio)
 
     property real scaleFactor: 1.0
 
@@ -35,10 +35,10 @@ NBox {
 
         Repeater {
             model: [
-                { r: 14, color: Color.mPrimary },
-                { r: 22, color: Color.mTertiary },
-                { r: 30, color: Color.mSecondary },
-                { r: 38, color: Color.mOnSurfaceVariant }
+                { r: Math.round(16 * Style.uiScaleRatio), color: Color.mPrimary },
+                { r: Math.round(24 * Style.uiScaleRatio), color: Color.mTertiary },
+                { r: Math.round(33 * Style.uiScaleRatio), color: Color.mSecondary },
+                { r: Math.round(42 * Style.uiScaleRatio), color: Color.mOnSurfaceVariant }
             ]
             Rectangle {
                 width: modelData.r * 2 * root.scaleFactor
@@ -61,13 +61,13 @@ NBox {
                 property string valueText: "N/A"
                 property real speedSec: 15
                 property real angle: Math.random() * 360
-                width: 7 * root.scaleFactor
-                height: 7 * root.scaleFactor
+                width: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
+                height: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
 
                 Rectangle {
                     id: body
-                    width: 7 * root.scaleFactor
-                    height: 7 * root.scaleFactor
+                width: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
+                height: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
                     radius: width / 2
                     color: orbitColor
                     border.color: Qt.rgba(0, 0, 0, 0.15)
@@ -109,7 +109,7 @@ NBox {
             id: cpu
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = 14
+                item.orbitRadius = Math.round(16 * Style.uiScaleRatio)
                 item.orbitColor = Color.mPrimary
                 item.iconName = "cpu-usage"
                 const v = (SystemStatService?.cpuUsage ?? 0) / 100
@@ -131,7 +131,7 @@ NBox {
             id: temp
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = 22
+                item.orbitRadius = Math.round(24 * Style.uiScaleRatio)
                 item.orbitColor = Color.mTertiary
                 item.iconName = "cpu-temperature"
                 const v = (SystemStatService?.cpuTemp ?? 0) / 100
@@ -153,7 +153,7 @@ NBox {
             id: mem
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = 30
+                item.orbitRadius = Math.round(33 * Style.uiScaleRatio)
                 item.orbitColor = Color.mSecondary
                 item.iconName = "memory"
                 const v = (SystemStatService?.memPercent ?? 0) / 100
@@ -175,7 +175,7 @@ NBox {
             id: disk
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = 38
+                item.orbitRadius = Math.round(42 * Style.uiScaleRatio)
                 item.orbitColor = Color.mOnSurfaceVariant
                 item.iconName = "storage"
                 const d = (SystemStatService?.diskPercents?.["/"] ?? 0) / 100
@@ -196,9 +196,9 @@ NBox {
         }
 
         Rectangle {
-            width: 4 * root.scaleFactor
-            height: 4 * root.scaleFactor
-            radius: 2 * root.scaleFactor
+            width: Math.round(4 * Style.uiScaleRatio) * root.scaleFactor
+            height: Math.round(4 * Style.uiScaleRatio) * root.scaleFactor
+            radius: Math.round(2 * Style.uiScaleRatio) * root.scaleFactor
             anchors.centerIn: parent
             color: Color.mPrimary
         }
