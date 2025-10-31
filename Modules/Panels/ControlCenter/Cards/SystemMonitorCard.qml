@@ -80,6 +80,7 @@ NBox {
                         icon: planet.iconName
                         color: Color.mOnPrimary
                         pointSize: Style.fontSizeTiny * root.scaleFactor
+                        visible: root.scaleFactor > 1.5
                     }
 
                     NText {
