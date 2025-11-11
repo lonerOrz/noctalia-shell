@@ -144,8 +144,8 @@ NBox {
       spacing: Style.marginS
 
       NIcon {
-        icon: "caret-down"
-        pointSize: Style.fontSizeXXL
+        icon: "access-point"
+        pointSize: Style.fontSizeM
         color: Color.mOnSurfaceVariant
       }
 
@@ -223,11 +223,6 @@ NBox {
         id: main
         spacing: Style.marginS
 
-        // Spacer to push content down
-        Item {
-          Layout.preferredHeight: Style.marginM
-        }
-
         // Metadata at the bottom left
         ColumnLayout {
           Layout.fillWidth: true
@@ -237,7 +232,7 @@ NBox {
           NText {
             visible: MediaService.trackTitle !== ""
             text: MediaService.trackTitle
-            pointSize: Style.fontSizeL
+            pointSize: 6.5
             font.weight: Style.fontWeightBold
             elide: Text.ElideRight
             wrapMode: Text.Wrap
@@ -249,7 +244,7 @@ NBox {
             visible: MediaService.trackArtist !== ""
             text: MediaService.trackArtist
             color: Color.mPrimary
-            pointSize: Style.fontSizeS
+            pointSize: 5
             elide: Text.ElideRight
             Layout.fillWidth: true
           }
@@ -258,7 +253,7 @@ NBox {
             visible: MediaService.trackAlbum !== ""
             text: MediaService.trackAlbum
             color: Color.mOnSurfaceVariant
-            pointSize: Style.fontSizeM
+            pointSize: 5.5
             elide: Text.ElideRight
             Layout.fillWidth: true
           }
@@ -269,7 +264,7 @@ NBox {
           id: progressWrapper
           visible: (MediaService.currentPlayer && MediaService.trackLength > 0)
           Layout.fillWidth: true
-          height: Style.baseWidgetSize * 0.5
+          height: Style.baseWidgetSize * 0.3  // Reduced height for compactness
 
           property real localSeekRatio: -1
           property real lastSentSeekRatio: -1
@@ -349,18 +344,21 @@ NBox {
           Layout.alignment: Qt.AlignHCenter
 
           NIconButton {
+            baseSize: 16.5
             icon: "media-prev"
             visible: MediaService.canGoPrevious
             onClicked: MediaService.canGoPrevious ? MediaService.previous() : {}
           }
 
           NIconButton {
+            baseSize: 16.5
             icon: MediaService.isPlaying ? "media-pause" : "media-play"
             visible: (MediaService.canPlay || MediaService.canPause)
             onClicked: (MediaService.canPlay || MediaService.canPause) ? MediaService.playPause() : {}
           }
 
           NIconButton {
+            baseSize: 16.5
             icon: "media-next"
             visible: MediaService.canGoNext
             onClicked: MediaService.canGoNext ? MediaService.next() : {}

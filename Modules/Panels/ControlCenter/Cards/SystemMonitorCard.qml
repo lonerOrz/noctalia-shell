@@ -35,10 +35,10 @@ NBox {
 
         Repeater {
             model: [
-                { r: Math.round(16 * Style.uiScaleRatio), color: Color.mPrimary },
-                { r: Math.round(24 * Style.uiScaleRatio), color: Color.mTertiary },
-                { r: Math.round(33 * Style.uiScaleRatio), color: Color.mSecondary },
-                { r: Math.round(42 * Style.uiScaleRatio), color: Color.mOnSurfaceVariant }
+                { r: Math.round(25 * Style.uiScaleRatio), color: Color.mPrimary },
+                { r: Math.round(33 * Style.uiScaleRatio), color: Color.mTertiary },
+                { r: Math.round(42 * Style.uiScaleRatio), color: Color.mSecondary },
+                { r: Math.round(51 * Style.uiScaleRatio), color: Color.mOnSurfaceVariant }
             ]
             Rectangle {
                 width: modelData.r * 2 * root.scaleFactor
@@ -109,7 +109,7 @@ NBox {
             id: cpu
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = Math.round(16 * Style.uiScaleRatio)
+                item.orbitRadius = Math.round(25 * Style.uiScaleRatio)
                 item.orbitColor = Color.mPrimary
                 item.iconName = "cpu-usage"
                 const v = (SystemStatService?.cpuUsage ?? 0) / 100
@@ -131,7 +131,7 @@ NBox {
             id: temp
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = Math.round(24 * Style.uiScaleRatio)
+                item.orbitRadius = Math.round(33 * Style.uiScaleRatio)
                 item.orbitColor = Color.mTertiary
                 item.iconName = "cpu-temperature"
                 const v = (SystemStatService?.cpuTemp ?? 0) / 100
@@ -153,7 +153,7 @@ NBox {
             id: mem
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = Math.round(33 * Style.uiScaleRatio)
+                item.orbitRadius = Math.round(42 * Style.uiScaleRatio)
                 item.orbitColor = Color.mSecondary
                 item.iconName = "memory"
                 const v = (SystemStatService?.memPercent ?? 0) / 100
@@ -175,7 +175,7 @@ NBox {
             id: disk
             sourceComponent: planetDelegate
             onLoaded: {
-                item.orbitRadius = Math.round(42 * Style.uiScaleRatio)
+                item.orbitRadius = Math.round(51 * Style.uiScaleRatio)
                 item.orbitColor = Color.mOnSurfaceVariant
                 item.iconName = "storage"
                 const d = (SystemStatService?.diskPercents?.["/"] ?? 0) / 100

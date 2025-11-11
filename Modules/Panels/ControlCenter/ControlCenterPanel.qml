@@ -69,7 +69,6 @@ SmartPanel {
   readonly property int profileHeight: Math.round(64 * Style.uiScaleRatio)
   readonly property int shortcutsHeight: Math.round(52 * Style.uiScaleRatio)
   readonly property int audioHeight: Math.round(60 * Style.uiScaleRatio)
-  readonly property int weatherHeight: Math.round(130 * Style.uiScaleRatio)
   readonly property int mediaSysMonHeight: Math.round(130 * Style.uiScaleRatio)
 
   // We keep a dynamic weather height due to a more complex layout and font scaling
@@ -170,7 +169,7 @@ SmartPanel {
 
         // System monitors combined in one card
         SystemMonitorCard {
-          Layout.preferredWidth: Math.round(Style.baseWidgetSize * 2.625)
+          Layout.preferredWidth: Math.round(Style.baseWidgetSize * 3.5 * Style.uiScaleRatio)
           Layout.fillHeight: true
         }
       }
