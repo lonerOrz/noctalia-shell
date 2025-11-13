@@ -39,13 +39,22 @@ Item {
   readonly property bool rightClickUpdateText: widgetSettings.rightClickUpdateText ?? widgetMetadata.rightClickUpdateText
   readonly property string middleClickExec: widgetSettings.middleClickExec || widgetMetadata.middleClickExec
   readonly property bool middleClickUpdateText: widgetSettings.middleClickUpdateText ?? widgetMetadata.middleClickUpdateText
+  readonly property string wheelExec: widgetSettings.wheelExec || widgetMetadata.wheelExec
+  readonly property string wheelUpExec: widgetSettings.wheelUpExec || widgetMetadata.wheelUpExec || ""
+  readonly property string wheelDownExec: widgetSettings.wheelDownExec || widgetMetadata.wheelDownExec || ""
+  readonly property string wheelMode: widgetSettings.wheelMode || widgetMetadata.wheelMode || "unified"
+  readonly property bool wheelUpdateText: widgetSettings.wheelUpdateText ?? widgetMetadata.wheelUpdateText
+  readonly property bool wheelUpUpdateText: widgetSettings.wheelUpUpdateText ?? widgetMetadata.wheelUpUpdateText
+  readonly property bool wheelDownUpdateText: widgetSettings.wheelDownUpdateText ?? widgetMetadata.wheelDownUpdateText
   readonly property string textCommand: widgetSettings.textCommand !== undefined ? widgetSettings.textCommand : (widgetMetadata.textCommand || "")
   readonly property bool textStream: widgetSettings.textStream !== undefined ? widgetSettings.textStream : (widgetMetadata.textStream || false)
   readonly property int textIntervalMs: widgetSettings.textIntervalMs !== undefined ? widgetSettings.textIntervalMs : (widgetMetadata.textIntervalMs || 3000)
   readonly property string textCollapse: widgetSettings.textCollapse !== undefined ? widgetSettings.textCollapse : (widgetMetadata.textCollapse || "")
   readonly property bool parseJson: widgetSettings.parseJson !== undefined ? widgetSettings.parseJson : (widgetMetadata.parseJson || false)
   readonly property bool hideTextInVerticalBar: widgetSettings.hideTextInVerticalBar !== undefined ? widgetSettings.hideTextInVerticalBar : (widgetMetadata.hideTextInVerticalBar || false)
-  readonly property bool hasExec: (leftClickExec || rightClickExec || middleClickExec)
+  readonly property bool hasExec: (leftClickExec || rightClickExec || middleClickExec ||
+                                  (wheelMode === "unified" && wheelExec) ||
+                                  (wheelMode === "separate" && (wheelUpExec || wheelDownExec)))
 
   readonly property bool shouldShowText: !isVerticalBar || !hideTextInVerticalBar
 
@@ -75,6 +84,16 @@ Item {
         if (middleClickExec !== "") {
           tooltipLines.push(`Middle click: ${middleClickExec}.`)
         }
+        if (wheelMode === "unified" && wheelExec !== "") {
+          tooltipLines.push(`Wheel: ${wheelExec}.`)
+        } else if (wheelMode === "separate") {
+          if (wheelUpExec !== "") {
+            tooltipLines.push(`Wheel up: ${wheelUpExec}.`)
+          }
+          if (wheelDownExec !== "") {
+            tooltipLines.push(`Wheel down: ${wheelDownExec}.`)
+          }
+        }
       }
 
       if (_dynamicTooltip !== "") {
@@ -94,6 +113,7 @@ Item {
     onClicked: root.onClicked()
     onRightClicked: root.onRightClicked()
     onMiddleClicked: root.onMiddleClicked()
+    onWheel: delta => root.onWheel(delta)
   }
 
   // Internal state for dynamic text
@@ -241,6 +261,83 @@ Item {
     }
     if (!textStream && middleClickUpdateText) {
       runTextCommand()
+    }
+  }
+
+  function onWheel(delta) {
+    if (wheelMode === "unified" && wheelExec) {
+      let normalizedDelta = delta > 0 ? 1 : -1;
+
+      let command = wheelExec.replace(/\$delta([+\-*/]\d+)?/g, function(match, operation) {
+        if (operation) {
+          try {
+            let operator = operation.charAt(0);
+            let operand = parseInt(operation.substring(1));
+
+            let result;
+            switch(operator) {
+              case '+': result = normalizedDelta + operand; break;
+              case '-': result = normalizedDelta - operand; break;
+              case '*': result = normalizedDelta * operand; break;
+              case '/': result = Math.floor(normalizedDelta / operand); break;
+              default: result = normalizedDelta;
+            }
+
+            return result.toString();
+          } catch (e) {
+            Logger.w("CustomButton", `Error evaluating expression: ${match}, using normalized value ${normalizedDelta}`);
+            return normalizedDelta.toString();
+          }
+        } else {
+          return normalizedDelta.toString();
+        }
+      });
+
+      Quickshell.execDetached(["sh", "-c", command])
+      Logger.i("CustomButton", `Executing command: ${command}`)
+    } else if (wheelMode === "separate") {
+      if ((delta > 0 && wheelUpExec) || (delta < 0 && wheelDownExec)) {
+        let commandExec = delta > 0 ? wheelUpExec : wheelDownExec;
+        let normalizedDelta = delta > 0 ? 1 : -1;
+
+        let command = commandExec.replace(/\$delta([+\-*/]\d+)?/g, function(match, operation) {
+          if (operation) {
+            try {
+              let operator = operation.charAt(0);
+              let operand = parseInt(operation.substring(1));
+
+              let result;
+              switch(operator) {
+                case '+': result = normalizedDelta + operand; break;
+                case '-': result = normalizedDelta - operand; break;
+                case '*': result = normalizedDelta * operand; break;
+                case '/': result = Math.floor(normalizedDelta / operand); break;
+                default: result = normalizedDelta;
+              }
+
+              return result.toString();
+            } catch (e) {
+              Logger.w("CustomButton", `Error evaluating expression: ${match}, using normalized value ${normalizedDelta}`);
+              return normalizedDelta.toString();
+            }
+          } else {
+            return normalizedDelta.toString();
+          }
+        });
+
+        Quickshell.execDetached(["sh", "-c", command])
+        Logger.i("CustomButton", `Executing command: ${command}`)
+      }
+    }
+
+    if (!textStream) {
+      if (wheelMode === "unified" && wheelUpdateText) {
+        runTextCommand()
+      } else if (wheelMode === "separate") {
+        if ((delta > 0 && wheelUpUpdateText) || (delta < 0 && wheelDownUpdateText)) {
+          runTextCommand()
+        }
+      }
     }
   }
 
