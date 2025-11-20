@@ -74,7 +74,7 @@ Popup {
 
         NText {
           text: modelData.label || modelData.text || ""
-          pointSize: Style.fontSizeM
+          pointSize: Style.fontSizeM - 2
           color: menuItem.hovered && menuItem.enabled ? Color.mOnHover : Color.mOnSurface
           verticalAlignment: Text.AlignVCenter
           Layout.fillWidth: true
