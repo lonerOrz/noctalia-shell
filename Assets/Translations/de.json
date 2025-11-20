@@ -743,6 +743,11 @@
           "label": "Audio-Geräte"
         }
       },
+      "external-mixer": {
+        "description": "Geben Sie den Befehl oder den Anwendungspfad ein, der beim Aktivieren der externen Audiomixer-Funktion gestartet werden soll.",
+        "label": "Externer Audio-Mixer-Befehl",
+        "placeholder": "pwvucontrol || pavucontrol"
+      },
       "media": {
         "excluded-player": {
           "description": "Stichwörter für Player hinzufügen, die das System ignorieren soll. Jedes Stichwort sollte in einer neuen Zeile stehen.",
@@ -1424,6 +1429,10 @@
         "section": {
           "description": "Bevorzugte Temperatureinheit wählen.",
           "label": "Wetter"
+        },
+        "show-effects": {
+          "description": "Zeigt zusätzliche visuelle Effekte (wie Regen, Schnee oder Blitze) auf der Wetterkarte an.",
+          "label": "Wettereffekte anzeigen"
         },
         "show-in-calendar": {
           "description": "Zeige die tägliche Wettervorhersage direkt in deiner Kalenderansicht an.",

@@ -205,7 +205,7 @@ Singleton {
     // general
     property JsonObject general: JsonObject {
       property string avatarImage: ""
-      property real dimmerOpacity: 0.8
+      property real dimmerOpacity: 0.6
       property bool showScreenCorners: false
       property bool forceBlackScreenCorners: false
       property real scaleRatio: 1.0
@@ -239,6 +239,7 @@ Singleton {
     property JsonObject location: JsonObject {
       property string name: defaultLocation
       property bool weatherEnabled: true
+      property bool weatherShowEffects: true
       property bool useFahrenheit: false
       property bool use12hourFormat: false
       property bool showWeekNumberInCalendar: false
@@ -465,6 +466,7 @@ Singleton {
       property string visualizerQuality: "high"
       property list<string> mprisBlacklist: []
       property string preferredPlayer: ""
+      property string externalMixer: "pwvucontrol || pavucontrol"
     }
 
     // brightness

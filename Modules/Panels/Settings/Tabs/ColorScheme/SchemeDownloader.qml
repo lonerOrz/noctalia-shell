@@ -18,6 +18,7 @@ Popup {
   property string downloadError: ""
   property string downloadingScheme: ""
   property string pendingApplyScheme: "" // Scheme name to apply after reload
+  property string lastStderrOutput: "" // Store stderr from download process
   property real lastApiFetchTime: 0 // Track when we last fetched from API to prevent rapid calls
   property int minApiFetchInterval: 60 // Minimum seconds between API fetches (1 minute)
 
@@ -547,6 +548,7 @@ Popup {
     Logger.d("ColorSchemeDownload", "Downloading", files.length, "files for scheme", schemeName);
 
     // Execute download script
+    var stderrOutput = "";
     var downloadProcess = Qt.createQmlObject(`
                                              import QtQuick
                                              import Quickshell.Io
@@ -557,6 +559,7 @@ Popup {
                                                onStreamFinished: {
                                                  if (text && text.trim()) {
                                                    Logger.e("ColorSchemeDownload", "Download stderr:", text);
+                                                   root.lastStderrOutput = text.trim();
                                                  }
                                                }
                                              }
@@ -576,16 +579,21 @@ Popup {
         downloading = false;
         downloadingScheme = "";
       } else {
+        var errorDetails = "Exit code: " + exitCode;
+        if (root.lastStderrOutput) {
+          errorDetails += " - " + root.lastStderrOutput;
+        }
         downloadError = I18n.tr("settings.color-scheme.download.error.download-failed", {
                                   "code": exitCode
-                                });
+                                }) + "\n" + errorDetails;
         Logger.e("ColorSchemeDownload", downloadError);
         ToastService.showError(I18n.tr("settings.color-scheme.download.error.title"), I18n.tr("settings.color-scheme.download.error.description", {
                                                                                                 "scheme": schemeName
-                                                                                              }));
+                                                                                              }) + "\n" + errorDetails);
         downloading = false;
         downloadingScheme = "";
       }
+      root.lastStderrOutput = "";
       downloadProcess.destroy();
     });
 
@@ -810,15 +818,27 @@ Popup {
           model: availableSchemes
 
           Rectangle {
+            id: schemeItem
             Layout.fillWidth: true
             Layout.preferredHeight: 50 * Style.uiScaleRatio
             radius: Style.radiusS
             property string schemeName: modelData.name
-            color: root.getSchemeColor(schemeName, "mSurfaceVariant")
-            border.width: Style.borderS
-            border.color: Color.mOutline
+            color: root.getSchemeColor(schemeName, "mSurface")
+            border.width: Style.borderL
+            border.color: hoverHandler.hovered ? root.getSchemeColor(schemeName, "mPrimary") : Color.mOutline
+
+            HoverHandler {
+              id: hoverHandler
+            }
 
             Behavior on color {
+              ColorAnimation {
+                duration: Style.animationFast
+                easing.type: Easing.InOutCubic
+              }
+            }
+
+            Behavior on border.color {
               ColorAnimation {
                 duration: Style.animationFast
                 easing.type: Easing.InOutCubic
@@ -847,17 +867,10 @@ Popup {
               NText {
                 text: schemeRow.schemeName
                 pointSize: Style.fontSizeS
-                color: root.getSchemeColor(schemeRow.schemeName, "mOnSurface")
+                color: Color.mOnSurface
                 Layout.fillWidth: true
                 elide: Text.ElideRight
                 Layout.alignment: Qt.AlignVCenter
-
-                Behavior on color {
-                  ColorAnimation {
-                    duration: Style.animationFast
-                    easing.type: Easing.InOutCubic
-                  }
-                }
               }
 
               // Color swatches

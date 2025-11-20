@@ -743,6 +743,11 @@
           "label": "Ses cihazları"
         }
       },
+      "external-mixer": {
+        "description": "Harici ses mikseri özelliği etkinleştirilirken başlatılacak komutu veya uygulama yolunu girin.",
+        "label": "Harici Ses Mikseri Komutu",
+        "placeholder": "pwvucontrol || pavucontrol"
+      },
       "media": {
         "excluded-player": {
           "description": "Sistemin yoksaymasını istediğiniz oynatıcılar için anahtar kelimeler ekleyin. Her anahtar kelime ayrı bir satırda olmalıdır.",
@@ -1424,6 +1429,10 @@
         "section": {
           "description": "Tercih ettiğiniz sıcaklık birimini seçin.",
           "label": "Hava durumu"
+        },
+        "show-effects": {
+          "description": "Hava durumu kartında ek görsel efektler (yağmur, kar veya şimşek gibi) gösterir.",
+          "label": "Hava efektlerini göster"
         },
         "show-in-calendar": {
           "description": "Günlük hava durumu tahminini doğrudan takvim görünümünüzde gösterin.",

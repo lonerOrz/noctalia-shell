@@ -34,7 +34,7 @@ NBox {
     layer.smooth: true
     layer.effect: MultiEffect {
       maskEnabled: true
-      maskThresholdMin: 0.5
+      maskThresholdMin: 0.95
       maskSpreadAtMin: 0.0
       maskSource: ShaderEffectSource {
         sourceItem: Rectangle {
@@ -54,13 +54,20 @@ NBox {
       source: MediaService.trackArtUrl || wallpaper
       sourceSize: Qt.size(dim, dim)
       fillMode: Image.PreserveAspectCrop
+      layer.enabled: true
+      layer.smooth: true
+      layer.effect: MultiEffect {
+        blurEnabled: true
+        blurMax: 8
+        blur: 0.33
+      }
     }
 
     // Dark overlay for readability
     Rectangle {
       anchors.fill: parent
-      color: Color.mSurfaceVariant
-      opacity: 0.85
+      color: Color.mSurface
+      opacity: 0.65
       radius: Style.radiusM
     }
 
@@ -69,7 +76,7 @@ NBox {
       anchors.fill: parent
       color: Color.transparent
       border.color: Color.mOutline
-      border.width: 1
+      border.width: Style.borderS
       radius: Style.radiusM
     }
 
@@ -97,7 +104,7 @@ NBox {
           anchors.fill: parent
           values: CavaService.values
           fillColor: Color.mPrimary
-          opacity: 0.5
+          opacity: 0.8
         }
       }
 
@@ -107,7 +114,7 @@ NBox {
           anchors.fill: parent
           values: CavaService.values
           fillColor: Color.mPrimary
-          opacity: 0.5
+          opacity: 0.8
         }
       }
 
@@ -117,7 +124,7 @@ NBox {
           anchors.fill: parent
           values: CavaService.values
           fillColor: Color.mPrimary
-          opacity: 0.5
+          opacity: 0.8
         }
       }
     }
@@ -206,7 +213,7 @@ NBox {
     // No media player detected - centered disc icon
     NIcon {
       anchors.centerIn: parent
-      visible: !root.hasActivePlayer
+      visible: !root.hasActivePlayer && CavaService.isIdle
       icon: "disc"
       pointSize: Style.fontSizeXXXL * 3
       color: Color.mOnSurfaceVariant
@@ -219,12 +226,29 @@ NBox {
       anchors.fill: parent
       active: root.hasActivePlayer
 
-      sourceComponent: ColumnLayout {
-        id: main
-        spacing: Style.marginS
+      sourceComponent: Item {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
 
-        // Metadata at the bottom left
+        // Exceptionaly we put shadow on text and controls to ease readability
+        NDropShadow {
+          anchors.fill: main
+          source: main
+          autoPaddingEnabled: true
+          shadowBlur: 1.0
+          shadowOpacity: 0.9
+          shadowHorizontalOffset: 0
+          shadowVerticalOffset: 0
+        }
+
+        // Spacer to push content down
+        Item {
+          Layout.preferredHeight: Style.marginM
+        }
+
+        // Metadata
         ColumnLayout {
+          id: metadata
           Layout.fillWidth: true
           Layout.alignment: Qt.AlignLeft
           spacing: Style.marginXS
@@ -232,7 +256,7 @@ NBox {
           NText {
             visible: MediaService.trackTitle !== ""
             text: MediaService.trackTitle
-            pointSize: 6.5
+            pointSize: Style.fontSizeL
             font.weight: Style.fontWeightBold
             elide: Text.ElideRight
             wrapMode: Text.Wrap
@@ -243,8 +267,8 @@ NBox {
           NText {
             visible: MediaService.trackArtist !== ""
             text: MediaService.trackArtist
-            color: Color.mPrimary
-            pointSize: 5
+            color: Color.mSecondary
+            pointSize: Style.fontSizeS
             elide: Text.ElideRight
             Layout.fillWidth: true
           }
@@ -253,7 +277,7 @@ NBox {
             visible: MediaService.trackAlbum !== ""
             text: MediaService.trackAlbum
             color: Color.mOnSurfaceVariant
-            pointSize: 5.5
+            pointSize: Style.fontSizeM
             elide: Text.ElideRight
             Layout.fillWidth: true
           }
@@ -264,7 +288,7 @@ NBox {
           id: progressWrapper
           visible: (MediaService.currentPlayer && MediaService.trackLength > 0)
           Layout.fillWidth: true
-          height: Style.baseWidgetSize * 0.3  // Reduced height for compactness
+          height: Style.baseWidgetSize * 0.5
 
           property real localSeekRatio: -1
           property real lastSentSeekRatio: -1
@@ -344,21 +368,18 @@ NBox {
           Layout.alignment: Qt.AlignHCenter
 
           NIconButton {
-            baseSize: 16.5
             icon: "media-prev"
             visible: MediaService.canGoPrevious
             onClicked: MediaService.canGoPrevious ? MediaService.previous() : {}
           }
 
           NIconButton {
-            baseSize: 16.5
             icon: MediaService.isPlaying ? "media-pause" : "media-play"
             visible: (MediaService.canPlay || MediaService.canPause)
             onClicked: (MediaService.canPlay || MediaService.canPause) ? MediaService.playPause() : {}
           }
 
           NIconButton {
-            baseSize: 16.5
             icon: "media-next"
             visible: MediaService.canGoNext
             onClicked: MediaService.canGoNext ? MediaService.next() : {}
