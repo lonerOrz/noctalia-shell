@@ -432,8 +432,8 @@ Item {
         }
       });
 
-      Quickshell.execDetached(["sh", "-c", command])
-      Logger.i("CustomButton", `Executing command: ${command}`)
+      Quickshell.execDetached(["sh", "-c", command]);
+      Logger.i("CustomButton", `Executing command: ${command}`);
     } else if (wheelMode === "separate") {
       if ((delta > 0 && wheelUpExec) || (delta < 0 && wheelDownExec)) {
         let commandExec = delta > 0 ? wheelUpExec : wheelDownExec;
@@ -464,17 +464,17 @@ Item {
           }
         });
 
-        Quickshell.execDetached(["sh", "-c", command])
-        Logger.i("CustomButton", `Executing command: ${command}`)
+        Quickshell.execDetached(["sh", "-c", command]);
+        Logger.i("CustomButton", `Executing command: ${command}`);
       }
     }
 
     if (!textStream) {
       if (wheelMode === "unified" && wheelUpdateText) {
-        runTextCommand()
+        runTextCommand();
       } else if (wheelMode === "separate") {
         if ((delta > 0 && wheelUpUpdateText) || (delta < 0 && wheelDownUpdateText)) {
-          runTextCommand()
+          runTextCommand();
         }
       }
     }

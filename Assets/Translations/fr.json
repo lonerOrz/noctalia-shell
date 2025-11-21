@@ -123,10 +123,6 @@
           "stream-description": "Entrez une commande à exécuter en continu."
         },
         "dynamic-text": "Texte dynamique",
-        "hide-vertical": {
-          "description": "Si activé, le texte de la sortie de la commande ne sera pas affiché lorsque la barre est en disposition verticale (gauche ou droite).",
-          "label": "Masquer le texte dans la barre verticale"
-        },
         "icon": {
           "description": "Sélectionnez une icône dans la bibliothèque.",
           "label": "Icône"
@@ -135,6 +131,14 @@
           "description": "Commande à exécuter quand le bouton est cliqué à gauche.",
           "label": "Clic gauche",
           "update-text": "Mettre à jour le texte affiché au clic gauche."
+        },
+        "max-text-length-horizontal": {
+          "description": "Nombre maximal de caractères à afficher dans la barre horizontale (0 pour masquer le texte)",
+          "label": "Longueur max du texte (horizontal)"
+        },
+        "max-text-length-vertical": {
+          "description": "Nombre maximal de caractères à afficher dans la barre verticale (0 pour masquer le texte)",
+          "label": "Longueur max du texte (vertical)"
         },
         "middle-click": {
           "description": "Commande à exécuter quand le bouton est cliqué au milieu.",
@@ -174,6 +178,23 @@
         "text-stream": {
           "description": "Les lignes diffusées depuis la commande seront affichées sous forme de texte sur le bouton.",
           "label": "Flux"
+        },
+        "wheel": {
+          "description": "Commande à exécuter lorsque la molette est utilisée.\nUtilisez $delta pour le delta de la molette dans la commande",
+          "label": "Molette",
+          "update-text": "Mettre à jour le texte affiché au défilement"
+        },
+        "wheel-down": {
+          "description": "Commande à exécuter lorsque la molette est défilée vers le bas.",
+          "label": "Commande molette bas"
+        },
+        "wheel-mode-separate": {
+          "description": "Activer des commandes séparées pour la molette haut et bas",
+          "label": "Commandes de molette séparées"
+        },
+        "wheel-up": {
+          "description": "Commande à exécuter lorsque la molette est défilée vers le haut.",
+          "label": "Commande molette haut"
         }
       },
       "dialog": {
@@ -414,8 +435,8 @@
   },
   "changelog": {
     "error": {
-      "rate-limit": "Limite de GitHub atteinte. Réessayez dans quelques minutes.",
-      "fetch-failed": "Impossible de charger les données du journal des modifications. Veuillez réessayer plus tard."
+      "fetch-failed": "Impossible de charger les données du journal des modifications. Veuillez réessayer plus tard.",
+      "rate-limit": "Limite de GitHub atteinte. Réessayez dans quelques minutes."
     },
     "panel": {
       "buttons": {
@@ -445,10 +466,12 @@
     "activate-app": "Activer {app}",
     "clear-history": "Effacer l'historique",
     "close-app": "Fermer {app}",
+    "connect-vpn": "Se connecter à {name}",
     "cycle-visualizer": "Visualiseur de cycle",
     "disable-bluetooth": "Désactiver le Bluetooth",
     "disable-dnd": "Désactiver le mode Ne pas déranger",
     "disable-wifi": "Désactiver le Wi-Fi",
+    "disconnect-vpn": "Se déconnecter de {name}",
     "enable-bluetooth": "Activer le Bluetooth",
     "enable-dnd": "Activer le mode Ne pas déranger",
     "enable-wifi": "Activer le Wi-Fi",
@@ -1234,6 +1257,10 @@
           "description": "Ajustez l'opacité de l'arrière-plan du dock.",
           "label": "Opacité de l'arrière-plan"
         },
+        "border-radius": {
+          "description": "Ajuster le rayon de bordure du dock.",
+          "label": "Rayon de bordure"
+        },
         "colorize-icons": {
           "description": "Appliquer les couleurs du thème aux icônes d'applications du dock (applications non focalisées uniquement).",
           "label": "Coloriser les icônes"
@@ -1385,13 +1412,13 @@
           "description": "Ajustez l'opacité de l'arrière-plan du lanceur.",
           "label": "Opacité de l'arrière-plan"
         },
-        "clipboard-history": {
-          "description": "Accédez aux éléments précédemment copiés depuis le lanceur.",
-          "label": "Activer l'historique du presse-papiers"
-        },
         "clip-preview": {
           "description": "Afficher un aperçu du contenu du presse-papiers lors de l'utilisation de la commande >clip.",
           "label": "Activer l'aperçu du presse-papiers"
+        },
+        "clipboard-history": {
+          "description": "Accédez aux éléments précédemment copiés depuis le lanceur.",
+          "label": "Activer l'historique du presse-papiers"
         },
         "custom-launch-prefix": {
           "description": "Préfixer les commandes avec un lanceur personnalisé (ex. 'runapp' pour l'intégration systemd).",
@@ -2059,6 +2086,10 @@
       "title-matugen": "Le traitement du modèle Matugen a échoué.",
       "title-predefined": "Le traitement du schéma de couleurs prédéfini a échoué."
     },
+    "vpn": {
+      "connected": "Connecté à '{name}'",
+      "disconnected": "Déconnecté de '{name}'"
+    },
     "wallpaper-colors": {
       "disabled": "Couleurs du fond d'écran désactivées",
       "enabled": "Couleurs du fond d'écran activées",
@@ -2092,6 +2123,7 @@
     "input-muted": "Couper l'entrée audio",
     "keep-awake": "Rester éveillé",
     "keyboard-layout": "Disposition du clavier {layout}",
+    "manage-vpn": "Gérer les connexions VPN",
     "manage-wifi": "Gérer le Wi-Fi",
     "microphone-volume-at": "Volume du microphone à {volume}%.\nClic gauche pour les paramètres. Clic droit pour activer/désactiver le mode muet.\nFaites défiler pour modifier le volume.",
     "move-to-center-section": "Déplacer vers la section centrale",

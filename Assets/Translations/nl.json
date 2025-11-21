@@ -123,10 +123,6 @@
           "stream-description": "Voer een commando in dat continu wordt uitgevoerd."
         },
         "dynamic-text": "Dynamische tekst",
-        "hide-vertical": {
-          "description": "Indien ingeschakeld wordt de tekst uit de commando-uitvoer niet getoond wanneer de balk verticaal is (links of rechts).",
-          "label": "Tekst verbergen in verticale balk"
-        },
         "icon": {
           "description": "Selecteer een pictogram uit de bibliotheek.",
           "label": "Pictogram"
@@ -135,6 +131,14 @@
           "description": "Commando dat wordt uitgevoerd wanneer met de linkermuisknop op de knop wordt geklikt.",
           "label": "Linkermuisklik",
           "update-text": "Tekst bijwerken bij linksklik"
+        },
+        "max-text-length-horizontal": {
+          "description": "Maximaal aantal tekens dat moet worden weergegeven in horizontale balk (0 om tekst te verbergen)",
+          "label": "Max. tekstlengte (horizontaal)"
+        },
+        "max-text-length-vertical": {
+          "description": "Maximaal aantal tekens dat moet worden weergegeven in verticale balk (0 om tekst te verbergen)",
+          "label": "Max. tekstlengte (verticaal)"
         },
         "middle-click": {
           "description": "Commando dat wordt uitgevoerd wanneer met de middelste muisknop op de knop wordt geklikt.",
@@ -174,6 +178,23 @@
         "text-stream": {
           "description": "Gestreamde regels uit het commando worden als tekst op de knop weergegeven.",
           "label": "Stream"
+        },
+        "wheel": {
+          "description": "Commando om uit te voeren wanneer het scrollwiel wordt gebruikt.\nGebruik $delta voor de scrollwiel-delta in het commando",
+          "label": "Scrollwiel",
+          "update-text": "Weergegeven tekst bij scrollen bijwerken"
+        },
+        "wheel-down": {
+          "description": "Commando om uit te voeren wanneer het scrollwiel omlaag wordt bewogen.",
+          "label": "Scrollwiel omlaag commando"
+        },
+        "wheel-mode-separate": {
+          "description": "Afzonderlijke commando's inschakelen voor scrollwiel omhoog en omlaag",
+          "label": "Afzonderlijke scrollwielcommando's"
+        },
+        "wheel-up": {
+          "description": "Commando om uit te voeren wanneer het scrollwiel omhoog wordt bewogen.",
+          "label": "Scrollwiel omhoog commando"
         }
       },
       "dialog": {
@@ -414,8 +435,8 @@
   },
   "changelog": {
     "error": {
-      "rate-limit": "GitHub-limiet bereikt. Probeer het over enkele minuten opnieuw.",
-      "fetch-failed": "Kan changeloggegevens niet laden. Probeer het later opnieuw."
+      "fetch-failed": "Kan changeloggegevens niet laden. Probeer het later opnieuw.",
+      "rate-limit": "GitHub-limiet bereikt. Probeer het over enkele minuten opnieuw."
     },
     "panel": {
       "buttons": {
@@ -445,10 +466,12 @@
     "activate-app": "Activeer {app}",
     "clear-history": "Geschiedenis wissen",
     "close-app": "Sluit {app}",
+    "connect-vpn": "Verbinding maken met {name}",
     "cycle-visualizer": "Cyclusvisualisatie",
     "disable-bluetooth": "Bluetooth uitschakelen",
     "disable-dnd": "Niet Storen uitschakelen",
     "disable-wifi": "Wi-Fi uitschakelen",
+    "disconnect-vpn": "Verbinding met {name} verbreken",
     "enable-bluetooth": "Bluetooth inschakelen",
     "enable-dnd": "Niet Storen inschakelen",
     "enable-wifi": "Wi-Fi inschakelen",
@@ -1234,6 +1257,10 @@
           "description": "Pas de achtergronddekking van de dock aan.",
           "label": "Achtergronddekking"
         },
+        "border-radius": {
+          "description": "Pas de randradius van het dock aan.",
+          "label": "Randradius"
+        },
         "colorize-icons": {
           "description": "Pas themakleuren toe op dock-pictogrammen (alleen niet-focuste apps).",
           "label": "Pictogrammen inkleuren"
@@ -1385,13 +1412,13 @@
           "description": "Pas de achtergronddekking van de launcher aan.",
           "label": "Achtergronddekking"
         },
-        "clipboard-history": {
-          "description": "Toegang tot eerder gekopieerde items vanuit de launcher.",
-          "label": "Klembordgeschiedenis inschakelen"
-        },
         "clip-preview": {
           "description": "Toon een voorbeeld van de inhoud van het klembord bij gebruik van het >clip-commando.",
           "label": "Klembordvoorbeeld inschakelen"
+        },
+        "clipboard-history": {
+          "description": "Toegang tot eerder gekopieerde items vanuit de launcher.",
+          "label": "Klembordgeschiedenis inschakelen"
         },
         "custom-launch-prefix": {
           "description": "Voorzie commando's van een aangepaste launcher-prefix (bijv. 'runapp' voor systemd-integratie).",
@@ -2059,6 +2086,10 @@
       "title-matugen": "Matugen-sjabloonverwerking mislukt",
       "title-predefined": "Verwerken van vooraf gedefinieerd kleurenschema mislukt"
     },
+    "vpn": {
+      "connected": "Verbonden met '{name}'",
+      "disconnected": "Verbinding met '{name}' verbroken"
+    },
     "wallpaper-colors": {
       "disabled": "Achtergrondkleuren uitgeschakeld",
       "enabled": "Achtergrondkleuren ingeschakeld",
@@ -2092,6 +2123,7 @@
     "input-muted": "Invoermicrofoon dempen in-/uitschakelen",
     "keep-awake": "Wakker houden",
     "keyboard-layout": "{layout}-toetsenbordindeling",
+    "manage-vpn": "VPN-verbindingen beheren",
     "manage-wifi": "Wi-Fi beheren",
     "microphone-volume-at": "Microfoonvolume {volume}%\nLinks klikken voor instellingen. Rechts klikken om te dempen.\nScroll om het volume aan te passen.",
     "move-to-center-section": "Verplaatsen naar middelste sectie",
