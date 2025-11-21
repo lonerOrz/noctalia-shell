@@ -36,12 +36,7 @@ Singleton {
 
   // Changelog fetching
   property string changelogBaseUrl: Quickshell.env("NOCTALIA_CHANGELOG_URL") || "https://noctalia.dev:7777/changelogs"
-  property int changelogFetchLimit: 25
-  property int changelogUpdateFrequency: 60 * 60 // 1 hour in seconds
-  property bool isFetchingChangelogs: false
-  property string releaseNotes: ""
-  property var releases: []
-  property string changelogDataFile: Quickshell.env("NOCTALIA_CHANGELOG_FILE") || (Settings.cacheDir + "changelogs.json")
+  property string upgradeLogBaseUrl: Quickshell.env("NOCTALIA_UPGRADELOG_URL") || "https://noctalia.dev:7777/upgradelog"
 
   // Fix for FileView race condition
   property bool saveInProgress: false
@@ -66,45 +61,6 @@ Singleton {
 
     initialized = true;
     Logger.i("UpdateService", "Version:", root.currentVersion);
-  }
-
-  // Watch for changes to trigger highlight rebuilds
-  onReleasesChanged: {
-    rebuildHighlights();
-  }
-
-  onReleaseNotesChanged: {
-    rebuildHighlights();
-  }
-
-  // Changelog data cache
-  FileView {
-    id: changelogDataFileView
-    path: root.changelogDataFile
-    watchChanges: true
-    onFileChanged: reload()
-    onAdapterUpdated: writeAdapter()
-    Component.onCompleted: {
-      reload();
-    }
-    onLoaded: {
-      loadChangelogCache();
-    }
-    onLoadFailed: function (error) {
-      if (error.toString().includes("No such file") || error === 2) {
-        Qt.callLater(() => {
-                       fetchChangelogs();
-                     });
-      }
-    }
-
-    JsonAdapter {
-      id: changelogAdapter
-
-      property string releaseNotes: ""
-      property var releases: []
-      property real timestamp: 0
-    }
   }
 
   FileView {
@@ -155,68 +111,68 @@ Singleton {
 
     previousVersion = fromVersion;
     changelogCurrentVersion = toVersion;
-    releaseHighlights = buildReleaseHighlights(previousVersion, changelogCurrentVersion);
     releaseNotesUrl = buildReleaseNotesUrl(toVersion);
+
+    // Fetch the upgrade log from the server
+    fetchUpgradeLog(fromVersion, toVersion);
 
     popupScheduled = true;
     root.popupQueued(previousVersion, changelogCurrentVersion);
 
     clearChangelogRequest();
-    openWhenReady();
   }
 
-  function rebuildHighlights() {
-    if (!changelogCurrentVersion)
-      return;
-    releaseHighlights = buildReleaseHighlights(previousVersion, changelogCurrentVersion);
-  }
+  function fetchUpgradeLog(fromVersion, toVersion) {
+    // Use the last seen version, or default to v3.0.0 if this is a fresh install
+    let from = fromVersion || changelogLastSeenVersion || "v3.0.0";
+    let to = toVersion;
 
-  function buildReleaseHighlights(fromVersion, toVersion) {
-    const selected = [];
-    const fromNorm = normalizeVersion(fromVersion);
-    const toNorm = normalizeVersion(toVersion);
+    // Strip -dev suffix from versions
+    from = from.replace(/-dev$/, "");
+    to = to.replace(/-dev$/, "");
 
-    if (releases.length > 0) {
-      for (var i = 0; i < releases.length; i++) {
-        const rel = releases[i];
-        const tag = rel.version || "";
-        const tagNorm = normalizeVersion(tag);
-        if (!tagNorm)
-          continue;
+    const url = `${upgradeLogBaseUrl}/${from}/${to}`;
 
-        if (toNorm && compareVersions(tagNorm, toNorm) > 0) {
-          continue;
+    Logger.w("UpdateService", "=== Fetching upgrade log ===");
+    Logger.w("UpdateService", "From version:", from);
+    Logger.w("UpdateService", "To version:", to);
+    Logger.w("UpdateService", "URL:", url);
+    Logger.w("UpdateService", "upgradeLogBaseUrl:", upgradeLogBaseUrl);
+    Logger.w("UpdateService", "changelogLastSeenVersion:", changelogLastSeenVersion);
+
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState === XMLHttpRequest.DONE) {
+        Logger.d("UpdateService", "Request completed with status:", request.status);
+        Logger.d("UpdateService", "Response text length:", request.responseText ? request.responseText.length : 0);
+
+        if (request.status >= 200 && request.status < 300) {
+          const content = request.responseText || "";
+          Logger.d("UpdateService", "Successfully fetched upgrade log, parsing...");
+          const entries = parseReleaseNotes(content);
+          Logger.d("UpdateService", "Parsed entries count:", entries.length);
+          releaseHighlights = [
+                {
+                  "version": toVersion,
+                  "date": "",
+                  "entries": entries
+                }
+              ];
+          fetchError = "";
+          openWhenReady();
+        } else {
+          Logger.e("UpdateService", "Failed to fetch upgrade log");
+          Logger.e("UpdateService", "Status:", request.status);
+          Logger.e("UpdateService", "Status text:", request.statusText);
+          Logger.e("UpdateService", "Response:", request.responseText);
+          fetchError = I18n.tr("changelog.error.fetch-failed");
+          releaseHighlights = [];
+          openWhenReady();
         }
-
-        if (fromNorm && compareVersions(tagNorm, fromNorm) <= 0) {
-          break;
-        }
-
-        const entries = parseReleaseNotes(rel.body);
-        if (entries.length === 0)
-          continue;
-
-        selected.push({
-                        "version": tag,
-                        "date": rel.createdAt || "",
-                        "entries": entries
-                      });
       }
-    }
-
-    if (selected.length === 0 && toVersion) {
-      const fallback = parseReleaseNotes(releaseNotes);
-      if (fallback.length > 0) {
-        selected.push({
-                        "version": toVersion,
-                        "date": "",
-                        "entries": fallback
-                      });
-        fetchError = "";
-      }
-    }
-
-    return selected;
+    };
+    request.open("GET", url);
+    request.send();
   }
 
   function normalizeVersion(version) {
@@ -256,7 +212,7 @@ Singleton {
     return `${changelogBaseUrl}/CHANGELOG-${tag}.txt`;
   }
 
-function parseReleaseNotes(body) {
+  function parseReleaseNotes(body) {
     if (!body)
       return [];
 
@@ -265,26 +221,6 @@ function parseReleaseNotes(body) {
 
     for (var i = 0; i < lines.length; i++) {
       const line = lines[i];
-      const trimmed = line.trim();
-
-      if (trimmed.match(/^Release\s+v[0-9]/i)) {
-        continue;
-      }
-
-      if (trimmed.match(/^##\s*Changes since/i)) {
-        break;
-      }
-
-      // If this line is just an emoji and the next line has text, merge them
-      if (trimmed.match(/^[\u{1F000}-\u{1F9FF}]$/u) && i + 1 < lines.length) {
-        const nextLine = lines[i + 1].trim();
-        if (nextLine.length > 0) {
-          entries.push(trimmed + " " + nextLine);
-          i++; // Skip the next line since we merged it
-          continue;
-        }
-      }
-
       entries.push(line);
     }
 
@@ -478,201 +414,5 @@ function parseReleaseNotes(body) {
     debouncedSaveChangelogState();
   }
 
-  // Changelog fetching functions
-
-  function loadChangelogCache() {
-    const now = Time.timestamp;
-    var needsRefetch = false;
-    if (!changelogAdapter.timestamp || (now >= changelogAdapter.timestamp + changelogUpdateFrequency)) {
-      needsRefetch = true;
-      Logger.d("UpdateService", "Changelog cache expired or missing, scheduling fetch");
-    } else {
-      Logger.d("UpdateService", "Loading cached changelog data (age:", Math.round((now - changelogAdapter.timestamp) / 60), "minutes)");
-    }
-
-    if (changelogAdapter.releaseNotes) {
-      root.releaseNotes = changelogAdapter.releaseNotes;
-    }
-    if (changelogAdapter.releases && changelogAdapter.releases.length > 0) {
-      root.releases = changelogAdapter.releases;
-    } else {
-      Logger.d("UpdateService", "Cached releases missing, scheduling fetch");
-      needsRefetch = true;
-    }
-
-    if (needsRefetch) {
-      fetchChangelogs();
-    }
-  }
-
-  function fetchChangelogs() {
-    if (isFetchingChangelogs) {
-      Logger.w("UpdateService", "Changelog data is still fetching");
-      return;
-    }
-
-    isFetchingChangelogs = true;
-    fetchError = "";
-    fetchChangelogIndex();
-  }
-
-  function fetchChangelogIndex() {
-    const request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-      if (request.readyState === XMLHttpRequest.DONE) {
-        if (request.status >= 200 && request.status < 300) {
-          const entries = parseChangelogIndex(request.responseText || "");
-          if (entries.length === 0) {
-            Logger.w("UpdateService", "No changelog entries found at", changelogBaseUrl);
-            fetchError = I18n.tr("changelog.error.fetch-failed");
-            finalizeChangelogFetch([]);
-          } else {
-            fetchChangelogFiles(entries, 0, []);
-          }
-        } else {
-          Logger.e("UpdateService", "Failed to fetch changelog index:", request.status, request.responseText);
-          fetchError = I18n.tr("changelog.error.fetch-failed");
-          finalizeChangelogFetch([]);
-        }
-      }
-    };
-    request.open("GET", changelogBaseUrl);
-    request.send();
-  }
-
-  function parseChangelogIndex(content) {
-    if (!content)
-      return [];
-
-    const lines = content.split(/\r?\n/);
-    var entries = [];
-    for (var i = 0; i < lines.length; i++) {
-      const trimmed = lines[i].trim();
-      const match = trimmed.match(/CHANGELOG-(v[0-9A-Za-z.\-]+)\.txt/);
-      if (match && match.length >= 2) {
-        const version = match[1];
-        const fileName = match[0];
-        var modified = "";
-        for (var j = i + 1; j < Math.min(lines.length, i + 4); j++) {
-          const modLine = lines[j].trim();
-          const modMatch = modLine.match(/^Last modified:\s*(.+)$/i);
-          if (modMatch && modMatch.length >= 2) {
-            modified = modMatch[1].trim();
-            break;
-          }
-        }
-
-        entries.push({
-                      "version": version,
-                      "fileName": fileName,
-                      "url": `${changelogBaseUrl}/${fileName}`,
-                      "createdAt": modified
-                    });
-      }
-    }
-
-    entries.sort(function (a, b) {
-      return compareVersions(b.version, a.version);
-    });
-
-    if (entries.length > changelogFetchLimit) {
-      entries = entries.slice(0, changelogFetchLimit);
-    }
-
-    return entries;
-  }
-
-  function fetchChangelogFiles(entries, index, accumulator) {
-    if (!entries || entries.length === 0) {
-      finalizeChangelogFetch([]);
-      return;
-    }
-
-    if (index >= entries.length) {
-      finalizeChangelogFetch(accumulator);
-      return;
-    }
-
-    const entry = entries[index];
-    const request = new XMLHttpRequest();
-    request.onreadystatechange = function () {
-      if (request.readyState === XMLHttpRequest.DONE) {
-        if (request.status >= 200 && request.status < 300) {
-          accumulator.push({
-                            "version": entry.version,
-                            "createdAt": entry.createdAt || "",
-                            "body": request.responseText || ""
-                          });
-        } else {
-          Logger.e("UpdateService", "Failed to fetch changelog file:", entry.url, "status:", request.status);
-          if (!fetchError) {
-            fetchError = I18n.tr("changelog.error.fetch-failed");
-          }
-        }
-        fetchChangelogFiles(entries, index + 1, accumulator);
-      }
-    };
-    request.open("GET", entry.url);
-    request.send();
-  }
-
-  function finalizeChangelogFetch(releasesList) {
-    isFetchingChangelogs = false;
-
-    if (releasesList && releasesList.length > 0) {
-      releasesList.sort(function (a, b) {
-        return compareVersions(b.version, a.version);
-      });
-
-      changelogAdapter.releases = releasesList;
-      root.releases = releasesList;
-      const latest = releasesList[0];
-      if (latest) {
-        changelogAdapter.releaseNotes = latest.body || "";
-        root.releaseNotes = changelogAdapter.releaseNotes;
-      }
-
-      if (!fetchError) {
-        Logger.d("UpdateService", "Fetched changelog entries:", releasesList.length);
-      }
-    } else {
-      changelogAdapter.releases = [];
-      root.releases = [];
-      if (!fetchError) {
-        Logger.w("UpdateService", "No changelog entries fetched");
-        fetchError = I18n.tr("changelog.error.fetch-failed");
-      }
-    }
-
-    saveChangelogData();
-  }
-
-  function saveChangelogData() {
-    changelogAdapter.timestamp = Time.timestamp;
-    Logger.d("UpdateService", "Saving changelog data to cache file:", changelogDataFile);
-
-    // Ensure cache directory exists
-    Quickshell.execDetached(["mkdir", "-p", Settings.cacheDir]);
-
-    Qt.callLater(() => {
-                   changelogDataFileView.writeAdapter();
-                   Logger.d("UpdateService", "Changelog cache file written successfully");
-                 });
-  }
-
-  function resetChangelogCache() {
-    changelogAdapter.version = I18n.tr("system.unknown-version");
-    changelogAdapter.releaseNotes = "";
-    changelogAdapter.releases = [];
-    changelogAdapter.timestamp = 0;
-
-    fetchChangelogs();
-  }
-
-  function clearReleaseCache() {
-    Logger.d("UpdateService", "Clearing cached release data");
-    changelogAdapter.releases = [];
-    root.releases = [];
-    changelogDataFileView.writeAdapter();
-  }
+  // Changelog fetching functions (removed cache - only fetch on version change via fetchUpgradeLog)
 }

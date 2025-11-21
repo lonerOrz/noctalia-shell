@@ -521,7 +521,7 @@ Popup {
       return;
     }
 
-    var targetDir = ColorSchemeService.schemesDirectory + "/" + schemeName;
+    var targetDir = ColorSchemeService.downloadedSchemesDirectory + "/" + schemeName;
     var downloadScript = "mkdir -p '" + targetDir + "'\n";
 
     // Build download script for all files
@@ -552,6 +552,7 @@ Popup {
     var downloadProcess = Qt.createQmlObject(`
                                              import QtQuick
                                              import Quickshell.Io
+                                             import qs.Commons
                                              Process {
                                              id: downloadProcess
                                              command: ["sh", "-c", ` + JSON.stringify(downloadScript) + `]
@@ -611,6 +612,17 @@ Popup {
     return false;
   }
 
+  function isSchemeDownloaded(schemeName) {
+    // Check if scheme is in the downloaded directory (not preinstalled)
+    for (var i = 0; i < ColorSchemeService.schemes.length; i++) {
+      var path = ColorSchemeService.schemes[i];
+      if ((path.indexOf("/" + schemeName + "/") !== -1 || path.indexOf("/" + schemeName + ".json") !== -1) && path.indexOf(ColorSchemeService.downloadedSchemesDirectory) !== -1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function deleteScheme(schemeName) {
     if (downloading) {
       return;
@@ -623,7 +635,8 @@ Popup {
     var deletedSchemeDisplayName = ColorSchemeService.getBasename(schemeName);
     var needsReset = (currentScheme === deletedSchemeDisplayName);
 
-    var targetDir = ColorSchemeService.schemesDirectory + "/" + schemeName;
+    // Only allow deleting downloaded schemes, not preinstalled ones
+    var targetDir = ColorSchemeService.downloadedSchemesDirectory + "/" + schemeName;
     var deleteScript = "rm -rf '" + targetDir + "'";
 
     var deleteProcess = Qt.createQmlObject(`
@@ -896,12 +909,14 @@ Popup {
               NIconButton {
                 property bool isDownloading: downloading && downloadingScheme === schemeRow.schemeName
                 property bool isInstalled: root.isSchemeInstalled(schemeRow.schemeName)
+                property bool isDownloaded: root.isSchemeDownloaded(schemeRow.schemeName)
 
-                icon: isDownloading ? "" : (isInstalled ? "trash" : "download")
-                tooltipText: isDownloading ? I18n.tr("settings.color-scheme.download.downloading") : (isInstalled ? I18n.tr("settings.color-scheme.download.delete") : I18n.tr("settings.color-scheme.download.download"))
+                icon: isDownloading ? "" : (isDownloaded ? "trash" : "download")
+                tooltipText: isDownloading ? I18n.tr("settings.color-scheme.download.downloading") : (isDownloaded ? I18n.tr("settings.color-scheme.download.delete") : I18n.tr("settings.color-scheme.download.download"))
                 enabled: !downloading
                 Layout.alignment: Qt.AlignVCenter
-                onClicked: isInstalled ? root.deleteScheme(schemeRow.schemeName) : root.downloadScheme(modelData)
+                visible: !isInstalled || isDownloaded // Show button only if not installed (can download) or if downloaded (can delete)
+                onClicked: isDownloaded ? root.deleteScheme(schemeRow.schemeName) : root.downloadScheme(modelData)
 
                 NBusyIndicator {
                   anchors.centerIn: parent
