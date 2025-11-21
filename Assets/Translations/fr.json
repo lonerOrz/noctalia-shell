@@ -413,29 +413,29 @@
     }
   },
   "changelog": {
+    "error": {
+      "rate-limit": "Limite de GitHub atteinte. Réessayez dans quelques minutes.",
+      "fetch-failed": "Impossible de charger les données du journal des modifications. Veuillez réessayer plus tard."
+    },
     "panel": {
-      "title": "Quoi de neuf dans {version}",
+      "buttons": {
+        "discord": "Rejoindre notre Discord",
+        "dismiss": "Ok"
+      },
+      "empty": "Les notes de version ne sont pas encore disponibles.",
+      "highlight-title": "Points importants",
+      "section": {
+        "released": "Publié le {date}",
+        "version": "Version {version}"
+      },
       "subtitle": {
         "fresh": "Merci d’avoir installé Noctalia ! Voici ce que contient cette version.",
         "updated": "Mise à jour depuis {previousVersion}"
       },
+      "title": "Quoi de neuf dans {version}",
       "version": {
         "new-user": "Nouvelle installation"
-      },
-      "highlight-title": "Points importants",
-      "empty": "Les notes de version ne sont pas encore disponibles.",
-      "section": {
-        "version": "Version {version}",
-        "released": "Publié le {date}"
-      },
-      "buttons": {
-        "discord": "Rejoindre notre Discord",
-        "feedback": "Envoyer un retour",
-        "dismiss": "Ok"
       }
-    },
-    "error": {
-      "rate-limit": "Limite de GitHub atteinte. Réessayez dans quelques minutes."
     }
   },
   "clock": {
@@ -1389,6 +1389,10 @@
           "description": "Accédez aux éléments précédemment copiés depuis le lanceur.",
           "label": "Activer l'historique du presse-papiers"
         },
+        "clip-preview": {
+          "description": "Afficher un aperçu du contenu du presse-papiers lors de l'utilisation de la commande >clip.",
+          "label": "Activer l'aperçu du presse-papiers"
+        },
         "custom-launch-prefix": {
           "description": "Préfixer les commandes avec un lanceur personnalisé (ex. 'runapp' pour l'intégration systemd).",
           "label": "Préfixe de lancement personnalisé"
@@ -2314,6 +2318,7 @@
   },
   "wifi": {
     "panel": {
+      "available-networks": "Réseaux disponibles",
       "connect": "Connecter",
       "connected": "Connecté",
       "disabled": "Le Wi-Fi est désactivé",
@@ -2324,6 +2329,7 @@
       "forget": "Oublier",
       "forget-network": "Oublier ce réseau ?",
       "forgetting": "Oubli en cours...",
+      "known-networks": "Réseaux connus",
       "no-networks": "Aucun réseau trouvé",
       "password": "Mot de passe",
       "saved": "Enregistré",

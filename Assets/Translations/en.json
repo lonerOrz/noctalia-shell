@@ -417,28 +417,29 @@
     }
   },
   "changelog": {
+    "error": {
+      "rate-limit": "GitHub rate limit exceeded. Please try again in a few minutes.",
+      "fetch-failed": "Unable to load changelog data. Please try again later."
+    },
     "panel": {
-      "title": "What's new in {version}",
+      "buttons": {
+        "discord": "Join our Discord",
+        "dismiss": "Ok"
+      },
+      "empty": "Release notes are not available yet.",
+      "highlight-title": "Highlights",
+      "section": {
+        "released": "Released on {date}",
+        "version": "Version {version}"
+      },
       "subtitle": {
         "fresh": "Thanks for installing Noctalia! Here is what’s included in this build.",
         "updated": "Updated from {previousVersion}"
       },
+      "title": "What's new in {version}",
       "version": {
         "new-user": "Fresh install"
-      },
-      "highlight-title": "Highlights",
-      "empty": "Release notes are not available yet.",
-      "section": {
-        "version": "Version {version}",
-        "released": "Released on {date}"
-      },
-      "buttons": {
-        "discord": "Join our Discord",
-        "dismiss": "Ok"
       }
-    },
-    "error": {
-      "rate-limit": "GitHub rate limit exceeded. Please try again in a few minutes."
     }
   },
   "clock": {
@@ -1392,6 +1393,10 @@
           "description": "Access previously copied items from the launcher.",
           "label": "Enable clipboard history"
         },
+        "clip-preview": {
+          "description": "Show a preview of the clipboard content when using the >clip command.",
+          "label": "Enable clip preview"
+        },
         "custom-launch-prefix": {
           "description": "Prefix commands with a custom launcher (e.g., 'runapp' for systemd integration).",
           "label": "Custom launch prefix"
@@ -2317,6 +2322,7 @@
   },
   "wifi": {
     "panel": {
+      "available-networks": "Available Networks",
       "connect": "Connect",
       "connected": "Connected",
       "disabled": "Wi-Fi is disabled",
@@ -2327,6 +2333,7 @@
       "forget": "Forget",
       "forget-network": "Forget this network?",
       "forgetting": "Forgetting...",
+      "known-networks": "Known Networks",
       "no-networks": "No networks found",
       "password": "Password",
       "saved": "Saved",

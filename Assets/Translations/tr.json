@@ -413,29 +413,29 @@
     }
   },
   "changelog": {
+    "error": {
+      "rate-limit": "GitHub sınırına ulaşıldı. Lütfen birkaç dakika sonra tekrar dene.",
+      "fetch-failed": "Değişiklik günlüğü verileri yüklenemedi. Lütfen daha sonra tekrar dene."
+    },
     "panel": {
-      "title": "{version} sürümünde neler yeni",
+      "buttons": {
+        "discord": "Discord sunucumuza katıl",
+        "dismiss": "Tamam"
+      },
+      "empty": "Sürüm notları henüz hazır değil.",
+      "highlight-title": "Öne çıkanlar",
+      "section": {
+        "released": "{date} tarihinde yayımlandı",
+        "version": "Sürüm {version}"
+      },
       "subtitle": {
         "fresh": "Noctalia’yı kurduğun için teşekkürler! Bu sürümde gelenler bunlar.",
         "updated": "{previousVersion} sürümünden güncellendi"
       },
+      "title": "{version} sürümünde neler yeni",
       "version": {
         "new-user": "Yeni kurulum"
-      },
-      "highlight-title": "Öne çıkanlar",
-      "empty": "Sürüm notları henüz hazır değil.",
-      "section": {
-        "version": "Sürüm {version}",
-        "released": "{date} tarihinde yayımlandı"
-      },
-      "buttons": {
-        "discord": "Discord sunucumuza katıl",
-        "feedback": "Geri bildirim gönder",
-        "dismiss": "Tamam"
       }
-    },
-    "error": {
-      "rate-limit": "GitHub sınırına ulaşıldı. Lütfen birkaç dakika sonra tekrar dene."
     }
   },
   "clock": {
@@ -1389,6 +1389,10 @@
           "description": "Başlatıcıdan daha önce kopyalanan öğelere erişin.",
           "label": "Pano geçmişini etkinleştir"
         },
+        "clip-preview": {
+          "description": ">clip komutu kullanılırken panodaki içeriğin önizlemesini gösterir.",
+          "label": "Panoyu önizlemeyi etkinleştir"
+        },
         "custom-launch-prefix": {
           "description": "Komutlara özel bir başlatıcı ile ön ek ekleyin (örn., systemd entegrasyonu için 'runapp').",
           "label": "Özel başlatma ön eki"
@@ -2314,6 +2318,7 @@
   },
   "wifi": {
     "panel": {
+      "available-networks": "Kullanılabilir Ağlar",
       "connect": "Bağlan",
       "connected": "Bağlı",
       "disabled": "Wi-Fi devre dışı",
@@ -2324,6 +2329,7 @@
       "forget": "Unut",
       "forget-network": "Bu ağı unut?",
       "forgetting": "Unutuluyor...",
+      "known-networks": "Bilinen Ağlar",
       "no-networks": "Ağ bulunamadı",
       "password": "Şifre",
       "saved": "Kaydedildi",

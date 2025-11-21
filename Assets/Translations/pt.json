@@ -413,29 +413,29 @@
     }
   },
   "changelog": {
+    "error": {
+      "rate-limit": "Limite do GitHub atingido. Tente novamente em alguns minutos.",
+      "fetch-failed": "Não foi possível carregar os dados do changelog. Tente novamente mais tarde."
+    },
     "panel": {
-      "title": "Novidades na {version}",
+      "buttons": {
+        "discord": "Entre no nosso Discord",
+        "dismiss": "Ok"
+      },
+      "empty": "As notas da versão ainda não estão disponíveis.",
+      "highlight-title": "Destaques",
+      "section": {
+        "released": "Lançado em {date}",
+        "version": "Versão {version}"
+      },
       "subtitle": {
         "fresh": "Obrigado por instalar o Noctalia! Veja o que está incluído nesta compilação.",
         "updated": "Atualizado a partir da {previousVersion}"
       },
+      "title": "Novidades na {version}",
       "version": {
         "new-user": "Nova instalação"
-      },
-      "highlight-title": "Destaques",
-      "empty": "As notas da versão ainda não estão disponíveis.",
-      "section": {
-        "version": "Versão {version}",
-        "released": "Lançado em {date}"
-      },
-      "buttons": {
-        "discord": "Entre no nosso Discord",
-        "feedback": "Enviar feedback",
-        "dismiss": "Ok"
       }
-    },
-    "error": {
-      "rate-limit": "Limite do GitHub atingido. Tente novamente em alguns minutos."
     }
   },
   "clock": {
@@ -1389,6 +1389,10 @@
           "description": "Acesse itens copiados anteriormente a partir do lançador.",
           "label": "Ativar histórico da área de transferência"
         },
+        "clip-preview": {
+          "description": "Mostra uma pré-visualização do conteúdo da área de transferência ao usar o comando >clip.",
+          "label": "Ativar pré-visualização da área de transferência"
+        },
         "custom-launch-prefix": {
           "description": "Prefixar comandos com um inicializador personalizado (ex. 'runapp' para integração systemd).",
           "label": "Prefixo de inicialização personalizado"
@@ -2314,6 +2318,7 @@
   },
   "wifi": {
     "panel": {
+      "available-networks": "Redes Disponíveis",
       "connect": "Conectar",
       "connected": "Conectado",
       "disabled": "O Wi-Fi está desativado",
@@ -2324,6 +2329,7 @@
       "forget": "Esquecer",
       "forget-network": "Esquecer esta rede?",
       "forgetting": "Esquecendo...",
+      "known-networks": "Redes Conhecidas",
       "no-networks": "Nenhuma rede encontrada",
       "password": "Senha",
       "saved": "Salva",
