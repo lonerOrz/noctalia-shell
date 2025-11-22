@@ -1065,6 +1065,10 @@
             "description": "Записать {filepath}. Тему Comfy нужно установить и активировать вручную.",
             "description-missing": "Требуется установка {app}"
           },
+          "telegram": {
+            "description": "Записать {filepath}.",
+            "description-missing": "Требуется установка {app}"
+          },
           "vicinae": {
             "description": "Записать {filepath} и перезагрузить",
             "description-missing": "Требуется установка {app}"
@@ -1526,6 +1530,10 @@
       "lock-on-suspend": {
         "description": "Автоматически блокировать экран при приостановке работы системы.",
         "label": "Блокировать при приостановке"
+      },
+      "show-hibernate": {
+        "description": "Показывать опцию 'спящий режим' в действиях питания.",
+        "label": "Показывать спящий режим"
       },
       "title": "Экран блокировки"
     },

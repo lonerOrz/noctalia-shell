@@ -1065,6 +1065,10 @@
             "description": "{filepath} dosyasına yaz. Comfy temasının kurulu ve manuel olarak etkinleştirilmiş olması gerekir.",
             "description-missing": "Kurulum için {app} gereklidir"
           },
+          "telegram": {
+            "description": "{filepath} dosyasına yaz.",
+            "description-missing": "Kurulum için {app} gereklidir"
+          },
           "vicinae": {
             "description": "{filepath} dosyasına yaz ve yeniden yükle",
             "description-missing": "Kurulum için {app} gereklidir"
@@ -1526,6 +1530,10 @@
       "lock-on-suspend": {
         "description": "Sistemi askıya alırken otomatik olarak ekranı kilitler.",
         "label": "Askıya alırken kilitle"
+      },
+      "show-hibernate": {
+        "description": "Güç işlemlerinde 'hazırda beklet' seçeneğini göster.",
+        "label": "Hazırda beklet seçeneğini göster"
       },
       "title": "Ekran Kilit"
     },

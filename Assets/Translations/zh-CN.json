@@ -1065,6 +1065,10 @@
             "description": "写入 {filepath}。Comfy 主题需要手动安装和激活。",
             "description-missing": "需要安装 {app}"
           },
+          "telegram": {
+            "description": "写入 {filepath}。",
+            "description-missing": "需要安装 {app}"
+          },
           "vicinae": {
             "description": "写入 {filepath} 并重新加载",
             "description-missing": "需要安装 {app}"
@@ -1526,6 +1530,10 @@
       "lock-on-suspend": {
         "description": "系统挂起时自动锁定屏幕。",
         "label": "挂起时锁定"
+      },
+      "show-hibernate": {
+        "description": "在电源操作中显示'休眠'选项。",
+        "label": "显示休眠"
       },
       "title": "锁屏"
     },

@@ -1065,6 +1065,10 @@
             "description": "Escreva em {filepath}. O tema Comfy precisa ser instalado e ativado manualmente.",
             "description-missing": "Requer que o {app} esteja instalado."
           },
+          "telegram": {
+            "description": "Escreva em {filepath}.",
+            "description-missing": "Requer que o {app} esteja instalado."
+          },
           "vicinae": {
             "description": "Escrever {filepath} e recarregar",
             "description-missing": "Requer que o {app} esteja instalado"
@@ -1526,6 +1530,10 @@
       "lock-on-suspend": {
         "description": "Bloquear a tela automaticamente ao suspender o sistema.",
         "label": "Bloquear ao suspender"
+      },
+      "show-hibernate": {
+        "description": "Mostrar a opção 'hibernar' nas ações de energia.",
+        "label": "Mostrar hibernar"
       },
       "title": "Tela de bloqueio"
     },

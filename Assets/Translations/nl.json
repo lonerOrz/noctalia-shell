@@ -1065,6 +1065,10 @@
             "description": "Schrijf {filepath}. Het Comfy-thema moet handmatig worden geïnstalleerd en geactiveerd.",
             "description-missing": "Vereist dat {app} is geïnstalleerd."
           },
+          "telegram": {
+            "description": "Schrijf {filepath}.",
+            "description-missing": "Vereist dat {app} is geïnstalleerd."
+          },
           "vicinae": {
             "description": "Schrijf {filepath} en herlaad.",
             "description-missing": "Vereist dat {app} is geïnstalleerd."
@@ -1526,6 +1530,10 @@
       "lock-on-suspend": {
         "description": "Vergrendel het scherm automatisch wanneer het systeem wordt onderbroken.",
         "label": "Vergrendelen bij onderbreken"
+      },
+      "show-hibernate": {
+        "description": "De optie 'sluimerstand' tonen in de energieacties.",
+        "label": "Sluimerstand tonen"
       },
       "title": "Vergrendelscherm"
     },
