@@ -136,7 +136,7 @@ NBox {
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.topMargin: Style.marginXS/2
+    anchors.topMargin: Style.marginXS / 2
     anchors.leftMargin: Style.marginM
     anchors.rightMargin: Style.marginM
     height: Style.barHeight * 0.6
@@ -158,7 +158,7 @@ NBox {
 
       NText {
         text: playerSelectorButton.currentPlayer ? playerSelectorButton.currentPlayer.identity : ""
-        pointSize: Style.fontSizeXXS/1.5
+        pointSize: Style.fontSizeXXS / 1.5
         color: Color.mOnSurfaceVariant
         Layout.fillWidth: true
       }
@@ -252,7 +252,7 @@ NBox {
           // Metadata
           ColumnLayout {
             Layout.fillWidth: true
-            spacing: Style.marginXS/2
+            spacing: Style.marginXS / 2
 
             NText {
               visible: MediaService.trackTitle !== ""
