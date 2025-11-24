@@ -603,8 +603,9 @@ Item {
 
         onPaint: {
           var ctx = getContext("2d");
+          // Check if width/height are valid before calculating radius
           if (width <= 0 || height <= 0) {
-            return;
+            return; // Skip drawing if dimensions are invalid
           }
           var centerX = width / 2;
           var centerY = height / 2;
