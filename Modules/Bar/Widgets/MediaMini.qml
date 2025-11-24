@@ -603,10 +603,13 @@ Item {
 
         onPaint: {
           var ctx = getContext("2d");
+          if (width <= 0 || height <= 0) {
+            return;
+          }
           var centerX = width / 2;
           var centerY = height / 2;
           // Align with mediaMini radius which is circular in vertical mode
-          var radius = Math.min(width, height) / 2 - 4; // Position ring near the outer edge of background
+          var radius = Math.max(0, Math.min(width, height) / 2 - 4); // Position ring near the outer edge of background
 
           ctx.reset();
 
