@@ -1696,7 +1696,29 @@
         "description": "Benachrichtigungen anzeigen, wenn sich der Status von Feststelltaste, Num-Taste oder Rollen-Taste ändert.",
         "label": "Tastensperr-Benachrichtigungen anzeigen"
       },
-      "title": "On-Screen Display"
+      "title": "On-Screen Display",
+      "types": {
+        "brightness": {
+          "description": "OSD anzeigen, wenn sich die Bildschirmhelligkeit ändert.",
+          "label": "Helligkeit"
+        },
+        "input-volume": {
+          "description": "OSD anzeigen, wenn sich die Mikrofonlautstärke ändert.",
+          "label": "Eingangslautstärke"
+        },
+        "lockkey": {
+          "description": "OSD anzeigen, wenn Feststelltaste, Num-Taste oder Rollen-Taste umgeschaltet werden.",
+          "label": "Feststelltasten"
+        },
+        "section": {
+          "description": "Wähle, welche Ereignisse das On-Screen Display auslösen.",
+          "label": "OSD-Typen"
+        },
+        "volume": {
+          "description": "OSD anzeigen, wenn sich die Ausgabelautstärke ändert.",
+          "label": "Ausgangslautstärke"
+        }
+      }
     },
     "screen-recorder": {
       "audio": {
