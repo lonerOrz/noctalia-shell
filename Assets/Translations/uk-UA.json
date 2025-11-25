@@ -1692,6 +1692,10 @@
           "label": "Загальні"
         }
       },
+      "show-lock-key-notifications": {
+        "description": "Показувати сповіщення, коли перемикаються клавіші Caps Lock, Num Lock або Scroll Lock.",
+        "label": "Показувати сповіщення про стан клавіш"
+      },
       "title": "Екранна індикація"
     },
     "screen-recorder": {
