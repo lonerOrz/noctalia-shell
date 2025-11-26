@@ -285,8 +285,7 @@
     "monitors": [],
     "autoHideMs": 2000,
     "overlayLayer": true,
-    "backgroundOpacity": 1,
-    "showLockKeyNotifications": true
+    "backgroundOpacity": 1
   },
   "audio": {
     "volumeStep": 5,

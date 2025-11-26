@@ -227,22 +227,16 @@ Variants {
       target: LockKeysService
 
       function onCapsLockChanged(active) {
-        if (!Settings.data.osd.showLockKeyNotifications)
-          return;
         root.lastLockKeyChanged = active ? "CAPS ON" : "CAPS OFF";
         root.showOSD(OSD.Type.LockKey);
       }
 
       function onNumLockChanged(active) {
-        if (!Settings.data.osd.showLockKeyNotifications)
-          return;
         root.lastLockKeyChanged = active ? "NUM ON" : "NUM OFF";
         root.showOSD(OSD.Type.LockKey);
       }
 
       function onScrollLockChanged(active) {
-        if (!Settings.data.osd.showLockKeyNotifications)
-          return;
         root.lastLockKeyChanged = active ? "SCROLL ON" : "SCROLL OFF";
         root.showOSD(OSD.Type.LockKey);
       }
@@ -494,7 +488,7 @@ Variants {
               color: root.currentOSDType === OSD.Type.LockKey ? root.getProgressColor() : Color.mOnSurface
               pointSize: root.currentOSDType === OSD.Type.LockKey ? Style.fontSizeM : Style.fontSizeS
               family: Settings.data.ui.fontFixed
-              font.weight: root.currentOSDType === OSD.Type.LockKey ? Style.fontWeightMedium : Style.fontWeightNormal
+              font.weight: root.currentOSDType === OSD.Type.LockKey ? Style.fontWeightMedium : Style.fontWeightRegular
               Layout.fillWidth: true
               Layout.alignment: Qt.AlignHCenter
               horizontalAlignment: Text.AlignHCenter

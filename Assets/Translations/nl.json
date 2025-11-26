@@ -244,13 +244,13 @@
           "description": "Toon artiest - titel in plaats van titel - artiest.",
           "label": "Toon eerst de artiest"
         },
-        "show-visualizer": {
-          "description": "Toon een audiovisualizer wanneer muziek wordt afgespeeld.",
-          "label": "Visualizer tonen"
-        },
         "show-progress-ring": {
           "description": "Toon een circulaire voortgangsindicator die het bestandsspoor voortgang toont.",
           "label": "Voortgangscirkel tonen"
+        },
+        "show-visualizer": {
+          "description": "Toon een audiovisualizer wanneer muziek wordt afgespeeld.",
+          "label": "Visualizer tonen"
         },
         "use-fixed-width": {
           "description": "Indien ingeschakeld gebruikt de widget altijd de maximale breedte in plaats van zich aan te passen aan de inhoud.",
@@ -390,13 +390,13 @@
           "description": "Aantal tekens dat wordt weergegeven van werkruimtenamen (1-10).",
           "label": "Aantal tekens"
         },
-        "hide-unoccupied": {
-          "description": "Werkruimten zonder vensters niet weergeven.",
-          "label": "Ongebruikte verbergen"
-        },
         "follow-focused-screen": {
           "description": "Werkruimten weergeven van het momenteel gefocuste scherm, in plaats van het scherm waar de balk zich bevindt.",
           "label": "Gefocust Scherm Volgen"
+        },
+        "hide-unoccupied": {
+          "description": "Werkruimten zonder vensters niet weergeven.",
+          "label": "Ongebruikte verbergen"
         },
         "label-mode": {
           "description": "Kies hoe labels van werkruimten worden weergegeven.",
@@ -406,8 +406,8 @@
     }
   },
   "battery": {
+    "battery-level": "Batterijniveau",
     "brightness": "Helderheid",
-    "charge-level": "Laadniveau",
     "charging": "Opladen.",
     "charging-rate": "Laadsnelheid: {rate} W.",
     "discharging": "Ontladen.",
@@ -536,13 +536,13 @@
       "title": "Meldingen"
     },
     "time": {
-      "now": "nu",
-      "diffM": "1 minuut geleden",
-      "diffMM": "{diff} minuten geleden",
+      "diffD": "1 dag geleden",
+      "diffDD": "{diff} dagen geleden",
       "diffH": "1 uur geleden",
       "diffHH": "{diff} uur geleden",
-      "diffD": "1 dag geleden",
-      "diffDD": "{diff} dagen geleden"
+      "diffM": "1 minuut geleden",
+      "diffMM": "{diff} minuten geleden",
+      "now": "nu"
     }
   },
   "options": {
@@ -1066,6 +1066,10 @@
           }
         },
         "programs": {
+          "cava": {
+            "description": "Schrijf {filepath}.",
+            "description-missing": "Vereist dat {app} is geïnstalleerd."
+          },
           "code": {
             "description": "Schrijf {filepath}. Het Hyprluna-thema moet handmatig worden geïnstalleerd en geactiveerd.",
             "description-missing": "Geen Code-client gedetecteerd. Installeer VSCode of VSCodium."
@@ -1089,10 +1093,6 @@
             "description-missing": "Vereist dat {app} is geïnstalleerd."
           },
           "telegram": {
-            "description": "Schrijf {filepath}.",
-            "description-missing": "Vereist dat {app} is geïnstalleerd."
-          },
-          "cava": {
             "description": "Schrijf {filepath}.",
             "description-missing": "Vereist dat {app} is geïnstalleerd."
           },
@@ -1463,13 +1463,13 @@
           "description": "Gebruik een aangepaste prefix om applicaties te starten in plaats van de standaardmethode.",
           "label": "Aangepaste startprefix inschakelen"
         },
-        "position": {
-          "description": "Kies waar het launcher-paneel verschijnt.",
-          "label": "Positie"
-        },
         "grid-view": {
           "description": "Items in een raster weergeven in plaats van een lijst.",
           "label": "Rasterweergave"
+        },
+        "position": {
+          "description": "Kies waar het launcher-paneel verschijnt.",
+          "label": "Positie"
         },
         "section": {
           "description": "Pas het gedrag en uiterlijk van de launcher aan.",
@@ -1691,10 +1691,6 @@
           "description": "Configureer zichtbaarheid en gedrag van OSD.",
           "label": "Algemeen"
         }
-      },
-      "show-lock-key-notifications": {
-        "description": "Toon meldingen wanneer Caps Lock, Num Lock of Scroll Lock toetsen worden omgeschakeld.",
-        "label": "Vergrendeltoetsmeldingen tonen"
       },
       "title": "On-screenweergave",
       "types": {
