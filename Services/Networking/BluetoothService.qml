@@ -152,13 +152,13 @@ Singleton {
 
   function getStatusString(device) {
     if (device.state === BluetoothDeviceState.Connecting) {
-      return "Connecting...";
+      return I18n.tr("bluetooth.panel.connecting");
     }
     if (device.pairing) {
-      return "Pairing...";
+      return I18n.tr("bluetooth.panel.pairing");
     }
     if (device.blocked) {
-      return "Blocked";
+      return I18n.tr("bluetooth.panel.blocked");
     }
     return "";
   }

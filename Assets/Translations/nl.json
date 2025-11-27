@@ -288,9 +288,6 @@
         }
       },
       "system-monitor": {
-        "cpu-critical-threshold": {
-          "label": "CPU-gebruik (Kritiek)"
-        },
         "cpu-temperature": {
           "description": "Toon CPU-temperatuur indien beschikbaar.",
           "label": "CPU-temperatuur"
@@ -299,24 +296,9 @@
           "description": "Toon het huidige CPU-gebruik in procent.",
           "label": "CPU-gebruik"
         },
-        "cpu-warning-threshold": {
-          "label": "CPU-gebruik (Waarschuwing)"
-        },
-        "disk-critical-threshold": {
-          "label": "Opslagruimte (Kritiek)"
-        },
         "disk-path": {
           "description": "Selecteer welk schijfkoppelpunt u wilt monitoren.",
           "label": "Schijfpad"
-        },
-        "disk-warning-threshold": {
-          "label": "Opslagruimte (Waarschuwing)"
-        },
-        "mem-critical-threshold": {
-          "label": "Geheugengebruik (Kritiek)"
-        },
-        "mem-warning-threshold": {
-          "label": "Geheugengebruik (Waarschuwing)"
         },
         "memory-percentage": {
           "description": "Toon geheugengebruik als percentage in plaats van absolute waarden.",
@@ -333,16 +315,6 @@
         "storage-usage": {
           "description": "Toon informatie over schijfruimtegebruik.",
           "label": "Opslaggebruik"
-        },
-        "temp-critical-threshold": {
-          "label": "CPU-temperatuur (kritiek)"
-        },
-        "temp-warning-threshold": {
-          "label": "CPU-temperatuur (Waarschuwing)"
-        },
-        "thresholds": {
-          "description": "Drempels instellen voor systeemmetriekwaarschuwingen. Markeert wanneer overschreden.",
-          "header": "Drempelinstellingen"
         }
       },
       "taskbar": {
@@ -429,6 +401,7 @@
       "blocked": "Geblokkeerd",
       "connect": "Verbinden",
       "connected-devices": "Verbonden apparaten",
+      "connecting": "Verbinden...",
       "disabled": "Bluetooth is uitgeschakeld",
       "disconnect": "Verbreken",
       "enable-message": "Schakel Bluetooth in om beschikbare apparaten te zien.",
@@ -442,6 +415,19 @@
   "calendar": {
     "panel": {
       "week": "Week"
+    },
+    "timer": {
+      "countdown": "Aftellen",
+      "duration": "Duur",
+      "hours": "h",
+      "minutes": "m",
+      "pause": "Pauze",
+      "reset": "Resetten",
+      "seconds": "s",
+      "start": "Begin",
+      "stopwatch": "Stopwatch",
+      "timer": "Timer",
+      "title": "Timer"
     },
     "weather": {
       "loading": "Weer laden…"
@@ -1491,6 +1477,20 @@
       "title": "Launcher"
     },
     "location": {
+      "calendar": {
+        "banner": {
+          "label": "Koptekst"
+        },
+        "calendar": {
+          "label": "Kalender"
+        },
+        "cards": {
+          "section": {
+            "description": "Kaarten organiseren en in-/uitschakelen in het kalenderpaneel.",
+            "label": "Kalenderkaarten"
+          }
+        }
+      },
       "date-time": {
         "12hour-format": {
           "description": "Toont tijd in 12-uurs formaat op het vergrendelscherm en in de kalender. De klok op de balk heeft zijn eigen instellingen.",
@@ -1707,8 +1707,8 @@
           "label": "Vergrendeltoetsen"
         },
         "section": {
-          "description": "Kies welke gebeurtenissen de on-screenweergave activeren.",
-          "label": "OSD-typen"
+          "description": "Selecteer de gebeurtenissen die de OSD activeren. Als er geen gebeurtenissen zijn geselecteerd, activeren alle beschikbare gebeurtenissen de OSD.",
+          "label": "OSD triggergebeurtenissen"
         },
         "volume": {
           "description": "Toon het OSD wanneer het uitvoervolume verandert.",
@@ -2090,6 +2090,11 @@
     "clipboard": {
       "unavailable": "Klembordgeschiedenis niet beschikbaar",
       "unavailable-desc": "De toepassing 'cliphist' is niet geïnstalleerd. Installeer deze om functies voor klembordgeschiedenis te gebruiken."
+    },
+    "dark-mode": {
+      "dark-mode": "Donkere modus",
+      "light-mode": "Lichte modus",
+      "enabled": "Ingeschakeld"
     },
     "do-not-disturb": {
       "disabled": "\"Niet storen\" uitgeschakeld",

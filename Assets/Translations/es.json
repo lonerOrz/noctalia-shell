@@ -288,9 +288,6 @@
         }
       },
       "system-monitor": {
-        "cpu-critical-threshold": {
-          "label": "CPU Usage (Critical)"
-        },
         "cpu-temperature": {
           "description": "Mostrar lecturas de temperatura de CPU si están disponibles.",
           "label": "Temperatura de la CPU"
@@ -299,24 +296,9 @@
           "description": "Mostrar el porcentaje actual de uso de CPU.",
           "label": "Uso de CPU"
         },
-        "cpu-warning-threshold": {
-          "label": "CPU Usage (Warning)"
-        },
-        "disk-critical-threshold": {
-          "label": "Storage Space (Critical)"
-        },
         "disk-path": {
           "description": "Seleccione qué punto de montaje de disco desea supervisar.",
           "label": "Ruta del disco"
-        },
-        "disk-warning-threshold": {
-          "label": "Storage Space (Warning)"
-        },
-        "mem-critical-threshold": {
-          "label": "Memory Usage (Critical)"
-        },
-        "mem-warning-threshold": {
-          "label": "Memory Usage (Warning)"
         },
         "memory-percentage": {
           "description": "Mostrar el uso de memoria como porcentaje en lugar de valores absolutos.",
@@ -333,16 +315,6 @@
         "storage-usage": {
           "description": "Mostrar información del uso del espacio en disco.",
           "label": "Uso de almacenamiento"
-        },
-        "temp-critical-threshold": {
-          "label": "CPU Temperature (Critical)"
-        },
-        "temp-warning-threshold": {
-          "label": "CPU Temperature (Warning)"
-        },
-        "thresholds": {
-          "description": "Establece umbrales para alertas de métricas del sistema. Resalta cuando se superan.",
-          "header": "Configuración de Umbrales"
         }
       },
       "taskbar": {
@@ -429,6 +401,7 @@
       "blocked": "Bloqueado",
       "connect": "Conectar",
       "connected-devices": "Dispositivos conectados",
+      "connecting": "Conectando...",
       "disabled": "Bluetooth está desactivado",
       "disconnect": "Desconectar",
       "enable-message": "Activa Bluetooth para ver los dispositivos disponibles.",
@@ -442,6 +415,19 @@
   "calendar": {
     "panel": {
       "week": "Semana"
+    },
+    "timer": {
+      "countdown": "Cuenta regresiva",
+      "duration": "Duración",
+      "hours": "h",
+      "minutes": "m",
+      "pause": "Pausa",
+      "reset": "Restablecer",
+      "seconds": "s",
+      "start": "Comenzar",
+      "stopwatch": "Cronómetro",
+      "timer": "Temporizador",
+      "title": "Temporizador"
     },
     "weather": {
       "loading": "Cargando el clima…"
@@ -496,7 +482,7 @@
     "open-mixer": "Mezclador de audio",
     "open-settings": "Abrir ajustes",
     "pause": "Pausa",
-    "play": "Jugar",
+    "play": "Reproducir",
     "previous": "Anterior",
     "random-wallpaper": "Fondo de pantalla aleatorio",
     "toggle-mute": "Activar/desactivar silencio",
@@ -1491,6 +1477,20 @@
       "title": "Lanzador"
     },
     "location": {
+      "calendar": {
+        "banner": {
+          "label": "Encabezado"
+        },
+        "calendar": {
+          "label": "Calendario"
+        },
+        "cards": {
+          "section": {
+            "description": "Organizar y activar/desactivar tarjetas en el panel del calendario.",
+            "label": "Tarjetas de calendario"
+          }
+        }
+      },
       "date-time": {
         "12hour-format": {
           "description": "Muestra la hora en formato de 12 horas en la pantalla de bloqueo y el calendario. El reloj de la barra tiene su propia configuración.",
@@ -1707,8 +1707,8 @@
           "label": "Teclas de bloqueo"
         },
         "section": {
-          "description": "Elige qué eventos activan la visualización en pantalla.",
-          "label": "Tipos de OSD"
+          "description": "Seleccione los eventos que activan el OSD. Si no se selecciona ningún evento, todos los eventos disponibles activarán el OSD.",
+          "label": "Eventos de activación OSD"
         },
         "volume": {
           "description": "Mostrar el OSD cuando cambie el volumen de salida de audio.",
@@ -2090,6 +2090,11 @@
     "clipboard": {
       "unavailable": "Historial del portapapeles no disponible",
       "unavailable-desc": "La aplicación 'cliphist' no está instalada. Por favor, instálala para usar las funciones de historial del portapapeles."
+    },
+    "dark-mode": {
+      "dark-mode": "Modo oscuro",
+      "light-mode": "Modo claro",
+      "enabled": "Activado"
     },
     "do-not-disturb": {
       "disabled": "'No molestar' desactivado",
