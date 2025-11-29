@@ -46,6 +46,11 @@
         }
       },
       "battery": {
+        "device": {
+          "default": "Standaard (weergaveapparaat)",
+          "description": "Selecteer welk batterijapparaat u wilt weergeven.",
+          "label": "Batterijapparaat"
+        },
         "display-mode": {
           "description": "Kies hoe je wilt dat deze waarde wordt weergegeven.",
           "label": "Weergavemodus"
@@ -520,6 +525,12 @@
       "description": "Je meldingen verschijnen hier zodra ze binnenkomen.",
       "no-notifications": "Geen meldingen",
       "title": "Meldingen"
+    },
+    "range": {
+      "all": "Alle",
+      "earlier": "Eerder",
+      "today": "Vandaag",
+      "yesterday": "Gisteren"
     },
     "time": {
       "diffD": "1 dag geleden",
@@ -1849,6 +1860,12 @@
       "memory-section": {
         "label": "Geheugengebruik"
       },
+      "network-section": {
+        "label": "Netwerk"
+      },
+      "polling-interval": {
+        "label": "Peilingsinterval"
+      },
       "temp-critical-threshold": {
         "label": "Kritieke drempel"
       },
@@ -1859,7 +1876,7 @@
         "label": "CPU-temperatuur"
       },
       "thresholds-section": {
-        "description": "Stel drempelwaarden in voor systeemstatistieken; waarden die hierboven liggen worden gemarkeerd.",
+        "description": "Pas de waarschuwing/kritieke drempels en de pollingsintervallen voor elke systeemmetriek aan.",
         "label": "Drempels"
       },
       "title": "Systeemmonitor",
@@ -2093,8 +2110,8 @@
     },
     "dark-mode": {
       "dark-mode": "Donkere modus",
-      "light-mode": "Lichte modus",
-      "enabled": "Ingeschakeld"
+      "enabled": "Ingeschakeld",
+      "light-mode": "Lichte modus"
     },
     "do-not-disturb": {
       "disabled": "\"Niet storen\" uitgeschakeld",

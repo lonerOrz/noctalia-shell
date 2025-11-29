@@ -46,6 +46,11 @@
         }
       },
       "battery": {
+        "device": {
+          "default": "Predeterminado (Dispositivo de visualización)",
+          "description": "Seleccione qué dispositivo de batería mostrar.",
+          "label": "Dispositivo de batería"
+        },
         "display-mode": {
           "description": "Elige cómo te gustaría que apareciera este valor.",
           "label": "Modo de visualización"
@@ -520,6 +525,12 @@
       "description": "Tus notificaciones aparecerán aquí a medida que lleguen.",
       "no-notifications": "No hay notificaciones",
       "title": "Notificaciones"
+    },
+    "range": {
+      "all": "Todas",
+      "earlier": "Anteriores",
+      "today": "Hoy",
+      "yesterday": "Ayer"
     },
     "time": {
       "diffD": "hace 1 día",
@@ -1849,6 +1860,12 @@
       "memory-section": {
         "label": "Uso de memoria"
       },
+      "network-section": {
+        "label": "Red"
+      },
+      "polling-interval": {
+        "label": "Intervalo de sondeo"
+      },
       "temp-critical-threshold": {
         "label": "Umbral crítico"
       },
@@ -1859,7 +1876,7 @@
         "label": "Temperatura de la CPU"
       },
       "thresholds-section": {
-        "description": "Establece umbrales para métricas del sistema; los valores por encima se resaltarán.",
+        "description": "Ajusta los umbrales de advertencia/crítico y los intervalos de sondeo para cada métrica del sistema.",
         "label": "Umbrales"
       },
       "title": "Monitor del sistema",
@@ -2093,8 +2110,8 @@
     },
     "dark-mode": {
       "dark-mode": "Modo oscuro",
-      "light-mode": "Modo claro",
-      "enabled": "Activado"
+      "enabled": "Activado",
+      "light-mode": "Modo claro"
     },
     "do-not-disturb": {
       "disabled": "'No molestar' desactivado",

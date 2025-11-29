@@ -46,6 +46,11 @@
         }
       },
       "battery": {
+        "device": {
+          "default": "Par défaut (périphérique d'affichage)",
+          "description": "Sélectionnez le périphérique de batterie à afficher.",
+          "label": "Dispositif à pile"
+        },
         "display-mode": {
           "description": "Choisissez comment vous souhaitez que cette valeur apparaisse.",
           "label": "Mode d'affichage"
@@ -520,6 +525,12 @@
       "description": "Vos notifications apparaîtront ici à mesure qu'elles arriveront.",
       "no-notifications": "Aucune notification",
       "title": "Notifications"
+    },
+    "range": {
+      "all": "Tout",
+      "earlier": "Plus anciennes",
+      "today": "Aujourd'hui",
+      "yesterday": "Hier"
     },
     "time": {
       "diffD": "il y a 1 jour",
@@ -1849,6 +1860,12 @@
       "memory-section": {
         "label": "Utilisation mémoire"
       },
+      "network-section": {
+        "label": "Réseau"
+      },
+      "polling-interval": {
+        "label": "Intervalle d'interrogation"
+      },
       "temp-critical-threshold": {
         "label": "Seuil critique"
       },
@@ -1859,7 +1876,7 @@
         "label": "Température CPU"
       },
       "thresholds-section": {
-        "description": "Définir des seuils pour les métriques système ; les valeurs supérieures à ces seuils seront mises en évidence.",
+        "description": "Ajustez les seuils d’avertissement/critiques et les intervalles d’interrogation pour chaque métrique système.",
         "label": "Seuils"
       },
       "title": "Moniteur système",
@@ -2093,8 +2110,8 @@
     },
     "dark-mode": {
       "dark-mode": "Mode sombre",
-      "light-mode": "Mode clair",
-      "enabled": "Activé"
+      "enabled": "Activé",
+      "light-mode": "Mode clair"
     },
     "do-not-disturb": {
       "disabled": "'Ne pas déranger' désactivé",

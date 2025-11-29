@@ -46,6 +46,11 @@
         }
       },
       "battery": {
+        "device": {
+          "default": "Standard (Anzeigegerät)",
+          "description": "Wählen Sie das anzuzeigende Batteriegerät aus.",
+          "label": "Batteriebetriebenes Gerät"
+        },
         "display-mode": {
           "description": "Wählen Sie, wie dieser Wert angezeigt werden soll.",
           "label": "Anzeigemodus"
@@ -393,7 +398,7 @@
     "plugged-in": "Angeschlossen.",
     "power-profile": "Energieprofil",
     "time-left": "Verbleibende Zeit: {time}.",
-    "time-until-full": "Zeit bis vollständig geladen: {time}."
+    "time-until-full": "Verbleibende Ladezeit: {time}."
   },
   "bluetooth": {
     "panel": {
@@ -520,6 +525,12 @@
       "description": "Ihre Benachrichtigungen werden hier angezeigt, sobald sie eintreffen.",
       "no-notifications": "Keine Benachrichtigungen",
       "title": "Benachrichtigungen"
+    },
+    "range": {
+      "all": "Alle",
+      "earlier": "Älter",
+      "today": "Heute",
+      "yesterday": "Gestern"
     },
     "time": {
       "diffD": "vor 1 Tag",
@@ -1849,6 +1860,12 @@
       "memory-section": {
         "label": "Speicherverbrauch"
       },
+      "network-section": {
+        "label": "Netzwerk"
+      },
+      "polling-interval": {
+        "label": "Abfrageintervall"
+      },
       "temp-critical-threshold": {
         "label": "Kritische Schwelle"
       },
@@ -1859,7 +1876,7 @@
         "label": "CPU-Temperatur"
       },
       "thresholds-section": {
-        "description": "Setzen Sie Schwellenwerte für Systemmetriken; Werte darüber werden hervorgehoben.",
+        "description": "Passe die Warn-/Kritisch-Schwellen und die Abfrageintervalle für jede Systemmetrik an.",
         "label": "Schwellenwerte"
       },
       "title": "Systemmonitor",
@@ -2093,8 +2110,8 @@
     },
     "dark-mode": {
       "dark-mode": "Dunkler Modus",
-      "light-mode": "Heller Modus",
-      "enabled": "Aktiviert"
+      "enabled": "Aktiviert",
+      "light-mode": "Heller Modus"
     },
     "do-not-disturb": {
       "disabled": "'Nicht stören' deaktiviert",

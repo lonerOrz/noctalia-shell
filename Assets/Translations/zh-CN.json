@@ -46,6 +46,11 @@
         }
       },
       "battery": {
+        "device": {
+          "default": "默认（显示设备）",
+          "description": "选择要显示的电池设备。",
+          "label": "电池设备"
+        },
         "display-mode": {
           "description": "选择您希望此值显示的方式。",
           "label": "显示模式"
@@ -520,6 +525,12 @@
       "description": "您的通知将在到达时显示在此处。",
       "no-notifications": "无通知",
       "title": "通知"
+    },
+    "range": {
+      "all": "全部",
+      "earlier": "更早",
+      "today": "今天",
+      "yesterday": "昨天"
     },
     "time": {
       "diffD": "1 天前",
@@ -1849,6 +1860,12 @@
       "memory-section": {
         "label": "内存使用率"
       },
+      "network-section": {
+        "label": "网络"
+      },
+      "polling-interval": {
+        "label": "轮询间隔"
+      },
       "temp-critical-threshold": {
         "label": "严重阈值"
       },
@@ -1859,7 +1876,7 @@
         "label": "CPU 温度"
       },
       "thresholds-section": {
-        "description": "设置各项系统测量指标的阈值，超过该值将以高亮色进行提示。",
+        "description": "为每个系统指标调整警告/严重阈值和轮询间隔。",
         "label": "阈值"
       },
       "title": "系统监视器",
@@ -2093,8 +2110,8 @@
     },
     "dark-mode": {
       "dark-mode": "深色模式",
-      "light-mode": "浅色模式",
-      "enabled": "已启用"
+      "enabled": "已启用",
+      "light-mode": "浅色模式"
     },
     "do-not-disturb": {
       "disabled": "'勿扰模式'已禁用",

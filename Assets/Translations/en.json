@@ -46,6 +46,11 @@
         }
       },
       "battery": {
+        "device": {
+          "default": "Default (Display Device)",
+          "description": "Select which battery device to display.",
+          "label": "Battery device"
+        },
         "display-mode": {
           "description": "Choose how you'd like this value to appear.",
           "label": "Display mode"
@@ -509,6 +514,12 @@
       "description": "Your notifications will show up here as they arrive.",
       "no-notifications": "No notifications",
       "title": "Notifications"
+    },
+    "range": {
+      "all": "All",
+      "earlier": "Earlier",
+      "today": "Today",
+      "yesterday": "Yesterday"
     },
     "time": {
       "diffD": "1 day ago",
@@ -1835,6 +1846,12 @@
       "memory-section": {
         "label": "Memory usage"
       },
+      "network-section": {
+        "label": "Network"
+      },
+      "polling-interval": {
+        "label": "Polling interval"
+      },
       "temp-critical-threshold": {
         "label": "Critical threshold"
       },
@@ -1845,7 +1862,7 @@
         "label": "CPU temperature"
       },
       "thresholds-section": {
-        "description": "Set thresholds for system metrics, values above these will be highlighted.",
+        "description": "Adjust warning/critical thresholds and polling intervals for each system metric.",
         "label": "Thresholds"
       },
       "title": "System Monitor",
@@ -2079,8 +2096,8 @@
     },
     "dark-mode": {
       "dark-mode": "Dark Mode",
-      "light-mode": "Light Mode",
-      "enabled": "Enabled"
+      "enabled": "Enabled",
+      "light-mode": "Light Mode"
     },
     "do-not-disturb": {
       "disabled": "Do Not Disturb disabled",
