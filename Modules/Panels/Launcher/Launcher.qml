@@ -637,14 +637,15 @@ SmartPanel {
         // Emoji category tabs (shown when in browsing mode)
         NTabBar {
           id: emojiCategoryTabs
-          visible: root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode && !root.searchText.startsWith(">")
+          visible: root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode
           Layout.fillWidth: true
-          currentIndex: {
+          property int computedCurrentIndex: {
             if (visible && emojiPlugin.categories) {
               return emojiPlugin.categories.indexOf(emojiPlugin.selectedCategory);
             }
             return 0;
           }
+          currentIndex: computedCurrentIndex
 
           Repeater {
             model: emojiPlugin.categories
@@ -661,17 +662,34 @@ SmartPanel {
           }
         }
 
+        Connections {
+          target: emojiPlugin
+          enabled: emojiCategoryTabs.visible
+          function onSelectedCategoryChanged() {
+            // Force update of currentIndex when selectedCategory changes
+            Qt.callLater(() => {
+                           if (emojiCategoryTabs.visible && emojiPlugin.categories) {
+                             const newIndex = emojiPlugin.categories.indexOf(emojiPlugin.selectedCategory);
+                             if (newIndex >= 0 && emojiCategoryTabs.currentIndex !== newIndex) {
+                               emojiCategoryTabs.currentIndex = newIndex;
+                             }
+                           }
+                         });
+          }
+        }
+
         // App category tabs (shown when browsing apps without search)
         NTabBar {
           id: appCategoryTabs
           visible: (root.activePlugin === null || root.activePlugin === appsPlugin) && appsPlugin.isBrowsingMode && !root.searchText.startsWith(">")
           Layout.fillWidth: true
-          currentIndex: {
+          property int computedCurrentIndex: {
             if (visible && appsPlugin.availableCategories) {
               return appsPlugin.availableCategories.indexOf(appsPlugin.selectedCategory);
             }
             return 0;
           }
+          currentIndex: computedCurrentIndex
 
           Repeater {
             model: appsPlugin.availableCategories || []
@@ -686,6 +704,22 @@ SmartPanel {
                 appsPlugin.selectCategory(modelData);
               }
             }
+          }
+        }
+
+        Connections {
+          target: appsPlugin
+          enabled: appCategoryTabs.visible
+          function onSelectedCategoryChanged() {
+            // Force update of currentIndex when selectedCategory changes
+            Qt.callLater(() => {
+                           if (appCategoryTabs.visible && appsPlugin.availableCategories) {
+                             const newIndex = appsPlugin.availableCategories.indexOf(appsPlugin.selectedCategory);
+                             if (newIndex >= 0 && appCategoryTabs.currentIndex !== newIndex) {
+                               appCategoryTabs.currentIndex = newIndex;
+                             }
+                           }
+                         });
           }
         }
 
@@ -963,31 +997,19 @@ SmartPanel {
             height: parent.height
             cellWidth: {
               if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                return parent.width / 5;
+                return parent.width / root.targetGridColumns;
               }
-              // Use gridCellSize which already accounts for NTabBar margins
-              return root.gridCellSize + Style.marginXL;
+              // Make cells fit exactly like the tab bar
+              return parent.width / root.targetGridColumns;
             }
             cellHeight: {
               if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                return (parent.width / 5) * 1.2;
+                return (parent.width / root.targetGridColumns) * 1.2;
               }
-              return gridCellSize + Style.marginXL;
+              return parent.width / root.targetGridColumns;
             }
-            leftMargin: {
-              if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                return 0;
-              }
-              // Match NTabBar margins (Style.marginXS on each side) to align with category tabs
-              return Style.marginXS;
-            }
-            rightMargin: {
-              if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                return 0;
-              }
-              // Match NTabBar margins (Style.marginXS on each side) to align with category tabs
-              return Style.marginXS;
-            }
+            leftMargin: 0
+            rightMargin: 0
             topMargin: 0
             bottomMargin: 0
             model: results
@@ -1089,18 +1111,8 @@ SmartPanel {
                 return arr.some(pinnedId => normalizeAppId(pinnedId) === normalizedId);
               }
 
-              width: {
-                if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                  return resultsGrid.width / 5;
-                }
-                return resultsGrid.cellWidth;
-              }
-              height: {
-                if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                  return (resultsGrid.width / 5) * 1.2;
-                }
-                return resultsGrid.cellHeight;
-              }
+              width: resultsGrid.cellWidth
+              height: resultsGrid.cellHeight
               radius: Style.radiusM
               color: gridEntry.isSelected ? Color.mHover : Color.mSurface
 
@@ -1113,13 +1125,9 @@ SmartPanel {
 
               ColumnLayout {
                 anchors.fill: parent
-                anchors.margins: {
-                  if (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) {
-                    return 4;
-                  }
-                  return Style.marginM;
-                }
-                spacing: Style.marginM
+                anchors.margins: (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) ? 4 : Style.marginM
+                anchors.bottomMargin: (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode) ? Style.marginL : Style.marginM
+                spacing: Style.marginS
 
                 // Icon badge or Image preview or Emoji
                 Rectangle {
@@ -1226,6 +1234,8 @@ SmartPanel {
                   elide: Text.ElideRight
                   Layout.fillWidth: true
                   Layout.maximumWidth: gridEntry.width - 8
+                  Layout.leftMargin: (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode && modelData.emojiChar) ? Style.marginS : 0
+                  Layout.rightMargin: (root.activePlugin === emojiPlugin && emojiPlugin.isBrowsingMode && modelData.emojiChar) ? Style.marginS : 0
                   horizontalAlignment: Text.AlignHCenter
                   wrapMode: Text.NoWrap
                   maximumLineCount: 1
