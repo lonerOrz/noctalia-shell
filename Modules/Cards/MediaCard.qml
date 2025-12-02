@@ -217,7 +217,7 @@ NBox {
     // No media player detected - centered disc icon
     NIcon {
       Layout.alignment: Qt.AlignCenter
-      visible: !root.hasActivePlayer && CavaService.isIdle
+      visible: false
       icon: "disc"
       pointSize: Style.fontSizeM * 2
       color: Color.mOnSurfaceVariant
