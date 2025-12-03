@@ -17,11 +17,6 @@ Item {
 
   property var keyboardLayouts: []
 
-  property var maximizedWindows: []
-  property bool originalBarFloatingState: false
-  property bool barFloatingStateSaved: false
-  property bool originalBarOuterCornersState: false
-  property bool barOuterCornersStateSaved: false
 
   signal workspaceChanged
   signal activeWindowChanged
@@ -298,16 +293,6 @@ Item {
       const windowIndex = windows.findIndex(w => w.id === windowId);
 
       if (windowIndex >= 0) {
-        const maximizedIndex = maximizedWindows.indexOf(windowId);
-        if (maximizedIndex >= 0) {
-          maximizedWindows.splice(maximizedIndex, 1);
-
-          if (maximizedWindows.length === 0 && barFloatingStateSaved) {
-            Settings.data.bar.floating = originalBarFloatingState;
-            barFloatingStateSaved = false;
-          }
-        }
-
         if (windowIndex === focusedWindowIndex) {
           focusedWindowIndex = -1;
           activeWindowChanged();
@@ -366,66 +351,6 @@ Item {
         const window = windows.find(w => w.id === windowId);
         if (window) {
           window.position = getWindowPosition(layout);
-
-          if (layout.window_size && window.output && CompositorService) {
-            const outputInfo = CompositorService.getDisplayInfo(window.output);
-            if (outputInfo && outputInfo.width && outputInfo.height) {
-              const windowWidth = layout.window_size[0];
-              const windowHeight = layout.window_size[1];
-              const outputWidth = outputInfo.width;
-              const outputHeight = outputInfo.height;
-
-              const barPosition = Settings.data.bar.position || "top";
-              const isVerticalBar = barPosition === "left" || barPosition === "right";
-              const barSize = Style.barHeight;
-
-              let widthMatch, heightMatch;
-              if (isVerticalBar) {
-                widthMatch = Math.abs(windowWidth - (outputWidth - barSize)) < 10;
-                heightMatch = Math.abs(windowHeight - outputHeight) < 10;
-              } else {
-                widthMatch = Math.abs(windowWidth - outputWidth) < 10;
-                heightMatch = Math.abs(windowHeight - (outputHeight - barSize)) < 50;
-              }
-
-              const isMaximized = widthMatch && heightMatch;
-              const wasMaximized = maximizedWindows.indexOf(windowId) >= 0;
-
-              if (isMaximized && !wasMaximized) {
-                Logger.i("NiriService", "Detected maximize-window-to-edges");
-                maximizedWindows.push(windowId);
-
-                if (!barFloatingStateSaved) {
-                  originalBarFloatingState = Settings.data.bar.floating;
-                  barFloatingStateSaved = true;
-                }
-
-                if (!barOuterCornersStateSaved) {
-                  originalBarOuterCornersState = Settings.data.bar.outerCorners;
-                  barOuterCornersStateSaved = true;
-                }
-
-                Settings.data.bar.floating = false;
-                Settings.data.bar.outerCorners = false;
-              } else if (!isMaximized && wasMaximized) {
-                const index = maximizedWindows.indexOf(windowId);
-                if (index >= 0) {
-                  maximizedWindows.splice(index, 1);
-                }
-
-                if (maximizedWindows.length === 0) {
-                  if (barFloatingStateSaved) {
-                    Settings.data.bar.floating = originalBarFloatingState;
-                    barFloatingStateSaved = false;
-                  }
-                  if (barOuterCornersStateSaved) {
-                    Settings.data.bar.outerCorners = originalBarOuterCornersState;
-                    barOuterCornersStateSaved = false;
-                  }
-                }
-              }
-            }
-          }
         }
       }
 
