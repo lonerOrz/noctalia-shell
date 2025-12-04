@@ -471,6 +471,13 @@
   "clock": {
     "tooltip": "Kalender openen"
   },
+  "common": {
+    "add": "Toevoegen",
+    "apply": "Toepassen",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "save": "Opslaan"
+  },
   "context-menu": {
     "activate-app": "Activeer {app}",
     "clear-history": "Geschiedenis wissen",
@@ -1750,7 +1757,7 @@
           "label": "Vergrendeltoetsen"
         },
         "section": {
-          "description": "Selecteer de gebeurtenissen die de OSD activeren. Als er geen gebeurtenissen zijn geselecteerd, activeren alle beschikbare gebeurtenissen de OSD.",
+          "description": "Selecteer de gebeurtenissen die de OSD activeren.",
           "label": "OSD triggergebeurtenissen"
         },
         "volume": {
@@ -1758,6 +1765,66 @@
           "label": "Uitvoervolume"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "Blader door en installeer plugins vanuit geconfigureerde bronnen.",
+        "label": "Beschikbare plug-ins",
+        "no-plugins-description": "Controleer je plugin-bronnen of vernieuw de lijst.",
+        "no-plugins-label": "Geen plug-ins beschikbaar"
+      },
+      "filter": {
+        "all": "Alles",
+        "downloaded": "Gedownload",
+        "not-downloaded": "Niet gedownload"
+      },
+      "install": "Installeren",
+      "install-error": "Installatie mislukt: {error}",
+      "install-success": "{plugin} succesvol geïnstalleerd",
+      "installed": {
+        "description": "Beheer en configureer alle lokaal geïnstalleerde plugins.",
+        "label": "Geïnstalleerde plug-ins",
+        "no-plugins-description": "Installeer plugins uit de sectie Beschikbare plugins hieronder.",
+        "no-plugins-label": "Geen plugins geïnstalleerd"
+      },
+      "installing": "{plugin} installeren...",
+      "plugin-settings-title": "{plugin} Instellingen",
+      "refresh": {
+        "refreshing": "Pluginlijst vernieuwen...",
+        "tooltip": "Beschikbare plugins vernieuwen"
+      },
+      "settings": {
+        "tooltip": "Plugin instellingen"
+      },
+      "settings-error-not-loaded": "Plugin niet geladen",
+      "settings-saved": "Plugininstellingen opgeslagen",
+      "sources": {
+        "add-custom": "Aangepaste repository toevoegen",
+        "add-dialog": {
+          "description": "Voeg een GitHub repository toe als een pluginbron.",
+          "error": "Pluginbron toevoegen mislukt",
+          "name": "Repositorynaam",
+          "name-placeholder": "Mijn Aangepaste Plugins",
+          "success": "Pluginbron succesvol toegevoegd",
+          "title": "Pluginbron toevoegen",
+          "url": "Repository URL"
+        },
+        "description": "Beheer plugin-repositories vanwaar plugins worden gedownload.",
+        "label": "Pluginbronnen",
+        "placeholder": "Mijn coole repository",
+        "remove": {
+          "tooltip": "Pluginbron verwijderen"
+        }
+      },
+      "title": "Plugins",
+      "uninstall": "Verwijderen",
+      "uninstall-dialog": {
+        "description": "Weet je zeker dat je {plugin} wilt verwijderen? Hiermee worden alle plugin-gegevens verwijderd.",
+        "title": "Plugin verwijderen"
+      },
+      "uninstall-error": "Verwijderen mislukt: {error}",
+      "uninstall-success": "{plugin} is succesvol verwijderd.",
+      "uninstalling": "{plugin} verwijderen..."
     },
     "screen-recorder": {
       "audio": {
@@ -1832,6 +1899,23 @@
           "description": "Aanpassen welke energieacties in het Sessiemenu verschijnen en in welke volgorde.",
           "label": "Energieacties"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "Aangepast commando om uit te voeren voor deze actie. Laat leeg om het standaard systeemcommando te gebruiken.",
+          "label": "Commando",
+          "placeholder": "systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "Intern vergrendelscherm (geen commando)",
+          "logout": "Interne afmelding (geen commando)"
+        },
+        "default-info": {
+          "description": "Als er geen aangepast commando is opgegeven, wordt het standaard systeemcommando gebruikt.",
+          "label": "Standaardopdracht"
+        },
+        "title": "Configureer {entry}",
+        "tooltip": "Configureer opdracht"
       },
       "general": {
         "section": {
@@ -1934,10 +2018,15 @@
         "label": "Animatiesnelheid",
         "reset": "Animatiesnelheid resetten"
       },
-      "border-radius": {
-        "description": "Bepaalt de hoekafronding van vensters, knoppen en andere elementen.",
-        "label": "Hoekafronding",
-        "reset": "Hoekafronding resetten"
+      "box-border-radius": {
+        "description": "Past de hoekronding aan van belangrijke lay-outsecties, zoals zijbalken, kaarten en inhoudspanelen.",
+        "label": "Container Radius",
+        "reset": "Containerstraal resetten"
+      },
+      "control-border-radius": {
+        "description": "Regelt de kromming van interactieve elementen, waaronder knoppen, schakelaars en tekstvelden.",
+        "label": "Voer straal in",
+        "reset": "Reset invoerradius"
       },
       "dim-desktop": {
         "description": "Dim de desktop wanneer panelen of menu's geopend zijn.",

@@ -454,6 +454,13 @@
   "clock": {
     "tooltip": "Clock"
   },
+  "common": {
+    "add": "Add",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "close": "Close",
+    "save": "Save"
+  },
   "context-menu": {
     "activate-app": "Activate {app}",
     "clear-history": "Clear history",
@@ -968,7 +975,7 @@
       },
       "widgets": {
         "section": {
-          "description": "Drag and drop widgets to reorder them. Badges indicate usage: [L]eft, [C]enter, [R]ight.",
+          "description": "Rearrange widgets by dragging. Right-click to manage.",
           "label": "Widgets positioning"
         }
       }
@@ -1727,7 +1734,7 @@
           "label": "Lock keys"
         },
         "section": {
-          "description": "Select the events that trigger the OSD. If no events are selected, all available events will trigger the OSD.",
+          "description": "Select the events that trigger the OSD.",
           "label": "OSD trigger events"
         },
         "volume": {
@@ -1735,6 +1742,67 @@
           "label": "Output volume"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "Browse and install plugins from configured sources.",
+        "label": "Available plugins",
+        "no-plugins-description": "Check your plugin sources or refresh the list.",
+        "no-plugins-label": "No plugins available"
+      },
+      "filter": {
+        "all": "All",
+        "downloaded": "Downloaded",
+        "not-downloaded": "Not Downloaded"
+      },
+      "install": "Install",
+      "install-error": "Failed to install: {error}",
+      "install-success": "Successfully installed {plugin}",
+      "installed": {
+        "description": "Manage and configure all locally installed plugins.",
+        "label": "Installed plugins",
+        "no-plugins-description": "Install plugins from the Available Plugins section below.",
+        "no-plugins-label": "No plugins installed"
+      },
+      "installing": "Installing {plugin}...",
+      "plugin-settings-title": "{plugin} Settings",
+      "refresh": {
+        "refreshing": "Refreshing plugins list...",
+        "tooltip": "Refresh available plugins"
+      },
+      "settings": {
+        "tooltip": "Plugin settings"
+      },
+      "settings-error-not-loaded": "Plugin not loaded",
+      "settings-saved": "Plugin settings saved",
+      "sources": {
+        "add-custom": "Add custom repository",
+        "add-dialog": {
+          "description": "Add a GitHub repository as a plugin source.",
+          "error": "Failed to add plugin source",
+          "name": "Repository name",
+          "name-placeholder": "My Custom Plugins",
+          "success": "Plugin source added successfully",
+          "title": "Add plugin source",
+          "url": "Repository URL"
+        },
+        "description": "Manage plugin repositories where plugins are downloaded from.",
+        "label": "Plugin sources",
+        "placeholder": "My cool repository",
+        "remove": {
+          "tooltip": "Remove plugin source"
+        }
+      },
+      "title": "Plugins",
+      "uninstall": "Uninstall",
+      "uninstall-dialog": {
+        "description": "Are you sure you want to uninstall {plugin}? This will remove all plugin data.",
+        "title": "Uninstall plugin"
+      },
+      "uninstall-error": "Failed to uninstall: {error}",
+      "uninstall-success": "Successfully uninstalled {plugin}",
+      "uninstall.tooltip": "Uninstall plugin",
+      "uninstalling": "Uninstalling {plugin}..."
     },
     "screen-recorder": {
       "audio": {
@@ -1809,6 +1877,23 @@
           "description": "Customize which power actions appear in the session menu and in what order.",
           "label": "Power actions"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "Custom command to execute for this action. Leave empty to use the default system command.",
+          "label": "Command",
+          "placeholder": "e.g., systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "Internal lock screen (no command)",
+          "logout": "Internal logout (no command)"
+        },
+        "default-info": {
+          "description": "If no custom command is specified, the default system command will be used.",
+          "label": "Default command"
+        },
+        "title": "Configure {entry}",
+        "tooltip": "Configure command"
       },
       "general": {
         "section": {

@@ -471,6 +471,13 @@
   "clock": {
     "tooltip": "Ouvrir le calendrier"
   },
+  "common": {
+    "add": "Ajouter",
+    "apply": "Postuler",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "save": "Enregistrer"
+  },
   "context-menu": {
     "activate-app": "Activer {app}",
     "clear-history": "Effacer l'historique",
@@ -1750,7 +1757,7 @@
           "label": "Touches de verrouillage"
         },
         "section": {
-          "description": "Sélectionnez les événements qui déclenchent l'OSD. Si aucun événement n'est sélectionné, tous les événements disponibles déclencheront l'OSD.",
+          "description": "Sélectionnez les événements qui déclenchent l'OSD.",
           "label": "Événements de déclenchement OSD"
         },
         "volume": {
@@ -1758,6 +1765,66 @@
           "label": "Volume de sortie"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "Parcourir et installer des plugins à partir des sources configurées.",
+        "label": "Plugins disponibles",
+        "no-plugins-description": "Vérifiez les sources de vos plugins ou actualisez la liste.",
+        "no-plugins-label": "Aucun plugin disponible."
+      },
+      "filter": {
+        "all": "Tout",
+        "downloaded": "Téléchargé",
+        "not-downloaded": "Non téléchargé"
+      },
+      "install": "Installer",
+      "install-error": "Échec de l'installation : {error}",
+      "install-success": "Installation de {plugin} réussie.",
+      "installed": {
+        "description": "Gérer et configurer tous les plugins installés localement.",
+        "label": "Plugins installés",
+        "no-plugins-description": "Installez les extensions depuis la section Extensions disponibles ci-dessous.",
+        "no-plugins-label": "Aucun plugin installé"
+      },
+      "installing": "Installation de {plugin}...",
+      "plugin-settings-title": "Paramètres de {plugin}",
+      "refresh": {
+        "refreshing": "Actualisation de la liste des plugins...",
+        "tooltip": "Actualiser les extensions disponibles"
+      },
+      "settings": {
+        "tooltip": "Paramètres du plugin"
+      },
+      "settings-error-not-loaded": "Plugin non chargé",
+      "settings-saved": "Paramètres du plugin enregistrés",
+      "sources": {
+        "add-custom": "Ajouter un dépôt personnalisé",
+        "add-dialog": {
+          "description": "Ajouter un dépôt GitHub comme source de plugin.",
+          "error": "Échec de l'ajout de la source du plugin.",
+          "name": "Nom du dépôt",
+          "name-placeholder": "Mes extensions personnalisées",
+          "success": "Source du plugin ajoutée avec succès.",
+          "title": "Ajouter la source du plugin",
+          "url": "URL du dépôt"
+        },
+        "description": "Gérer les dépôts de plugins à partir desquels les plugins sont téléchargés.",
+        "label": "Sources du plugin",
+        "placeholder": "Mon dépôt cool",
+        "remove": {
+          "tooltip": "Supprimer la source du plugin"
+        }
+      },
+      "title": "Modules d'extension",
+      "uninstall": "Désinstaller",
+      "uninstall-dialog": {
+        "description": "Êtes-vous sûr de vouloir désinstaller {plugin} ? Cette action supprimera toutes les données du plugin.",
+        "title": "Désinstaller le plugin"
+      },
+      "uninstall-error": "Échec de la désinstallation : {error}",
+      "uninstall-success": "{plugin} a été désinstallé(e) avec succès.",
+      "uninstalling": "Désinstallation de {plugin}..."
     },
     "screen-recorder": {
       "audio": {
@@ -1832,6 +1899,23 @@
           "description": "Personnaliser les actions d'alimentation qui apparaissent dans le Menu de session et leur ordre.",
           "label": "Actions d'alimentation"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "Commande personnalisée à exécuter pour cette action. Laisser vide pour utiliser la commande système par défaut.",
+          "label": "Commande",
+          "placeholder": "systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "Écran de verrouillage interne (sans commande)",
+          "logout": "Déconnexion interne (sans commande)"
+        },
+        "default-info": {
+          "description": "Si aucune commande personnalisée n'est spécifiée, la commande système par défaut sera utilisée.",
+          "label": "Commande par défaut"
+        },
+        "title": "Configurer {entry}",
+        "tooltip": "Configurer la commande"
       },
       "general": {
         "section": {
@@ -1934,10 +2018,15 @@
         "label": "Vitesse d'animation",
         "reset": "Réinitialiser la vitesse de l'animation"
       },
-      "border-radius": {
-        "description": "Contrôle l'arrondi des angles des fenêtres, des boutons et d'autres éléments.",
-        "label": "Rayon de bordure",
-        "reset": "Réinitialiser le rayon de la bordure"
+      "box-border-radius": {
+        "description": "Ajuste de l'arrondi des coins des principales sections de la mise en page, telles que les barres latérales, les cartes et les panneaux de contenu.",
+        "label": "Rayon du conteneur",
+        "reset": "Réinitialiser le rayon du conteneur"
+      },
+      "control-border-radius": {
+        "description": "Contrôle la courbure des éléments interactifs, y compris les boutons, les bascules et les champs de texte.",
+        "label": "Rayon d'entrée",
+        "reset": "Réinitialiser le rayon d'entrée"
       },
       "dim-desktop": {
         "description": "Atténuer le bureau lorsque des panneaux ou des menus sont ouverts.",

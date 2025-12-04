@@ -454,6 +454,13 @@
   "clock": {
     "tooltip": "カレンダーを開く"
   },
+  "common": {
+    "add": "追加",
+    "apply": "適用",
+    "cancel": "キャンセル",
+    "close": "閉じる",
+    "save": "保存"
+  },
   "context-menu": {
     "activate-app": "{app} をアクティブにする",
     "clear-history": "履歴を削除する",
@@ -1733,7 +1740,7 @@
           "label": "ロックキー"
         },
         "section": {
-          "description": "OSD を表示するトリガー（イベント）を選択します。何も選択しない場合、すべてのイベントで表示されます。",
+          "description": "OSD を表示するトリガー（イベント）を選択します。",
           "label": "OSD のトリガーイベント"
         },
         "volume": {
@@ -1741,6 +1748,66 @@
           "label": "出力音量"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "構成されたソースからプラグインをブラウズしてインストールします。",
+        "label": "利用できるプラグイン",
+        "no-plugins-description": "プラグインのソースを確認するか、リストを更新してください。",
+        "no-plugins-label": "利用できるプラグインはありません"
+      },
+      "filter": {
+        "all": "すべて",
+        "downloaded": "ダウンロード済み",
+        "not-downloaded": "ダウンロードされていません"
+      },
+      "install": "インストール",
+      "install-error": "インストールに失敗しました: {error}",
+      "install-success": "{plugin} のインストールに成功しました。",
+      "installed": {
+        "description": "ローカルにインストールされたすべてのプラグインを管理および設定します。",
+        "label": "インストール済みプラグイン",
+        "no-plugins-description": "下の利用可能なプラグインのセクションからプラグインをインストールしてください。",
+        "no-plugins-label": "プラグインはインストールされていません。"
+      },
+      "installing": "{plugin} をインストール中...",
+      "plugin-settings-title": "{plugin} 設定",
+      "refresh": {
+        "refreshing": "プラグインリストを更新中...",
+        "tooltip": "利用可能なプラグインを更新"
+      },
+      "settings": {
+        "tooltip": "プラグイン設定"
+      },
+      "settings-error-not-loaded": "プラグインはロードされませんでした。",
+      "settings-saved": "プラグイン設定を保存しました。",
+      "sources": {
+        "add-custom": "カスタムリポジトリを追加",
+        "add-dialog": {
+          "description": "GitHubリポジトリをプラグインソースとして追加する。",
+          "error": "プラグインソースの追加に失敗しました",
+          "name": "リポジトリ名",
+          "name-placeholder": "私のカスタムプラグイン",
+          "success": "プラグインソースが正常に追加されました。",
+          "title": "プラグインソースを追加",
+          "url": "リポジトリのURL"
+        },
+        "description": "プラグインのダウンロード元となるプラグインリポジトリを管理します。",
+        "label": "プラグインのソース",
+        "placeholder": "私のクールなリポジトリ",
+        "remove": {
+          "tooltip": "プラグインソースを削除"
+        }
+      },
+      "title": "プラグイン",
+      "uninstall": "アンインストール",
+      "uninstall-dialog": {
+        "description": "{plugin} をアンインストールしてもよろしいですか？プラグインのデータはすべて削除されます。",
+        "title": "プラグインをアンインストールする"
+      },
+      "uninstall-error": "アンインストールに失敗しました: {error}",
+      "uninstall-success": "{plugin} のアンインストールに成功しました。",
+      "uninstalling": "{plugin} をアンインストールしています..."
     },
     "screen-recorder": {
       "audio": {
@@ -1815,6 +1882,23 @@
           "description": "セッションメニューに表示される電源操作と、その表示順序をカスタマイズします。",
           "label": "電源操作"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "このアクションのために実行するカスタムコマンド。空欄のままにすると、デフォルトのシステムコマンドが使用されます。",
+          "label": "コマンド",
+          "placeholder": "systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "内部ロック画面（コマンドなし）",
+          "logout": "内部ログアウト (コマンドなし)"
+        },
+        "default-info": {
+          "description": "カスタムコマンドが指定されていない場合、デフォルトのシステムコマンドが使用されます。",
+          "label": "デフォルトのコマンド"
+        },
+        "title": "{entry} を構成する",
+        "tooltip": "コマンドを構成する"
       },
       "general": {
         "section": {
@@ -1917,10 +2001,15 @@
         "label": "アニメーション速度",
         "reset": "アニメーション速度をリセット"
       },
-      "border-radius": {
-        "description": "ウィンドウ、ボタン、その他の要素の角の丸みを制御します。",
-        "label": "角の丸み",
-        "reset": "角の丸みをリセット"
+      "box-border-radius": {
+        "description": "サイドバー、カード、コンテンツパネルなど、主要なレイアウトセクションの角の丸みを調整します。",
+        "label": "コンテナ半径",
+        "reset": "コンテナ半径をリセット"
+      },
+      "control-border-radius": {
+        "description": "ボタン、トグル、テキストフィールドなどのインタラクティブな要素の曲率を制御します。",
+        "label": "入力半径",
+        "reset": "入力半径をリセット"
       },
       "dim-desktop": {
         "description": "パネルやメニューが開いている間、デスクトップを暗くします。",

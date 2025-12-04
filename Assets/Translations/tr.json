@@ -471,6 +471,13 @@
   "clock": {
     "tooltip": "Takvimi aç"
   },
+  "common": {
+    "add": "Ekle",
+    "apply": "Uygula",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "save": "Kaydet"
+  },
   "context-menu": {
     "activate-app": "{app}'i etkinleştir",
     "clear-history": "Geçmişi temizle",
@@ -1750,7 +1757,7 @@
           "label": "Kilit tuşları"
         },
         "section": {
-          "description": "OSD'yi tetikleyecek olayları seçin. Hiçbir olay seçilmezse, mevcut tüm olaylar OSD'yi tetikleyecektir.",
+          "description": "OSD'yi tetikleyecek olayları seçin.",
           "label": "OSD tetikleme olayları"
         },
         "volume": {
@@ -1758,6 +1765,66 @@
           "label": "Çıkış sesi"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "Yapılandırılmış kaynaklardan eklentilere göz atın ve yükleyin.",
+        "label": "Mevcut eklentiler",
+        "no-plugins-description": "Eklenti kaynaklarınızı kontrol edin veya listeyi yenileyin.",
+        "no-plugins-label": "Kullanılabilir eklenti yok"
+      },
+      "filter": {
+        "all": "Tüm",
+        "downloaded": "İndirildi",
+        "not-downloaded": "İndirilmedi"
+      },
+      "install": "Yükle",
+      "install-error": "Yükleme başarısız oldu: {error}",
+      "install-success": "{plugin} başarıyla kuruldu",
+      "installed": {
+        "description": "Yerel olarak yüklenmiş tüm eklentileri yönetin ve yapılandırın.",
+        "label": "Yüklü eklentiler",
+        "no-plugins-description": "Aşağıdaki Mevcut Eklentiler bölümünden eklentileri kurun.",
+        "no-plugins-label": "Eklenti kurulu değil"
+      },
+      "installing": "{eklenti} kuruluyor...",
+      "plugin-settings-title": "{plugin} Ayarları",
+      "refresh": {
+        "refreshing": "Eklenti listesi yenileniyor...",
+        "tooltip": "Mevcut eklentileri yenile"
+      },
+      "settings": {
+        "tooltip": "Eklenti ayarları"
+      },
+      "settings-error-not-loaded": "Eklenti yüklenmedi",
+      "settings-saved": "Eklenti ayarları kaydedildi.",
+      "sources": {
+        "add-custom": "Özel depo ekle",
+        "add-dialog": {
+          "description": "Bir GitHub deposunu eklenti kaynağı olarak ekle.",
+          "error": "Eklenti kaynağı eklenemedi",
+          "name": "Depo adı",
+          "name-placeholder": "Özel Eklentilerim",
+          "success": "Eklenti kaynağı başarıyla eklendi.",
+          "title": "Eklenti kaynağı ekle",
+          "url": "Depo URL'si"
+        },
+        "description": "Eklentilerin indirildiği eklenti depolarını yönetin.",
+        "label": "Eklenti kaynakları",
+        "placeholder": "Havalı depom",
+        "remove": {
+          "tooltip": "Eklenti kaynağını kaldır"
+        }
+      },
+      "title": "Eklentiler",
+      "uninstall": "Kaldır",
+      "uninstall-dialog": {
+        "description": "{plugin} eklentisini kaldırmak istediğinizden emin misiniz? Bu, tüm eklenti verilerini kaldıracaktır.",
+        "title": "Eklentiyi kaldır"
+      },
+      "uninstall-error": "Kaldırma başarısız oldu: {error}",
+      "uninstall-success": "{plugin} başarıyla kaldırıldı.",
+      "uninstalling": "{plugin} kaldırılıyor..."
     },
     "screen-recorder": {
       "audio": {
@@ -1832,6 +1899,23 @@
           "description": "Oturum Menüsünde hangi güç eylemlerinin görüneceğini ve hangi sırada görüneceğini özelleştirin.",
           "label": "Güç eylemleri"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "Bu işlem için yürütülecek özel komut. Varsayılan sistem komutunu kullanmak için boş bırakın.",
+          "label": "Komut",
+          "placeholder": "systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "Dahili kilit ekranı (komut yok)",
+          "logout": "Dahili çıkış (komut yok)"
+        },
+        "default-info": {
+          "description": "Özel bir komut belirtilmezse, varsayılan sistem komutu kullanılır.",
+          "label": "Varsayılan komut"
+        },
+        "title": "{entry} yapılandır",
+        "tooltip": "Yapılandırma komutu"
       },
       "general": {
         "section": {
@@ -1934,10 +2018,15 @@
         "label": "Animasyon hızı",
         "reset": "Animasyon hızını sıfırla"
       },
-      "border-radius": {
-        "description": "Pencerelerin, düğmelerin ve diğer elemanların köşe yuvarlaklığını kontrol eder.",
-        "label": "Kenar yarıçapı",
-        "reset": "Kenar yarıçapını sıfırla"
+      "box-border-radius": {
+        "description": "Kenar çubukları, kartlar ve içerik panelleri gibi ana düzen bölümlerinin köşe yuvarlaklığını ayarlar.",
+        "label": "Konteyner Yarıçapı",
+        "reset": "Konteyner yarıçapını sıfırla"
+      },
+      "control-border-radius": {
+        "description": "İnteraktif öğelerin, düğmeler, geçişler ve metin alanları dahil olmak üzere, eğriliğini kontrol eder.",
+        "label": "Giriş Yarıçapı",
+        "reset": "Giriş yarıçapını sıfırla"
       },
       "dim-desktop": {
         "description": "Paneller veya menüler açıkken masaüstünü karart.",

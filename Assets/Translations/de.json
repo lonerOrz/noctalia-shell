@@ -471,6 +471,13 @@
   "clock": {
     "tooltip": "Kalender öffnen"
   },
+  "common": {
+    "add": "Hinzufügen",
+    "apply": "Anwenden",
+    "cancel": "Abbrechen",
+    "close": "Schließen",
+    "save": "Speichern"
+  },
   "context-menu": {
     "activate-app": "{app} aktivieren",
     "clear-history": "Verlauf löschen",
@@ -1072,6 +1079,14 @@
         }
       },
       "templates": {
+        "compositors": {
+          "description": "Compositor-Theming.",
+          "label": "Compositor",
+          "niri": {
+            "description": "Schreibe {filepath}. Benötigt niri v25.11+",
+            "description-missing": "Benötigt die Installation von {app}"
+          }
+        },
         "misc": {
           "description": "Zusätzliche Konfigurationsoptionen.",
           "label": "Verschiedenes",
@@ -1736,7 +1751,7 @@
           "label": "Feststelltasten"
         },
         "section": {
-          "description": "Wählen Sie die Ereignisse aus, die das OSD auslösen. Wenn keine Ereignisse ausgewählt werden, lösen alle verfügbaren Ereignisse das OSD aus.",
+          "description": "Wählen Sie die Ereignisse aus, die das OSD auslösen.",
           "label": "OSD-Auslöseereignisse"
         },
         "volume": {
@@ -1744,6 +1759,66 @@
           "label": "Ausgangslautstärke"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "Plugins aus konfigurierten Quellen durchsuchen und installieren.",
+        "label": "Verfügbare Plugins",
+        "no-plugins-description": "Überprüfen Sie Ihre Plugin-Quellen oder aktualisieren Sie die Liste.",
+        "no-plugins-label": "Keine Plugins verfügbar"
+      },
+      "filter": {
+        "all": "Alle",
+        "downloaded": "Heruntergeladen",
+        "not-downloaded": "Nicht heruntergeladen"
+      },
+      "install": "Installieren",
+      "install-error": "Installation fehlgeschlagen: {error}",
+      "install-success": "{plugin} erfolgreich installiert",
+      "installed": {
+        "description": "Alle lokal installierten Plugins verwalten und konfigurieren.",
+        "label": "Installierte Plugins",
+        "no-plugins-description": "Installieren Sie Plugins aus dem Abschnitt \"Verfügbare Plugins\" unten.",
+        "no-plugins-label": "Keine Plugins installiert"
+      },
+      "installing": "{Plugin} wird installiert...",
+      "plugin-settings-title": "{plugin} Einstellungen",
+      "refresh": {
+        "refreshing": "Aktualisiere Plugin-Liste...",
+        "tooltip": "Verfügbare Plugins aktualisieren"
+      },
+      "settings": {
+        "tooltip": "Plugin-Einstellungen"
+      },
+      "settings-error-not-loaded": "Plugin nicht geladen",
+      "settings-saved": "Plugin-Einstellungen gespeichert",
+      "sources": {
+        "add-custom": "Benutzerdefiniertes Repository hinzufügen",
+        "add-dialog": {
+          "description": "Ein GitHub-Repository als Plugin-Quelle hinzufügen.",
+          "error": "Fehler beim Hinzufügen der Plugin-Quelle",
+          "name": "Repository-Name",
+          "name-placeholder": "Meine benutzerdefinierten Plugins",
+          "success": "Plugin-Quelle erfolgreich hinzugefügt",
+          "title": "Plugin-Quelle hinzufügen",
+          "url": "Repository-URL"
+        },
+        "description": "Plugin-Repositories verwalten, von denen Plugins heruntergeladen werden.",
+        "label": "Plugin-Quellen",
+        "placeholder": "Mein cooles Repository",
+        "remove": {
+          "tooltip": "Plugin-Quelle entfernen"
+        }
+      },
+      "title": "Plugins",
+      "uninstall": "Deinstallieren",
+      "uninstall-dialog": {
+        "description": "Sind Sie sicher, dass Sie {plugin} deinstallieren möchten? Dadurch werden alle Plugin-Daten entfernt.",
+        "title": "Plugin deinstallieren"
+      },
+      "uninstall-error": "Deinstallation fehlgeschlagen: {error}",
+      "uninstall-success": "{plugin} wurde erfolgreich deinstalliert.",
+      "uninstalling": "{Plugin} wird deinstalliert..."
     },
     "screen-recorder": {
       "audio": {
@@ -1818,6 +1893,23 @@
           "description": "Anpassen, welche Energieaktionen im Sitzungsmenü angezeigt werden und in welcher Reihenfolge.",
           "label": "Energieaktionen"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "Benutzerdefinierter Befehl, der für diese Aktion ausgeführt werden soll. Leer lassen, um den Standard-Systembefehl zu verwenden.",
+          "label": "Befehl",
+          "placeholder": "systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "Interner Sperrbildschirm (kein Befehl)",
+          "logout": "Interne Abmeldung (kein Befehl)"
+        },
+        "default-info": {
+          "description": "Wenn kein benutzerdefinierter Befehl angegeben ist, wird der standardmäßige Systembefehl verwendet.",
+          "label": "Standardbefehl"
+        },
+        "title": "Konfiguriere {entry}",
+        "tooltip": "Konfigurationsbefehl"
       },
       "general": {
         "section": {
@@ -1920,10 +2012,15 @@
         "label": "Animationsgeschwindigkeit",
         "reset": "Animationsgeschwindigkeit zurücksetzen"
       },
-      "border-radius": {
-        "description": "Steuert die Eckenrundung von Fenstern, Schaltflächen und anderen Elementen.",
-        "label": "Eckenradius",
-        "reset": "Rahmenradius zurücksetzen"
+      "box-border-radius": {
+        "description": "Passt die Eckenrundung wichtiger Layoutbereiche an, wie z. B. Seitenleisten, Karten und Inhaltsbereiche.",
+        "label": "Behälterradius",
+        "reset": "Container-Radius zurücksetzen"
+      },
+      "control-border-radius": {
+        "description": "Steuert die Krümmung interaktiver Elemente, einschließlich Schaltflächen, Umschalter und Textfelder.",
+        "label": "Eingaberadius",
+        "reset": "Eingaberadius zurücksetzen"
       },
       "dim-desktop": {
         "description": "Den Desktop abdunkeln, wenn Fenster oder Menüs geöffnet sind.",

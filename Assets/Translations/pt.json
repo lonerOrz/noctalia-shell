@@ -471,6 +471,13 @@
   "clock": {
     "tooltip": "Abrir calendário"
   },
+  "common": {
+    "add": "Adicionar",
+    "apply": "Aplicar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "save": "Salvar"
+  },
   "context-menu": {
     "activate-app": "Ativar {app}",
     "clear-history": "Limpar histórico",
@@ -1750,7 +1757,7 @@
           "label": "Teclas de bloqueio"
         },
         "section": {
-          "description": "Selecione os eventos que acionam o OSD. Se nenhum evento for selecionado, todos os eventos disponíveis acionarão o OSD.",
+          "description": "Selecione os eventos que acionam o OSD.",
           "label": "Eventos de disparo OSD"
         },
         "volume": {
@@ -1758,6 +1765,66 @@
           "label": "Volume de saída"
         }
       }
+    },
+    "plugins": {
+      "available": {
+        "description": "Navegue e instale plugins a partir de fontes configuradas.",
+        "label": "Plugins disponíveis",
+        "no-plugins-description": "Verifique as fontes do seu plugin ou atualize a lista.",
+        "no-plugins-label": "Nenhum plugin disponível."
+      },
+      "filter": {
+        "all": "Tudo",
+        "downloaded": "Baixado",
+        "not-downloaded": "Não Baixado"
+      },
+      "install": "Instalar",
+      "install-error": "Falha ao instalar: {error}",
+      "install-success": "{plugin} instalado com sucesso.",
+      "installed": {
+        "description": "Gerenciar e configurar todos os plugins instalados localmente.",
+        "label": "Plugins instalados",
+        "no-plugins-description": "Instale os plugins da seção Plugins Disponíveis abaixo.",
+        "no-plugins-label": "Nenhum plugin instalado"
+      },
+      "installing": "Instalando {plugin}...",
+      "plugin-settings-title": "Configurações do {plugin}",
+      "refresh": {
+        "refreshing": "Atualizando a lista de plugins...",
+        "tooltip": "Atualizar plugins disponíveis"
+      },
+      "settings": {
+        "tooltip": "Configurações do plugin"
+      },
+      "settings-error-not-loaded": "Plugin não carregado",
+      "settings-saved": "Configurações do plugin salvas.",
+      "sources": {
+        "add-custom": "Adicionar repositório personalizado",
+        "add-dialog": {
+          "description": "Adicionar um repositório GitHub como fonte de plugin.",
+          "error": "Falha ao adicionar a fonte do plugin.",
+          "name": "Nome do repositório",
+          "name-placeholder": "Meus Plugins Personalizados",
+          "success": "Fonte do plugin adicionada com sucesso.",
+          "title": "Adicionar fonte do plugin",
+          "url": "URL do repositório"
+        },
+        "description": "Gerenciar repositórios de plugins de onde os plugins são baixados.",
+        "label": "Fontes de plugins",
+        "placeholder": "Meu repositório legal",
+        "remove": {
+          "tooltip": "Remover código fonte do plugin"
+        }
+      },
+      "title": "Plugins",
+      "uninstall": "Desinstalar",
+      "uninstall-dialog": {
+        "description": "Tem certeza de que deseja desinstalar {plugin}? Isso removerá todos os dados do plugin.",
+        "title": "Desinstalar plugin"
+      },
+      "uninstall-error": "Falha ao desinstalar: {error}",
+      "uninstall-success": "{plugin} desinstalado com sucesso",
+      "uninstalling": "Desinstalando {plugin}..."
     },
     "screen-recorder": {
       "audio": {
@@ -1832,6 +1899,23 @@
           "description": "Personalizar quais ações de energia aparecem no Menu de sessão e em que ordem.",
           "label": "Ações de energia"
         }
+      },
+      "entry-settings": {
+        "command": {
+          "description": "Comando personalizado para executar para esta ação. Deixe vazio para usar o comando padrão do sistema.",
+          "label": "Comando",
+          "placeholder": "systemctl poweroff"
+        },
+        "default-command": {
+          "lock": "Tela de bloqueio interna (sem comando)",
+          "logout": "Logout interno (sem comando)"
+        },
+        "default-info": {
+          "description": "Se nenhum comando personalizado for especificado, o comando padrão do sistema será usado.",
+          "label": "Comando padrão"
+        },
+        "title": "Configurar {entry}",
+        "tooltip": "Configurar comando"
       },
       "general": {
         "section": {
@@ -1934,10 +2018,15 @@
         "label": "Velocidade da animação",
         "reset": "Redefinir velocidade da animação"
       },
-      "border-radius": {
-        "description": "Controla o arredondamento dos cantos de janelas, botões e outros elementos.",
-        "label": "Raio da borda",
-        "reset": "Redefinir raio da borda"
+      "box-border-radius": {
+        "description": "Ajusta o arredondamento dos cantos das principais seções do layout, como barras laterais, cards e painéis de conteúdo.",
+        "label": "Raio do Contêiner",
+        "reset": "Redefinir raio do recipiente"
+      },
+      "control-border-radius": {
+        "description": "Controla a curvatura de elementos interativos, incluindo botões, alternâncias e campos de texto.",
+        "label": "Raio de entrada",
+        "reset": "Redefinir raio de entrada"
       },
       "dim-desktop": {
         "description": "Escurecer a área de trabalho quando painéis ou menus estiverem abertos.",
