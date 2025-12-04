@@ -17,6 +17,7 @@ import qs.Modules.Panels.Brightness
 import qs.Modules.Panels.Changelog
 import qs.Modules.Panels.Clock
 import qs.Modules.Panels.ControlCenter
+import qs.Modules.Panels.MediaPanel
 import qs.Modules.Panels.Launcher
 import qs.Modules.Panels.NotificationHistory
 import qs.Modules.Panels.SessionMenu
@@ -42,6 +43,7 @@ PanelWindow {
   readonly property alias clockPanel: clockPanel
   readonly property alias changelogPanel: changelogPanel
   readonly property alias controlCenterPanel: controlCenterPanel
+  readonly property alias mediaPanel: mediaPanel
   readonly property alias launcherPanel: launcherPanel
   readonly property alias notificationHistoryPanel: notificationHistoryPanel
   readonly property alias sessionMenuPanel: sessionMenuPanel
@@ -59,6 +61,7 @@ PanelWindow {
   readonly property var clockPanelPlaceholder: clockPanel.panelRegion
   readonly property var changelogPanelPlaceholder: changelogPanel.panelRegion
   readonly property var controlCenterPanelPlaceholder: controlCenterPanel.panelRegion
+  readonly property var mediaPanelPlaceholder: mediaPanel.panelRegion
   readonly property var launcherPanelPlaceholder: launcherPanel.panelRegion
   readonly property var notificationHistoryPanelPlaceholder: notificationHistoryPanel.panelRegion
   readonly property var sessionMenuPanelPlaceholder: sessionMenuPanel.panelRegion
@@ -229,6 +232,13 @@ PanelWindow {
     ControlCenterPanel {
       id: controlCenterPanel
       objectName: "controlCenterPanel-" + (root.screen?.name || "unknown")
+      screen: root.screen
+      z: 50
+    }
+
+    MediaPanel {
+      id: mediaPanel
+      objectName: "mediaPanel-" + (root.screen?.name || "unknown")
       screen: root.screen
       z: 50
     }
