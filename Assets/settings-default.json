@@ -170,7 +170,8 @@
     "terminalCommand": "xterm -e",
     "customLaunchPrefixEnabled": false,
     "customLaunchPrefix": "",
-    "viewMode": "list"
+    "viewMode": "list",
+    "showCategories": true
   },
   "controlCenter": {
     "position": "close_to_bar_button",
