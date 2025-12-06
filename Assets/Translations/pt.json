@@ -58,6 +58,14 @@
         "low-battery-threshold": {
           "description": "Mostrar um aviso quando a bateria cair abaixo desta porcentagem.",
           "label": "Limite de aviso de bateria fraca"
+        },
+        "show-noctalia-performance": {
+          "description": "Exibir o interruptor do modo de desempenho Noctalia no painel da bateria.",
+          "label": "Mostrar alternância de Noctalia Desempenho"
+        },
+        "show-power-profile": {
+          "description": "Exibir a seleção de perfil de energia no painel da bateria.",
+          "label": "Mostrar controles de perfil de energia"
         }
       },
       "brightness": {
@@ -400,20 +408,20 @@
   "battery": {
     "battery-level": "Nível da bateria",
     "brightness": "Brilho",
-    "charging": "Carregando.",
-    "charging-rate": "Taxa de carregamento: {rate} W.",
-    "discharging": "Descarregando.",
-    "discharging-rate": "Taxa de descarregamento: {rate} W.",
+    "charging": "Carregando",
+    "charging-rate": "Taxa de carregamento: {rate} W",
+    "discharging": "Descarregando",
+    "discharging-rate": "Taxa de descarregamento: {rate} W",
     "health": "Saúde: {percent}%",
-    "idle": "Ocioso.",
+    "idle": "Ocioso",
     "inhibit-idle-description": "Mantém o sistema acordado.",
     "inhibit-idle-label": "Manter acordado",
-    "no-battery-detected": "Nenhuma bateria detectada.",
+    "no-battery-detected": "Nenhuma bateria detectada",
     "panel-title": "Bateria",
-    "plugged-in": "Conectado.",
+    "plugged-in": "Conectado",
     "power-profile": "Perfil de energia",
-    "time-left": "Tempo restante: {time}.",
-    "time-until-full": "Tempo até carga completa: {time}."
+    "time-left": "Tempo restante: {time}",
+    "time-until-full": "Tempo até carga completa: {time}"
   },
   "bluetooth": {
     "panel": {
@@ -486,6 +494,7 @@
     "add": "Adicionar",
     "apply": "Aplicar",
     "cancel": "Cancelar",
+    "check-settings": "Verifique as configurações para obter detalhes.",
     "close": "Fechar",
     "save": "Salvar"
   },
@@ -1005,7 +1014,7 @@
       },
       "widgets": {
         "section": {
-          "description": "Arraste e solte widgets para reordená-los. Os emblemas indicam o uso: [E]squerda, [C]entro, [D]ireita.",
+          "description": "Arraste os widgets para alterar a ordem. Use o menu do botão direito para transferir widgets entre seções ou removê-los.",
           "label": "Posicionamento dos widgets"
         }
       }
@@ -1264,7 +1273,7 @@
           "cancel": "Cancelar"
         },
         "section": {
-          "description": "Configure e gerencie os widgets de atalhos.",
+          "description": "Arraste os widgets para alterar a ordem. Use o menu do botão direito para transferir widgets entre seções ou removê-los.",
           "label": "Widgets de atalhos"
         },
         "sectionLeft": "Esquerda",
@@ -1835,7 +1844,16 @@
       },
       "uninstall-error": "Falha ao desinstalar: {error}",
       "uninstall-success": "{plugin} desinstalado com sucesso",
-      "uninstalling": "Desinstalando {plugin}..."
+      "uninstalling": "Desinstalando {plugin}...",
+      "update": "Atualização",
+      "update-all": "Atualizar Tudo ({count})",
+      "update-all-success": "Todos os plugins foram atualizados com sucesso.",
+      "update-available": "{count} atualização(ões) de plugin disponível(eis)",
+      "update-error": "Falha ao atualizar o plugin: {plugin}: {error}",
+      "update-incompatible": "Requer Noctalia v{version} ou superior",
+      "update-success": "{plugin} atualizado para a versão {version}",
+      "update-version": "v{atual} → v{novo}",
+      "updating": "Atualizando {plugin}..."
     },
     "screen-recorder": {
       "audio": {
@@ -2282,7 +2300,7 @@
     "noctalia-performance": {
       "disabled": "Modo de desempenho desativado",
       "enabled": "Modo de desempenho ativado",
-      "label": "Apresentação de Noctalia"
+      "label": "Noctalia Desempenho"
     },
     "power-profile": {
       "changed": "Perfil de energia alterado",

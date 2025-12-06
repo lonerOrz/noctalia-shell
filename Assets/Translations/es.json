@@ -58,6 +58,14 @@
         "low-battery-threshold": {
           "description": "Muestra una advertencia cuando la batería cae por debajo de este porcentaje.",
           "label": "Umbral de advertencia de batería baja"
+        },
+        "show-noctalia-performance": {
+          "description": "Muestra el interruptor del modo de rendimiento Noctalia en el panel de batería.",
+          "label": "Mostrar interruptor de Noctalia Rendimiento"
+        },
+        "show-power-profile": {
+          "description": "Muestra la selección de perfil de energía en el panel de batería.",
+          "label": "Mostrar controles de perfil de energía"
         }
       },
       "brightness": {
@@ -400,20 +408,20 @@
   "battery": {
     "battery-level": "Nivel de batería",
     "brightness": "Brillo",
-    "charging": "Cargando.",
-    "charging-rate": "Tasa de carga: {rate} W.",
-    "discharging": "Descargando.",
-    "discharging-rate": "Tasa de descarga: {rate} W.",
+    "charging": "Cargando",
+    "charging-rate": "Tasa de carga: {rate} W",
+    "discharging": "Descargando",
+    "discharging-rate": "Tasa de descarga: {rate} W",
     "health": "Salud: {percent}%",
-    "idle": "Inactivo.",
+    "idle": "Inactivo",
     "inhibit-idle-description": "Mantiene el sistema despierto.",
     "inhibit-idle-label": "Mantener despierto",
-    "no-battery-detected": "No se detectó ninguna batería.",
+    "no-battery-detected": "No se detectó ninguna batería",
     "panel-title": "Batería",
-    "plugged-in": "Conectado.",
+    "plugged-in": "Conectado",
     "power-profile": "Perfil de energía",
-    "time-left": "Tiempo restante: {time}.",
-    "time-until-full": "Tiempo hasta carga completa: {time}."
+    "time-left": "Tiempo restante: {time}",
+    "time-until-full": "Tiempo hasta carga completa: {time}"
   },
   "bluetooth": {
     "panel": {
@@ -486,6 +494,7 @@
     "add": "Añadir",
     "apply": "Aplicar",
     "cancel": "Cancelar",
+    "check-settings": "Consultar la configuración para más detalles.",
     "close": "Cerrar",
     "save": "Guardar"
   },
@@ -1005,7 +1014,7 @@
       },
       "widgets": {
         "section": {
-          "description": "Arrastra y suelta widgets para reordenarlos. Las insignias indican el uso: [I]zquierda, [C]entro, [D]erecha.",
+          "description": "Arrastra los widgets para cambiar su orden. Usa el menú contextual (clic derecho) para transferir widgets entre secciones o eliminarlos.",
           "label": "Posicionamiento de widgets"
         }
       }
@@ -1264,7 +1273,7 @@
           "cancel": "Cancelar"
         },
         "section": {
-          "description": "Configurar y administrar los widgets de accesos directos.",
+          "description": "Arrastra los widgets para cambiar su orden. Usa el menú contextual (clic derecho) para transferir widgets entre secciones o eliminarlos.",
           "label": "Widgets de accesos directos"
         },
         "sectionLeft": "Izquierda",
@@ -1835,7 +1844,16 @@
       },
       "uninstall-error": "Error al desinstalar: {error}",
       "uninstall-success": "{plugin} desinstalado correctamente",
-      "uninstalling": "Desinstalando {plugin}..."
+      "uninstalling": "Desinstalando {plugin}...",
+      "update": "Actualizar",
+      "update-all": "Actualizar todo ({count})",
+      "update-all-success": "Todos los plugins se actualizaron correctamente.",
+      "update-available": "{count} actualización(es) de plugin(s) disponible(s)",
+      "update-error": "Error al actualizar el plugin: {plugin}: {error}",
+      "update-incompatible": "Requiere Noctalia v{version} o superior",
+      "update-success": "{plugin} actualizado a la versión {version}",
+      "update-version": "v{actual} → v{nuevo}",
+      "updating": "Actualizando {plugin}..."
     },
     "screen-recorder": {
       "audio": {
@@ -2282,7 +2300,7 @@
     "noctalia-performance": {
       "disabled": "Modo de rendimiento desactivado",
       "enabled": "Modo de rendimiento activado",
-      "label": "Actuación de Noctalia"
+      "label": "Noctalia Rendimiento"
     },
     "power-profile": {
       "changed": "Perfil de energía cambiado",

@@ -58,6 +58,14 @@
         "low-battery-threshold": {
           "description": "バッテリー残量がこのパーセンテージを下回ると警告を表示します。",
           "label": "低バッテリー警告の閾値"
+        },
+        "show-noctalia-performance": {
+          "description": "バッテリーパネルにNoctaliaパフォーマンスモードのトグルを表示します。",
+          "label": "Noctaliaパフォーマンストグルを表示"
+        },
+        "show-power-profile": {
+          "description": "バッテリーパネルに電源プロファイルの選択を表示します。",
+          "label": "電源プロファイルコントロールを表示"
         }
       },
       "brightness": {
@@ -469,6 +477,7 @@
     "add": "追加",
     "apply": "適用",
     "cancel": "キャンセル",
+    "check-settings": "詳細については設定を確認してください。",
     "close": "閉じる",
     "save": "保存"
   },
@@ -988,7 +997,7 @@
       },
       "widgets": {
         "section": {
-          "description": "ドラッグ＆ドロップでウィジェットを並べ替えます。 バッジは配置を示します：[L]左、[C]中央、[R]右。",
+          "description": "ウィジェットをドラッグして順番を変更します。右クリックメニューを使って、セクション間でウィジェットを移動したり、削除したりできます。",
           "label": "ウィジェットの配置"
         }
       }
@@ -1247,7 +1256,7 @@
           "cancel": "キャンセル"
         },
         "section": {
-          "description": "ショートカットウィジェットの設定と管理を行います。",
+          "description": "ウィジェットをドラッグして順番を変更します。右クリックメニューを使って、セクション間でウィジェットを移動したり、削除したりできます。",
           "label": "ショートカットウィジェット"
         },
         "sectionLeft": "左",
@@ -1818,7 +1827,16 @@
       },
       "uninstall-error": "アンインストールに失敗しました: {error}",
       "uninstall-success": "{plugin} のアンインストールに成功しました。",
-      "uninstalling": "{plugin} をアンインストールしています..."
+      "uninstalling": "{plugin} をアンインストールしています...",
+      "update": "更新",
+      "update-all": "すべて更新 ({count})",
+      "update-all-success": "すべてのプラグインが正常に更新されました。",
+      "update-available": "{count}個のプラグインアップデートがあります",
+      "update-error": "プラグインの更新に失敗しました: {plugin}: {error}",
+      "update-incompatible": "Noctalia v{version} 以降が必要です。",
+      "update-success": "{plugin} を v{version} にアップデートしました。",
+      "update-version": "v{現在} → v{新規}",
+      "updating": "{plugin}を更新しています..."
     },
     "screen-recorder": {
       "audio": {
@@ -2265,7 +2283,7 @@
     "noctalia-performance": {
       "disabled": "パフォーマンスモード: 無効",
       "enabled": "パフォーマンスモード: 有効",
-      "label": "Noctalia パフォーマンス"
+      "label": "Noctaliaパフォーマンス"
     },
     "power-profile": {
       "changed": "電源プロファイルを変更しました",

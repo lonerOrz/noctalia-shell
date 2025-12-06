@@ -58,6 +58,14 @@
         "low-battery-threshold": {
           "description": "当电量低于此百分比时显示警告。",
           "label": "低电量警告阈值"
+        },
+        "show-noctalia-performance": {
+          "description": "在电池面板中显示 Noctalia 性能模式切换。",
+          "label": "显示 Noctalia 性能切换"
+        },
+        "show-power-profile": {
+          "description": "在电池面板中显示电源配置文件选择。",
+          "label": "显示电源配置文件控件"
         }
       },
       "brightness": {
@@ -400,20 +408,20 @@
   "battery": {
     "battery-level": "电池电量",
     "brightness": "亮度",
-    "charging": "正在充电。",
-    "charging-rate": "充电速率：{rate} W。",
-    "discharging": "正在放电。",
-    "discharging-rate": "放电速率：{rate} W。",
+    "charging": "正在充电",
+    "charging-rate": "充电速率：{rate} W",
+    "discharging": "正在放电",
+    "discharging-rate": "放电速率：{rate} W",
     "health": "健康状况：{percent}%",
-    "idle": "空闲。",
+    "idle": "空闲",
     "inhibit-idle-description": "保持系统唤醒。",
     "inhibit-idle-label": "保持唤醒",
-    "no-battery-detected": "未检测到电池。",
+    "no-battery-detected": "未检测到电池",
     "panel-title": "电池",
-    "plugged-in": "已接通电源。",
+    "plugged-in": "已接通电源",
     "power-profile": "电源模式",
-    "time-left": "剩余时间：{time}。",
-    "time-until-full": "充满所需时间：{time}。"
+    "time-left": "剩余时间：{time}",
+    "time-until-full": "充满所需时间：{time}"
   },
   "bluetooth": {
     "panel": {
@@ -486,6 +494,7 @@
     "add": "添加",
     "apply": "应用",
     "cancel": "取消",
+    "check-settings": "查看设置了解详情",
     "close": "关闭",
     "save": "保存"
   },
@@ -1005,7 +1014,7 @@
       },
       "widgets": {
         "section": {
-          "description": "拖放小部件以重新排序。徽章表示使用情况：[L]左、[C]中、[R]右。",
+          "description": "拖动小部件以更改它们的顺序。使用右键菜单在各部分之间转移小部件或移除它们。",
           "label": "小部件定位"
         }
       }
@@ -1264,7 +1273,7 @@
           "cancel": "取消"
         },
         "section": {
-          "description": "配置和管理快捷方式小部件。",
+          "description": "拖动小部件以更改其顺序。使用右键菜单在各部分之间转移小部件或将其移除。",
           "label": "快捷方式小部件"
         },
         "sectionLeft": "左",
@@ -1835,7 +1844,16 @@
       },
       "uninstall-error": "卸载失败：{error}",
       "uninstall-success": "成功卸载 {plugin}",
-      "uninstalling": "正在卸载 {plugin}..."
+      "uninstalling": "正在卸载 {plugin}...",
+      "update": "更新",
+      "update-all": "全部更新（{count}）",
+      "update-all-success": "所有插件已成功更新",
+      "update-available": "有{count}个插件可更新",
+      "update-error": "更新插件失败：{plugin}：{error}",
+      "update-incompatible": "需要 Noctalia v{version} 或更高版本",
+      "update-success": "已将 {plugin} 更新至 v{version}",
+      "update-version": "v{当前} → v{新}",
+      "updating": "正在更新 {plugin}..."
     },
     "screen-recorder": {
       "audio": {
@@ -2282,7 +2300,7 @@
     "noctalia-performance": {
       "disabled": "性能模式已禁用",
       "enabled": "已启用性能模式",
-      "label": "夜之颂演出"
+      "label": "Noctalia 性能"
     },
     "power-profile": {
       "changed": "电源模式已更改",
