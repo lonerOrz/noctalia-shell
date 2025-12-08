@@ -440,6 +440,10 @@ Singleton {
       // Desktop entry IDs pinned to the dock (e.g., "org.kde.konsole", "firefox.desktop")
       property list<string> pinnedApps: []
       property bool colorizeIcons: false
+
+      property bool pinnedStatic: false
+      property bool inactiveIndicators: false
+      property double deadOpacity: 0.6
     }
 
     // network
@@ -569,10 +573,6 @@ Singleton {
       property string dayTemp: "6500"
       property string manualSunrise: "06:30"
       property string manualSunset: "18:30"
-    }
-
-    property JsonObject changelog: JsonObject {
-      property string lastSeenVersion: ""
     }
 
     // hooks
