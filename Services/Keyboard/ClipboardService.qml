@@ -171,6 +171,16 @@ Singleton {
     stdout: StdioCollector {}
   }
 
+  Process {
+    id: deleteProc
+    stdout: StdioCollector {}
+    onExited: (exitCode, exitStatus) => {
+      revision++;
+      // Refresh list after deletion completes
+      Qt.callLater(() => list());
+    }
+  }
+
   // Base64 decode pipeline (queued)
   Process {
     id: decodeB64Proc
@@ -314,9 +324,13 @@ Singleton {
     if (!root.cliphistAvailable) {
       return;
     }
-    Quickshell.execDetached(["cliphist", "delete", id]);
-    revision++;
-    Qt.callLater(() => list());
+    if (deleteProc.running) {
+      return;
+    }
+    const idStr = String(id);
+    // Use Process to wait for deletion to complete before refreshing
+    deleteProc.command = ["sh", "-c", `echo ${idStr} | cliphist delete`];
+    deleteProc.running = true;
   }
 
   function wipeAll() {

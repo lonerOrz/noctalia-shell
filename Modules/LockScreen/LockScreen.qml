@@ -87,9 +87,29 @@ Loader {
               return null;
             }
 
+            // Find laptop battery device, falling back to displayDevice if none found
+            function findLaptopBattery() {
+              if (UPower.displayDevice && UPower.displayDevice.isLaptopBattery) {
+                return UPower.displayDevice;
+              }
+
+              if (!UPower.devices) {
+                return UPower.displayDevice;
+              }
+
+              var devices = UPower.devices.values || [];
+              for (var i = 0; i < devices.length; i++) {
+                var device = devices[i];
+                if (device && device.type === UPowerDeviceType.Battery && device.isLaptopBattery && device.percentage !== undefined) {
+                  return device;
+                }
+              }
+              return UPower.displayDevice;
+            }
+
             readonly property var bluetoothDevice: findBluetoothBatteryDevice()
             readonly property bool hasBluetoothBattery: bluetoothDevice && bluetoothDevice.batteryAvailable && bluetoothDevice.battery !== undefined
-            readonly property var battery: UPower.displayDevice
+            readonly property var battery: findLaptopBattery()
             readonly property bool isDevicePresent: {
               if (hasBluetoothBattery) {
                 return bluetoothDevice.connected === true;
@@ -531,10 +551,20 @@ Loader {
             // Bottom container with weather, password input and controls
             Rectangle {
               id: bottomContainer
-              height: Settings.data.general.compactLockScreen ? 120 : 220
+
+              // Support for removing the session/power buttons at the bottom.
+              readonly property int deltaY: Settings.data.general.showSessionButtonsOnLockScreen ? 0 : (Settings.data.general.compactLockScreen ? 36 : 48) + 14
+
+              height: {
+                let calcHeight = Settings.data.general.compactLockScreen ? 120 : 220;
+                if (!Settings.data.general.showSessionButtonsOnLockScreen) {
+                  calcHeight -= bottomContainer.deltaY;
+                }
+                return calcHeight;
+              }
               anchors.horizontalCenter: parent.horizontalCenter
               anchors.bottom: parent.bottom
-              anchors.bottomMargin: 100
+              anchors.bottomMargin: 100 + bottomContainer.deltaY
               radius: Style.radiusL
               color: Color.mSurface
 
@@ -1133,11 +1163,12 @@ Loader {
                   }
                 }
 
-                // System control buttons
+                // Session control buttons
                 RowLayout {
                   Layout.fillWidth: true
                   Layout.preferredHeight: Settings.data.general.compactLockScreen ? 36 : 48
                   spacing: 0
+                  visible: Settings.data.general.showSessionButtonsOnLockScreen
 
                   Item {
                     Layout.preferredWidth: Style.marginM

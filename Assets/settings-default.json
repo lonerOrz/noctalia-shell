@@ -72,6 +72,7 @@
     "animationDisabled": false,
     "compactLockScreen": false,
     "lockOnSuspend": true,
+    "showSessionButtonsOnLockScreen": true,
     "showHibernateOnLockScreen": false,
     "enableShadows": true,
     "shadowDirection": "bottom_right",
@@ -255,7 +256,10 @@
     "onlySameOutput": true,
     "monitors": [],
     "pinnedApps": [],
-    "colorizeIcons": false
+    "colorizeIcons": false,
+    "pinnedStatic": false,
+    "inactiveIndicators": false,
+    "deadOpacity": 0.6
   },
   "network": {
     "wifiEnabled": true
@@ -302,7 +306,16 @@
     "lowUrgencyDuration": 3,
     "normalUrgencyDuration": 8,
     "criticalUrgencyDuration": 15,
-    "enableKeyboardLayoutToast": true
+    "enableKeyboardLayoutToast": true,
+    "sounds": {
+      "enabled": false,
+      "volume": 0.5,
+      "separateSounds": false,
+      "criticalSoundFile": "",
+      "normalSoundFile": "",
+      "lowSoundFile": "",
+      "excludedApps": "discord,firefox,chrome,chromium,edge"
+    }
   },
   "osd": {
     "enabled": true,

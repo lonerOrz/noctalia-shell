@@ -362,6 +362,10 @@
           "description": "Zeige nur Apps von dem Bildschirm, auf dem sich die Taskbar befindet.",
           "label": "Nur vom gleichen Bildschirm"
         },
+        "show-pinned-apps": {
+          "description": "Angeheftete Apps aus dem Dock in der Taskleiste anzeigen.",
+          "label": "Angeheftete Apps anzeigen"
+        },
         "show-title": {
           "description": "Fenstertitel in der Taskleiste anzeigen.",
           "description-disabled": "Vertikale Taskleiste unterstützt keine Titelanzeige.",
@@ -371,9 +375,6 @@
           "description": "Breite der Fenstertitel in der Taskleiste festlegen (in Pixel).",
           "label": "Titelbreite",
           "reset-tooltip": "Titelbreite zurücksetzen"
-        "show-pinned-apps": {
-          "description": "Angeheftete Apps aus dem Dock in der Taskleiste anzeigen.",
-          "label": "Angeheftete Apps anzeigen"
         }
       },
       "taskbar-grouped": {
@@ -570,6 +571,7 @@
       "system": "System",
       "webbrowser": "Webbrowser"
     },
+    "delete": "Löschen",
     "pin": "Anheften",
     "unpin": "Lösen"
   },
@@ -766,6 +768,7 @@
     "clipboard-clear-description": "Gesamten Zwischenablageverlauf löschen",
     "clipboard-clear-description-full": "Alle Elemente aus dem Zwischenablageverlauf entfernen",
     "clipboard-clear-history": "Zwischenablageverlauf löschen",
+    "clipboard-delete": "Zwischenablageeintrag löschen",
     "clipboard-history-disabled": "Zwischenablageverlauf deaktiviert",
     "clipboard-history-disabled-description": "Zwischenablageverlauf in den Einstellungen aktivieren oder cliphist installieren",
     "clipboard-loading": "Lade Zwischenablageverlauf...",
@@ -1667,6 +1670,10 @@
         "description": "Die Option 'Ruhezustand' in den Energieaktionen anzeigen.",
         "label": "Ruhezustand anzeigen"
       },
+      "show-session-buttons": {
+        "description": "Zugriff auf die Energieeinstellungen vom Sperrbildschirm aus erlauben.",
+        "label": "Leistungsregler"
+      },
       "title": "Sperrbildschirm"
     },
     "network": {
@@ -1739,6 +1746,61 @@
         "section": {
           "description": "Erscheinungsbild und Verhalten von Benachrichtigungen konfigurieren.",
           "label": "Erscheinungsbild"
+        }
+      },
+      "sounds": {
+        "enabled": {
+          "description": "Soundeffekte für eingehende Benachrichtigungen aktivieren.",
+          "label": "Benachrichtigungstöne aktivieren"
+        },
+        "excluded-apps": {
+          "description": "Überspringen Sie das Abspielen der konfigurierten Benachrichtigungstöne für bestimmte Anwendungen, die ihre eigenen integrierten Töne haben.",
+          "label": "Ausgeschlossene Anwendungen",
+          "placeholder": "discord,firefox,chrome,chromium,edge"
+        },
+        "files": {
+          "critical": {
+            "description": "Pfad zur Sound-Datei, die für Benachrichtigungen mit kritischer Priorität abgespielt wird.",
+            "label": "Sound bei kritischer Dringlichkeit",
+            "select-title": "Sound-Datei für kritische Dringlichkeit auswählen"
+          },
+          "low": {
+            "description": "Pfad zur Sound-Datei, die für Benachrichtigungen mit niedriger Priorität abgespielt wird.",
+            "label": "Sound bei niedriger Dringlichkeit",
+            "select-title": "Sound-Datei für niedrige Dringlichkeit auswählen"
+          },
+          "normal": {
+            "description": "Pfad zur Sound-Datei, die für Benachrichtigungen mit normaler Priorität abgespielt wird.",
+            "label": "Sound bei normaler Dringlichkeit",
+            "select-title": "Sound-Datei für normale Dringlichkeit auswählen"
+          },
+          "placeholder": "Pfad zur Sound-Datei eingeben",
+          "section": {
+            "description": "Benutzerdefinierte Sound-Dateien für verschiedene Benachrichtigungsdringlichkeitsstufen konfigurieren.",
+            "label": "Sound-Dateien"
+          },
+          "select-file": "Sound-Datei auswählen",
+          "unified": {
+            "description": "Pfad zur Sound-Datei, die für Benachrichtigungen abgespielt wird.",
+            "label": "Benachrichtigungssound",
+            "select-title": "Benachrichtigungssound-Datei auswählen"
+          }
+        },
+        "section": {
+          "description": "Benachrichtigungs-Soundeffekte und Lautstärke konfigurieren.",
+          "label": "Sound-Einstellungen"
+        },
+        "separate": {
+          "description": "Unterschiedliche Sound-Dateien für niedrige, normale und kritische Benachrichtigungsprioritäten verwenden.",
+          "label": "Verschiedene Sounds pro Priorität verwenden"
+        },
+        "unavailable": {
+          "description": "Installieren Sie Qt6 Multimedia, um Benachrichtigungstöne zu aktivieren.",
+          "label": "Benachrichtigungstöne nicht verfügbar"
+        },
+        "volume": {
+          "description": "Lautstärke für Benachrichtigungstöne anpassen.",
+          "label": "Sound-Lautstärke"
         }
       },
       "title": "Benachrichtigungen",

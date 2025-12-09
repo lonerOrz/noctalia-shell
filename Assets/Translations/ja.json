@@ -554,6 +554,7 @@
       "system": "システム",
       "webbrowser": "ウェブブラウザ"
     },
+    "delete": "削除 (Sakujo)",
     "pin": "ピン留め",
     "unpin": "ピン留め解除"
   },
@@ -751,6 +752,7 @@
     "clipboard-clear-description": "クリップボード履歴をすべて消去",
     "clipboard-clear-description-full": "クリップボード履歴からすべての項目を削除します",
     "clipboard-clear-history": "クリップボード履歴を消去",
+    "clipboard-delete": "クリップボードのエントリを削除",
     "clipboard-history-disabled": "クリップボード履歴は無効です",
     "clipboard-history-disabled-description": "設定で履歴を有効にするか、cliphist をインストールしてください",
     "clipboard-loading": "クリップボード履歴を読み込み中...",
@@ -1657,6 +1659,10 @@
         "description": "電源メニューのオプションに「ハイバネート（休止状態）」を表示します。",
         "label": "ハイバネートを表示"
       },
+      "show-session-buttons": {
+        "description": "ロック画面から電源設定へのアクセスを許可します。",
+        "label": "電源制御"
+      },
       "title": "ロック画面"
     },
     "network": {
@@ -1729,6 +1735,61 @@
         "section": {
           "description": "通知の外観と挙動を設定します。",
           "label": "外観"
+        }
+      },
+      "sounds": {
+        "enabled": {
+          "description": "着信通知の音声効果を有効にします。",
+          "label": "通知音を有効にする"
+        },
+        "excluded-apps": {
+          "description": "独自の通知音を持つ特定のアプリケーションについて、設定された通知音の再生をスキップします。",
+          "label": "除外アプリケーション",
+          "placeholder": "discord,firefox,chrome,chromium,edge"
+        },
+        "files": {
+          "critical": {
+            "description": "緊急度の高い通知で再生される音声ファイルへのパス。",
+            "label": "緊急通知音",
+            "select-title": "緊急通知音ファイルを選択"
+          },
+          "low": {
+            "description": "緊急度の低い通知で再生される音声ファイルへのパス。",
+            "label": "低優先度通知音",
+            "select-title": "低優先度通知音ファイルを選択"
+          },
+          "normal": {
+            "description": "通常優先度の通知で再生される音声ファイルへのパス。",
+            "label": "通常優先度通知音",
+            "select-title": "通常優先度通知音ファイルを選択"
+          },
+          "placeholder": "音声ファイルへのパスを入力",
+          "section": {
+            "description": "通知の緊急度レベルに応じてカスタム音声ファイルを設定します。",
+            "label": "音声ファイル"
+          },
+          "select-file": "音声ファイルを選択",
+          "unified": {
+            "description": "通知で再生される音声ファイルへのパス。",
+            "label": "通知音",
+            "select-title": "通知音ファイルを選択"
+          }
+        },
+        "section": {
+          "description": "通知の音声効果と音量を設定します。",
+          "label": "サウンド設定"
+        },
+        "separate": {
+          "description": "低、通常、緊急優先度の通知に異なる音声ファイルを使用します。",
+          "label": "優先度ごとに異なる音を使用する"
+        },
+        "unavailable": {
+          "description": "通知音を有効にするにはQt6マルチメディアをインストールしてください。",
+          "label": "通知音は利用できません"
+        },
+        "volume": {
+          "description": "通知音の音量レベルを調整します。",
+          "label": "サウンド音量"
         }
       },
       "title": "通知",

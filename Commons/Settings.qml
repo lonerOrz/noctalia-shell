@@ -232,6 +232,7 @@ Singleton {
       property bool animationDisabled: false
       property bool compactLockScreen: false
       property bool lockOnSuspend: true
+      property bool showSessionButtonsOnLockScreen: true
       property bool showHibernateOnLockScreen: false
       property bool enableShadows: true
       property string shadowDirection: "bottom_right"
@@ -497,6 +498,15 @@ Singleton {
       property int normalUrgencyDuration: 8
       property int criticalUrgencyDuration: 15
       property bool enableKeyboardLayoutToast: true
+      property JsonObject sounds: JsonObject {
+        property bool enabled: false
+        property real volume: 0.5
+        property bool separateSounds: false
+        property string criticalSoundFile: ""
+        property string normalSoundFile: ""
+        property string lowSoundFile: ""
+        property string excludedApps: "discord,firefox,chrome,chromium,edge"
+      }
     }
 
     // on-screen display
