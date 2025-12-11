@@ -41,7 +41,34 @@ Rectangle {
   readonly property bool onlySameOutput: (widgetSettings.onlySameOutput !== undefined) ? widgetSettings.onlySameOutput : widgetMetadata.onlySameOutput
   readonly property bool onlyActiveWorkspaces: (widgetSettings.onlyActiveWorkspaces !== undefined) ? widgetSettings.onlyActiveWorkspaces : widgetMetadata.onlyActiveWorkspaces
   readonly property bool showTitle: isVerticalBar ? false : (widgetSettings.showTitle !== undefined) ? widgetSettings.showTitle : widgetMetadata.showTitle
-  readonly property int titleWidth: (widgetSettings.titleWidth !== undefined) ? widgetSettings.titleWidth : widgetMetadata.titleWidth
+  readonly property bool smartWidth: (widgetSettings.smartWidth !== undefined) ? widgetSettings.smartWidth : widgetMetadata.smartWidth
+  readonly property int maxTaskbarWidthPercent: (widgetSettings.maxTaskbarWidth !== undefined) ? widgetSettings.maxTaskbarWidth : widgetMetadata.maxTaskbarWidth
+
+  // Maximum width for the taskbar widget to prevent overlapping with other widgets
+  readonly property real maxTaskbarWidth: {
+    if (!screen || isVerticalBar || !smartWidth || maxTaskbarWidthPercent <= 0)
+      return 0;
+    var barFloating = Settings.data.bar.floating || false;
+    var barMarginH = barFloating ? Math.ceil(Settings.data.bar.marginHorizontal * Style.marginXL) : 0;
+    var availableWidth = screen.width - (barMarginH * 2);
+    return Math.round(availableWidth * (maxTaskbarWidthPercent / 100));
+  }
+
+  readonly property int titleWidth: {
+    if (smartWidth && showTitle && !isVerticalBar && combinedModel.length > 0) {
+      var entriesCount = combinedModel.length;
+      var baseWidth = 140;
+      var calculatedWidth = baseWidth / Math.sqrt(entriesCount);
+
+      if (maxTaskbarWidth > 0) {
+        var maxWidthPerEntry = (maxTaskbarWidth / entriesCount) - itemSize - Style.marginS - Style.marginM * 2;
+        calculatedWidth = Math.min(calculatedWidth, maxWidthPerEntry);
+      }
+
+      return Math.max(Math.round(calculatedWidth), 20);
+    }
+    return (widgetSettings.titleWidth !== undefined) ? widgetSettings.titleWidth : widgetMetadata.titleWidth;
+  }
   readonly property bool showPinnedApps: (widgetSettings.showPinnedApps !== undefined) ? widgetSettings.showPinnedApps : widgetMetadata.showPinnedApps
 
   // Context menu state
@@ -96,6 +123,75 @@ Rectangle {
     return appId;
   }
 
+  // Helper function to get desktop entry ID from an app ID
+  function getDesktopEntryId(appId) {
+    if (!appId)
+      return appId;
+
+    // Try to find the desktop entry using heuristic lookup
+    if (typeof DesktopEntries !== 'undefined' && DesktopEntries.heuristicLookup) {
+      try {
+        const entry = DesktopEntries.heuristicLookup(appId);
+        if (entry && entry.id) {
+          return entry.id;
+        }
+      } catch (e)
+        // Fall through to return original appId
+      {}
+    }
+
+    // Try direct lookup
+    if (typeof DesktopEntries !== 'undefined' && DesktopEntries.byId) {
+      try {
+        const entry = DesktopEntries.byId(appId);
+        if (entry && entry.id) {
+          return entry.id;
+        }
+      } catch (e)
+        // Fall through to return original appId
+      {}
+    }
+
+    // Return original appId if we can't find a desktop entry
+    return appId;
+  }
+
+  // Helper function to check if an app is pinned
+  function isAppPinned(appId) {
+    if (!appId)
+      return false;
+    const pinnedApps = Settings.data.dock.pinnedApps || [];
+    const normalizedId = normalizeAppId(appId);
+    return pinnedApps.some(pinnedId => normalizeAppId(pinnedId) === normalizedId);
+  }
+
+  // Helper function to toggle app pin/unpin
+  function toggleAppPin(appId) {
+    if (!appId)
+      return;
+
+    // Get the desktop entry ID for consistent pinning
+    const desktopEntryId = getDesktopEntryId(appId);
+    const normalizedId = normalizeAppId(desktopEntryId);
+
+    let pinnedApps = (Settings.data.dock.pinnedApps || []).slice(); // Create a copy
+
+    // Find existing pinned app with case-insensitive matching
+    const existingIndex = pinnedApps.findIndex(pinnedId => normalizeAppId(pinnedId) === normalizedId);
+    const isPinned = existingIndex >= 0;
+
+    if (isPinned) {
+      // Unpin: remove from array
+      pinnedApps.splice(existingIndex, 1);
+    } else {
+      // Pin: add desktop entry ID to array
+      pinnedApps.push(desktopEntryId);
+    }
+
+    // Update the settings
+    Settings.data.dock.pinnedApps = pinnedApps;
+  }
+
   // Function to update the combined model
   function updateCombinedModel() {
     const runningWindows = [];
@@ -118,6 +214,7 @@ Rectangle {
         if (passOutput && passWorkspace) {
           const isPinned = isAppIdPinned(w.appId, pinnedApps);
           runningWindows.push({
+                                "id": w.id,
                                 "type": isPinned ? "pinned-running" : "running",
                                 "window": w,
                                 "appId": w.appId,
@@ -137,6 +234,7 @@ Rectangle {
                            if (!processedAppIds.has(normalizedPinnedId)) {
                              const appName = getAppNameFromDesktopEntry(pinnedAppId);
                              runningWindows.push({
+                                                   "id": pinnedAppId,
                                                    "type": "pinned",
                                                    "window": null,
                                                    "appId": pinnedAppId,
@@ -203,20 +301,48 @@ Rectangle {
 
       var items = [];
       if (root.selectedWindow) {
+        // Focus item (for running apps)
         items.push({
-                     "label": I18n.tr("context-menu.activate-app", {
-                                        "app": root.selectedAppName
-                                      }),
-                     "action": "activate",
-                     "icon": "focus"
+                     "label": I18n.tr("dock.menu.focus"),
+                     "action": "focus",
+                     "icon": "eye"
                    });
+      }
+
+      // Pin/Unpin item (always available when right-clicking an app)
+      if (root.selectedWindow) {
+        const appId = root.selectedWindow.appId;
+        const isPinned = root.isAppPinned(appId);
         items.push({
-                     "label": I18n.tr("context-menu.close-app", {
-                                        "app": root.selectedAppName
-                                      }),
+                     "label": !isPinned ? I18n.tr("dock.menu.pin") : I18n.tr("dock.menu.unpin"),
+                     "action": "pin",
+                     "icon": !isPinned ? "pin" : "unpin"
+                   });
+      }
+
+      if (root.selectedWindow) {
+        // Close item (for running apps)
+        items.push({
+                     "label": I18n.tr("dock.menu.close"),
                      "action": "close",
                      "icon": "x"
                    });
+
+        // Add desktop entry actions (like "New Window", "Private Window", etc.)
+        if (typeof DesktopEntries !== 'undefined' && DesktopEntries.byId && root.selectedWindow?.appId) {
+          const appId = root.selectedWindow.appId;
+          const entry = (DesktopEntries.heuristicLookup) ? DesktopEntries.heuristicLookup(appId) : DesktopEntries.byId(appId);
+          if (entry != null && entry.actions) {
+            entry.actions.forEach(function (action) {
+              items.push({
+                           "label": action.name,
+                           "action": "desktop-action-" + action.name,
+                           "icon": "chevron-right",
+                           "desktopAction": action
+                         });
+            });
+          }
+        }
       }
       items.push({
                    "label": I18n.tr("context-menu.widget-settings"),
@@ -225,13 +351,18 @@ Rectangle {
                  });
       return items;
     }
-    onTriggered: action => {
-                   if (action === "activate" && selectedWindow) {
+    onTriggered: (action, item) => {
+                   if (action === "focus" && selectedWindow) {
                      CompositorService.focusWindow(selectedWindow);
+                   } else if (action === "pin" && selectedWindow) {
+                     root.toggleAppPin(selectedWindow.appId);
                    } else if (action === "close" && selectedWindow) {
                      CompositorService.closeWindow(selectedWindow);
                    } else if (action === "widget-settings") {
                      BarService.openWidgetSettings(screen, section, sectionWidgetIndex, widgetId, widgetSettings);
+                   } else if (action.startsWith("desktop-action-") && item && item.desktopAction) {
+                     // Execute desktop entry action
+                     item.desktopAction.execute();
                    }
                    selectedWindow = null;
                    selectedAppName = "";
@@ -275,7 +406,21 @@ Rectangle {
     }
   }
 
-  implicitWidth: visible ? (isVerticalBar ? Style.capsuleHeight : showTitle ? Math.round(taskbarLayout.implicitWidth) : Math.round(taskbarLayout.implicitWidth + Style.marginM * 2)) : 0
+  implicitWidth: {
+    if (!visible)
+      return 0;
+    if (isVerticalBar)
+      return Style.capsuleHeight;
+
+    var calculatedWidth = showTitle ? Math.round(taskbarLayout.implicitWidth) : Math.round(taskbarLayout.implicitWidth + Style.marginM * 2);
+
+    // Apply maximum width constraint when smartWidth is enabled
+    if (smartWidth && maxTaskbarWidth > 0) {
+      return Math.min(calculatedWidth, maxTaskbarWidth);
+    }
+
+    return calculatedWidth;
+  }
   implicitHeight: visible ? (isVerticalBar ? Math.round(taskbarLayout.implicitHeight + Style.marginM * 2) : Style.capsuleHeight) : 0
   radius: Style.radiusM
   color: Style.capsuleColor
@@ -308,22 +453,23 @@ Rectangle {
         readonly property bool isPinned: modelData.type === "pinned" || modelData.type === "pinned-running"
         readonly property bool isFocused: isRunning && modelData.window && modelData.window.isFocused
         readonly property bool isPinnedRunning: isPinned && isRunning && !isFocused
-
         readonly property bool isHovered: root.hoveredWindowId === modelData.id
+
+        readonly property bool shouldShowTitle: root.showTitle && modelData.type !== "pinned"
         readonly property real itemSpacing: Style.marginS
-        readonly property real contentWidth: root.showTitle ? root.itemSize + itemSpacing + root.titleWidth : root.itemSize
+        readonly property real contentWidth: shouldShowTitle ? root.itemSize + itemSpacing + root.titleWidth : root.itemSize
 
         readonly property string title: modelData.title || modelData.appId || "Unknown application"
-        readonly property color titleBgColor: (isHovered || modelData.isFocused) ? Color.mHover : Style.capsuleColor
-        readonly property color titleFgColor: (isHovered || modelData.isFocused) ? Color.mOnHover : Color.mOnSurface
+        readonly property color titleBgColor: (isHovered || isFocused) ? Color.mHover : Style.capsuleColor
+        readonly property color titleFgColor: (isHovered || isFocused) ? Color.mOnHover : Color.mOnSurface
 
-        Layout.preferredWidth: root.showTitle ? contentWidth + Style.marginM * 2 : contentWidth
+        Layout.preferredWidth: root.showTitle ? contentWidth + Style.marginM * 2 : contentWidth // Add margins for both pinned and running apps
         Layout.preferredHeight: root.itemSize
         Layout.alignment: Qt.AlignCenter
 
         Rectangle {
           id: titleBackground
-          visible: root.showTitle
+          visible: shouldShowTitle
           anchors.centerIn: parent
           width: parent.width
           height: root.height
@@ -361,7 +507,7 @@ Rectangle {
                 source: ThemeIcons.iconForAppId(taskbarItem.modelData.appId)
                 smooth: true
                 asynchronous: true
-                opacity: (root.showTitle || modelData.isFocused) ? Style.opacityFull : 0.6
+                opacity: (shouldShowTitle || taskbarItem.isFocused) ? Style.opacityFull : 0.6
 
                 // Apply dock shader to all taskbar icons
                 layer.enabled: widgetSettings.colorizeIcons !== false
@@ -375,20 +521,20 @@ Rectangle {
 
               Rectangle {
                 id: iconBackground
-                visible: !root.showTitle
+                visible: !shouldShowTitle
                 anchors.bottomMargin: -2
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: 4
                 height: 4
-                color: modelData.isFocused ? Color.mPrimary : Color.transparent
+                color: taskbarItem.isFocused ? Color.mPrimary : Color.transparent
                 radius: Math.min(Style.radiusXXS, width / 2)
               }
             }
 
             NText {
               id: titleText
-              visible: root.showTitle
+              visible: shouldShowTitle
               Layout.preferredWidth: root.titleWidth
               Layout.preferredHeight: root.itemSize
               Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
@@ -478,20 +624,48 @@ Rectangle {
       // Directly build and set model as a new array (bypass binding issues)
       var items = [];
       if (root.selectedWindow) {
+        // Focus item (for running apps)
         items.push({
-                     "label": I18n.tr("context-menu.activate-app", {
-                                        "app": root.selectedAppName
-                                      }),
-                     "action": "activate",
-                     "icon": "focus"
+                     "label": I18n.tr("dock.menu.focus"),
+                     "action": "focus",
+                     "icon": "eye"
                    });
+      }
+
+      // Pin/Unpin item (always available when right-clicking an app)
+      if (root.selectedWindow) {
+        const appId = root.selectedWindow.appId;
+        const isPinned = root.isAppPinned(appId);
         items.push({
-                     "label": I18n.tr("context-menu.close-app", {
-                                        "app": root.selectedAppName
-                                      }),
+                     "label": !isPinned ? I18n.tr("dock.menu.pin") : I18n.tr("dock.menu.unpin"),
+                     "action": "pin",
+                     "icon": !isPinned ? "pin" : "unpin"
+                   });
+      }
+
+      if (root.selectedWindow) {
+        // Close item (for running apps)
+        items.push({
+                     "label": I18n.tr("dock.menu.close"),
                      "action": "close",
                      "icon": "x"
                    });
+
+        // Add desktop entry actions (like "New Window", "Private Window", etc.)
+        if (typeof DesktopEntries !== 'undefined' && DesktopEntries.byId && root.selectedWindow?.appId) {
+          const appId = root.selectedWindow.appId;
+          const entry = (DesktopEntries.heuristicLookup) ? DesktopEntries.heuristicLookup(appId) : DesktopEntries.byId(appId);
+          if (entry != null && entry.actions) {
+            entry.actions.forEach(function (action) {
+              items.push({
+                           "label": action.name,
+                           "action": "desktop-action-" + action.name,
+                           "icon": "chevron-right",
+                           "desktopAction": action
+                         });
+            });
+          }
+        }
       }
       items.push({
                    "label": I18n.tr("context-menu.widget-settings"),

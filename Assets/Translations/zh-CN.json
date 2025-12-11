@@ -354,6 +354,10 @@
           "description": "当没有匹配的窗口时控制小部件的行为。",
           "label": "隐藏模式"
         },
+        "max-width": {
+          "description": "任务栏的最大宽度（占屏幕宽度的百分比）。",
+          "label": "最大宽度"
+        },
         "only-active-workspaces": {
           "description": "仅显示来自活动工作区的应用程序",
           "label": "仅显示活动工作区"
@@ -370,6 +374,10 @@
           "description": "在任务栏中显示窗口标题。",
           "description-disabled": "垂直任务栏不支持显示标题。",
           "label": "显示标题"
+        },
+        "smart-width": {
+          "description": "根据条目数量自动调整条目宽度。",
+          "label": "智能宽度"
         },
         "title-width": {
           "description": "设置任务栏中窗口标题的宽度（以像素为单位）。",
@@ -506,7 +514,7 @@
     }
   },
   "clock": {
-    "tooltip": "打开日历"
+    "tooltip": "时钟"
   },
   "common": {
     "add": "添加",
@@ -877,7 +885,6 @@
         }
       },
       "noctalia": {
-        "download-latest": "下载最新版本",
         "git-commit": "Git提交:",
         "git-commit-loading": "加载中...",
         "installed-version": "已安装版本：",
@@ -1477,7 +1484,7 @@
           "label": "个人资料"
         },
         "select-avatar": "选择头像图片",
-        "tooltip": "浏览头像图片"
+        "tooltip": "头像"
       },
       "screen-corners": {
         "radius": {
@@ -1973,7 +1980,7 @@
         "output-folder": {
           "description": "屏幕录制将保存的文件夹。",
           "label": "输出文件夹",
-          "tooltip": "浏览输出文件夹"
+          "tooltip": "输出文件夹"
         },
         "section": {
           "description": "管理屏幕录制输出和内容。",
@@ -2259,7 +2266,7 @@
         "folder": {
           "description": "您的主壁纸文件夹路径。",
           "label": "壁纸文件夹",
-          "tooltip": "浏览壁纸文件夹"
+          "tooltip": "壁纸文件夹"
         },
         "hide-wallpaper-filenames": {
           "description": "在选择器中隐藏壁纸文件名。",
@@ -2268,7 +2275,7 @@
         "monitor-specific": {
           "description": "为每个显示器设置不同的壁纸文件夹。",
           "label": "显示器特定目录",
-          "tooltip": "浏览壁纸文件夹"
+          "tooltip": "显示器壁纸文件夹"
         },
         "recursive-search": {
           "description": "同时在壁纸目录的子文件夹中搜索壁纸。",
@@ -2283,7 +2290,7 @@
         "selector": {
           "description": "选择你的壁纸。",
           "label": "壁纸选择器",
-          "tooltip": "打开壁纸选择器"
+          "tooltip": "壁纸选择器"
         },
         "selector-position": {
           "description": "选择壁纸选择面板的显示位置。",
@@ -2447,7 +2454,7 @@
     "clear-history": "清除历史记录",
     "click-to-start-recording": "屏幕录制器（开始录制）",
     "click-to-stop-recording": "屏幕录制器（停止录制）",
-    "close": "关闭按钮",
+    "close": "关闭",
     "connect-disconnect-devices": "蓝牙设备",
     "delete-notification": "删除通知",
     "disable-keep-awake": "保持唤醒",
@@ -2484,8 +2491,8 @@
     "open-tray-dropdown": "系统托盘",
     "open-wallpaper-selector": "壁纸选择器",
     "output-muted": "音频输出",
-    "pause": "暂停按钮",
-    "play": "播放按钮",
+    "pause": "暂停",
+    "play": "播放",
     "power-profile": "{profile} 电源模式",
     "previous-media": "上一首",
     "previous-month": "上个月",

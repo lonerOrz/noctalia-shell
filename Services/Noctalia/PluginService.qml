@@ -34,6 +34,10 @@ Singleton {
   // Plugin updates available: { pluginId: { currentVersion, availableVersion } }
   property var pluginUpdates: ({})
 
+  // Plugin load errors: { pluginId: { error: string, entryPoint: string, timestamp: date } }
+  property var pluginErrors: ({})
+  signal pluginLoadError(string pluginId, string entryPoint, string error)
+
   // Track active fetches
   property var activeFetches: ({})
 
@@ -158,21 +162,17 @@ Singleton {
     }
   }
 
-  // Fetch plugin registry from a source
+  // Fetch plugin registry from a source using git sparse-checkout
   function fetchPluginRegistry(source) {
-    var rawUrl = source.url + "/refs/heads/main/registry.json";
-    var registryUrl = rawUrl.replace("github.com", "raw.githubusercontent.com");
+    var repoUrl = source.url;
 
-    Logger.d("PluginService", "Fetching registry from:", registryUrl);
+    Logger.d("PluginService", "Fetching registry from:", repoUrl);
 
-    var fetchProcess = Qt.createQmlObject(`
-      import QtQuick
-      import Quickshell.Io
-      Process {
-        command: ["sh", "-c", "curl -L -s '${registryUrl}' || wget -q -O- '${registryUrl}'"]
-        stdout: StdioCollector {}
-      }
-    `, root, "FetchRegistry_" + Date.now());
+    // Use git sparse-checkout to fetch only registry.json (--no-cone for single file)
+    // GIT_TERMINAL_PROMPT=0 prevents hanging on private repos that need auth
+    var fetchCmd = "temp_dir=$(mktemp -d) && GIT_TERMINAL_PROMPT=0 git clone --filter=blob:none --sparse --depth=1 --quiet '" + repoUrl + "' \"$temp_dir\" 2>/dev/null && cd \"$temp_dir\" && git sparse-checkout set --no-cone /registry.json 2>/dev/null && cat \"$temp_dir/registry.json\"; rm -rf \"$temp_dir\"";
+
+    var fetchProcess = Qt.createQmlObject('import QtQuick; import Quickshell.Io; Process { command: ["sh", "-c", "' + fetchCmd.replace(/"/g, '\\"') + '"]; stdout: StdioCollector {} }', root, "FetchRegistry_" + Date.now());
 
     activeFetches[source.url] = fetchProcess;
 
@@ -228,7 +228,7 @@ Singleton {
     fetchProcess.running = true;
   }
 
-  // Download and install a plugin
+  // Download and install a plugin using git sparse-checkout
   function installPlugin(pluginMetadata, callback) {
     var pluginId = pluginMetadata.id;
     var source = pluginMetadata.source;
@@ -237,23 +237,13 @@ Singleton {
 
     var pluginDir = PluginRegistry.getPluginDir(pluginId);
     var repoUrl = source.url;
-    var pluginPath = pluginId;
 
-    // Download plugin folder from GitHub
-    var downloadCmd = `
-      mkdir -p '${pluginDir}' &&
-      cd '${pluginDir}' &&
-      (curl -L -s '${repoUrl}/archive/refs/heads/main.tar.gz' | tar -xz --strip-components=2 --wildcards '*/${pluginPath}/*' ||
-       wget -q -O- '${repoUrl}/archive/refs/heads/main.tar.gz' | tar -xz --strip-components=2 --wildcards '*/${pluginPath}/*')
-    `;
+    // Use git sparse-checkout to clone only the plugin subfolder
+    // GIT_TERMINAL_PROMPT=0 prevents hanging on private repos that need auth
+    var downloadCmd = "temp_dir=$(mktemp -d) && GIT_TERMINAL_PROMPT=0 git clone --filter=blob:none --sparse --depth=1 --quiet '" + repoUrl + "' \"$temp_dir\" 2>/dev/null && cd \"$temp_dir\" && git sparse-checkout set '" + pluginId + "' 2>/dev/null && mkdir -p '" + pluginDir + "' && cp -r \"$temp_dir/" + pluginId + "/.\" '" + pluginDir
+        + "/'; exit_code=$?; rm -rf \"$temp_dir\"; exit $exit_code";
 
-    var downloadProcess = Qt.createQmlObject(`
-      import QtQuick
-      import Quickshell.Io
-      Process {
-        command: ["sh", "-c", "${downloadCmd}"]
-      }
-    `, root, "DownloadPlugin_" + pluginId);
+    var downloadProcess = Qt.createQmlObject('import QtQuick; import Quickshell.Io; Process { command: ["sh", "-c", "' + downloadCmd.replace(/"/g, '\\"') + '"] }', root, "DownloadPlugin_" + pluginId);
 
     downloadProcess.exited.connect(function (exitCode) {
       if (exitCode === 0) {
@@ -476,6 +466,9 @@ Singleton {
       manifest: manifest
     };
 
+    // Clear any previous errors for this plugin
+    root.clearPluginError(pluginId);
+
     // Load Main.qml entry point if it exists
     if (manifest.entryPoints && manifest.entryPoints.main) {
       var mainPath = pluginDir + "/" + manifest.entryPoints.main;
@@ -503,10 +496,10 @@ Singleton {
           pluginApi.mainInstance = mainInstance;
           Logger.i("PluginService", "Loaded Main.qml for plugin:", pluginId);
         } else {
-          Logger.e("PluginService", "Failed to instantiate Main.qml for:", pluginId);
+          root.recordPluginError(pluginId, "main", "Failed to instantiate Main.qml");
         }
       } else if (mainComponent.status === Component.Error) {
-        Logger.e("PluginService", "Failed to load Main.qml:", mainComponent.errorString());
+        root.recordPluginError(pluginId, "main", mainComponent.errorString());
       }
     }
 
@@ -523,7 +516,7 @@ Singleton {
         BarWidgetRegistry.registerPluginWidget(pluginId, widgetComponent, manifest.metadata);
         Logger.i("PluginService", "Loaded bar widget for plugin:", pluginId);
       } else if (widgetComponent.status === Component.Error) {
-        Logger.e("PluginService", "Failed to load bar widget component:", widgetComponent.errorString());
+        root.recordPluginError(pluginId, "barWidget", widgetComponent.errorString());
       }
     }
 
@@ -1093,5 +1086,35 @@ Singleton {
 
     Logger.e("PluginService", "Failed to find plugin panel slot");
     return false;
+  }
+
+  // ----- Error tracking functions -----
+
+  function recordPluginError(pluginId, entryPoint, errorMessage) {
+    var errors = Object.assign({}, root.pluginErrors);
+    errors[pluginId] = {
+      error: errorMessage,
+      entryPoint: entryPoint,
+      timestamp: new Date()
+    };
+    root.pluginErrors = errors;
+    root.pluginLoadError(pluginId, entryPoint, errorMessage);
+    Logger.e("PluginService", "Plugin load error [" + pluginId + "/" + entryPoint + "]:", errorMessage);
+  }
+
+  function clearPluginError(pluginId) {
+    if (pluginId in root.pluginErrors) {
+      var errors = Object.assign({}, root.pluginErrors);
+      delete errors[pluginId];
+      root.pluginErrors = errors;
+    }
+  }
+
+  function getPluginError(pluginId) {
+    return root.pluginErrors[pluginId] || null;
+  }
+
+  function hasPluginError(pluginId) {
+    return pluginId in root.pluginErrors;
   }
 }

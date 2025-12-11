@@ -118,7 +118,7 @@ ColumnLayout {
           NIcon {
             icon: "plugin"
             pointSize: Style.fontSizeXL
-            color: Color.mOnSurface
+            color: PluginService.hasPluginError(modelData.id) ? Color.mError : Color.mOnSurface
           }
 
           ColumnLayout {
@@ -165,6 +165,29 @@ ColumnLayout {
                 text: stripAuthorEmail(modelData.author)
                 font.pointSize: Style.fontSizeXXS
                 color: Color.mOnSurfaceVariant
+              }
+            }
+
+            // Error indicator
+            RowLayout {
+              spacing: Style.marginS
+              visible: PluginService.hasPluginError(modelData.id)
+
+              NIcon {
+                icon: "alert-triangle"
+                pointSize: Style.fontSizeS
+                color: Color.mError
+              }
+
+              NText {
+                property var errorInfo: PluginService.getPluginError(modelData.id)
+                text: errorInfo ? errorInfo.error : ""
+                font.pointSize: Style.fontSizeXXS
+                color: Color.mError
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                elide: Text.ElideRight
+                maximumLineCount: 3
               }
             }
           }
@@ -285,22 +308,35 @@ ColumnLayout {
 
           ColumnLayout {
             spacing: Style.marginS
+            Layout.fillWidth: true
 
             NText {
               text: modelData.name
               font.weight: Font.Medium
               color: Color.mOnSurface
+              Layout.fillWidth: true
             }
 
             NText {
               text: modelData.url
               font.pointSize: Style.fontSizeS
               color: Color.mOnSurfaceVariant
+              Layout.fillWidth: true
             }
           }
 
           Item {
             Layout.fillWidth: true
+          }
+
+          NIconButton {
+            icon: "trash"
+            tooltipText: I18n.tr("settings.plugins.sources.remove.tooltip")
+            visible: index !== 0 // Cannot remove official source
+            baseSize: Style.baseWidgetSize * 0.7
+            onClicked: {
+              PluginRegistry.removePluginSource(modelData.url);
+            }
           }
 
           // Enable/Disable a source
@@ -311,16 +347,6 @@ ColumnLayout {
               PluginRegistry.setSourceEnabled(modelData.url, checked);
               PluginService.refreshAvailablePlugins();
               ToastService.showNotice(I18n.tr("settings.plugins.refresh.refreshing"));
-            }
-          }
-
-          NIconButton {
-            icon: "trash"
-            tooltipText: I18n.tr("settings.plugins.sources.remove.tooltip")
-            visible: index !== 0 // Cannot remove official source
-            baseSize: Style.baseWidgetSize * 0.7
-            onClicked: {
-              PluginRegistry.removePluginSource(modelData.url);
             }
           }
         }
@@ -383,7 +409,7 @@ ColumnLayout {
     NIconButton {
       icon: "refresh"
       tooltipText: I18n.tr("settings.plugins.refresh.tooltip")
-      baseSize: Style.baseWidgetSize * 0.9
+      baseSize: Style.baseWidgetSize * 0.8
       onClicked: {
         PluginService.refreshAvailablePlugins();
         checkUpdatesTimer.restart();
@@ -513,7 +539,7 @@ ColumnLayout {
           // Install/Uninstall button
           NIconButton {
             icon: modelData.downloaded ? "trash" : "download"
-            baseSize: Style.baseWidgetSize * 0.9
+            baseSize: Style.baseWidgetSize * 0.7
             tooltipText: modelData.downloaded ? I18n.tr("settings.plugins.uninstall") : I18n.tr("settings.plugins.install")
             onClicked: {
               if (modelData.downloaded) {
