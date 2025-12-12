@@ -721,6 +721,11 @@
       "hover": "Beim Hover Scrollen",
       "never": "Nie Scrollen"
     },
+    "settings-panel-mode": {
+      "attached": "An Platte an einer Stange befestigt",
+      "centered": "Zentriertes Feld",
+      "window": "Eigenes Fenster"
+    },
     "shadow-direction": {
       "bottom": "Unten",
       "bottom_left": "Unten links",
@@ -2194,9 +2199,9 @@
         "description": "Passen Sie das Aussehen, die Haptik und das Verhalten der Benutzeroberfläche an.",
         "label": "Aussehen"
       },
-      "settings-panel-attached-to-bar": {
-        "description": "Richten Sie das Einstellungsfenster an der Leiste aus, um ein einheitliches Erscheinungsbild zu erhalten.",
-        "label": "Einstellungsfenster an Leiste ausrichten"
+      "settings-panel-mode": {
+        "description": "Wähle das Layout der Einstellungen (möglicherweise ist ein Neustart erforderlich).",
+        "label": "Einstellungsfeldmodus"
       },
       "shadows": {
         "description": "Aktiviert Schlagschatten unter Balken und Panels.",
@@ -2467,7 +2472,7 @@
     "hidden-files-hide": "Versteckte Dateien",
     "hidden-files-show": "Versteckte Dateien",
     "home": "Home-Verzeichnis",
-    "input-muted": "Mikrofon",
+    "input-muted": "Eingangsstummschaltung umschalten",
     "keep-awake": "Wach halten",
     "keyboard-layout": "{layout} Tastaturlayout",
     "list-view": "Listenansicht",
@@ -2491,7 +2496,7 @@
     "open-settings": "Einstellungen",
     "open-tray-dropdown": "System-Tray",
     "open-wallpaper-selector": "Hintergrundbild-Auswahl",
-    "output-muted": "Audio-Ausgabe",
+    "output-muted": "Ausgabe stummschalten",
     "pause": "Pause",
     "play": "Wiedergabe",
     "power-profile": "{profile} Energieprofil",

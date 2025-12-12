@@ -703,6 +703,11 @@
       "hover": "Scroll on hover",
       "never": "Never scroll"
     },
+    "settings-panel-mode": {
+      "attached": "Panel attached to bar",
+      "centered": "Centered panel",
+      "window": "Separate window"
+    },
     "shadow-direction": {
       "bottom": "Below",
       "bottom_left": "Bottom left",
@@ -2170,9 +2175,9 @@
         "description": "Customize the look, feel, and behavior of the interface.",
         "label": "Appearance"
       },
-      "settings-panel-attached-to-bar": {
-        "description": "Keep the settings window aligned with the bar for a unified look.",
-        "label": "Snap settings window to bar"
+      "settings-panel-mode": {
+        "description": "Choose settings layout (may require reopening).",
+        "label": "Settings panel mode"
       },
       "shadows": {
         "description": "Enables drop shadows under bars and panels.",
@@ -2439,7 +2444,7 @@
     "hidden-files-hide": "Hidden files",
     "hidden-files-show": "Hidden files",
     "home": "Home directory",
-    "input-muted": "Microphone",
+    "input-muted": "Toggle input mute",
     "keep-awake": "Keep Awake",
     "keyboard-layout": "{layout} keyboard layout",
     "list-view": "List view",
@@ -2463,7 +2468,7 @@
     "open-settings": "Settings",
     "open-tray-dropdown": "System tray",
     "open-wallpaper-selector": "Wallpaper selector",
-    "output-muted": "Audio output",
+    "output-muted": "Toggle output mute",
     "pause": "Pause",
     "play": "Play",
     "power-profile": "{profile} power profile",

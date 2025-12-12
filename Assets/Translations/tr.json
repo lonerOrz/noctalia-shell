@@ -722,6 +722,11 @@
       "hover": "Üzerine Gelince Kaydır",
       "never": "Asla Kaydırma"
     },
+    "settings-panel-mode": {
+      "attached": "Çubuğa bağlı panel",
+      "centered": "Ortalanmış panel",
+      "window": "Ayrı pencere"
+    },
     "shadow-direction": {
       "bottom": "Alt",
       "bottom_left": "Sol alt",
@@ -2193,9 +2198,9 @@
         "description": "Arayüzün görünümünü, hissini ve davranışını özelleştirin.",
         "label": "Görünüm"
       },
-      "settings-panel-attached-to-bar": {
-        "description": "Ayarlar penceresini çubukla hizalayarak tutarlı bir görünüm sağlayın.",
-        "label": "Ayarlar penceresini çubuğa hizala"
+      "settings-panel-mode": {
+        "description": "Ayarlar düzenini seçin (yeniden açılması gerekebilir).",
+        "label": "Ayarlar paneli modu"
       },
       "shadows": {
         "description": "Çubukların ve panellerin altında gölgelerin etkinleştirilmesini sağlar.",
@@ -2466,7 +2471,7 @@
     "hidden-files-hide": "Gizli dosyalar",
     "hidden-files-show": "Gizli dosyalar",
     "home": "Ana dizin",
-    "input-muted": "Mikrofon",
+    "input-muted": "Giriş sesini kapat/aç",
     "keep-awake": "Uyanık kal",
     "keyboard-layout": "{layout} klavye düzeni",
     "list-view": "Liste görünümü",
@@ -2490,7 +2495,7 @@
     "open-settings": "Ayarlar",
     "open-tray-dropdown": "Sistem tepsisi",
     "open-wallpaper-selector": "Duvar kâğıdı seçici",
-    "output-muted": "Ses çıkışı",
+    "output-muted": "Çıktı sesini kapat/aç",
     "pause": "Duraklat",
     "play": "Oynat",
     "power-profile": "{profile} güç profili",

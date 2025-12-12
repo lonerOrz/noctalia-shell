@@ -722,6 +722,11 @@
       "hover": "悬停时滚动",
       "never": "从不滚动"
     },
+    "settings-panel-mode": {
+      "attached": "连接到杆的面板",
+      "centered": "居中面板",
+      "window": "分离窗口"
+    },
     "shadow-direction": {
       "bottom": "下方",
       "bottom_left": "左下",
@@ -2193,9 +2198,9 @@
         "description": "自定义界面的外观、感觉和行为。",
         "label": "外观"
       },
-      "settings-panel-attached-to-bar": {
-        "description": "使设置窗口与边栏保持对齐，实现统一的外观。",
-        "label": "将设置窗口贴合边栏"
+      "settings-panel-mode": {
+        "description": "选择设置布局（可能需要重新打开）。",
+        "label": "设置面板模式"
       },
       "shadows": {
         "description": "启用条形图和面板下的阴影。",
@@ -2466,7 +2471,7 @@
     "hidden-files-hide": "隐藏文件",
     "hidden-files-show": "隐藏文件",
     "home": "主目录",
-    "input-muted": "麦克风",
+    "input-muted": "切换输入静音",
     "keep-awake": "保持唤醒",
     "keyboard-layout": "{layout} 键盘布局",
     "list-view": "列表视图",
@@ -2490,7 +2495,7 @@
     "open-settings": "设置",
     "open-tray-dropdown": "系统托盘",
     "open-wallpaper-selector": "壁纸选择器",
-    "output-muted": "音频输出",
+    "output-muted": "切换输出静音",
     "pause": "暂停",
     "play": "播放",
     "power-profile": "{profile} 电源模式",
