@@ -357,8 +357,9 @@ Item {
         acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
 
         onClicked: mouse => {
-                     if (mouse.button === Qt.LeftButton && hasPlayer && MediaService.canPlay) {
-                       MediaService.playPause();
+                     if (mouse.button === Qt.LeftButton && hasPlayer) {
+                       var mediapanelPanel = PanelService.getPanel("mediaPanel", screen);
+                       mediapanelPanel?.toggle(root);
                      } else if (mouse.button === Qt.RightButton) {
                        TooltipService.hide();
                        var popupWindow = PanelService.getPopupMenuWindow(screen);

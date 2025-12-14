@@ -15,13 +15,13 @@ SmartPanel {
   id: root
 
   // Position similar to other panels, not directly attached to bar
-  panelAnchorHorizontalCenter: true
+  panelAnchorHorizontalCenter: false
   panelAnchorVerticalCenter: false
   panelAnchorLeft: false
   panelAnchorRight: false
-  panelAnchorBottom: true
+  panelAnchorBottom: false
   panelAnchorTop: false
-  forceAttachToBar: false
+  forceAttachToBar: true
 
   // Set a reasonable size for the card
   preferredWidth: Math.round(460 * Style.uiScaleRatio)
