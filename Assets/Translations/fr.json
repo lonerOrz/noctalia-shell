@@ -328,6 +328,10 @@
           "description": "Sélectionnez le point de montage du disque à surveiller.",
           "label": "Chemin du disque"
         },
+        "gpu-temperature": {
+          "description": "Afficher les relevés de température du GPU, si disponibles.",
+          "label": "Température du GPU"
+        },
         "memory-percentage": {
           "description": "Afficher l'utilisation de la mémoire en pourcentage au lieu de valeurs absolues.",
           "label": "Mémoire en pourcentage"
@@ -362,9 +366,9 @@
           "description": "Afficher uniquement les applications des espaces de travail actifs.",
           "label": "Seulement depuis les espaces de travail actifs."
         },
-        "only-same-output": {
-          "description": "Afficher uniquement les applications de la sortie où la barre est située.",
-          "label": "Seulement à partir de la même sortie"
+        "only-same-monitor": {
+          "description": "Afficher uniquement les applications de l'écran où se trouve la barre.",
+          "label": "Seulement à partir du même écran."
         },
         "show-pinned-apps": {
           "description": "Afficher les applications épinglées du dock dans la barre des tâches.",
@@ -383,12 +387,6 @@
           "description": "Définir la largeur des titres de fenêtres dans la barre des tâches (en pixels).",
           "label": "Largeur du titre",
           "reset-tooltip": "Réinitialiser la largeur du titre"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "Afficher uniquement l'étiquette de l'espace de travail pour les espaces de travail qui ont des fenêtres ouvertes.",
-          "label": "Afficher l'étiquette uniquement lorsque c'est occupé."
         }
       },
       "tray": {
@@ -427,6 +425,14 @@
         "label-mode": {
           "description": "Choisir comment les étiquettes d'espace de travail sont affichées.",
           "label": "Mode d'étiquette"
+        },
+        "show-applications": {
+          "description": "Afficher les icônes des applications dans chaque espace de travail.",
+          "label": "Afficher les applications"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "Afficher uniquement les étiquettes d'espace de travail lorsqu'elles contiennent des fenêtres.",
+          "label": "Afficher les étiquettes uniquement lorsque le champ est occupé."
         }
       }
     }
@@ -1168,6 +1174,10 @@
             "description": "Écrire {filepath} pour {client}",
             "description-missing": "Aucun client Discord détecté. Installez vencord, vesktop, webcord, armcord, equibop, lightcord ou dorion."
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\nStandard: ~/.emacs.d/themes/noctalia.el\n\nAppliquer manuellement: (load-theme 'noctalia t)",
+            "description-missing": "Nécessite l'installation de {app}"
+          },
           "fuzzel": {
             "description": "Écrire ~/.config/fuzzel/themes/noctalia et recharger",
             "description-missing": "Nécessite que le lanceur fuzzel soit installé"
@@ -1192,6 +1202,10 @@
           "walker": {
             "description": "Écrire {filepath} et définir le thème sur noctalia",
             "description-missing": "Nécessite que le lanceur {app} soit installé"
+          },
+          "yazi": {
+            "description": "Écrire dans {filepath}. La saveur doit être activée manuellement.",
+            "description-missing": "Nécessite l'installation de {app}"
           }
         },
         "section": {
@@ -1428,9 +1442,9 @@
         "label": "Activer le dock"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "Afficher uniquement les applications de la sortie où le dock est situé.",
-          "label": "Seulement les applications de la même sortie"
+        "only-same-monitor": {
+          "description": "Afficher uniquement les applications de l'écran où se trouve le dock.",
+          "label": "Seulement les applications du même écran."
         },
         "section": {
           "description": "Afficher le dock sur des écrans spécifiques. Par défaut, il s'affiche sur tous les écrans si aucun n'est sélectionné.",
@@ -2074,14 +2088,8 @@
       "title": "Menu de session"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "Seuil critique"
-      },
       "cpu-section": {
         "label": "Utilisation CPU"
-      },
-      "cpu-warning-threshold": {
-        "label": "Seuil d'avertissement"
       },
       "critical-color": {
         "label": "Couleur critique"
@@ -2089,14 +2097,8 @@
       "custom-highlight-colors-title": {
         "label": "Couleurs de surbrillance personnalisées"
       },
-      "disk-critical-threshold": {
-        "label": "Seuil critique"
-      },
       "disk-section": {
         "label": "Utilisation disque"
-      },
-      "disk-warning-threshold": {
-        "label": "Seuil d'avertissement"
       },
       "general": {
         "section": {
@@ -2104,14 +2106,11 @@
           "label": "Général"
         }
       },
+      "gpu-section": {
+        "label": "Température du GPU"
+      },
       "highlight-colors-section": {
         "label": "Couleurs de surlignage"
-      },
-      "mem-critical-threshold": {
-        "label": "Seuil critique"
-      },
-      "mem-warning-threshold": {
-        "label": "Seuil d'avertissement"
       },
       "memory-section": {
         "label": "Utilisation mémoire"
@@ -2122,14 +2121,12 @@
       "polling-interval": {
         "label": "Intervalle d'interrogation"
       },
-      "temp-critical-threshold": {
-        "label": "Seuil critique"
-      },
-      "temp-warning-threshold": {
-        "label": "Seuil d'avertissement"
-      },
       "temperature-section": {
         "label": "Température CPU"
+      },
+      "threshold": {
+        "critical": "Seuil critique",
+        "warning": "Seuil d'alerte"
       },
       "thresholds-section": {
         "description": "Ajustez les seuils d’avertissement/critiques et les intervalles d’interrogation pour chaque métrique système.",
@@ -2460,12 +2457,14 @@
     "click-to-start-recording": "Enregistreur d'écran (démarrer l'enregistrement)",
     "click-to-stop-recording": "Enregistreur d'écran (arrêter l'enregistrement)",
     "close": "Fermer",
+    "collapse": "Réduire la barre latérale",
     "connect-disconnect-devices": "Appareil Bluetooth",
     "delete-notification": "Supprimer la notification",
     "disable-keep-awake": "Rester éveillé",
     "do-not-disturb-disabled": "Ne pas déranger",
     "do-not-disturb-enabled": "Ne pas déranger",
     "enable-keep-awake": "Rester éveillé",
+    "expand": "Développer la barre latérale",
     "forget-network": "Oublier le réseau",
     "grid-view": "Vue en grille",
     "hidden-files-hide": "Fichiers cachés",

@@ -328,6 +328,10 @@
           "description": "Виберіть точку монтування диска для моніторингу.",
           "label": "Шлях до диска"
         },
+        "gpu-temperature": {
+          "description": "Показувати показники температури GPU, якщо доступні.",
+          "label": "Температура GPU"
+        },
         "memory-percentage": {
           "description": "Показувати використання пам'яті у відсотках замість абсолютних значень.",
           "label": "Пам'ять у відсотках"
@@ -362,9 +366,9 @@
           "description": "Показувати тільки застосунки з активних робочих просторів.",
           "label": "Тільки з активних робочих просторів"
         },
-        "only-same-output": {
-          "description": "Показувати тільки застосунки з виходу, де розташована панель.",
-          "label": "Тільки з того ж виходу"
+        "only-same-monitor": {
+          "description": "Показувати лише застосунки з монітора, де розташована панель.",
+          "label": "Тільки з того ж монітора"
         },
         "show-pinned-apps": {
           "description": "Показувати закріплені програми з док-панелі на панелі завдань.",
@@ -383,12 +387,6 @@
           "description": "Встановити ширину заголовків вікон на панелі завдань (у пікселях).",
           "label": "Ширина заголовка",
           "reset-tooltip": "Скинути ширину заголовка"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "Показувати мітку робочого простору лише для робочих просторів, які мають відкриті вікна.",
-          "label": "Показувати мітку лише коли зайнято"
         }
       },
       "tray": {
@@ -427,6 +425,14 @@
         "label-mode": {
           "description": "Виберіть, як відображаються мітки робочих просторів.",
           "label": "Режим міток"
+        },
+        "show-applications": {
+          "description": "Відображати значки програм у кожному робочому просторі.",
+          "label": "Показати застосунки"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "Показувати мітки робочих просторів лише тоді, коли вони містять вікна.",
+          "label": "Показувати мітки лише коли поле заповнене"
         }
       }
     }
@@ -1168,6 +1174,10 @@
             "description": "Записати {filepath} для {client}. Тему Hyprluna потрібно активувати вручну.",
             "description-missing": "Клієнт Discord не виявлено. Встановіть vencord, vesktop, webcord, armcord, equibop, lightcord або dorion."
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\nСтандартний: ~/.emacs.d/themes/noctalia.el\n\nЗастосувати вручну: (load-theme 'noctalia t)",
+            "description-missing": "Потрібно встановити {app}"
+          },
           "fuzzel": {
             "description": "Записати {filepath} та перезавантажити",
             "description-missing": "Потрібна установка {app}"
@@ -1192,6 +1202,10 @@
           "walker": {
             "description": "Записати {filepath} та встановити тему noctalia",
             "description-missing": "Потрібна установка {app}"
+          },
+          "yazi": {
+            "description": "Записати {filepath}. Смак потрібно активувати вручну.",
+            "description-missing": "Потрібно встановити {app}"
           }
         },
         "section": {
@@ -1428,9 +1442,9 @@
         "label": "Увімкнути док"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "Показувати тільки застосунки з виходу, де розташований док.",
-          "label": "Тільки застосунки з того ж виходу"
+        "only-same-monitor": {
+          "description": "Показувати лише застосунки з монітора, де розташовано Dock.",
+          "label": "Лише застосунки з того ж монітора"
         },
         "section": {
           "description": "Показувати док на певних моніторах. За замовчуванням на всіх, якщо не вибрано.",
@@ -2074,14 +2088,8 @@
       "title": "Меню сеансу"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "Критичний поріг"
-      },
       "cpu-section": {
         "label": "Використання ЦП"
-      },
-      "cpu-warning-threshold": {
-        "label": "Поріг попередження"
       },
       "critical-color": {
         "label": "Критичний колір"
@@ -2089,14 +2097,8 @@
       "custom-highlight-colors-title": {
         "label": "Власні кольори підсвічування"
       },
-      "disk-critical-threshold": {
-        "label": "Критичний поріг"
-      },
       "disk-section": {
         "label": "Використання диска"
-      },
-      "disk-warning-threshold": {
-        "label": "Поріг попередження"
       },
       "general": {
         "section": {
@@ -2104,14 +2106,11 @@
           "label": "Загальне"
         }
       },
+      "gpu-section": {
+        "label": "Температура GPU"
+      },
       "highlight-colors-section": {
         "label": "Кольори підсвічування"
-      },
-      "mem-critical-threshold": {
-        "label": "Критичний поріг"
-      },
-      "mem-warning-threshold": {
-        "label": "Поріг попередження"
       },
       "memory-section": {
         "label": "Використання пам'яті"
@@ -2122,14 +2121,12 @@
       "polling-interval": {
         "label": "Інтервал опитування"
       },
-      "temp-critical-threshold": {
-        "label": "Критичний поріг"
-      },
-      "temp-warning-threshold": {
-        "label": "Поріг попередження"
-      },
       "temperature-section": {
         "label": "Температура ЦП"
+      },
+      "threshold": {
+        "critical": "Критичний поріг",
+        "warning": "Порогове значення попередження"
       },
       "thresholds-section": {
         "description": "Налаштуйте пороги попередження/критичні пороги та інтервали опитування для кожного системного показника.",
@@ -2460,12 +2457,14 @@
     "click-to-start-recording": "Запис екрана (почати запис)",
     "click-to-stop-recording": "Запис екрана (зупинити запис)",
     "close": "Закрити",
+    "collapse": "Згорнути бічну панель",
     "connect-disconnect-devices": "Пристрій Bluetooth",
     "delete-notification": "Видалити сповіщення",
     "disable-keep-awake": "Заборона сну",
     "do-not-disturb-disabled": "Не турбувати",
     "do-not-disturb-enabled": "Не турбувати",
     "enable-keep-awake": "Заборона сну",
+    "expand": "Розгорнути бічну панель",
     "forget-network": "Забути мережу",
     "grid-view": "Мережевий вигляд",
     "hidden-files-hide": "Приховані файли",

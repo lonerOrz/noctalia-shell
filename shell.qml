@@ -100,11 +100,9 @@ ShellRoot {
         IdleInhibitorService.init();
         PowerProfileService.init();
         HostService.init();
-        FontService.init();
         GitHubService.init();
-        UpdateService.init();
-        UpdateService.showLatestChangelog();
 
+        delayedInitTimer.running = true;
         checkSetupWizard();
       }
 
@@ -148,12 +146,26 @@ ShellRoot {
   }
 
   // ---------------------------------------------
+  // Delayed timer
+  // ---------------------------------------------
+  Timer {
+    id: delayedInitTimer
+    running: false
+    interval: 1500
+    onTriggered: {
+      FontService.init();
+      UpdateService.init();
+      UpdateService.showLatestChangelog();
+    }
+  }
+
+  // ---------------------------------------------
   // Setup Wizard
   // ---------------------------------------------
   Timer {
     id: setupWizardTimer
     running: false
-    interval: 1000
+    interval: 2000
     onTriggered: {
       showSetupWizard();
     }

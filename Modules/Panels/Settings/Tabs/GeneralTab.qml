@@ -91,9 +91,7 @@ ColumnLayout {
         searchPlaceholder: I18n.tr("settings.general.fonts.default.search-placeholder")
         popupHeight: 420
         minimumWidth: 300
-        onSelected: function (key) {
-          Settings.data.ui.fontDefault = key;
-        }
+        onSelected: key => Settings.data.ui.fontDefault = key
       }
 
       NSearchableComboBox {
@@ -105,9 +103,7 @@ ColumnLayout {
         searchPlaceholder: I18n.tr("settings.general.fonts.monospace.search-placeholder")
         popupHeight: 320
         minimumWidth: 300
-        onSelected: function (key) {
-          Settings.data.ui.fontFixed = key;
-        }
+        onSelected: key => Settings.data.ui.fontFixed = key
       }
 
       ColumnLayout {

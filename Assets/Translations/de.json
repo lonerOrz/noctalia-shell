@@ -328,6 +328,10 @@
           "description": "Wählen Sie den Festplatten-Mountpunkt aus, der überwacht werden soll.",
           "label": "Festplattenpfad"
         },
+        "gpu-temperature": {
+          "description": "Zeige GPU-Temperaturwerte an, falls verfügbar.",
+          "label": "GPU-Temperatur"
+        },
         "memory-percentage": {
           "description": "Speicherverbrauch als Prozentsatz statt absolute Werte anzeigen.",
           "label": "Speicher als Prozentsatz"
@@ -362,9 +366,9 @@
           "description": "Zeige nur Apps von aktiven Arbeitsbereichen.",
           "label": "Nur von aktiven Arbeitsbereichen"
         },
-        "only-same-output": {
-          "description": "Zeige nur Apps von dem Bildschirm, auf dem sich die Taskbar befindet.",
-          "label": "Nur vom gleichen Bildschirm"
+        "only-same-monitor": {
+          "description": "Zeige nur Apps von dem Monitor an, auf dem sich die Leiste befindet.",
+          "label": "Nur vom selben Monitor"
         },
         "show-pinned-apps": {
           "description": "Angeheftete Apps aus dem Dock in der Taskleiste anzeigen.",
@@ -383,12 +387,6 @@
           "description": "Breite der Fenstertitel in der Taskleiste festlegen (in Pixel).",
           "label": "Titelbreite",
           "reset-tooltip": "Titelbreite zurücksetzen"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "Zeige nur die Workspace-Bezeichnung für Workspaces an, die offene Fenster haben.",
-          "label": "Zeige Label nur bei Belegung"
         }
       },
       "tray": {
@@ -427,6 +425,14 @@
         "label-mode": {
           "description": "Wählen Sie, wie Arbeitsbereichs-Beschriftungen angezeigt werden.",
           "label": "Beschriftungsmodus"
+        },
+        "show-applications": {
+          "description": "Anwendungssymbole in jedem Arbeitsbereich anzeigen.",
+          "label": "Anwendungen anzeigen"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "Arbeitsbereichsbezeichnungen nur anzeigen, wenn sie Fenster enthalten.",
+          "label": "Beschriftungen nur anzeigen, wenn belegt"
         }
       }
     }
@@ -1167,6 +1173,10 @@
             "description": "Schreibt {filepath} für {client}",
             "description-missing": "Kein Discord-Client erkannt. Installieren Sie vencord, vesktop, webcord, armcord, equibop, lightcord oder dorion"
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\nStandard: ~/.emacs.d/themes/noctalia.el\n\nManuell anwenden: (load-theme 'noctalia t)",
+            "description-missing": "Benötigt die Installation von {app}"
+          },
           "fuzzel": {
             "description": "Schreibt {filepath} und lädt neu",
             "description-missing": "Erfordert die Installation von {app}"
@@ -1191,6 +1201,10 @@
           "walker": {
             "description": "Schreibt {filepath} und setzt das Theme auf Noctalia",
             "description-missing": "Erfordert die Installation von {app}"
+          },
+          "yazi": {
+            "description": "Schreibe {Dateipfad}. Flavor muss manuell aktiviert werden.",
+            "description-missing": "Benötigt die Installation von {app}"
           }
         },
         "section": {
@@ -1425,9 +1439,9 @@
         "label": "Dock aktivieren"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "Zeige nur Apps von dem Bildschirm, auf dem sich das Dock befindet.",
-          "label": "Nur Apps vom gleichen Bildschirm"
+        "only-same-monitor": {
+          "description": "Zeige nur Apps von dem Monitor an, auf dem sich das Dock befindet.",
+          "label": "Nur Apps vom selben Monitor"
         },
         "section": {
           "description": "Dock auf bestimmten Monitoren anzeigen. Standardmäßig werden alle angezeigt, wenn keine ausgewählt wurden.",
@@ -2075,14 +2089,8 @@
       "title": "Sitzungsmenü"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "Kritische Schwelle"
-      },
       "cpu-section": {
         "label": "CPU-Auslastung"
-      },
-      "cpu-warning-threshold": {
-        "label": "Warnschwelle"
       },
       "critical-color": {
         "label": "Kritische Farbe"
@@ -2090,14 +2098,8 @@
       "custom-highlight-colors-title": {
         "label": "Benutzerdefinierte Hervorhebungsfarben"
       },
-      "disk-critical-threshold": {
-        "label": "Kritische Schwelle"
-      },
       "disk-section": {
         "label": "Festplattennutzung"
-      },
-      "disk-warning-threshold": {
-        "label": "Warnschwelle"
       },
       "general": {
         "section": {
@@ -2105,14 +2107,11 @@
           "label": "Allgemein"
         }
       },
+      "gpu-section": {
+        "label": "GPU-Temperatur"
+      },
       "highlight-colors-section": {
         "label": "Hervorhebungsfarben"
-      },
-      "mem-critical-threshold": {
-        "label": "Kritische Schwelle"
-      },
-      "mem-warning-threshold": {
-        "label": "Warnschwelle"
       },
       "memory-section": {
         "label": "Speicherverbrauch"
@@ -2123,14 +2122,12 @@
       "polling-interval": {
         "label": "Abfrageintervall"
       },
-      "temp-critical-threshold": {
-        "label": "Kritische Schwelle"
-      },
-      "temp-warning-threshold": {
-        "label": "Warnschwelle"
-      },
       "temperature-section": {
         "label": "CPU-Temperatur"
+      },
+      "threshold": {
+        "critical": "Kritische Schwelle",
+        "warning": "Warnschwelle"
       },
       "thresholds-section": {
         "description": "Passe die Warn-/Kritisch-Schwellen und die Abfrageintervalle für jede Systemmetrik an.",
@@ -2461,12 +2458,14 @@
     "click-to-start-recording": "Bildschirmrekorder (Aufnahme starten)",
     "click-to-stop-recording": "Bildschirmrekorder (Aufnahme stoppen)",
     "close": "Schließen",
+    "collapse": "Seitenleiste einklappen",
     "connect-disconnect-devices": "Bluetooth-Gerät",
     "delete-notification": "Benachrichtigung löschen",
     "disable-keep-awake": "Wach halten",
     "do-not-disturb-disabled": "Nicht stören",
     "do-not-disturb-enabled": "Nicht stören",
     "enable-keep-awake": "Wach halten",
+    "expand": "Seitenleiste ausklappen",
     "forget-network": "Netzwerk vergessen",
     "grid-view": "Rasteransicht",
     "hidden-files-hide": "Versteckte Dateien",

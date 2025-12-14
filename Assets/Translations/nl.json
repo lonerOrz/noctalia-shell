@@ -328,6 +328,10 @@
           "description": "Selecteer welk schijfkoppelpunt u wilt monitoren.",
           "label": "Schijfpad"
         },
+        "gpu-temperature": {
+          "description": "Toon GPU-temperatuurmetingen indien beschikbaar.",
+          "label": "GPU-temperatuur"
+        },
         "memory-percentage": {
           "description": "Toon geheugengebruik als percentage in plaats van absolute waarden.",
           "label": "Geheugen als percentage"
@@ -362,9 +366,9 @@
           "description": "Toon alleen apps van actieve werkruimten.",
           "label": "Alleen van actieve werkruimten"
         },
-        "only-same-output": {
-          "description": "Toon alleen apps van de output waarop de balk zich bevindt.",
-          "label": "Alleen van dezelfde output"
+        "only-same-monitor": {
+          "description": "Toon alleen apps van de monitor waar de balk zich bevindt.",
+          "label": "Alleen vanaf dezelfde monitor"
         },
         "show-pinned-apps": {
           "description": "Toon vastgemaakte apps van het dock in de taakbalk.",
@@ -383,12 +387,6 @@
           "description": "Stel de breedte van venstertitels in de taakbalk in (in pixels).",
           "label": "Titelbreedte",
           "reset-tooltip": "Titelbreedte resetten"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "Toon alleen de werkomgevinglabels voor werkomgevingen met open vensters.",
-          "label": "Label alleen tonen wanneer bezet"
         }
       },
       "tray": {
@@ -427,6 +425,14 @@
         "label-mode": {
           "description": "Kies hoe labels van werkruimten worden weergegeven.",
           "label": "Labelmodus"
+        },
+        "show-applications": {
+          "description": "Toon applicatiepictogrammen in elke werkruimte.",
+          "label": "Toon applicaties"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "Toon alleen werkruimtelabels wanneer ze vensters bevatten.",
+          "label": "Toon labels alleen wanneer bezet."
         }
       }
     }
@@ -1168,6 +1174,10 @@
             "description": "Schrijf {filepath} voor {client}. Het Hyprluna-thema moet handmatig worden geactiveerd.",
             "description-missing": "Geen Discord-client gedetecteerd. Installeer vencord, vesktop, webcord, armcord, equibop, lightcord of dorion."
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\nStandaard: ~/.emacs.d/themes/noctalia.el\n\nHandmatig toepassen: (load-theme 'noctalia t)",
+            "description-missing": "Vereist dat {app} is geïnstalleerd."
+          },
           "fuzzel": {
             "description": "Schrijf {filepath} en herlaad.",
             "description-missing": "Vereist dat {app} is geïnstalleerd."
@@ -1191,6 +1201,10 @@
           },
           "walker": {
             "description": "Schrijf {filepath} en stel het thema in op noctalia.",
+            "description-missing": "Vereist dat {app} is geïnstalleerd."
+          },
+          "yazi": {
+            "description": "Schrijf {filepath}. Smaak moet handmatig worden geactiveerd.",
             "description-missing": "Vereist dat {app} is geïnstalleerd."
           }
         },
@@ -1428,9 +1442,9 @@
         "label": "Dock inschakelen"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "Toon alleen apps van het uitvoerscherm waar de dock zich bevindt.",
-          "label": "Alleen apps van dezelfde output"
+        "only-same-monitor": {
+          "description": "Toon alleen apps van de monitor waar het dock zich bevindt.",
+          "label": "Alleen apps van dezelfde monitor"
         },
         "section": {
           "description": "Dock op specifieke monitoren weergeven. Standaard op alle als er geen zijn gekozen.",
@@ -2074,14 +2088,8 @@
       "title": "Sessiemenu"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "Kritieke drempel"
-      },
       "cpu-section": {
         "label": "CPU-gebruik"
-      },
-      "cpu-warning-threshold": {
-        "label": "Waarschuwingsdrempel"
       },
       "critical-color": {
         "label": "Kritische kleur"
@@ -2089,14 +2097,8 @@
       "custom-highlight-colors-title": {
         "label": "Aangepaste markeerkleuren"
       },
-      "disk-critical-threshold": {
-        "label": "Kritieke drempel"
-      },
       "disk-section": {
         "label": "Schijfgebruik"
-      },
-      "disk-warning-threshold": {
-        "label": "Waarschuwingsdrempel"
       },
       "general": {
         "section": {
@@ -2104,14 +2106,11 @@
           "label": "Algemeen"
         }
       },
+      "gpu-section": {
+        "label": "GPU-temperatuur"
+      },
       "highlight-colors-section": {
         "label": "Markeerkleuren"
-      },
-      "mem-critical-threshold": {
-        "label": "Kritieke drempel"
-      },
-      "mem-warning-threshold": {
-        "label": "Waarschuwingsdrempel"
       },
       "memory-section": {
         "label": "Geheugengebruik"
@@ -2122,14 +2121,12 @@
       "polling-interval": {
         "label": "Peilingsinterval"
       },
-      "temp-critical-threshold": {
-        "label": "Kritieke drempel"
-      },
-      "temp-warning-threshold": {
-        "label": "Waarschuwingsdrempel"
-      },
       "temperature-section": {
         "label": "CPU-temperatuur"
+      },
+      "threshold": {
+        "critical": "Kritische drempel",
+        "warning": "Waarschuwingsdrempel"
       },
       "thresholds-section": {
         "description": "Pas de waarschuwing/kritieke drempels en de pollingsintervallen voor elke systeemmetriek aan.",
@@ -2460,12 +2457,14 @@
     "click-to-start-recording": "Schermrecorder (opname starten)",
     "click-to-stop-recording": "Schermrecorder (opname stoppen)",
     "close": "Sluiten",
+    "collapse": "Zijbalk inklappen",
     "connect-disconnect-devices": "Bluetooth-apparaat",
     "delete-notification": "Melding verwijderen",
     "disable-keep-awake": "Wakker houden",
     "do-not-disturb-disabled": "Niet storen",
     "do-not-disturb-enabled": "Niet storen",
     "enable-keep-awake": "Wakker houden",
+    "expand": "Zijbalk uitklappen",
     "forget-network": "Netwerk vergeten",
     "grid-view": "Rasterweergave",
     "hidden-files-hide": "Verborgen bestanden",

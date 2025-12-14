@@ -30,6 +30,11 @@ Scope {
       return;
     }
 
+    if (root.unlockInProgress) {
+      Logger.i("LockContext", "Unlock already in progress, ignoring duplicate attempt");
+      return;
+    }
+
     root.unlockInProgress = true;
     errorMessage = "";
     showFailure = false;
@@ -40,7 +45,9 @@ Scope {
 
   PamContext {
     id: pam
-    config: "login"
+    // Use custom PAM config to ensure predictable password-only authentication
+    configDirectory: Quickshell.shellDir + "/Assets/pam"
+    config: "password.conf"
     user: HostService.username
 
     onPamMessage: {
@@ -52,17 +59,9 @@ Scope {
         infoMessage = message;
       }
 
-      if (responseRequired) {
+      if (this.responseRequired) {
         Logger.i("LockContext", "Responding to PAM with password");
-        respond(root.currentText);
-      }
-    }
-
-    onResponseRequiredChanged: {
-      Logger.i("LockContext", "Response required changed:", responseRequired);
-      if (responseRequired && root.unlockInProgress) {
-        Logger.i("LockContext", "Automatically responding to PAM");
-        respond(root.currentText);
+        this.respond(root.currentText);
       }
     }
 
@@ -73,6 +72,7 @@ Scope {
                      root.unlocked();
                    } else {
                      Logger.i("LockContext", "Authentication failed");
+                     root.currentText = "";
                      errorMessage = I18n.tr("lock-screen.authentication-failed");
                      showFailure = true;
                      root.failed();

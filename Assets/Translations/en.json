@@ -311,6 +311,10 @@
           "description": "Select which disk mount point to monitor.",
           "label": "Disk path"
         },
+        "gpu-temperature": {
+          "description": "Show GPU temperature readings if available.",
+          "label": "GPU temperature"
+        },
         "memory-percentage": {
           "description": "Show memory usage as a percentage instead of absolute values.",
           "label": "Memory as percentage"
@@ -345,9 +349,9 @@
           "description": "Show only apps from active workspaces.",
           "label": "Only from active workspaces"
         },
-        "only-same-output": {
-          "description": "Show only apps from the output where the bar is located.",
-          "label": "Only from same output"
+        "only-same-monitor": {
+          "description": "Show only apps from the monitor where the bar is located.",
+          "label": "Only from same monitor"
         },
         "show-pinned-apps": {
           "description": "Show pinned apps from the dock in the taskbar.",
@@ -366,12 +370,6 @@
           "description": "Set the width of window titles in the taskbar (in pixels).",
           "label": "Title width",
           "reset-tooltip": "Reset title width"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "Only show workspace label for workspaces that have open windows.",
-          "label": "Show label only when occupied"
         }
       },
       "tray": {
@@ -410,6 +408,14 @@
         "label-mode": {
           "description": "Choose how workspace labels are displayed.",
           "label": "Label mode"
+        },
+        "show-applications": {
+          "description": "Display application icons inside each workspace.",
+          "label": "Show applications"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "Only show workspace labels when they contain windows.",
+          "label": "Show labels only when occupied"
         }
       }
     }
@@ -1149,6 +1155,10 @@
             "description": "Write {filepath} for {client}. Hyprluna theme needs to be activated manually",
             "description-missing": "No Discord client detected. Install vencord, vesktop, webcord, armcord, equibop, lightcord, or dorion"
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\nStandard: ~/.emacs.d/themes/noctalia.el\n\nApply manually: (load-theme 'noctalia t)",
+            "description-missing": "Requires {app} to be installed"
+          },
           "fuzzel": {
             "description": "Write {filepath} and reload",
             "description-missing": "Requires {app} to be installed"
@@ -1172,6 +1182,10 @@
           },
           "walker": {
             "description": "Write {filepath} and set theme to noctalia",
+            "description-missing": "Requires {app} to be installed"
+          },
+          "yazi": {
+            "description": "Write {filepath}. Flavor needs to be activated manually.",
             "description-missing": "Requires {app} to be installed"
           }
         },
@@ -1405,9 +1419,9 @@
         "label": "Enable dock"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "Show only apps from the output where the dock is located.",
-          "label": "Only apps from same output"
+        "only-same-monitor": {
+          "description": "Show only apps from the monitor where the dock is located.",
+          "label": "Only apps from same monitor"
         },
         "section": {
           "description": "Show dock on specific monitors. Defaults to all if none are chosen.",
@@ -2051,14 +2065,8 @@
       "title": "Session Menu"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "Critical threshold"
-      },
       "cpu-section": {
         "label": "CPU usage"
-      },
-      "cpu-warning-threshold": {
-        "label": "Warning threshold"
       },
       "critical-color": {
         "label": "Critical color"
@@ -2066,14 +2074,8 @@
       "custom-highlight-colors-title": {
         "label": "Custom highlight colors"
       },
-      "disk-critical-threshold": {
-        "label": "Critical threshold"
-      },
       "disk-section": {
         "label": "Disk usage"
-      },
-      "disk-warning-threshold": {
-        "label": "Warning threshold"
       },
       "general": {
         "section": {
@@ -2081,14 +2083,11 @@
           "label": "General"
         }
       },
+      "gpu-section": {
+        "label": "GPU temperature"
+      },
       "highlight-colors-section": {
         "label": "Highlight colors"
-      },
-      "mem-critical-threshold": {
-        "label": "Critical threshold"
-      },
-      "mem-warning-threshold": {
-        "label": "Warning threshold"
       },
       "memory-section": {
         "label": "Memory usage"
@@ -2099,14 +2098,12 @@
       "polling-interval": {
         "label": "Polling interval"
       },
-      "temp-critical-threshold": {
-        "label": "Critical threshold"
-      },
-      "temp-warning-threshold": {
-        "label": "Warning threshold"
-      },
       "temperature-section": {
         "label": "CPU temperature"
+      },
+      "threshold": {
+        "critical": "Critical threshold",
+        "warning": "Warning threshold"
       },
       "thresholds-section": {
         "description": "Adjust warning/critical thresholds and polling intervals for each system metric.",
@@ -2433,12 +2430,14 @@
     "click-to-start-recording": "Screen recorder (start recording)",
     "click-to-stop-recording": "Screen recorder (stop recording)",
     "close": "Close",
+    "collapse": "Collapse sidebar",
     "connect-disconnect-devices": "Bluetooth device",
     "delete-notification": "Delete notification",
     "disable-keep-awake": "Keep Awake",
     "do-not-disturb-disabled": "Do Not Disturb",
     "do-not-disturb-enabled": "Do Not Disturb",
     "enable-keep-awake": "Keep Awake",
+    "expand": "Expand sidebar",
     "forget-network": "Forget network",
     "grid-view": "Grid view",
     "hidden-files-hide": "Hidden files",

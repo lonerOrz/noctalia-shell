@@ -311,6 +311,10 @@
           "description": "監視するディスクのマウントポイントを選択します。",
           "label": "ディスクパス"
         },
+        "gpu-temperature": {
+          "description": "利用可能であれば、GPU温度の測定値を表示します。",
+          "label": "GPU温度 (GPU ondo)"
+        },
         "memory-percentage": {
           "description": "メモリ使用量を絶対値ではなくパーセンテージで表示します。",
           "label": "メモリをパーセント表示"
@@ -345,9 +349,9 @@
           "description": "アクティブなワークスペースのアプリのみを表示します。",
           "label": "アクティブなワークスペースのみ"
         },
-        "only-same-output": {
-          "description": "バーが配置されているディスプレイ上のアプリのみを表示します。",
-          "label": "同じディスプレイのみ"
+        "only-same-monitor": {
+          "description": "バーがあるモニターのアプリのみ表示する。",
+          "label": "同じモニターからのみ"
         },
         "show-pinned-apps": {
           "description": "ドックからピン留めされたアプリをタスクバーに表示する。",
@@ -366,12 +370,6 @@
           "description": "タスクバーのウィンドウタイトルの幅を設定します（ピクセル単位）。",
           "label": "タイトル幅",
           "reset-tooltip": "タイトル幅をリセット"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "ウィンドウが開いているワークスペースにのみラベルを表示します。",
-          "label": "ウィンドウがある時のみラベルを表示"
         }
       },
       "tray": {
@@ -410,6 +408,14 @@
         "label-mode": {
           "description": "ワークスペースラベルの表示方法を選択します。",
           "label": "ラベルモード"
+        },
+        "show-applications": {
+          "description": "ワークスペース内にアプリケーションのアイコンを表示する。",
+          "label": "アプリケーションを表示 (Apuriikeeshon o hyōji)"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "ウィンドウを含む場合にのみ、ワークスペースのラベルを表示する。",
+          "label": "占有されている場合のみラベルを表示する"
         }
       }
     }
@@ -1151,6 +1157,10 @@
             "description": "{client} 用に {filepath} を書き込みます。Hyprluna テーマを手動でインストールして有効化する必要があります。",
             "description-missing": "Discord クライアントが検出されません。vencord、vesktop、webcord、armcord、equibop、lightcord、dorion のいずれかをインストールしてください。"
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\n標準: ~/.emacs.d/themes/noctalia.el\n\n手動で適用: (load-theme 'noctalia t)",
+            "description-missing": "{app} がインストールされている必要があります。"
+          },
           "fuzzel": {
             "description": "{filepath} を書き込み、リロードします。",
             "description-missing": "{app} のインストールが必要です。"
@@ -1175,6 +1185,10 @@
           "walker": {
             "description": "{filepath} を書き込み、テーマを noctalia に設定します。",
             "description-missing": "{app} のインストールが必要です。"
+          },
+          "yazi": {
+            "description": "{filepath} を書き込みます。風味は手動で有効にする必要があります。",
+            "description-missing": "{app} がインストールされている必要があります。"
           }
         },
         "section": {
@@ -1411,9 +1425,9 @@
         "label": "ドックの有効化"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "ドックが配置されているディスプレイ上のアプリのみを表示します。",
-          "label": "同じディスプレイのアプリのみ表示"
+        "only-same-monitor": {
+          "description": "ドックがあるモニターのアプリのみを表示する。",
+          "label": "同じモニターのアプリのみ"
         },
         "section": {
           "description": "ドックを表示するディスプレイを選択します。未選択の場合は全てに表示されます。",
@@ -2057,14 +2071,8 @@
       "title": "セッションメニュー"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "危険閾値"
-      },
       "cpu-section": {
         "label": "CPU 使用率"
-      },
-      "cpu-warning-threshold": {
-        "label": "警告閾値"
       },
       "critical-color": {
         "label": "危険時の色"
@@ -2072,14 +2080,8 @@
       "custom-highlight-colors-title": {
         "label": "カスタムハイライト色"
       },
-      "disk-critical-threshold": {
-        "label": "危険閾値"
-      },
       "disk-section": {
         "label": "ストレージ使用量"
-      },
-      "disk-warning-threshold": {
-        "label": "警告閾値"
       },
       "general": {
         "section": {
@@ -2087,14 +2089,11 @@
           "label": "一般"
         }
       },
+      "gpu-section": {
+        "label": "GPU温度 (GPU ondo)"
+      },
       "highlight-colors-section": {
         "label": "ハイライト色"
-      },
-      "mem-critical-threshold": {
-        "label": "危険閾値"
-      },
-      "mem-warning-threshold": {
-        "label": "警告閾値"
       },
       "memory-section": {
         "label": "メモリ使用量"
@@ -2105,14 +2104,12 @@
       "polling-interval": {
         "label": "ポーリング間隔"
       },
-      "temp-critical-threshold": {
-        "label": "危険閾値"
-      },
-      "temp-warning-threshold": {
-        "label": "警告閾値"
-      },
       "temperature-section": {
         "label": "CPU 温度"
+      },
+      "threshold": {
+        "critical": "臨界閾値 (Rinkai kīchi)",
+        "warning": "警告しきい値"
       },
       "thresholds-section": {
         "description": "各システムメトリックの警告/危険しきい値とポーリング間隔を調整します。",
@@ -2443,12 +2440,14 @@
     "click-to-start-recording": "画面録画 (録画開始)",
     "click-to-stop-recording": "画面録画 (録画停止)",
     "close": "閉じる",
+    "collapse": "サイドバーを折りたたむ",
     "connect-disconnect-devices": "Bluetooth デバイス",
     "delete-notification": "通知を削除",
     "disable-keep-awake": "スリープ防止",
     "do-not-disturb-disabled": "おやすみモード",
     "do-not-disturb-enabled": "おやすみモード",
     "enable-keep-awake": "スリープ防止",
+    "expand": "サイドバーを展開",
     "forget-network": "ネットワーク設定を削除",
     "grid-view": "グリッド表示",
     "hidden-files-hide": "隠しファイル",

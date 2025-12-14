@@ -165,6 +165,11 @@ Singleton {
           "requiresThemesFolder": false
         },
         {
+          "name": "equicord",
+          "path": "~/.config/Equicord",
+          "requiresThemesFolder": false
+        },
+        {
           "name": "lightcord",
           "path": "~/.config/lightcord",
           "requiresThemesFolder": false
@@ -231,6 +236,17 @@ Singleton {
         }
       ],
       "postProcess": () => `${colorsApplyScript} cava`
+    },
+    {
+      "id": "yazi",
+      "name": "Yazi",
+      "category": "applications",
+      "input": "yazi.toml",
+      "outputs": [
+        {
+          "path": "~/.config/yazi/flavors/noctalia.yazi/flavor.toml"
+        }
+      ]
     },
     {
       "id": "emacs",

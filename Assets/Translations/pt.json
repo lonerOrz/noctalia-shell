@@ -328,6 +328,10 @@
           "description": "Selecione qual ponto de montagem de disco monitorar.",
           "label": "Caminho do disco"
         },
+        "gpu-temperature": {
+          "description": "Mostrar as leituras de temperatura da GPU, se disponíveis.",
+          "label": "Temperatura da GPU"
+        },
         "memory-percentage": {
           "description": "Mostrar o uso de memória como percentual em vez de valores absolutos.",
           "label": "Memória como percentual"
@@ -362,9 +366,9 @@
           "description": "Mostrar apenas aplicativos de áreas de trabalho ativas.",
           "label": "Apenas de espaços de trabalho ativos"
         },
-        "only-same-output": {
-          "description": "Mostrar apenas os aplicativos da saída onde a barra está localizada.",
-          "label": "Apenas da mesma saída"
+        "only-same-monitor": {
+          "description": "Mostrar apenas aplicativos do monitor onde a barra está localizada.",
+          "label": "Apenas do mesmo monitor"
         },
         "show-pinned-apps": {
           "description": "Mostrar aplicativos fixados do Dock na barra de tarefas.",
@@ -383,12 +387,6 @@
           "description": "Definir a largura dos títulos de janelas na barra de tarefas (em pixels).",
           "label": "Largura do título",
           "reset-tooltip": "Redefinir largura do título"
-        }
-      },
-      "taskbar-grouped": {
-        "show-labels-only-when-occupied": {
-          "description": "Mostrar apenas o rótulo da área de trabalho para áreas de trabalho que têm janelas abertas.",
-          "label": "Mostrar rótulo somente quando ocupado."
         }
       },
       "tray": {
@@ -427,6 +425,14 @@
         "label-mode": {
           "description": "Escolher como os rótulos de espaço de trabalho são exibidos.",
           "label": "Modo de rótulo"
+        },
+        "show-applications": {
+          "description": "Exibir ícones de aplicativos dentro de cada espaço de trabalho.",
+          "label": "Mostrar aplicativos"
+        },
+        "show-labels-only-when-occupied": {
+          "description": "Mostrar rótulos de área de trabalho apenas quando contiverem janelas.",
+          "label": "Mostrar rótulos apenas quando ocupado."
         }
       }
     }
@@ -1168,6 +1174,10 @@
             "description": "Escrever {filepath} para {client}",
             "description-missing": "Nenhum cliente Discord detectado. Instale vencord, vesktop, webcord, armcord, equibop, lightcord ou dorion."
           },
+          "emacs": {
+            "description": "Doom: ~/.config/doom/themes/noctalia.el\nPadrão: ~/.emacs.d/themes/noctalia.el\n\nAplicar manualmente: (load-theme 'noctalia t)",
+            "description-missing": "Requer que o {app} esteja instalado."
+          },
           "fuzzel": {
             "description": "Escrever {filepath} e recarregar",
             "description-missing": "Requer que o {app} esteja instalado"
@@ -1192,6 +1202,10 @@
           "walker": {
             "description": "Escrever {filepath} e definir tema como noctalia",
             "description-missing": "Requer que o {app} esteja instalado"
+          },
+          "yazi": {
+            "description": "Escreva em {filepath}. O sabor precisa ser ativado manualmente.",
+            "description-missing": "Requer que o {app} esteja instalado."
           }
         },
         "section": {
@@ -1428,9 +1442,9 @@
         "label": "Ativar dock"
       },
       "monitors": {
-        "only-same-output": {
-          "description": "Mostrar apenas aplicativos da saída onde o dock está localizado.",
-          "label": "Apenas aplicativos da mesma saída"
+        "only-same-monitor": {
+          "description": "Mostrar apenas aplicativos do monitor onde a dock está localizada.",
+          "label": "Apenas aplicativos do mesmo monitor"
         },
         "section": {
           "description": "Mostrar dock em monitores específicos. O padrão é todos se nenhum for escolhido.",
@@ -2074,14 +2088,8 @@
       "title": "Menu de sessão"
     },
     "system-monitor": {
-      "cpu-critical-threshold": {
-        "label": "Limite crítico"
-      },
       "cpu-section": {
         "label": "Uso da CPU"
-      },
-      "cpu-warning-threshold": {
-        "label": "Limite de aviso"
       },
       "critical-color": {
         "label": "Cor crítica"
@@ -2089,14 +2097,8 @@
       "custom-highlight-colors-title": {
         "label": "Cores de destaque personalizadas"
       },
-      "disk-critical-threshold": {
-        "label": "Limite crítico"
-      },
       "disk-section": {
         "label": "Uso do disco"
-      },
-      "disk-warning-threshold": {
-        "label": "Limite de aviso"
       },
       "general": {
         "section": {
@@ -2104,14 +2106,11 @@
           "label": "Geral"
         }
       },
+      "gpu-section": {
+        "label": "Temperatura da GPU"
+      },
       "highlight-colors-section": {
         "label": "Cores de destaque"
-      },
-      "mem-critical-threshold": {
-        "label": "Limite crítico"
-      },
-      "mem-warning-threshold": {
-        "label": "Limite de aviso"
       },
       "memory-section": {
         "label": "Uso de memória"
@@ -2122,14 +2121,12 @@
       "polling-interval": {
         "label": "Intervalo de pesquisa"
       },
-      "temp-critical-threshold": {
-        "label": "Limite crítico"
-      },
-      "temp-warning-threshold": {
-        "label": "Limite de aviso"
-      },
       "temperature-section": {
         "label": "Temperatura da CPU"
+      },
+      "threshold": {
+        "critical": "Limiar crítico",
+        "warning": "Limite de alerta"
       },
       "thresholds-section": {
         "description": "Ajuste os limites de aviso/crítico e os intervalos de consulta para cada métrica do sistema.",
@@ -2460,12 +2457,14 @@
     "click-to-start-recording": "Gravador de tela (iniciar gravação)",
     "click-to-stop-recording": "Gravador de tela (parar gravação)",
     "close": "Fechar",
+    "collapse": "Recolher barra lateral",
     "connect-disconnect-devices": "Dispositivo Bluetooth",
     "delete-notification": "Excluir notificação",
     "disable-keep-awake": "Manter acordado",
     "do-not-disturb-disabled": "Não perturbe",
     "do-not-disturb-enabled": "Não perturbe",
     "enable-keep-awake": "Manter acordado",
+    "expand": "Expandir barra lateral",
     "forget-network": "Esquecer rede",
     "grid-view": "Visualização em grade",
     "hidden-files-hide": "Arquivos ocultos",

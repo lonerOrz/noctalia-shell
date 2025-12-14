@@ -20,6 +20,9 @@ Singleton {
   // Public values
   property real cpuUsage: 0
   property real cpuTemp: 0
+  property real gpuTemp: 0
+  property bool gpuAvailable: false
+  property string gpuType: "" // "amd", "intel", "nvidia"
   property real memGb: 0
   property real memPercent: 0
   property var diskPercents: ({})
@@ -45,12 +48,23 @@ Singleton {
   property int intelTempFilesChecked: 0
   property int intelTempMaxFiles: 20 // Will test up to temp20_input
 
+  // GPU temperature detection
+  // On dual-GPU systems, we prioritize discrete GPUs over integrated GPUs
+  // Priority: NVIDIA > AMD dGPU > Intel Arc > AMD iGPU
+  readonly property var supportedTempGpuSensorNames: ["amdgpu", "xe"]
+  property string gpuTempHwmonPath: ""
+  property var foundGpuSensors: [] // [{hwmonPath, type, hasDedicatedVram}]
+  property int gpuVramCheckIndex: 0
+
   // --------------------------------------------
   Component.onCompleted: {
     Logger.i("SystemStat", "Service started with custom polling intervals");
 
     // Kickoff the cpu name detection for temperature
     cpuTempNameReader.checkNext();
+
+    // Kickoff the gpu sensor detection for temperature
+    gpuTempNameReader.checkNext();
   }
 
   // --------------------------------------------
@@ -127,6 +141,21 @@ Singleton {
       }
     }
     onTriggered: netDevFile.reload()
+  }
+
+  // Timer for GPU temperature
+  Timer {
+    id: gpuTempTimer
+    interval: root.normalizeInterval(Settings.data.systemMonitor.gpuPollingInterval)
+    repeat: true
+    running: root.gpuAvailable
+    triggeredOnStart: true
+    onIntervalChanged: {
+      if (running) {
+        restart();
+      }
+    }
+    onTriggered: updateGpuTemperature()
   }
 
   // --------------------------------------------
@@ -249,6 +278,140 @@ Singleton {
                      // Qt.callLater is mandatory
                      checkNextIntelTemp();
                    });
+    }
+  }
+
+  // --------------------------------------------
+  // --------------------------------------------
+  // GPU Temperature
+  // On dual-GPU systems (e.g., Intel iGPU + NVIDIA dGPU, or AMD APU + AMD dGPU),
+  // we scan all hwmon entries, then select the best GPU based on priority.
+  // ----
+  // #1 - Scan all hwmon entries to find GPU sensors
+  FileView {
+    id: gpuTempNameReader
+    property int currentIndex: 0
+    printErrors: false
+
+    function checkNext() {
+      if (currentIndex >= 16) {
+        // Finished scanning all hwmon entries, now check for NVIDIA
+        Logger.d("SystemStat", `Found ${root.foundGpuSensors.length} sysfs GPU sensor(s), checking for nvidia-smi`);
+        nvidiaSmiCheck.running = true;
+        return;
+      }
+
+      gpuTempNameReader.path = `/sys/class/hwmon/hwmon${currentIndex}/name`;
+      gpuTempNameReader.reload();
+    }
+
+    onLoaded: {
+      const name = text().trim();
+      if (root.supportedTempGpuSensorNames.includes(name)) {
+        // Collect this GPU sensor, don't stop - continue scanning for more
+        const hwmonPath = `/sys/class/hwmon/hwmon${currentIndex}`;
+        const gpuType = name === "amdgpu" ? "amd" : "intel";
+        root.foundGpuSensors.push({
+                                    "hwmonPath": hwmonPath,
+                                    "type": gpuType,
+                                    "hasDedicatedVram": false // Will be checked later for AMD
+                                  });
+        Logger.d("SystemStat", `Found ${name} GPU sensor at ${hwmonPath}`);
+      }
+      // Continue scanning regardless of whether we found a match
+      currentIndex++;
+      Qt.callLater(() => {
+                     checkNext();
+                   });
+    }
+
+    onLoadFailed: function (error) {
+      currentIndex++;
+      Qt.callLater(() => {
+                     checkNext();
+                   });
+    }
+  }
+
+  // ----
+  // #2 - Read GPU sensor value (AMD/Intel via sysfs)
+  FileView {
+    id: gpuTempReader
+    printErrors: false
+
+    onLoaded: {
+      const data = text().trim();
+      root.gpuTemp = Math.round(parseInt(data) / 1000.0);
+    }
+  }
+
+  // ----
+  // #3 - Check if nvidia-smi is available (for NVIDIA GPUs)
+  Process {
+    id: nvidiaSmiCheck
+    command: ["which", "nvidia-smi"]
+    running: false
+    stdout: StdioCollector {
+      onStreamFinished: {
+        if (text.trim().length > 0) {
+          // Add NVIDIA as a GPU option (always discrete, highest priority)
+          root.foundGpuSensors.push({
+                                      "hwmonPath": "",
+                                      "type": "nvidia",
+                                      "hasDedicatedVram": true // NVIDIA is always discrete
+                                    });
+          Logger.d("SystemStat", "Found NVIDIA GPU (nvidia-smi available)");
+        }
+        // After NVIDIA check, check VRAM for AMD GPUs to distinguish dGPU from iGPU
+        root.gpuVramCheckIndex = 0;
+        checkNextGpuVram();
+      }
+    }
+  }
+
+  // ----
+  // #4 - Check VRAM for AMD GPUs to distinguish dGPU from iGPU
+  // dGPUs have dedicated VRAM, iGPUs don't (use system RAM)
+  FileView {
+    id: gpuVramChecker
+    printErrors: false
+
+    onLoaded: {
+      // File exists and has content = dGPU with dedicated VRAM
+      const vramSize = parseInt(text().trim());
+      if (vramSize > 0) {
+        root.foundGpuSensors[root.gpuVramCheckIndex].hasDedicatedVram = true;
+        Logger.d("SystemStat", `GPU at ${root.foundGpuSensors[root.gpuVramCheckIndex].hwmonPath} has dedicated VRAM (dGPU)`);
+      }
+      root.gpuVramCheckIndex++;
+      Qt.callLater(() => {
+                     checkNextGpuVram();
+                   });
+    }
+
+    onLoadFailed: function (error) {
+      // File doesn't exist = iGPU (no dedicated VRAM)
+      // hasDedicatedVram is already false by default
+      root.gpuVramCheckIndex++;
+      Qt.callLater(() => {
+                     checkNextGpuVram();
+                   });
+    }
+  }
+
+  // ----
+  // #4 - Read GPU temperature via nvidia-smi (NVIDIA only)
+  Process {
+    id: nvidiaTempProcess
+    command: ["nvidia-smi", "--query-gpu=temperature.gpu", "--format=csv,noheader,nounits"]
+    running: false
+    stdout: StdioCollector {
+      onStreamFinished: {
+        const temp = parseInt(text.trim());
+        if (!isNaN(temp)) {
+          root.gpuTemp = temp;
+        }
+      }
     }
   }
 
@@ -463,5 +626,83 @@ Singleton {
     root.intelTempFilesChecked++;
     cpuTempReader.path = `${root.cpuTempHwmonPath}/temp${root.intelTempFilesChecked}_input`;
     cpuTempReader.reload();
+  }
+
+  // -------------------------------------------------------
+  // Function to check VRAM for each AMD GPU to determine if it's a dGPU
+  function checkNextGpuVram() {
+    // Skip non-AMD GPUs (NVIDIA and Intel Arc are always discrete)
+    while (root.gpuVramCheckIndex < root.foundGpuSensors.length) {
+      const gpu = root.foundGpuSensors[root.gpuVramCheckIndex];
+      if (gpu.type === "amd") {
+        // Check for dedicated VRAM at hwmonPath/device/mem_info_vram_total
+        gpuVramChecker.path = `${gpu.hwmonPath}/device/mem_info_vram_total`;
+        gpuVramChecker.reload();
+        return;
+      }
+      // Skip non-AMD GPUs
+      root.gpuVramCheckIndex++;
+    }
+
+    // All VRAM checks complete, now select the best GPU
+    selectBestGpu();
+  }
+
+  // -------------------------------------------------------
+  // Function to select the best GPU based on priority
+  // Priority: NVIDIA > AMD dGPU > Intel Arc > AMD iGPU
+  function selectBestGpu() {
+    if (root.foundGpuSensors.length === 0) {
+      Logger.d("SystemStat", "No GPU temperature sensor found");
+      return;
+    }
+
+    let best = null;
+
+    for (var i = 0; i < root.foundGpuSensors.length; i++) {
+      const gpu = root.foundGpuSensors[i];
+
+      // NVIDIA is always highest priority (always discrete)
+      if (gpu.type === "nvidia") {
+        best = gpu;
+        break;
+      }
+
+      // AMD dGPU is second priority
+      if (gpu.type === "amd" && gpu.hasDedicatedVram) {
+        best = gpu;
+        break;
+      }
+
+      // Intel Arc is third priority (always discrete)
+      if (gpu.type === "intel" && !best) {
+        best = gpu;
+      }
+
+      // AMD iGPU is lowest priority (fallback)
+      if (gpu.type === "amd" && !gpu.hasDedicatedVram && !best) {
+        best = gpu;
+      }
+    }
+
+    if (best) {
+      root.gpuTempHwmonPath = best.hwmonPath;
+      root.gpuType = best.type;
+      root.gpuAvailable = true;
+
+      const gpuDesc = best.type === "nvidia" ? "NVIDIA" : (best.type === "intel" ? "Intel Arc" : (best.hasDedicatedVram ? "AMD dGPU" : "AMD iGPU"));
+      Logger.i("SystemStat", `Selected ${gpuDesc} for temperature monitoring at ${best.hwmonPath || "nvidia-smi"}`);
+    }
+  }
+
+  // -------------------------------------------------------
+  // Function to update GPU temperature
+  function updateGpuTemperature() {
+    if (root.gpuType === "nvidia") {
+      nvidiaTempProcess.running = true;
+    } else if (root.gpuType === "amd" || root.gpuType === "intel") {
+      gpuTempReader.path = `${root.gpuTempHwmonPath}/temp1_input`;
+      gpuTempReader.reload();
+    }
   }
 }
