@@ -1356,9 +1356,6 @@
         "exit-button": "Exit edit mode",
         "label": "Edit mode"
       },
-      "scale": {
-        "label": "Scale"
-      },
       "enabled": {
         "description": "Enable or disable desktop widgets entirely.",
         "label": "Enable desktop widgets"
