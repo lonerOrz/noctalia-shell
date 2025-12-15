@@ -483,6 +483,7 @@
       "minutes": "m",
       "pause": "Pause",
       "reset": "Zurücksetzen",
+      "resume": "Lebenslauf",
       "seconds": "s",
       "start": "Start",
       "stopwatch": "Stoppuhr",
@@ -997,10 +998,6 @@
     },
     "bar": {
       "appearance": {
-        "background-opacity": {
-          "description": "Hintergrund-Transparenz der Statusleiste anpassen.",
-          "label": "Hintergrund-Transparenz"
-        },
         "capsule-opacity": {
           "description": "Deckkraft der Widget-Hintergründe festlegen, wenn Kapsel angezeigt wird.",
           "label": "Kapsel-Deckkraft"
@@ -1034,6 +1031,10 @@
         "show-capsule": {
           "description": "Widget-Hintergründe anzeigen.",
           "label": "Kapsel anzeigen"
+        },
+        "transparent": {
+          "description": "Dies verhindert, dass Paneele an der Stange befestigt werden können.",
+          "label": "Transparenter Hintergrund"
         }
       },
       "monitors": {
@@ -1205,6 +1206,10 @@
           "yazi": {
             "description": "Schreibe {Dateipfad}. Flavor muss manuell aktiviert werden.",
             "description-missing": "Benötigt die Installation von {app}"
+          },
+          "zed": {
+            "description": "Schreibt {filepath} und lädt neu",
+            "description-missing": "Erfordert die Installation von {app}"
           }
         },
         "section": {
@@ -1329,6 +1334,95 @@
         "sectionRight": "Rechts"
       },
       "title": "Kontrollzentrum"
+    },
+    "desktop-widgets": {
+      "clock": {
+        "enabled": {
+          "description": "Eine Uhr als Widget auf dem Desktop anzeigen.",
+          "label": "Uhr-Widget aktivieren"
+        },
+        "height": {
+          "description": "Höhe des Uhr-Widgets in Pixeln.",
+          "label": "Höhe"
+        },
+        "section": {
+          "description": "Das Erscheinungsbild des Uhr-Widgets konfigurieren.",
+          "label": "Uhr-Widget"
+        },
+        "show-background": {
+          "description": "Zeige den Hintergrundcontainer für das Uhr-Widget an.",
+          "label": "Hintergrund anzeigen"
+        },
+        "show-date": {
+          "description": "Zeige das aktuelle Datum unter der Uhrzeit an.",
+          "label": "Datum anzeigen"
+        },
+        "show-seconds": {
+          "description": "Sekunden in der Zeit anzeigen.",
+          "label": "Sekunden anzeigen"
+        },
+        "width": {
+          "description": "Breite des Uhr-Widgets in Pixeln.",
+          "label": "Breite"
+        }
+      },
+      "edit-mode": {
+        "button": {
+          "label": "Bearbeitungsmodus aktivieren"
+        },
+        "description": "Aktiviere den Bearbeitungsmodus, um Desktop-Widgets zu verschieben und neu zu positionieren. Im aktivierten Zustand zeigen Widgets eine Ziehumrandung und können neu positioniert werden.",
+        "exit-button": "Bearbeitungsmodus verlassen",
+        "label": "Bearbeitungsmodus"
+      },
+      "enabled": {
+        "description": "Desktop-Widgets vollständig aktivieren oder deaktivieren.",
+        "label": "Desktop-Widgets aktivieren"
+      },
+      "general": {
+        "section": {
+          "description": "Konfigurieren Sie Widgets, die auf Ihrem Desktop angezeigt werden.",
+          "label": "Desktop-Widgets"
+        }
+      },
+      "media-player": {
+        "enabled": {
+          "description": "Zeige ein Media-Player-Widget auf dem Desktop an.",
+          "label": "Medienplayer-Widget aktivieren"
+        },
+        "section": {
+          "description": "Konfigurieren Sie das Erscheinungsbild des Media-Player-Widgets.",
+          "label": "Media Player Widget"
+        },
+        "show-background": {
+          "description": "Zeige den Hintergrundcontainer für das Media-Player-Widget an.",
+          "label": "Hintergrund anzeigen"
+        },
+        "visualizer-type": {
+          "description": "Wählen Sie einen Visualisierungstyp für den Hintergrund des Desktop-Mediaplayers.",
+          "label": "Visualisierungsart"
+        }
+      },
+      "title": "Desktop-Widgets",
+      "weather": {
+        "enabled": {
+          "description": "Zeige ein Wetter-Widget auf dem Desktop an.",
+          "label": "Wetter-Widget aktivieren"
+        },
+        "section": {
+          "description": "Konfigurieren Sie das Erscheinungsbild des Wetter-Widgets.",
+          "label": "Wetter-Widget"
+        },
+        "show-background": {
+          "description": "Zeige den Hintergrundcontainer für das Wetter-Widget an.",
+          "label": "Hintergrund anzeigen"
+        }
+      },
+      "widgets": {
+        "section": {
+          "description": "Desktop-Widgets hinzufügen und konfigurieren",
+          "label": "Desktop-Widgets"
+        }
+      }
     },
     "display": {
       "monitors": {
@@ -1562,10 +1656,6 @@
     },
     "launcher": {
       "settings": {
-        "background-opacity": {
-          "description": "Hintergrund-Transparenz des Starters anpassen.",
-          "label": "Hintergrund-Transparenz"
-        },
         "clip-preview": {
           "description": "Zeige eine Vorschau des Inhalts der Zwischenablage an, wenn der Befehl >clip verwendet wird.",
           "label": "Clip-Vorschau aktivieren"
@@ -2105,6 +2195,10 @@
       "disk-section": {
         "label": "Festplattennutzung"
       },
+      "enable-nvidia-gpu": {
+        "description": "Warnung: Dies aktiviert Ihre NVIDIA-GPU, was die Akkulaufzeit von Laptops mit Hybridgrafik erheblich beeinträchtigen kann.",
+        "label": "NVIDIA GPU-Überwachung aktivieren"
+      },
       "general": {
         "section": {
           "description": "Konfigurieren Sie das Verhalten und Aussehen des Systemmonitors.",
@@ -2180,7 +2274,7 @@
         "reset": "Deckkraft des gedimmten Desktops zurücksetzen"
       },
       "panel-background-opacity": {
-        "description": "Hintergrunddeckkraft für alle Panels festlegen (Launcher, Kontrollzentrum, Einstellungen usw.).",
+        "description": "Lege die Hintergrundtransparenz für alle Panels fest (Leiste, Starter, Einstellungen, usw.).",
         "label": "Panel-Hintergrunddeckkraft"
       },
       "panels-attached-to-bar": {

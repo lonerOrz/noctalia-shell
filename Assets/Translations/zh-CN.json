@@ -483,6 +483,7 @@
       "minutes": "米",
       "pause": "暂停",
       "reset": "重置",
+      "resume": "简历",
       "seconds": "s",
       "start": "开始",
       "stopwatch": "秒表",
@@ -998,10 +999,6 @@
     },
     "bar": {
       "appearance": {
-        "background-opacity": {
-          "description": "调整状态栏的背景不透明度。",
-          "label": "背景不透明度"
-        },
         "capsule-opacity": {
           "description": "设置显示胶囊时小部件背景的不透明度。",
           "label": "胶囊不透明度"
@@ -1035,6 +1032,10 @@
         "show-capsule": {
           "description": "为每个小部件添加背景。",
           "label": "显示组件背景"
+        },
+        "transparent": {
+          "description": "这将阻止面板连接到栏上。",
+          "label": "透明背景"
         }
       },
       "monitors": {
@@ -1206,6 +1207,10 @@
           "yazi": {
             "description": "写入 {filepath}。需要手动激活风味。",
             "description-missing": "需要安装{app}"
+          },
+          "zed": {
+            "description": "写入 {filepath} 并重新加载",
+            "description-missing": "需要安装 {app}"
           }
         },
         "section": {
@@ -1330,6 +1335,95 @@
         "sectionRight": "右"
       },
       "title": "控制中心"
+    },
+    "desktop-widgets": {
+      "clock": {
+        "enabled": {
+          "description": "在桌面上显示一个时钟小部件。",
+          "label": "启用时钟小部件"
+        },
+        "height": {
+          "description": "时钟小部件的高度，以像素为单位。",
+          "label": "高度"
+        },
+        "section": {
+          "description": "配置时钟小部件外观。",
+          "label": "时钟小部件"
+        },
+        "show-background": {
+          "description": "显示时钟小部件的背景容器。",
+          "label": "显示背景"
+        },
+        "show-date": {
+          "description": "在时间下方显示当前日期。",
+          "label": "显示日期"
+        },
+        "show-seconds": {
+          "description": "在时间中显示秒。",
+          "label": "显示秒数"
+        },
+        "width": {
+          "description": "时钟小部件的宽度，以像素为单位。",
+          "label": "宽度"
+        }
+      },
+      "edit-mode": {
+        "button": {
+          "label": "进入编辑模式"
+        },
+        "description": "启用编辑模式以移动和重新定位桌面小组件。启用后，小组件会显示拖动轮廓，并且可以重新定位。",
+        "exit-button": "退出编辑模式",
+        "label": "编辑模式"
+      },
+      "enabled": {
+        "description": "完全启用或禁用桌面小部件。",
+        "label": "启用桌面小部件"
+      },
+      "general": {
+        "section": {
+          "description": "配置显示在您桌面上的小部件。",
+          "label": "桌面小部件"
+        }
+      },
+      "media-player": {
+        "enabled": {
+          "description": "在桌面上显示媒体播放器小部件。",
+          "label": "启用媒体播放器小部件"
+        },
+        "section": {
+          "description": "配置媒体播放器小部件外观。",
+          "label": "媒体播放器小部件"
+        },
+        "show-background": {
+          "description": "显示媒体播放器小部件的背景容器。",
+          "label": "显示背景"
+        },
+        "visualizer-type": {
+          "description": "选择桌面媒体播放器的背景可视化类型。",
+          "label": "可视化类型"
+        }
+      },
+      "title": "桌面小部件",
+      "weather": {
+        "enabled": {
+          "description": "在桌面上显示天气小部件。",
+          "label": "启用天气小部件"
+        },
+        "section": {
+          "description": "配置天气小部件外观。",
+          "label": "天气小部件"
+        },
+        "show-background": {
+          "description": "显示天气小部件的背景容器。",
+          "label": "显示背景"
+        }
+      },
+      "widgets": {
+        "section": {
+          "description": "添加和配置桌面小部件",
+          "label": "桌面小部件"
+        }
+      }
     },
     "display": {
       "monitors": {
@@ -1561,10 +1655,6 @@
     },
     "launcher": {
       "settings": {
-        "background-opacity": {
-          "description": "调整启动器的背景不透明度。",
-          "label": "背景不透明度"
-        },
         "clip-preview": {
           "description": "在使用 >clip 命令时显示剪贴板内容的预览。",
           "label": "启用剪贴板预览"
@@ -2104,6 +2194,10 @@
       "disk-section": {
         "label": "磁盘使用率"
       },
+      "enable-nvidia-gpu": {
+        "description": "警告：这将唤醒您的 NVIDIA GPU，这可能会显著影响配备混合显卡的笔记本电脑的电池续航时间。",
+        "label": "启用 NVIDIA GPU 监控"
+      },
       "general": {
         "section": {
           "description": "配置系统监视器的行为和外观。",
@@ -2179,7 +2273,7 @@
         "reset": "重置变暗桌面不透明度"
       },
       "panel-background-opacity": {
-        "description": "设置所有面板的背景不透明度（启动器、控制中心、设置等）。",
+        "description": "设置所有面板（栏、启动器、设置等）的背景不透明度。",
         "label": "面板背景不透明度"
       },
       "panels-attached-to-bar": {

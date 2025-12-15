@@ -466,6 +466,7 @@
       "minutes": "m",
       "pause": "Pause",
       "reset": "Reset",
+      "resume": "Resume",
       "seconds": "s",
       "start": "Start",
       "stopwatch": "Stopwatch",
@@ -979,10 +980,6 @@
     },
     "bar": {
       "appearance": {
-        "background-opacity": {
-          "description": "Adjust the background opacity of the bar.",
-          "label": "Background opacity"
-        },
         "capsule-opacity": {
           "description": "Set the opacity level for widget backgrounds when capsule is shown.",
           "label": "Capsule opacity"
@@ -1016,6 +1013,10 @@
         "show-capsule": {
           "description": "Show widget backgrounds.",
           "label": "Show capsule"
+        },
+        "transparent": {
+          "description": "This will prevent the panels from attaching to the bar.",
+          "label": "Transparent background"
         }
       },
       "monitors": {
@@ -1187,6 +1188,10 @@
           "yazi": {
             "description": "Write {filepath}. Flavor needs to be activated manually.",
             "description-missing": "Requires {app} to be installed"
+          },
+          "zed": {
+            "description": "Write {filepath} and reload",
+            "description-missing": "Requires {app} to be installed"
           }
         },
         "section": {
@@ -1311,6 +1316,95 @@
         "sectionRight": "Right"
       },
       "title": "Control Center"
+    },
+    "desktop-widgets": {
+      "clock": {
+        "enabled": {
+          "description": "Show a clock widget on the desktop.",
+          "label": "Enable clock widget"
+        },
+        "height": {
+          "description": "Height of the clock widget in pixels.",
+          "label": "Height"
+        },
+        "section": {
+          "description": "Configure the clock widget appearance.",
+          "label": "Clock Widget"
+        },
+        "show-background": {
+          "description": "Show the background container for the clock widget.",
+          "label": "Show background"
+        },
+        "show-date": {
+          "description": "Display the current date below the time.",
+          "label": "Show date"
+        },
+        "show-seconds": {
+          "description": "Display seconds in the time.",
+          "label": "Show seconds"
+        },
+        "width": {
+          "description": "Width of the clock widget in pixels.",
+          "label": "Width"
+        }
+      },
+      "edit-mode": {
+        "button": {
+          "label": "Enter edit mode"
+        },
+        "description": "Enable edit mode to move and reposition desktop widgets. When enabled, widgets show a drag outline and can be repositioned.",
+        "exit-button": "Exit edit mode",
+        "label": "Edit mode"
+      },
+      "enabled": {
+        "description": "Enable or disable desktop widgets entirely.",
+        "label": "Enable desktop widgets"
+      },
+      "general": {
+        "section": {
+          "description": "Configure widgets that appear on your desktop.",
+          "label": "Desktop Widgets"
+        }
+      },
+      "media-player": {
+        "enabled": {
+          "description": "Show a media player widget on the desktop.",
+          "label": "Enable media player widget"
+        },
+        "section": {
+          "description": "Configure the media player widget appearance.",
+          "label": "Media Player Widget"
+        },
+        "show-background": {
+          "description": "Show the background container for the media player widget.",
+          "label": "Show background"
+        },
+        "visualizer-type": {
+          "description": "Choose a visualization type for the desktop media player background.",
+          "label": "Visualization type"
+        }
+      },
+      "title": "Desktop Widgets",
+      "weather": {
+        "enabled": {
+          "description": "Show a weather widget on the desktop.",
+          "label": "Enable weather widget"
+        },
+        "section": {
+          "description": "Configure the weather widget appearance.",
+          "label": "Weather Widget"
+        },
+        "show-background": {
+          "description": "Show the background container for the weather widget.",
+          "label": "Show background"
+        }
+      },
+      "widgets": {
+        "section": {
+          "description": "Add and configure desktop widgets",
+          "label": "Desktop Widgets"
+        }
+      }
     },
     "display": {
       "monitors": {
@@ -1538,9 +1632,9 @@
     },
     "launcher": {
       "settings": {
-        "background-opacity": {
-          "description": "Adjust the background opacity of the launcher.",
-          "label": "Background opacity"
+        "clip-preview": {
+          "description": "Show a preview of the clipboard content when using the >clip command.",
+          "label": "Enable clip preview"
         },
         "clipboard-history": {
           "description": "Access previously copied items from the launcher.",
@@ -2081,6 +2175,10 @@
       "disk-section": {
         "label": "Disk usage"
       },
+      "enable-nvidia-gpu": {
+        "description": "Warning: This will wake up your NVIDIA GPU, which may significantly impact battery life on laptops with hybrid graphics.",
+        "label": "Enable NVIDIA GPU monitoring"
+      },
       "general": {
         "section": {
           "description": "Configure the system monitor behavior and appearance.",
@@ -2156,7 +2254,7 @@
         "reset": "Reset dimmed desktop opacity"
       },
       "panel-background-opacity": {
-        "description": "Set the background opacity for all panels (launcher, control center, settings, etc.).",
+        "description": "Set the background opacity for all panels (bar, launcher, settings, etc...).",
         "label": "Panel background opacity"
       },
       "panels-attached-to-bar": {

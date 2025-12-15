@@ -483,6 +483,7 @@
       "minutes": "d",
       "pause": "Duraklat",
       "reset": "Sıfırla",
+      "resume": "Özgeçmiş",
       "seconds": "s",
       "start": "Başla",
       "stopwatch": "Kronometre",
@@ -998,10 +999,6 @@
     },
     "bar": {
       "appearance": {
-        "background-opacity": {
-          "description": "Araç çubuğu arka plan opaklığını ayarlayın.",
-          "label": "Arka plan opaklığı"
-        },
         "capsule-opacity": {
           "description": "Kapsül gösterildiğinde araç takımı arka planlarının saydamlık seviyesini ayarla.",
           "label": "Kapsül saydamlığı"
@@ -1035,6 +1032,10 @@
         "show-capsule": {
           "description": "Araç takımı arka planlarını göster.",
           "label": "Kapsülü göster"
+        },
+        "transparent": {
+          "description": "Bu, panellerin çubuğa takılmasını önleyecektir.",
+          "label": "Şeffaf arka plan"
         }
       },
       "monitors": {
@@ -1206,6 +1207,10 @@
           "yazi": {
             "description": "{filepath} dosyasına yaz. Temanın manuel etkinleştirilmesi gerekir.",
             "description-missing": "Kurulum için {app} gereklidir"
+          },
+          "zed": {
+            "description": "{filepath} dosyasına yaz ve yeniden yükle",
+            "description-missing": "Kurulum için {app} gereklidir"
           }
         },
         "section": {
@@ -1330,6 +1335,95 @@
         "sectionRight": "Sağ"
       },
       "title": "Kontrol Merkezi"
+    },
+    "desktop-widgets": {
+      "clock": {
+        "enabled": {
+          "description": "Masaüstünde bir saat aracı göster.",
+          "label": "Saat widget'ını etkinleştir"
+        },
+        "height": {
+          "description": "Saat aracı yüksekliği piksel cinsinden.",
+          "label": "Yükseklik"
+        },
+        "section": {
+          "description": "Saat aracı görünümünü yapılandırın.",
+          "label": "Saat Widget'ı"
+        },
+        "show-background": {
+          "description": "Saat widget'ı için arka plan kabını göster.",
+          "label": "Arka planı göster"
+        },
+        "show-date": {
+          "description": "Saati gösterdikten sonra, mevcut tarihi de göster.",
+          "label": "Tarihi göster"
+        },
+        "show-seconds": {
+          "description": "Saniyeleri saatte göster.",
+          "label": "Saniyeleri göster"
+        },
+        "width": {
+          "description": "Saat widget'ının piksel cinsinden genişliği.",
+          "label": "Genişlik"
+        }
+      },
+      "edit-mode": {
+        "button": {
+          "label": "Düzenleme moduna gir"
+        },
+        "description": "Masaüstü araçlarını taşımak ve yeniden konumlandırmak için düzenleme modunu etkinleştirin. Etkinleştirildiğinde, araçlar bir sürükleme ana hattı gösterir ve yeniden konumlandırılabilir.",
+        "exit-button": "Düzenleme modundan çık",
+        "label": "Düzenleme modu"
+      },
+      "enabled": {
+        "description": "Masaüstü araçlarını tamamen etkinleştir veya devre dışı bırak.",
+        "label": "Masaüstü araçlarını etkinleştir"
+      },
+      "general": {
+        "section": {
+          "description": "Masaüstünüzde görünen araçları yapılandırın.",
+          "label": "Masaüstü Araçları"
+        }
+      },
+      "media-player": {
+        "enabled": {
+          "description": "Masaüstünde bir medya oynatıcı aracı göster.",
+          "label": "Medya oynatıcı widget'ını etkinleştir."
+        },
+        "section": {
+          "description": "Medya oynatıcı araç görünümünü yapılandırın.",
+          "label": "Medya Oynatıcı Aracı"
+        },
+        "show-background": {
+          "description": "Medya oynatıcı widget'ı için arka plan konteynerini göster.",
+          "label": "Arka planı göster"
+        },
+        "visualizer-type": {
+          "description": "Masaüstü medya oynatıcı arka planı için bir görselleştirme türü seçin.",
+          "label": "Görselleştirme türü"
+        }
+      },
+      "title": "Masaüstü Araçları",
+      "weather": {
+        "enabled": {
+          "description": "Masaüstünde bir hava durumu aracı göster.",
+          "label": "Hava durumu araç kutusunu etkinleştir"
+        },
+        "section": {
+          "description": "Hava durumu widget'ının görünümünü yapılandırın.",
+          "label": "Hava Durumu Aracı"
+        },
+        "show-background": {
+          "description": "Hava durumu widget'ı için arka plan konteynerini göster.",
+          "label": "Arka planı göster"
+        }
+      },
+      "widgets": {
+        "section": {
+          "description": "Masaüstü araçlarını ekle ve yapılandır",
+          "label": "Masaüstü Araçları"
+        }
+      }
     },
     "display": {
       "monitors": {
@@ -1561,10 +1655,6 @@
     },
     "launcher": {
       "settings": {
-        "background-opacity": {
-          "description": "Başlatıcının arka plan opaklığını ayarlayın.",
-          "label": "Arka plan opaklığı"
-        },
         "clip-preview": {
           "description": ">clip komutu kullanılırken panodaki içeriğin önizlemesini gösterir.",
           "label": "Panoyu önizlemeyi etkinleştir"
@@ -2104,6 +2194,10 @@
       "disk-section": {
         "label": "Disk Kullanımı"
       },
+      "enable-nvidia-gpu": {
+        "description": "Uyarı: Bu, NVIDIA GPU'nuzu uyandıracak ve bu da hibrit grafiklere sahip dizüstü bilgisayarlarda pil ömrünü önemli ölçüde etkileyebilir.",
+        "label": "NVIDIA GPU izlemeyi etkinleştir"
+      },
       "general": {
         "section": {
           "description": "Sistem İzleyicisinin davranışını ve görünümünü yapılandırın.",
@@ -2179,7 +2273,7 @@
         "reset": "Karartılmış masaüstü opaklığını sıfırla"
       },
       "panel-background-opacity": {
-        "description": "Tüm paneller için arka plan opaklığını ayarlayın (Başlatıcı, Kontrol Merkezi, Ayarlar vb.).",
+        "description": "Tüm panellerin (çubuk, başlatıcı, ayarlar vb.) arka plan opaklığını ayarlayın.",
         "label": "Panel arka plan opaklığı"
       },
       "panels-attached-to-bar": {

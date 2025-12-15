@@ -14,8 +14,26 @@ Singleton {
   *   - Bar has an audio visualizer
   *   - LockScreen is opened
   *   - A control center is open
+  *   - Desktop media player has a visualizer enabled
   */
-  property bool shouldRun: BarService.hasAudioVisualizer || PanelService.lockScreen?.active || (PanelService.openedPanel && PanelService.openedPanel.objectName.startsWith("controlCenterPanel"))
+  readonly property bool hasDesktopMediaVisualizer: (function () {
+    var monitorWidgets = Settings.data.desktopWidgets.monitorWidgets;
+    if (!monitorWidgets)
+      return false;
+    for (var i = 0; i < monitorWidgets.length; i++) {
+      var widgets = monitorWidgets[i].widgets;
+      if (!widgets)
+        continue;
+      for (var j = 0; j < widgets.length; j++) {
+        var widget = widgets[j];
+        if (widget.id === "MediaPlayer" && widget.visualizerType && widget.visualizerType !== "" && widget.visualizerType !== "none") {
+          return true;
+        }
+      }
+    }
+    return false;
+  })()
+  property bool shouldRun: BarService.hasAudioVisualizer || PanelService.lockScreen?.active || (PanelService.openedPanel && PanelService.openedPanel.objectName.startsWith("controlCenterPanel")) || hasDesktopMediaVisualizer
 
   property var values: []
   property int barsCount: 32

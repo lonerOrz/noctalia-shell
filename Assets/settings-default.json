@@ -2,11 +2,11 @@
   "settingsVersion": 0,
   "bar": {
     "position": "top",
-    "backgroundOpacity": 1,
     "monitors": [],
     "density": "default",
     "showCapsule": true,
     "capsuleOpacity": 1,
+    "transparent": false,
     "floating": false,
     "marginVertical": 0.25,
     "marginHorizontal": 0.25,
@@ -60,7 +60,7 @@
   },
   "general": {
     "avatarImage": "",
-    "dimmerOpacity": 0.6,
+    "dimmerOpacity": 0.2,
     "showScreenCorners": false,
     "forceBlackScreenCorners": false,
     "scaleRatio": 1,
@@ -87,7 +87,7 @@
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
-    "panelBackgroundOpacity": 1,
+    "panelBackgroundOpacity": 0.85,
     "panelsAttachedToBar": true,
     "settingsPanelMode": "attached"
   },
@@ -243,6 +243,7 @@
     "cpuPollingInterval": 3000,
     "tempPollingInterval": 3000,
     "gpuPollingInterval": 3000,
+    "enableNvidiaGpu": false,
     "memPollingInterval": 3000,
     "diskPollingInterval": 3000,
     "networkPollingInterval": 3000,
@@ -375,6 +376,7 @@
     "yazi": false,
     "emacs": false,
     "niri": false,
+    "zed": false,
     "enableUserTemplates": false
   },
   "nightLight": {
@@ -390,5 +392,10 @@
     "enabled": false,
     "wallpaperChange": "",
     "darkModeChange": ""
+  },
+  "desktopWidgets": {
+    "enabled": false,
+    "editMode": false,
+    "monitorWidgets": []
   }
 }

@@ -466,6 +466,7 @@
       "minutes": "分",
       "pause": "一時停止",
       "reset": "リセット",
+      "resume": "履歴書 (Rirekisho)",
       "seconds": "秒",
       "start": "開始",
       "stopwatch": "ストップウォッチ",
@@ -981,10 +982,6 @@
     },
     "bar": {
       "appearance": {
-        "background-opacity": {
-          "description": "バーの背景の不透明度を調整します。",
-          "label": "背景の不透明度"
-        },
         "capsule-opacity": {
           "description": "カプセル表示時のウィジェット背景の不透明度を設定します。",
           "label": "カプセルの不透明度"
@@ -1018,6 +1015,10 @@
         "show-capsule": {
           "description": "ウィジェットの背景を表示します。",
           "label": "カプセルを表示"
+        },
+        "transparent": {
+          "description": "これにより、パネルがバーに取り付けられるのを防ぎます。",
+          "label": "透明な背景"
         }
       },
       "monitors": {
@@ -1189,6 +1190,10 @@
           "yazi": {
             "description": "{filepath} を書き込みます。風味は手動で有効にする必要があります。",
             "description-missing": "{app} がインストールされている必要があります。"
+          },
+          "zed": {
+            "description": "{filepath} を書き込み、リロードします。",
+            "description-missing": "{app} のインストールが必要です。"
           }
         },
         "section": {
@@ -1313,6 +1318,95 @@
         "sectionRight": "右"
       },
       "title": "コントロールセンター"
+    },
+    "desktop-widgets": {
+      "clock": {
+        "enabled": {
+          "description": "デスクトップに時計ウィジェットを表示する。",
+          "label": "時計ウィジェットを有効にする"
+        },
+        "height": {
+          "description": "時計ウィジェットの高さ（ピクセル単位）。",
+          "label": "高さ"
+        },
+        "section": {
+          "description": "時計ウィジェットの外観を設定します。",
+          "label": "時計ウィジェット"
+        },
+        "show-background": {
+          "description": "時計ウィジェットの背景コンテナを表示する。",
+          "label": "背景を表示"
+        },
+        "show-date": {
+          "description": "現在時刻の下に今日の日付を表示しなさい。",
+          "label": "日付を表示"
+        },
+        "show-seconds": {
+          "description": "時刻に秒を表示します。",
+          "label": "秒を表示"
+        },
+        "width": {
+          "description": "クロックウィジェットの幅（ピクセル単位）。",
+          "label": "幅"
+        }
+      },
+      "edit-mode": {
+        "button": {
+          "label": "編集モードに入る"
+        },
+        "description": "デスクトップウィジェットを移動および再配置するには、編集モードを有効にしてください。有効にすると、ウィジェットにドラッグアウトラインが表示され、再配置できます。",
+        "exit-button": "編集モードを終了します。",
+        "label": "編集モード"
+      },
+      "enabled": {
+        "description": "デスクトップウィジェットを完全に有効または無効にします。",
+        "label": "デスクトップウィジェットを有効にする"
+      },
+      "general": {
+        "section": {
+          "description": "デスクトップに表示されるウィジェットを設定します。",
+          "label": "デスクトップウィジェット"
+        }
+      },
+      "media-player": {
+        "enabled": {
+          "description": "デスクトップにメディアプレーヤーウィジェットを表示する。",
+          "label": "メディアプレーヤーウィジェットを有効にする"
+        },
+        "section": {
+          "description": "メディアプレーヤーウィジェットの外観を設定します。",
+          "label": "メディアプレーヤーウィジェット"
+        },
+        "show-background": {
+          "description": "メディアプレーヤーウィジェットの背景コンテナを表示する。",
+          "label": "背景を表示"
+        },
+        "visualizer-type": {
+          "description": "デスクトップメディアプレーヤーの背景の視覚化タイプを選択してください。",
+          "label": "視覚化の種類"
+        }
+      },
+      "title": "デスクトップウィジェット",
+      "weather": {
+        "enabled": {
+          "description": "デスクトップに天気ウィジェットを表示する。",
+          "label": "天気ウィジェットを有効にする"
+        },
+        "section": {
+          "description": "天気ウィジェットの外観を設定します。",
+          "label": "天気ウィジェット"
+        },
+        "show-background": {
+          "description": "天気ウィジェットの背景コンテナを表示する。",
+          "label": "背景を表示"
+        }
+      },
+      "widgets": {
+        "section": {
+          "description": "デスクトップウィジェットを追加して設定する",
+          "label": "デスクトップウィジェット"
+        }
+      }
     },
     "display": {
       "monitors": {
@@ -1544,10 +1638,6 @@
     },
     "launcher": {
       "settings": {
-        "background-opacity": {
-          "description": "ランチャーの背景の不透明度を調整します。",
-          "label": "背景の不透明度"
-        },
         "clip-preview": {
           "description": ">clip コマンド使用時に、クリップボードの内容をプレビュー表示します。",
           "label": "クリップボードのプレビューを有効化"
@@ -2087,6 +2177,10 @@
       "disk-section": {
         "label": "ストレージ使用量"
       },
+      "enable-nvidia-gpu": {
+        "description": "警告：これにより NVIDIA GPU が起動し、ハイブリッド グラフィックスを搭載したラップトップのバッテリー寿命に大きな影響を与える可能性があります。",
+        "label": "NVIDIA GPU モニタリングを有効にする"
+      },
       "general": {
         "section": {
           "description": "システムモニターの動作と外観を設定します。",
@@ -2162,7 +2256,7 @@
         "reset": "デスクトップを暗くした際の不透明度をリセット"
       },
       "panel-background-opacity": {
-        "description": "すべてのパネル（ランチャー、コントロールセンター、設定など）の背景の不透明度を設定します。",
+        "description": "すべてのパネル（バー、ランチャー、設定など）の背景の不透明度を設定します。",
         "label": "パネル背景の不透明度"
       },
       "panels-attached-to-bar": {

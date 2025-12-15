@@ -47,6 +47,9 @@ Singleton {
   // Plugin container from shell.qml (for placing Main instances in graphics scene)
   property var pluginContainer: null
 
+  // Screen detector from shell.qml (for withCurrentScreen in plugin API)
+  property var screenDetector: null
+
   // Track if we need to initialize once container is ready
   property bool needsInit: false
 
@@ -154,6 +157,9 @@ Singleton {
 
     Logger.i("PluginService", "Refreshing available plugins");
     root.availablePlugins = [];
+
+    // Signal that we want to check for updates after refresh completes
+    shouldCheckUpdatesAfterFetch = true;
 
     var enabledSources = PluginRegistry.getEnabledSources();
     Logger.d("PluginService", "Fetching from", enabledSources.length, "enabled sources");
@@ -472,7 +478,8 @@ Singleton {
     // Load Main.qml entry point if it exists
     if (manifest.entryPoints && manifest.entryPoints.main) {
       var mainPath = pluginDir + "/" + manifest.entryPoints.main;
-      var mainComponent = Qt.createComponent("file://" + mainPath);
+      var loadVersion = PluginRegistry.pluginLoadVersions[pluginId] || 0;
+      var mainComponent = Qt.createComponent("file://" + mainPath + "?v=" + loadVersion);
 
       if (mainComponent.status === Component.Ready) {
         // Get the plugin container from shell.qml (must be in graphics scene)
@@ -506,7 +513,8 @@ Singleton {
     // Load bar widget component if provided (don't instantiate - BarWidgetRegistry will do that)
     if (manifest.entryPoints && manifest.entryPoints.barWidget) {
       var widgetPath = pluginDir + "/" + manifest.entryPoints.barWidget;
-      var widgetComponent = Qt.createComponent("file://" + widgetPath);
+      var widgetLoadVersion = PluginRegistry.pluginLoadVersions[pluginId] || 0;
+      var widgetComponent = Qt.createComponent("file://" + widgetPath + "?v=" + widgetLoadVersion);
 
       if (widgetComponent.status === Component.Ready) {
         root.loadedPlugins[pluginId].barWidget = widgetComponent;
@@ -579,6 +587,7 @@ Singleton {
         property var saveSettings: null
         property var openPanel: null
         property var closePanel: null
+        property var withCurrentScreen: null
         property var tr: null
         property var trp: null
         property var hasTranslation: null
@@ -648,6 +657,17 @@ Singleton {
         }
       }
       return false;
+    };
+
+    // ----------------------------------------
+    api.withCurrentScreen = function (callback) {
+      // Detect which screen the cursor is on and call callback with that screen
+      if (!root.screenDetector) {
+        Logger.w("PluginAPI", "Screen detector not available, using primary screen");
+        callback(Quickshell.screens[0]);
+        return;
+      }
+      root.screenDetector.withCurrentScreen(callback);
     };
 
     // ----------------------------------------
@@ -985,6 +1005,19 @@ Singleton {
     };
     Logger.d("PluginService", "Backed up bar layout");
 
+    // Close any open panels for this plugin before update
+    for (var slotNum = 1; slotNum <= 2; slotNum++) {
+      var panelName = "pluginPanel" + slotNum;
+      for (var s = 0; s < Quickshell.screens.length; s++) {
+        var panel = PanelService.getPanel(panelName, Quickshell.screens[s]);
+        if (panel && panel.currentPluginId === pluginId) {
+          Logger.d("PluginService", "Closing plugin panel before update");
+          panel.close();
+          panel.unloadPluginPanel();
+        }
+      }
+    }
+
     // Disable plugin (this removes widgets and unloads code)
     if (PluginRegistry.isPluginEnabled(pluginId)) {
       disablePlugin(pluginId);
@@ -994,6 +1027,9 @@ Singleton {
     installPlugin(availablePlugin, function (success, error) {
       if (success) {
         Logger.i("PluginService", "Plugin updated successfully:", pluginId);
+
+        // Increment load version to invalidate Qt component cache
+        PluginRegistry.incrementPluginLoadVersion(pluginId);
 
         // Re-enable the plugin first, so the new component is registered
         // Skip adding to bar since we'll restore the layout from backup
