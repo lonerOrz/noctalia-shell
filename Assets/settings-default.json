@@ -220,6 +220,10 @@
         "id": "audio-card"
       },
       {
+        "enabled": false,
+        "id": "brightness-card"
+      },
+      {
         "enabled": true,
         "id": "weather-card"
       },

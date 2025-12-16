@@ -70,8 +70,8 @@ Item {
         if (widgetIndex < widgets.length) {
           widgets[widgetIndex] = Object.assign({}, widgets[widgetIndex], properties);
           newMonitorWidgets[i] = Object.assign({}, newMonitorWidgets[i], {
-            "widgets": widgets
-          });
+                                                 "widgets": widgets
+                                               });
           Settings.data.desktopWidgets.monitorWidgets = newMonitorWidgets;
         }
         break;
@@ -86,7 +86,13 @@ Item {
   scale: widgetScale
   transformOrigin: Item.TopLeft
   // Use smooth animation outside edit mode only
-  Behavior on scale { enabled: !Settings.data.desktopWidgets.editMode; NumberAnimation { duration: 200; easing.type: Easing.InOutQuad; } }
+  Behavior on scale {
+    enabled: !Settings.data.desktopWidgets.editMode
+    NumberAnimation {
+      duration: 200
+      easing.type: Easing.InOutQuad
+    }
+  }
 
   // Update base position from widgetData when not dragging
   onWidgetDataChanged: {
@@ -145,7 +151,6 @@ Item {
     z: 1
   }
 
-
   // Drag and Scale MouseArea - handles both dragging (left-click) and scaling (right-click)
   MouseArea {
     id: interactionArea
@@ -153,8 +158,10 @@ Item {
     z: 1000
     visible: Settings.data.desktopWidgets.editMode
     cursorShape: {
-      if (internal.isDragging) return Qt.ClosedHandCursor;
-      if (internal.isScaling) return Qt.SizeAllCursor;
+      if (internal.isDragging)
+        return Qt.ClosedHandCursor;
+      if (internal.isScaling)
+        return Qt.SizeAllCursor;
       // Change cursor based on which button user is likely to press
       // Right mouse button for scaling, left for dragging
       return Qt.OpenHandCursor;
