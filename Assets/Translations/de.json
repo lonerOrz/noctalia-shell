@@ -414,6 +414,10 @@
           "description": "Anzahl der Zeichen, die von Arbeitsbereichsnamen angezeigt werden (1-10).",
           "label": "Zeichenanzahl"
         },
+        "enable-scrollwheel": {
+          "description": "Zwischen Arbeitsbereichen mit dem Mausrad wechseln.",
+          "label": "Zum Wechseln der Arbeitsbereiche scrollen"
+        },
         "follow-focused-screen": {
           "description": "Zeigt Arbeitsbereiche vom aktuell fokussierten Bildschirm an, statt vom Bildschirm, auf dem sich die Leiste befindet.",
           "label": "Fokussiertem Bildschirm folgen"
@@ -1031,6 +1035,10 @@
         "show-capsule": {
           "description": "Widget-Hintergründe anzeigen.",
           "label": "Kapsel anzeigen"
+        },
+        "show-outline": {
+          "description": "Zeigt eine sichtbare Umrandung um jedes Widget an.",
+          "label": "Widget-Umrisse anzeigen"
         },
         "transparent": {
           "description": "Dies verhindert, dass Paneele an der Stange befestigt werden können.",
@@ -2049,8 +2057,8 @@
           "title": "Plugin-Quelle hinzufügen",
           "url": "Repository-URL"
         },
-        "description": "Plugin-Repositories verwalten, von denen Plugins heruntergeladen werden.",
-        "label": "Plugin-Quellen",
+        "description": "Plugin-Repositories verwalten.",
+        "label": "Quellen",
         "placeholder": "Mein cooles Repository",
         "remove": {
           "tooltip": "Plugin-Quelle entfernen"

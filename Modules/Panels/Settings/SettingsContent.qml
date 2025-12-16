@@ -31,7 +31,6 @@ Item {
   }
 
   Component.onCompleted: {
-    updateTabsModel();
     // Restore sidebar state
     sidebarExpanded = ShellState.getSettingsSidebarExpanded();
   }
@@ -345,7 +344,7 @@ Item {
         readonly property bool panelVeryTransparent: Settings.data.ui.panelBackgroundOpacity <= 0.75
 
         clip: true
-        Layout.preferredWidth: root.sidebarExpanded ? 200 * Style.uiScaleRatio : sidebarToggle.width + (panelVeryTransparent ? Style.marginM * 2 : 0) + (sidebarList.verticalScrollBarActive ? Style.marginM : 0)
+        Layout.preferredWidth: Math.round(root.sidebarExpanded ? 200 * Style.uiScaleRatio : sidebarToggle.width + (panelVeryTransparent ? Style.marginM * 2 : 0) + (sidebarList.verticalScrollBarActive ? Style.marginM : 0))
         Layout.fillHeight: true
         Layout.alignment: Qt.AlignTop
 
@@ -370,11 +369,11 @@ Item {
           Item {
             id: toggleContainer
             Layout.fillWidth: true
-            Layout.preferredHeight: toggleRow.implicitHeight + Style.marginS * 2
+            Layout.preferredHeight: Math.round(toggleRow.implicitHeight + Style.marginS * 2)
 
             Rectangle {
               id: sidebarToggle
-              width: toggleRow.implicitWidth + Style.marginS * 2
+              width: Math.round(toggleRow.implicitWidth + Style.marginS * 2)
               height: parent.height
               anchors.left: parent.left
               radius: Style.radiusS
@@ -423,6 +422,7 @@ Item {
           Item {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.bottomMargin: Style.marginXL
 
             NListView {
               id: sidebarList
@@ -540,28 +540,27 @@ Item {
                 }
               }
             }
-
-            // Overlay gradient for sidebar scrolling
-            Rectangle {
-              anchors.fill: parent
-              anchors.margins: Style.borderS
-              radius: Style.radiusM
+          }
+        }
+        // Overlay gradient for sidebar scrolling
+        Rectangle {
+          anchors.fill: parent
+          anchors.margins: Style.borderS
+          radius: Style.radiusM
+          color: Color.transparent
+          visible: sidebarList.verticalScrollBarActive
+          gradient: Gradient {
+            GradientStop {
+              position: 0.0
               color: Color.transparent
-              visible: sidebarList.verticalScrollBarActive
-              gradient: Gradient {
-                GradientStop {
-                  position: 0.0
-                  color: Color.transparent
-                }
-                GradientStop {
-                  position: 0.95
-                  color: Color.transparent
-                }
-                GradientStop {
-                  position: 1.0
-                  color: Color.mSurfaceVariant
-                }
-              }
+            }
+            GradientStop {
+              position: 0.95
+              color: Color.transparent
+            }
+            GradientStop {
+              position: 1.0
+              color: Color.mSurfaceVariant
             }
           }
         }
@@ -591,13 +590,13 @@ Item {
             spacing: Style.marginS
 
             NIcon {
-              icon: root.tabsModel[currentTabIndex]?.icon
+              icon: root.tabsModel[currentTabIndex]?.icon ?? ""
               color: Color.mPrimary
               pointSize: Style.fontSizeXXL
             }
 
             NText {
-              text: I18n.tr(root.tabsModel[currentTabIndex]?.label) || ""
+              text: root.tabsModel[root.currentTabIndex]?.label ? I18n.tr(root.tabsModel[root.currentTabIndex].label) : ""
               pointSize: Style.fontSizeXL
               font.weight: Style.fontWeightBold
               color: Color.mPrimary

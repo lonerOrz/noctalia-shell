@@ -54,6 +54,8 @@ Item {
   readonly property bool showApplications: (widgetSettings.showApplications !== undefined) ? widgetSettings.showApplications : widgetMetadata.showApplications
   readonly property bool showLabelsOnlyWhenOccupied: (widgetSettings.showLabelsOnlyWhenOccupied !== undefined) ? widgetSettings.showLabelsOnlyWhenOccupied : widgetMetadata.showLabelsOnlyWhenOccupied
   readonly property bool colorizeIcons: (widgetSettings.colorizeIcons !== undefined) ? widgetSettings.colorizeIcons : widgetMetadata.colorizeIcons
+  readonly property bool enableScrollWheel: (widgetSettings.enableScrollWheel !== undefined) ? widgetSettings.enableScrollWheel : widgetMetadata.enableScrollWheel
+
   readonly property real itemSize: (density === "compact") ? Style.capsuleHeight * 0.9 : Style.capsuleHeight * 0.8
 
   // Context menu state for grouped mode
@@ -317,6 +319,8 @@ Item {
     height: isVertical ? parent.height : Style.capsuleHeight
     radius: Style.radiusM
     color: Style.capsuleColor
+    border.color: Style.capsuleBorderColor
+    border.width: Style.capsuleBorderWidth
 
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.verticalCenter: parent.verticalCenter
@@ -353,6 +357,7 @@ Item {
     id: wheelHandler
     target: root
     acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+    enabled: root.enableScrollWheel
     onWheel: function (event) {
       if (root.wheelCooldown)
         return;
@@ -689,12 +694,12 @@ Item {
       property var workspaceModel: model
       property bool hasWindows: (workspaceModel?.windows?.count ?? 0) > 0
 
-      radius: Style.radiusS
-      border.color: workspaceModel.isFocused ? Color.mPrimary : Color.mOutline
-      border.width: Style.borderS
-      width: (hasWindows ? groupedIconsFlow.implicitWidth : root.itemSize * 0.8) + (root.isVertical ? Style.marginXS : Style.marginL)
-      height: (hasWindows ? groupedIconsFlow.implicitHeight : root.itemSize * 0.8) + (root.isVertical ? Style.marginL : Style.marginXS)
+      width: (hasWindows ? groupedIconsFlow.implicitWidth : root.itemSize) + (root.isVertical ? Style.marginXS : Style.marginXL)
+      height: (hasWindows ? groupedIconsFlow.implicitHeight : root.itemSize) + (root.isVertical ? Style.marginL : Style.marginXS)
       color: Style.capsuleColor
+      radius: Style.radiusS
+      border.color: Settings.data.bar.showOutline ? Style.capsuleBorderColor : (workspaceModel.isFocused ? Color.mPrimary : Color.mOutline)
+      border.width: Style.borderS
 
       MouseArea {
         anchors.fill: parent
@@ -734,8 +739,8 @@ Item {
 
             property bool itemHovered: false
 
-            width: root.itemSize * 0.8
-            height: root.itemSize * 0.8
+            width: root.itemSize
+            height: root.itemSize
 
             scale: itemHovered ? 1.1 : 1.0
 
@@ -766,7 +771,7 @@ Item {
 
               Rectangle {
                 id: groupedFocusIndicator
-                anchors.bottomMargin: -2
+                anchors.bottomMargin: 0
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: model.isFocused ? 4 : 0
@@ -829,8 +834,8 @@ Item {
         anchors {
           left: parent.left
           top: parent.top
-          leftMargin: -Style.fontSizeXS * 0.5
-          topMargin: -Style.fontSizeXS * 0.5
+          leftMargin: -Style.fontSizeXS * 0.55
+          topMargin: -Style.fontSizeXS * 0.25
         }
 
         width: Math.max(groupedWorkspaceNumber.implicitWidth + (Style.marginXS * 2), Style.fontSizeXXS * 2)
@@ -840,7 +845,7 @@ Item {
           id: groupedWorkspaceNumberBackground
 
           anchors.fill: parent
-          radius: Math.min(Style.radiusL, width / 2)
+          radius: width / 2
 
           color: {
             if (groupedContainer.workspaceModel.isFocused)
@@ -857,7 +862,7 @@ Item {
             }
           }
 
-          scale: groupedContainer.workspaceModel.isActive ? 1.0 : 0.9
+          scale: groupedContainer.workspaceModel.isActive ? 1.0 : 0.8
 
           Behavior on scale {
             NumberAnimation {

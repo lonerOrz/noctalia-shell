@@ -414,6 +414,10 @@
           "description": "Nombre de caractères à afficher des noms d'espaces de travail (1-10).",
           "label": "Nombre de caractères"
         },
+        "enable-scrollwheel": {
+          "description": "Basculer entre les espaces de travail avec la molette de la souris.",
+          "label": "Faites défiler pour changer d'espace de travail."
+        },
         "follow-focused-screen": {
           "description": "Afficher les espaces de travail de l'écran actuellement ciblé, plutôt que de l'écran où se trouve la barre.",
           "label": "Suivre l'Écran Ciblé"
@@ -1032,6 +1036,10 @@
         "show-capsule": {
           "description": "Afficher les arrière-plans des widgets.",
           "label": "Afficher la capsule"
+        },
+        "show-outline": {
+          "description": "Affiche une bordure visible autour de chaque widget.",
+          "label": "Afficher les contours des widgets"
         },
         "transparent": {
           "description": "Cela empêchera les panneaux de se fixer à la barre.",
@@ -2052,8 +2060,8 @@
           "title": "Ajouter la source du plugin",
           "url": "URL du dépôt"
         },
-        "description": "Gérer les dépôts de plugins à partir desquels les plugins sont téléchargés.",
-        "label": "Sources du plugin",
+        "description": "Gérer les dépôts d'extensions.",
+        "label": "Sources",
         "placeholder": "Mon dépôt cool",
         "remove": {
           "tooltip": "Supprimer la source du plugin"

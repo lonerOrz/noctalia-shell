@@ -444,6 +444,38 @@ Singleton {
     return changed;
   }
 
+  // Remove plugin desktop widgets from all monitors' saved settings
+  function removePluginDesktopWidgetsFromSettings(pluginId) {
+    var widgetId = "plugin:" + pluginId;
+    var monitorWidgets = Settings.data.desktopWidgets.monitorWidgets || [];
+    var changed = false;
+
+    for (var m = 0; m < monitorWidgets.length; m++) {
+      var monitor = monitorWidgets[m];
+      var widgets = monitor.widgets || [];
+      var newWidgets = [];
+
+      for (var i = 0; i < widgets.length; i++) {
+        if (widgets[i].id !== widgetId) {
+          newWidgets.push(widgets[i]);
+        } else {
+          changed = true;
+          Logger.i("PluginService", "Removed desktop widget", widgetId, "from monitor:", monitor.name);
+        }
+      }
+
+      if (newWidgets.length !== widgets.length) {
+        monitorWidgets[m].widgets = newWidgets;
+      }
+    }
+
+    if (changed) {
+      Settings.data.desktopWidgets.monitorWidgets = monitorWidgets;
+    }
+
+    return changed;
+  }
+
   // Load a plugin
   function loadPlugin(pluginId) {
     if (root.loadedPlugins[pluginId]) {
@@ -467,6 +499,7 @@ Singleton {
     // Initialize plugin entry with API and manifest
     root.loadedPlugins[pluginId] = {
       barWidget: null,
+      desktopWidget: null,
       mainInstance: null,
       api: pluginApi,
       manifest: manifest
@@ -528,6 +561,24 @@ Singleton {
       }
     }
 
+    // Load desktop widget component if provided (don't instantiate - DesktopWidgetRegistry will do that)
+    if (manifest.entryPoints && manifest.entryPoints.desktopWidget) {
+      var desktopWidgetPath = pluginDir + "/" + manifest.entryPoints.desktopWidget;
+      var desktopWidgetLoadVersion = PluginRegistry.pluginLoadVersions[pluginId] || 0;
+      var desktopWidgetComponent = Qt.createComponent("file://" + desktopWidgetPath + "?v=" + desktopWidgetLoadVersion);
+
+      if (desktopWidgetComponent.status === Component.Ready) {
+        root.loadedPlugins[pluginId].desktopWidget = desktopWidgetComponent;
+        pluginApi.desktopWidget = desktopWidgetComponent;
+
+        // Register with DesktopWidgetRegistry
+        DesktopWidgetRegistry.registerPluginWidget(pluginId, desktopWidgetComponent, manifest.metadata);
+        Logger.i("PluginService", "Loaded desktop widget for plugin:", pluginId);
+      } else if (desktopWidgetComponent.status === Component.Error) {
+        root.recordPluginError(pluginId, "desktopWidget", desktopWidgetComponent.errorString());
+      }
+    }
+
     Logger.i("PluginService", "Plugin loaded:", pluginId);
     root.pluginLoaded(pluginId);
   }
@@ -545,6 +596,12 @@ Singleton {
     // Unregister from BarWidgetRegistry
     if (plugin.manifest.entryPoints && plugin.manifest.entryPoints.barWidget) {
       BarWidgetRegistry.unregisterPluginWidget(pluginId);
+    }
+
+    // Unregister from DesktopWidgetRegistry and clean up saved widget instances
+    if (plugin.manifest.entryPoints && plugin.manifest.entryPoints.desktopWidget) {
+      removePluginDesktopWidgetsFromSettings(pluginId);
+      DesktopWidgetRegistry.unregisterPluginWidget(pluginId);
     }
 
     // Destroy Main instance if any
@@ -575,6 +632,7 @@ Singleton {
         // Instance references (set after loading)
         property var mainInstance: null
         property var barWidget: null
+        property var desktopWidget: null
 
         // IPC handlers storage
         property var ipcHandlers: ({})
