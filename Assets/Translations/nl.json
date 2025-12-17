@@ -1358,9 +1358,43 @@
           "description": "Configureer de weergave van de klokwidget.",
           "label": "Klokwidget"
         },
+        "clock-display": {
+          "description": "Pas de weergave van je klok aan door tokens uit onderstaande lijst toe te voegen. Om de 12-uursnotatie te gebruiken, moet je de 'AP'-token opnemen.",
+          "label": "Klokweergave"
+        },
+        "custom-font": {
+          "description": "Selecteer een aangepast lettertype voor de klokweergave.",
+          "label": "Aangepast lettertype",
+          "placeholder": "Selecteer aangepast lettertype...",
+          "search-placeholder": "Lettertypen zoeken..."
+        },
+        "format": {
+          "description": "Tip: gebruik \\n om een regeleinde te maken.",
+          "label": "Formaat"
+        },
+        "minimal-mode": {
+          "description": "Gebruik een minimale klokweergave met tijd en datum.",
+          "label": "Minimale modus"
+        },
+        "preview": "Voorbeeld",
         "show-background": {
           "description": "Toon de achtergrondcontainer voor de klokwidget.",
           "label": "Achtergrond weergeven"
+        },
+        "use-custom-font": {
+          "description": "Overschrijf het standaardlettertype met een aangepast lettertype voor de klok.",
+          "label": "Aangepast lettertype gebruiken"
+        },
+        "use-primary-color": {
+          "description": "Indien ingeschakeld wordt de primaire kleur gebruikt voor nadruk.",
+          "label": "Primaire kleur gebruiken"
+        },
+        "style": {
+          "analog": "Analoog",
+          "description": "Kies de weergavestijl van de klok.",
+          "digital": "Digitaal",
+          "label": "Klokstijl",
+          "minimal": "Minimaal"
         },
         "show-date": {
           "description": "Toon de huidige datum onder de tijd.",
@@ -1395,6 +1429,10 @@
         }
       },
       "media-player": {
+        "hide-mode": {
+          "description": "Bepaalt hoe de widget zich gedraagt wanneer er geen media wordt afgespeeld.",
+          "label": "Verbergmodus"
+        },
         "enabled": {
           "description": "Toon een mediaplayer-widget op het bureaublad.",
           "label": "Mediaspeler-widget inschakelen"
