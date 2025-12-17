@@ -1379,6 +1379,7 @@
         "button": {
           "label": "Entrar en modo de edición"
         },
+        "controls-explanation": "Botón izquierdo del ratón: Mover widget\nBotón derecho del ratón: Redimensionar widget",
         "description": "Habilita el modo de edición para mover y cambiar la posición de los widgets del escritorio. Cuando está habilitado, los widgets muestran un contorno de arrastre y se pueden reposicionar.",
         "exit-button": "Salir del modo de edición",
         "label": "Modo de edición"
@@ -1638,6 +1639,16 @@
           "description": "• Hook de fondo de pantalla: $1 = ruta del fondo de pantalla, $2 = nombre de la pantalla<br>• Hook de cambio de tema: $1 = true/false (estado del modo oscuro)",
           "label": "Parámetros disponibles"
         }
+      },
+      "screen-lock": {
+        "description": "Comando a ejecutar cuando se bloquea la pantalla.",
+        "label": "Pantalla bloqueada",
+        "placeholder": "ej., notify-send \"Pantalla\" \"Bloqueada\""
+      },
+      "screen-unlock": {
+        "description": "Comando a ejecutar cuando se desbloquea la pantalla.",
+        "label": "Pantalla desbloqueada",
+        "placeholder": "ej., notify-send \"Pantalla\" \"Desbloqueada\""
       },
       "system-hooks": {
         "enable": {
@@ -2182,6 +2193,10 @@
           "description": "Configurar el comportamiento y la apariencia del panel del menú de sesión.",
           "label": "General"
         }
+      },
+      "large-buttons-style": {
+        "description": "Mostrar el menú de sesión con botones grandes en un diseño de cuadrícula.",
+        "label": "Estilo de botones grandes"
       },
       "position": {
         "description": "Elige dónde aparece el panel del Menú de sesión cuando se abre.",

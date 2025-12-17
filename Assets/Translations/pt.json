@@ -1379,6 +1379,7 @@
         "button": {
           "label": "Entrar no modo de edição"
         },
+        "controls-explanation": "Botão esquerdo do mouse: Mover widget\nBotão direito do mouse: Redimensionar widget",
         "description": "Ative o modo de edição para mover e reposicionar widgets da área de trabalho. Quando ativado, os widgets exibem um contorno de arrastar e podem ser reposicionados.",
         "exit-button": "Sair do modo de edição",
         "label": "Modo de edição"
@@ -1638,6 +1639,16 @@
           "description": "• Hook de Papel de Parede: $1 = caminho do papel de parede, $2 = nome da tela<br>• Hook de Alternância de Tema: $1 = true/false (estado do modo escuro)",
           "label": "Parâmetros Disponíveis"
         }
+      },
+      "screen-lock": {
+        "description": "Comando a ser executado quando a tela é bloqueada.",
+        "label": "Tela bloqueada",
+        "placeholder": "ex., notify-send \"Tela\" \"Bloqueada\""
+      },
+      "screen-unlock": {
+        "description": "Comando a ser executado quando a tela é desbloqueada.",
+        "label": "Tela desbloqueada",
+        "placeholder": "ex., notify-send \"Tela\" \"Desbloqueada\""
       },
       "system-hooks": {
         "enable": {
@@ -2182,6 +2193,10 @@
           "description": "Configurar o comportamento e a aparência do painel do menu de sessão.",
           "label": "Geral"
         }
+      },
+      "large-buttons-style": {
+        "description": "Exibir o menu de sessão com botões grandes em um layout de grade.",
+        "label": "Estilo de botões grandes"
       },
       "position": {
         "description": "Escolha onde o painel do Menu de sessão aparece quando aberto.",

@@ -1360,6 +1360,7 @@
         "button": {
           "label": "Enter edit mode"
         },
+        "controls-explanation": "Left Mouse Button: Move widget\nRight Mouse Button: Resize widget",
         "description": "Enable edit mode to move and reposition desktop widgets. When enabled, widgets show a drag outline and can be repositioned.",
         "exit-button": "Exit edit mode",
         "label": "Edit mode"
@@ -1612,9 +1613,19 @@
           "label": "Hook command information"
         },
         "parameters": {
-          "description": "• Wallpaper hook: $1 = wallpaper path, $2 = screen name<br>• Theme toggle hook: $1 = true/false (Dark Mode state)",
+          "description": "• Wallpaper hook: $1 = wallpaper path, $2 = screen name<br>• Theme toggle hook: $1 = true/false (Dark Mode state)<br>• Screen lock/unlock hooks: No parameters",
           "label": "Available parameters"
         }
+      },
+      "screen-lock": {
+        "description": "Command to be executed when the screen is locked.",
+        "label": "Screen locked",
+        "placeholder": "e.g., notify-send \"Screen\" \"Locked\""
+      },
+      "screen-unlock": {
+        "description": "Command to be executed when the lock screen is unlocked.",
+        "label": "Screen unlocked",
+        "placeholder": "e.g., notify-send \"Screen\" \"Unlocked\""
       },
       "system-hooks": {
         "enable": {
@@ -2163,6 +2174,10 @@
           "description": "Configure the session menu panel behavior and appearance.",
           "label": "General"
         }
+      },
+      "large-buttons-style": {
+        "description": "Display the session menu with large buttons in a grid layout.",
+        "label": "Large buttons style"
       },
       "position": {
         "description": "Choose where the session menu panel appears when opened.",

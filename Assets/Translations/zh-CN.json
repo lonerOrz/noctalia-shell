@@ -1379,6 +1379,7 @@
         "button": {
           "label": "进入编辑模式"
         },
+        "controls-explanation": "鼠标左键：移动小组件\n鼠标右键：调整小组件大小",
         "description": "启用编辑模式以移动和重新定位桌面小组件。启用后，小组件会显示拖动轮廓，并且可以重新定位。",
         "exit-button": "退出编辑模式",
         "label": "编辑模式"
@@ -1638,6 +1639,16 @@
           "description": "• 壁纸钩子: $1 = 壁纸路径, $2 = 屏幕名称<br>• 主题切换钩子: $1 = true/false (深色模式状态)",
           "label": "可用参数"
         }
+      },
+      "screen-lock": {
+        "description": "屏幕锁定时执行的命令。",
+        "label": "屏幕已锁定",
+        "placeholder": "例如：notify-send \"屏幕\" \"已锁定\""
+      },
+      "screen-unlock": {
+        "description": "屏幕解锁时执行的命令。",
+        "label": "屏幕已解锁",
+        "placeholder": "例如：notify-send \"屏幕\" \"已解锁\""
       },
       "system-hooks": {
         "enable": {
@@ -2182,6 +2193,10 @@
           "description": "配置会话菜单面板的行为和外观。",
           "label": "常规"
         }
+      },
+      "large-buttons-style": {
+        "description": "以网格布局显示带有大按钮的会话菜单。",
+        "label": "大按钮样式"
       },
       "position": {
         "description": "选择会话菜单面板打开时出现的位置。",

@@ -1362,6 +1362,7 @@
         "button": {
           "label": "編集モードに入る"
         },
+        "controls-explanation": "左マウスボタン: ウィジェットを移動\n右マウスボタン: ウィジェットのサイズを変更",
         "description": "デスクトップウィジェットを移動および再配置するには、編集モードを有効にしてください。有効にすると、ウィジェットにドラッグアウトラインが表示され、再配置できます。",
         "exit-button": "編集モードを終了します。",
         "label": "編集モード"
@@ -1621,6 +1622,16 @@
           "description": "• 壁紙フック: $1 = 壁紙のパス, $2 = 画面名<br>• テーマ切替フック: $1 = true/false（ダークモードの状態）",
           "label": "利用可能なパラメータ（引数）"
         }
+      },
+      "screen-lock": {
+        "description": "画面がロックされた際に実行されるコマンド。",
+        "label": "画面ロック時",
+        "placeholder": "例: notify-send \"Screen\" \"Locked\""
+      },
+      "screen-unlock": {
+        "description": "ロック画面が解除された際に実行されるコマンド。",
+        "label": "画面ロック解除時",
+        "placeholder": "例: notify-send \"Screen\" \"Unlocked\""
       },
       "system-hooks": {
         "enable": {
@@ -2165,6 +2176,10 @@
           "description": "セッションメニューパネルの動作と外観を設定します。",
           "label": "一般"
         }
+      },
+      "large-buttons-style": {
+        "description": "セッションメニューを大きなボタンでグリッドレイアウトで表示する。",
+        "label": "大きなボタンのスタイル"
       },
       "position": {
         "description": "セッションメニューパネルの表示位置を選択します。",

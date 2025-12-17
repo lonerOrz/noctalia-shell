@@ -1379,6 +1379,7 @@
         "button": {
           "label": "Ga naar de bewerkingsmodus"
         },
+        "controls-explanation": "Linkermuisknop: Widget verplaatsen\nRechtermuisknop: Widget vergroten/verkleinen",
         "description": "Schakel de bewerkingsmodus in om desktopwidgets te verplaatsen en te herpositioneren. In de ingeschakelde modus tonen widgets een sleepomtrek en kunnen ze worden verplaatst.",
         "exit-button": "Bewerkingsmodus verlaten",
         "label": "Bewerkingsmodus"
@@ -1638,6 +1639,16 @@
           "description": "• Wallpaper-hook: $1 = pad naar achtergrond, $2 = schermnaam<br>• Theme Toggle-hook: $1 = true/false (status donkere modus)",
           "label": "Beschikbare parameters"
         }
+      },
+      "screen-lock": {
+        "description": "Commando dat wordt uitgevoerd wanneer het scherm wordt vergrendeld.",
+        "label": "Scherm vergrendeld",
+        "placeholder": "bijv. notify-send \"Scherm\" \"Vergrendeld\""
+      },
+      "screen-unlock": {
+        "description": "Commando dat wordt uitgevoerd wanneer het scherm wordt ontgrendeld.",
+        "label": "Scherm ontgrendeld",
+        "placeholder": "bijv. notify-send \"Scherm\" \"Ontgrendeld\""
       },
       "system-hooks": {
         "enable": {
@@ -2182,6 +2193,10 @@
           "description": "Configureer het gedrag en uiterlijk van het sessiemenu-paneel.",
           "label": "Algemeen"
         }
+      },
+      "large-buttons-style": {
+        "description": "Toon het sessiemenu met grote knoppen in een rasterindeling.",
+        "label": "Stijl met grote knoppen"
       },
       "position": {
         "description": "Kies waar het Sessiemenu-paneel verschijnt wanneer het wordt geopend.",

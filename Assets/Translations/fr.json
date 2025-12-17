@@ -1379,6 +1379,7 @@
         "button": {
           "label": "Entrer en mode édition"
         },
+        "controls-explanation": "Bouton gauche de la souris : Déplacer le widget\nBouton droit de la souris : Redimensionner le widget",
         "description": "Activer le mode édition pour déplacer et repositionner les widgets du bureau. Une fois activé, les widgets affichent un contour de glissement et peuvent être repositionnés.",
         "exit-button": "Quitter le mode édition",
         "label": "Mode édition"
@@ -1638,6 +1639,16 @@
           "description": "• Hook Fond d'écran : $1 = chemin du fond d'écran, $2 = nom de l'écran<br>• Hook de bascule de thème : $1 = true/false (état du mode sombre)",
           "label": "Paramètres disponibles"
         }
+      },
+      "screen-lock": {
+        "description": "Commande à exécuter lorsque l'écran est verrouillé.",
+        "label": "Écran verrouillé",
+        "placeholder": "ex: notify-send \"Écran\" \"Verrouillé\""
+      },
+      "screen-unlock": {
+        "description": "Commande à exécuter lorsque l'écran est déverrouillé.",
+        "label": "Écran déverrouillé",
+        "placeholder": "ex: notify-send \"Écran\" \"Déverrouillé\""
       },
       "system-hooks": {
         "enable": {
@@ -2182,6 +2193,10 @@
           "description": "Configurer le comportement et l'apparence du panneau du menu de session.",
           "label": "Général"
         }
+      },
+      "large-buttons-style": {
+        "description": "Afficher le menu de session avec de grands boutons dans une disposition en grille.",
+        "label": "Style boutons larges"
       },
       "position": {
         "description": "Choisissez où le panneau du Menu de session apparaît lorsqu'il est ouvert.",

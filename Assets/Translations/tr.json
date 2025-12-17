@@ -1379,6 +1379,7 @@
         "button": {
           "label": "Düzenleme moduna gir"
         },
+        "controls-explanation": "Sol fare tuşu: Araç taşı\nSağ fare tuşu: Araç yeniden boyutlandır",
         "description": "Masaüstü araçlarını taşımak ve yeniden konumlandırmak için düzenleme modunu etkinleştirin. Etkinleştirildiğinde, araçlar bir sürükleme ana hattı gösterir ve yeniden konumlandırılabilir.",
         "exit-button": "Düzenleme modundan çık",
         "label": "Düzenleme modu"
@@ -1638,6 +1639,16 @@
           "description": "• Duvar Kâğıdı Kancası: $1 = duvar kâğıdı yolu, $2 = ekran adı<br>• Tema Geçiş Kancası: $1 = true/false (koyu mod durumu)",
           "label": "Kullanılabilir Parametreler"
         }
+      },
+      "screen-lock": {
+        "description": "Ekran kilitlendiğinde çalıştırılacak komut.",
+        "label": "Ekran kilitlendi",
+        "placeholder": "örn., notify-send \"Ekran\" \"Kilitlendi\""
+      },
+      "screen-unlock": {
+        "description": "Ekran kilidi açıldığında çalıştırılacak komut.",
+        "label": "Ekran kilidi açıldı",
+        "placeholder": "örn., notify-send \"Ekran\" \"Açıldı\""
       },
       "system-hooks": {
         "enable": {
@@ -2182,6 +2193,10 @@
           "description": "Oturum menüsü panelinin davranışını ve görünümünü yapılandırın.",
           "label": "Genel"
         }
+      },
+      "large-buttons-style": {
+        "description": "Oturum menüsünü büyük butonlarla ızgara düzeninde görüntüle.",
+        "label": "Büyük düğme stili"
       },
       "position": {
         "description": "Oturum Menüsü panelinin açıldığında nerede görüneceğini seçin.",

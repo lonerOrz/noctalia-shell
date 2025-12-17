@@ -477,6 +477,7 @@ Singleton {
       property int countdownDuration: 10000
       property string position: "center"
       property bool showHeader: true
+      property bool largeButtonsStyle: false
       property list<var> powerOptions: [
         {
           "action": "lock",
@@ -535,7 +536,7 @@ Singleton {
       property int autoHideMs: 2000
       property bool overlayLayer: true
       property real backgroundOpacity: 1.0
-      property list<var> enabledTypes: [OSD.Type.Volume, OSD.Type.InputVolume, OSD.Type.Brightness]
+      property list<var> enabledTypes: [OSD.Type.Volume, OSD.Type.InputVolume, OSD.Type.Brightness, OSD.Type.CustomText]
       property list<string> monitors: [] // holds osd visibility per monitor
     }
 
@@ -611,6 +612,8 @@ Singleton {
       property bool enabled: false
       property string wallpaperChange: ""
       property string darkModeChange: ""
+      property string screenLock: ""
+      property string screenUnlock: ""
     }
 
     // desktop widgets

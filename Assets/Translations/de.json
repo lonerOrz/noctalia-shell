@@ -1378,6 +1378,7 @@
         "button": {
           "label": "Bearbeitungsmodus aktivieren"
         },
+        "controls-explanation": "Linke Maustaste: Widget verschieben\nRechte Maustaste: Widget Größe ändern",
         "description": "Aktiviere den Bearbeitungsmodus, um Desktop-Widgets zu verschieben und neu zu positionieren. Im aktivierten Zustand zeigen Widgets eine Ziehumrandung und können neu positioniert werden.",
         "exit-button": "Bearbeitungsmodus verlassen",
         "label": "Bearbeitungsmodus"
@@ -1635,6 +1636,16 @@
           "description": "• Hintergrundbild-Hook: $1 = Hintergrundbild-Pfad, $2 = Bildschirmname<br>• Theme-Wechsel-Hook: $1 = true/false (Dunkelmodus-Status)",
           "label": "Verfügbare Parameter"
         }
+      },
+      "screen-lock": {
+        "description": "Befehl, der ausgeführt wird, wenn der Bildschirm gesperrt wird.",
+        "label": "Bildschirm gesperrt",
+        "placeholder": "z.B. notify-send \"Bildschirm\" \"Gesperrt\""
+      },
+      "screen-unlock": {
+        "description": "Befehl, der ausgeführt wird, wenn der Bildschirm entsperrt wird.",
+        "label": "Bildschirm entsperrt",
+        "placeholder": "z.B. notify-send \"Bildschirm\" \"Entsperrt\""
       },
       "system-hooks": {
         "enable": {
@@ -2179,6 +2190,10 @@
           "description": "Konfigurieren Sie das Verhalten und Erscheinungsbild des Sitzungsmenü-Panels.",
           "label": "Allgemein"
         }
+      },
+      "large-buttons-style": {
+        "description": "Das Sitzungsmenü mit großen Schaltflächen in einem Rasterlayout anzeigen.",
+        "label": "Stil: Große Schaltflächen"
       },
       "position": {
         "description": "Wählen Sie, wo das Sitzungsmenü-Panel beim Öffnen erscheint.",
