@@ -759,6 +759,10 @@
       "none": "Ninguno",
       "wave": "Onda"
     },
+    "visualizer-visibility": {
+      "always": "Siempre visible",
+      "with-background": "Solo con fondo"
+    },
     "workspace-labels": {
       "index": "Índice",
       "index+name": "Índice y Nombre",
@@ -969,6 +973,17 @@
           "label": "Tipo de visualización"
         }
       },
+      "panel": {
+        "applications": {
+          "empty": "Actualmente no hay aplicaciones reproduciendo audio."
+        },
+        "input": "Entrada",
+        "output": "Salida",
+        "tabs": {
+          "devices": "Dispositivos",
+          "volumes": "Volúmenes"
+        }
+      },
       "title": "Audio",
       "volumes": {
         "input-volume": {
@@ -1156,6 +1171,10 @@
         "compositors": {
           "description": "Tematización del compositor.",
           "label": "Compositores",
+          "mango": {
+            "description": "Escribir {filepath}. Requiere mango",
+            "description-missing": "Requiere que {app} esté instalada."
+          },
           "niri": {
             "description": "Escribir {filepath}. Requiere niri v25.11+",
             "description-missing": "Requiere que {app} esté instalada."
@@ -1346,18 +1365,6 @@
     },
     "desktop-widgets": {
       "clock": {
-        "enabled": {
-          "description": "Mostrar un widget de reloj en el escritorio.",
-          "label": "Activar widget de reloj"
-        },
-        "height": {
-          "description": "Altura del widget de reloj en píxeles.",
-          "label": "Altura"
-        },
-        "section": {
-          "description": "Configurar la apariencia del widget de reloj.",
-          "label": "Widget de reloj"
-        },
         "clock-display": {
           "description": "Personaliza la visualización de tu reloj añadiendo tokens de la lista de abajo. Para usar el formato de 12 horas, debes incluir el token 'AP'.",
           "label": "Visualización del reloj"
@@ -1368,33 +1375,30 @@
           "placeholder": "Seleccionar fuente personalizada...",
           "search-placeholder": "Buscar fuentes..."
         },
+        "enabled": {
+          "description": "Mostrar un widget de reloj en el escritorio.",
+          "label": "Activar widget de reloj"
+        },
         "format": {
           "description": "Consejo: Usa \\n para crear un salto de línea.",
           "label": "Formato"
+        },
+        "height": {
+          "description": "Altura del widget de reloj en píxeles.",
+          "label": "Altura"
         },
         "minimal-mode": {
           "description": "Usar una visualización de reloj minimalista con hora y fecha.",
           "label": "Modo minimalista"
         },
         "preview": "Vista previa",
+        "section": {
+          "description": "Configurar la apariencia del widget de reloj.",
+          "label": "Widget de reloj"
+        },
         "show-background": {
           "description": "Mostrar el contenedor de fondo para el widget de reloj.",
           "label": "Mostrar fondo"
-        },
-        "use-custom-font": {
-          "description": "Anular la selección de fuente predeterminada con una fuente personalizada para el reloj.",
-          "label": "Usar fuente personalizada"
-        },
-        "use-primary-color": {
-          "description": "Cuando está activado, se aplica el color primario para dar énfasis.",
-          "label": "Usar color primario"
-        },
-        "style": {
-          "analog": "Analógico",
-          "description": "Elige el estilo de visualización del reloj.",
-          "digital": "Digital",
-          "label": "Estilo de reloj",
-          "minimal": "Minimal"
         },
         "show-date": {
           "description": "Muestra la fecha actual debajo de la hora.",
@@ -1403,6 +1407,21 @@
         "show-seconds": {
           "description": "Mostrar los segundos en la hora.",
           "label": "Mostrar segundos"
+        },
+        "style": {
+          "analog": "Analógico",
+          "description": "Elige el estilo de visualización del reloj.",
+          "digital": "Digital",
+          "label": "Estilo de reloj",
+          "minimal": "Minimal"
+        },
+        "use-custom-font": {
+          "description": "Anular la selección de fuente predeterminada con una fuente personalizada para el reloj.",
+          "label": "Usar fuente personalizada"
+        },
+        "use-primary-color": {
+          "description": "Cuando está activado, se aplica el color primario para dar énfasis.",
+          "label": "Usar color primario"
         },
         "width": {
           "description": "Ancho del widget de reloj en píxeles.",
@@ -1416,6 +1435,9 @@
         "controls-explanation": "Botón izquierdo del ratón: Mover widget\nBotón derecho del ratón: Redimensionar widget",
         "description": "Habilita el modo de edición para mover y cambiar la posición de los widgets del escritorio. Cuando está habilitado, los widgets muestran un contorno de arrastre y se pueden reposicionar.",
         "exit-button": "Salir del modo de edición",
+        "grid-snap": {
+          "label": "Ajustar a cuadrícula"
+        },
         "label": "Modo de edición"
       },
       "enabled": {
@@ -1429,13 +1451,13 @@
         }
       },
       "media-player": {
-        "hide-mode": {
-          "description": "Controla el comportamiento del widget cuando no se está reproduciendo ningún medio.",
-          "label": "Modo de ocultación"
-        },
         "enabled": {
           "description": "Mostrar un widget de reproductor multimedia en el escritorio.",
           "label": "Habilitar widget de reproductor multimedia"
+        },
+        "hide-mode": {
+          "description": "Controla el comportamiento del widget cuando no se está reproduciendo ningún medio.",
+          "label": "Modo de ocultación"
         },
         "section": {
           "description": "Configurar la apariencia del widget del reproductor multimedia.",
@@ -1448,6 +1470,10 @@
         "visualizer-type": {
           "description": "Elige un tipo de visualización para el fondo del reproductor multimedia de escritorio.",
           "label": "Tipo de visualización"
+        },
+        "visualizer-visibility": {
+          "description": "Controla cuándo el visualizador de audio es visible.",
+          "label": "Visibilidad del visualizador de audio"
         }
       },
       "title": "Widgets de escritorio",
@@ -1564,6 +1590,10 @@
         "icon-size": {
           "description": "Ajusta el tamaño general del Dock.",
           "label": "Tamaño del Dock"
+        },
+        "hide-show-speed": {
+          "description": "Ajusta la velocidad de la animación de ocultar/mostrar del dock.",
+          "label": "Velocidad de Ocultar/Mostrar"
         },
         "inactive-indicators": {
           "description": "Mostrar indicadores en forma de pastillas para todas las aplicaciones, no solo para la que está activa actualmente.",
@@ -2078,6 +2108,11 @@
         "downloaded": "Descargado",
         "not-downloaded": "No descargado"
       },
+      "hot-reload": {
+        "description": "Recarga automáticamente los plugins cuando sus archivos cambian. Útil para el desarrollo de plugins.",
+        "label": "Recarga en caliente (modo desarrollo)"
+      },
+      "hot-reloaded": "Plugin recargado: {name}",
       "install": "Instalar",
       "install-error": "Error al instalar: {error}",
       "install-success": "Se instaló {plugin} correctamente.",
@@ -2643,6 +2678,7 @@
     "move-to-center-section": "Sección central",
     "move-to-left-section": "Sección izquierda",
     "move-to-right-section": "Sección derecha",
+    "mute": "Silenciar",
     "next-media": "Siguiente pista",
     "next-month": "Mes siguiente",
     "night-light-disabled": "Luz nocturna",
@@ -2677,6 +2713,7 @@
     "stop-screen-recording": "Grabadora de pantalla",
     "switch-to-dark-mode": "Modo oscuro",
     "switch-to-light-mode": "Modo claro",
+    "unmute": "Activar el audio",
     "up": "Directorio superior",
     "volume-at": "Volumen de salida: {volume}%",
     "wallpaper-selector": "Selector de fondos de pantalla",

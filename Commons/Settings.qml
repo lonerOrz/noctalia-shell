@@ -52,6 +52,9 @@ Singleton {
     Quickshell.execDetached(["mkdir", "-p", cacheDirImagesWallpapers]);
     Quickshell.execDetached(["mkdir", "-p", cacheDirImagesNotifications]);
 
+    // Ensure PAM config file exists in configDir (create once, never override)
+    ensurePamConfig();
+
     // Mark directories as created and trigger file loading
     directoriesCreated = true;
 
@@ -464,6 +467,7 @@ Singleton {
       property bool pinnedStatic: false
       property bool inactiveIndicators: false
       property double deadOpacity: 0.6
+      property real animationSpeed: 1.0 // Speed multiplier for hide/show animations (0.1 = slowest, 2.0 = fastest)
     }
 
     // network
@@ -592,6 +596,7 @@ Singleton {
       property bool yazi: false
       property bool emacs: false
       property bool niri: false
+      property bool mango: false
       property bool zed: false
       property bool enableUserTemplates: false
     }
@@ -620,6 +625,7 @@ Singleton {
     property JsonObject desktopWidgets: JsonObject {
       property bool enabled: false
       property bool editMode: false
+      property bool gridSnap: false
       property list<var> monitorWidgets: []
       // Format: [{ "name": "DP-1", "widgets": [...] }, { "name": "HDMI-1", "widgets": [...] }]
     }
@@ -765,6 +771,56 @@ Singleton {
         if (upgradeWidget(widget)) {
           Logger.d("Settings", `Upgraded ${widget.id} widget:`, JSON.stringify(widget));
         }
+      }
+    }
+  }
+
+  // -----------------------------------------------------
+  // Ensure PAM password.conf exists in configDir (create once, never override)
+  function ensurePamConfig() {
+    var pamConfigDir = configDir + "pam";
+    var pamConfigFile = pamConfigDir + "/password.conf";
+
+    // Check if file already exists
+    fileCheckPamProcess.command = ["sh", "-c", `grep -q '^ID=nixos' /etc/os-release || test -f ${pamConfigFile}`];
+    fileCheckPamProcess.running = true;
+  }
+
+  function doCreatePamConfig() {
+    var pamConfigDir = configDir + "pam";
+    var pamConfigFile = pamConfigDir + "/password.conf";
+    var pamConfigDirEsc = pamConfigDir.replace(/'/g, "'\\''");
+    var pamConfigFileEsc = pamConfigFile.replace(/'/g, "'\\''");
+
+    // Ensure directory exists
+    Quickshell.execDetached(["mkdir", "-p", pamConfigDir]);
+
+    // Generate the PAM config file content
+    var configContent = "#auth sufficient pam_fprintd.so max-tries=1\n";
+    configContent += "# only uncomment this if you have a fingerprint reader\n";
+    configContent += "auth required pam_unix.so\n";
+
+    // Write the config file using heredoc to avoid escaping issues
+    var script = `cat > '${pamConfigFileEsc}' << 'EOF'\n`;
+    script += configContent;
+    script += "EOF\n";
+    Quickshell.execDetached(["sh", "-c", script]);
+
+    Logger.d("Settings", "PAM config file created at:", pamConfigFile);
+  }
+
+  // Process for checking if PAM config file exists
+  Process {
+    id: fileCheckPamProcess
+    running: false
+
+    onExited: function (exitCode) {
+      if (exitCode === 0) {
+        // File exists, skip creation
+        Logger.d("Settings", "On NixOS or PAM config file already exists, skipping creation");
+      } else {
+        // File doesn't exist, create it
+        doCreatePamConfig();
       }
     }
   }

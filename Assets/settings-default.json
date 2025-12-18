@@ -268,7 +268,8 @@
     "colorizeIcons": false,
     "pinnedStatic": false,
     "inactiveIndicators": false,
-    "deadOpacity": 0.6
+    "deadOpacity": 0.6,
+    "animationSpeed": 1.0
   },
   "network": {
     "wifiEnabled": true
@@ -387,6 +388,7 @@
     "yazi": false,
     "emacs": false,
     "niri": false,
+    "mango": false,
     "zed": false,
     "enableUserTemplates": false
   },
@@ -409,6 +411,7 @@
   "desktopWidgets": {
     "enabled": false,
     "editMode": false,
+    "gridSnap": false,
     "monitorWidgets": []
   }
 }

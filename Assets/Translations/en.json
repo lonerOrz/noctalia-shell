@@ -740,6 +740,10 @@
       "none": "None",
       "wave": "Wave"
     },
+    "visualizer-visibility": {
+      "always": "Always visible",
+      "with-background": "With background only"
+    },
     "workspace-labels": {
       "index": "Index",
       "index+name": "Index and name",
@@ -950,6 +954,17 @@
           "label": "Visualization type"
         }
       },
+      "panel": {
+        "applications": {
+          "empty": "No applications are currently playing audio"
+        },
+        "input": "Input",
+        "output": "Output",
+        "tabs": {
+          "devices": "Devices",
+          "volumes": "Volumes"
+        }
+      },
       "title": "Audio",
       "volumes": {
         "input-volume": {
@@ -1137,6 +1152,10 @@
         "compositors": {
           "description": "Compositor theming.",
           "label": "Compositors",
+          "mango": {
+            "description": "Write {filepath}. Requires mango",
+            "description-missing": "Requires {app} to be installed"
+          },
           "niri": {
             "description": "Write {filepath}. Requires niri v25.11+",
             "description-missing": "Requires {app} to be installed"
@@ -1327,18 +1346,6 @@
     },
     "desktop-widgets": {
       "clock": {
-        "enabled": {
-          "description": "Show a clock widget on the desktop.",
-          "label": "Enable clock widget"
-        },
-        "height": {
-          "description": "Height of the clock widget in pixels.",
-          "label": "Height"
-        },
-        "section": {
-          "description": "Configure the clock widget appearance.",
-          "label": "Clock Widget"
-        },
         "clock-display": {
           "description": "Customize your clock's display by adding tokens from the list below. To use the 12-hour format, you must include the 'AP' token.",
           "label": "Clock display"
@@ -1349,33 +1356,30 @@
           "placeholder": "Select custom font...",
           "search-placeholder": "Search fonts..."
         },
+        "enabled": {
+          "description": "Show a clock widget on the desktop.",
+          "label": "Enable clock widget"
+        },
         "format": {
           "description": "Tip: Use \\n to create a line break.",
           "label": "Format"
+        },
+        "height": {
+          "description": "Height of the clock widget in pixels.",
+          "label": "Height"
         },
         "minimal-mode": {
           "description": "Use a minimal clock display with time and date.",
           "label": "Minimal mode"
         },
         "preview": "Preview",
+        "section": {
+          "description": "Configure the clock widget appearance.",
+          "label": "Clock Widget"
+        },
         "show-background": {
           "description": "Show the background container for the clock widget.",
           "label": "Show background"
-        },
-        "use-custom-font": {
-          "description": "Override the default font selection with a custom font for the clock.",
-          "label": "Use custom font"
-        },
-        "use-primary-color": {
-          "description": "When enabled, this applies the primary color for emphasis.",
-          "label": "Use primary color"
-        },
-        "style": {
-          "analog": "Analog",
-          "description": "Choose the clock display style.",
-          "digital": "Digital",
-          "label": "Clock style",
-          "minimal": "Minimal"
         },
         "show-date": {
           "description": "Display the current date below the time.",
@@ -1384,6 +1388,21 @@
         "show-seconds": {
           "description": "Display seconds in the time.",
           "label": "Show seconds"
+        },
+        "style": {
+          "analog": "Analog",
+          "description": "Choose the clock display style.",
+          "digital": "Digital",
+          "label": "Clock style",
+          "minimal": "Minimal"
+        },
+        "use-custom-font": {
+          "description": "Override the default font selection with a custom font for the clock.",
+          "label": "Use custom font"
+        },
+        "use-primary-color": {
+          "description": "When enabled, this applies the primary color for emphasis.",
+          "label": "Use primary color"
         },
         "width": {
           "description": "Width of the clock widget in pixels.",
@@ -1397,6 +1416,9 @@
         "controls-explanation": "Left Mouse Button: Move widget\nRight Mouse Button: Resize widget",
         "description": "Enable edit mode to move and reposition desktop widgets. When enabled, widgets show a drag outline and can be repositioned.",
         "exit-button": "Exit edit mode",
+        "grid-snap": {
+          "label": "Grid snap"
+        },
         "label": "Edit mode"
       },
       "enabled": {
@@ -1410,13 +1432,13 @@
         }
       },
       "media-player": {
-        "hide-mode": {
-          "description": "Controls how the widget behaves when no media is playing.",
-          "label": "Hiding mode"
-        },
         "enabled": {
           "description": "Show a media player widget on the desktop.",
           "label": "Enable media player widget"
+        },
+        "hide-mode": {
+          "description": "Controls how the widget behaves when no media is playing.",
+          "label": "Hiding mode"
         },
         "section": {
           "description": "Configure the media player widget appearance.",
@@ -1429,6 +1451,10 @@
         "visualizer-type": {
           "description": "Choose a visualization type for the desktop media player background.",
           "label": "Visualization type"
+        },
+        "visualizer-visibility": {
+          "description": "Control when the audio visualizer is visible.",
+          "label": "Audio visualizer visibility"
         }
       },
       "title": "Desktop Widgets",
@@ -1541,6 +1567,10 @@
         "icon-size": {
           "description": "Adjust the overall size of the dock.",
           "label": "Dock size"
+        },
+        "hide-show-speed": {
+          "description": "Adjust the speed of the dock hide/show animation.",
+          "label": "Hide/Show Speed"
         },
         "inactive-indicators": {
           "description": "Display indicatator pills for all apps, not just the currently active one.",
@@ -2059,6 +2089,11 @@
         "downloaded": "Downloaded",
         "not-downloaded": "Not Downloaded"
       },
+      "hot-reload": {
+        "description": "Automatically reload plugins when their files change. Useful for plugin development.",
+        "label": "Hot reload (dev mode)"
+      },
+      "hot-reloaded": "Reloaded plugin: {name}",
       "install": "Install",
       "install-error": "Failed to install: {error}",
       "install-success": "Successfully installed {plugin}",
@@ -2620,6 +2655,7 @@
     "move-to-center-section": "Center section",
     "move-to-left-section": "Left section",
     "move-to-right-section": "Right section",
+    "mute": "Mute",
     "next-media": "Next track",
     "next-month": "Next month",
     "night-light-disabled": "Night Light",
@@ -2654,6 +2690,7 @@
     "stop-screen-recording": "Screen recorder",
     "switch-to-dark-mode": "Dark Mode",
     "switch-to-light-mode": "Light Mode",
+    "unmute": "Unmute",
     "up": "Parent directory",
     "volume-at": "Output volume: {volume}%",
     "wallpaper-selector": "Wallpaper selector",

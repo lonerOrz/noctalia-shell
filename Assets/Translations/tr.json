@@ -759,6 +759,10 @@
       "none": "Hiçbiri",
       "wave": "Dalga"
     },
+    "visualizer-visibility": {
+      "always": "Her zaman görünür",
+      "with-background": "Sadece arka planla"
+    },
     "workspace-labels": {
       "index": "İndeks",
       "index+name": "Dizin ve Ad",
@@ -969,6 +973,17 @@
           "label": "Görselleştirme türü"
         }
       },
+      "panel": {
+        "applications": {
+          "empty": "Şu anda ses çalan uygulama yok."
+        },
+        "input": "Giriş",
+        "output": "Çıkış",
+        "tabs": {
+          "devices": "Cihazlar",
+          "volumes": "Ses"
+        }
+      },
       "title": "Ses",
       "volumes": {
         "input-volume": {
@@ -1156,6 +1171,10 @@
         "compositors": {
           "description": "Birleştirici temalandırma.",
           "label": "Birleştiriciler",
+          "mango": {
+            "description": "{filepath} dosyasına yaz. mango gerektirir",
+            "description-missing": "{app} yüklü olmalıdır"
+          },
           "niri": {
             "description": "{filepath} dosyasına yaz. niri v25.11+ gerektirir",
             "description-missing": "{app} yüklü olmalıdır"
@@ -1346,18 +1365,6 @@
     },
     "desktop-widgets": {
       "clock": {
-        "enabled": {
-          "description": "Masaüstünde bir saat aracı göster.",
-          "label": "Saat widget'ını etkinleştir"
-        },
-        "height": {
-          "description": "Saat aracı yüksekliği piksel cinsinden.",
-          "label": "Yükseklik"
-        },
-        "section": {
-          "description": "Saat aracı görünümünü yapılandırın.",
-          "label": "Saat Widget'ı"
-        },
         "clock-display": {
           "description": "Saatinizin görüntüsünü özelleştirmek için aşağıdaki listeden jetonları ekleyin. 12 saat formatını kullanmak için 'AP' jetonunu eklemelisiniz.",
           "label": "Saat görüntüleme"
@@ -1368,33 +1375,30 @@
           "placeholder": "Özel yazı tipi seçin...",
           "search-placeholder": "Yazı tiplerini ara..."
         },
+        "enabled": {
+          "description": "Masaüstünde bir saat aracı göster.",
+          "label": "Saat widget'ını etkinleştir"
+        },
         "format": {
           "description": "İpucu: Bir satır sonu oluşturmak için \\n kullanın.",
           "label": "Biçim"
+        },
+        "height": {
+          "description": "Saat aracı yüksekliği piksel cinsinden.",
+          "label": "Yükseklik"
         },
         "minimal-mode": {
           "description": "Zaman ve tarih içeren minimal bir saat görüntüsü kullanın.",
           "label": "Minimal mod"
         },
         "preview": "Önizleme",
+        "section": {
+          "description": "Saat aracı görünümünü yapılandırın.",
+          "label": "Saat Widget'ı"
+        },
         "show-background": {
           "description": "Saat widget'ı için arka plan kabını göster.",
           "label": "Arka planı göster"
-        },
-        "use-custom-font": {
-          "description": "Saat için varsayılan yazı tipi seçimini özel bir yazı tipiyle geçersiz kılın.",
-          "label": "Özel yazı tipi kullan"
-        },
-        "use-primary-color": {
-          "description": "Etkinleştirildiğinde, bu vurgu için birincil rengi uygular.",
-          "label": "Birincil rengi kullan"
-        },
-        "style": {
-          "analog": "Analog",
-          "description": "Saat görüntüleme stilini seçin.",
-          "digital": "Dijital",
-          "label": "Saat stili",
-          "minimal": "Minimal"
         },
         "show-date": {
           "description": "Saati gösterdikten sonra, mevcut tarihi de göster.",
@@ -1403,6 +1407,21 @@
         "show-seconds": {
           "description": "Saniyeleri saatte göster.",
           "label": "Saniyeleri göster"
+        },
+        "style": {
+          "analog": "Analog",
+          "description": "Saat görüntüleme stilini seçin.",
+          "digital": "Dijital",
+          "label": "Saat stili",
+          "minimal": "Minimal"
+        },
+        "use-custom-font": {
+          "description": "Saat için varsayılan yazı tipi seçimini özel bir yazı tipiyle geçersiz kılın.",
+          "label": "Özel yazı tipi kullan"
+        },
+        "use-primary-color": {
+          "description": "Etkinleştirildiğinde, bu vurgu için birincil rengi uygular.",
+          "label": "Birincil rengi kullan"
         },
         "width": {
           "description": "Saat widget'ının piksel cinsinden genişliği.",
@@ -1416,6 +1435,9 @@
         "controls-explanation": "Sol fare tuşu: Araç taşı\nSağ fare tuşu: Araç yeniden boyutlandır",
         "description": "Masaüstü araçlarını taşımak ve yeniden konumlandırmak için düzenleme modunu etkinleştirin. Etkinleştirildiğinde, araçlar bir sürükleme ana hattı gösterir ve yeniden konumlandırılabilir.",
         "exit-button": "Düzenleme modundan çık",
+        "grid-snap": {
+          "label": "Izgaraya hizala"
+        },
         "label": "Düzenleme modu"
       },
       "enabled": {
@@ -1429,13 +1451,13 @@
         }
       },
       "media-player": {
-        "hide-mode": {
-          "description": "Ortam çalınmadığında araç takımının nasıl davrandığını kontrol eder.",
-          "label": "Gizleme modu"
-        },
         "enabled": {
           "description": "Masaüstünde bir medya oynatıcı aracı göster.",
           "label": "Medya oynatıcı widget'ını etkinleştir."
+        },
+        "hide-mode": {
+          "description": "Ortam çalınmadığında araç takımının nasıl davrandığını kontrol eder.",
+          "label": "Gizleme modu"
         },
         "section": {
           "description": "Medya oynatıcı araç görünümünü yapılandırın.",
@@ -1448,6 +1470,10 @@
         "visualizer-type": {
           "description": "Masaüstü medya oynatıcı arka planı için bir görselleştirme türü seçin.",
           "label": "Görselleştirme türü"
+        },
+        "visualizer-visibility": {
+          "description": "Ses görselleştiricisinin ne zaman görünür olduğunu kontrol edin.",
+          "label": "Ses görselleştirici görünürlüğü"
         }
       },
       "title": "Masaüstü Araçları",
@@ -1564,6 +1590,10 @@
         "icon-size": {
           "description": "Rıhtımın genel boyutunu ayarlayın.",
           "label": "Rıhtım boyutu"
+        },
+        "hide-show-speed": {
+          "description": "Rıhtımın gizle/göster animasyonunun hızını ayarlayın.",
+          "label": "Gizle/Göster Hızı"
         },
         "inactive-indicators": {
           "description": "Tüm uygulamalar için, sadece etkin olan için değil, gösterge haplarını göster.",
@@ -2078,6 +2108,11 @@
         "downloaded": "İndirildi",
         "not-downloaded": "İndirilmedi"
       },
+      "hot-reload": {
+        "description": "Eklenti dosyaları değiştiğinde eklentileri otomatik olarak yeniden yükle. Eklenti geliştirme için kullanışlıdır.",
+        "label": "Hızlı yeniden yükleme (geliştirme modu)"
+      },
+      "hot-reloaded": "Yeniden yüklenen eklenti: {name}",
       "install": "Yükle",
       "install-error": "Yükleme başarısız oldu: {error}",
       "install-success": "{plugin} başarıyla kuruldu",
@@ -2643,6 +2678,7 @@
     "move-to-center-section": "Orta bölüm",
     "move-to-left-section": "Sol bölüm",
     "move-to-right-section": "Sağ bölüm",
+    "mute": "Sessiz",
     "next-media": "Sonraki parça",
     "next-month": "Sonraki ay",
     "night-light-disabled": "Gece ışığı",
@@ -2677,6 +2713,7 @@
     "stop-screen-recording": "Ekran kaydedici",
     "switch-to-dark-mode": "Koyu mod",
     "switch-to-light-mode": "Açık mod",
+    "unmute": "Sessizliği aç",
     "up": "Üst dizin",
     "volume-at": "Çıkış sesi: %{volume}",
     "wallpaper-selector": "Duvar kâğıdı seçici",

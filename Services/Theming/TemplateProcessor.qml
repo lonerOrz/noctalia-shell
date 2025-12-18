@@ -126,40 +126,6 @@ Singleton {
                                                                         lines.push(`input_path = "${Quickshell.shellDir}/Assets/MatugenTemplates/${app.input}"`);
                                                                         const expandedPath = client.path.replace("~", homeDir);
                                                                         lines.push(`output_path = "${expandedPath}"`);
-                                                                        var configDir = client.name === "code" ? "Code" : "VSCodium";
-                                                                        var settingsPath = `${homeDir}/.config/${configDir}/User/settings.json`;
-
-                                                                        // Uninstall/reinstall with modified vsix to force theme reload
-                                                                        var tmpDir = `/tmp/noctalia-vscode-${client.name}`;
-                                                                        var modifiedVsix = `${tmpDir}/noctaliatheme.vsix`;
-                                                                        var reinstallVsix = `if command -v ${client.name} >/dev/null 2>&1; then ${client.name} --uninstall-extension undefined_publisher.noctaliatheme 2>&1; rm -rf ${tmpDir} && mkdir -p ${tmpDir} && unzip -q '${Quickshell.shellDir}/Assets/MatugenTemplates/noctaliatheme-0.0.1.vsix' -d ${tmpDir
-                                                                        } && cp '
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-${expandedPath}' ${tmpDir}/extension/themes/NoctaliaTheme-color-theme.json && cd ${tmpDir} && zip -q -r ${modifiedVsix} . && ${client.name} --install-extension ${modifiedVsix} 2>&1 && rm -rf ${tmpDir}; fi`;
-                                                                        var updateSettingsJson = `if command -v ${client.name} >/dev/null 2>&1 && [ -f ${settingsPath} ]; then sed -i 's/\\\\\\"workbench.colorTheme\\\\\\":[[:space:]]*\\\\\\"[^\\\\\\"]*/\\\\\\"workbench.colorTheme\\\\\\": \\\\\\"NoctaliaTheme/' ${settingsPath}; fi`;
-                                                                        lines.push(`post_hook = "sh -c \\"${reinstallVsix}; ${updateSettingsJson}\\""`);
                                                                       }
                                                                     });
                                               }
@@ -299,37 +265,14 @@ ${expandedPath}' ${tmpDir}/extension/themes/NoctaliaTheme-color-theme.json && cd
                                 baseConfigDir = "~/.vscode-oss".replace("~", homeDir);
                               }
 
-                              var configDir = client.name === "code" ? "Code" : "VSCodium";
-                              var settingsPath = `${homeDir}/.config/${configDir}/User/settings.json`;
-
-                              // Uninstall, modify vsix, then reinstall - forces VSCode to reload with updated colors
-                              var tmpDir = `/tmp/noctalia-vscode-${client.name}`;
-                              var tmpTheme = `${tmpDir}/theme.json`;
-                              var modifiedVsix = `${tmpDir}/noctaliatheme.vsix`;
-
-                              // Generate theme, uninstall, modify vsix, reinstall
-                              script += `
-                                if [ -d "${baseConfigDir}" ]; then
-                                  if command -v ${client.name} >/dev/null 2>&1; then
-
-                                    rm -rf ${tmpDir} && mkdir -p ${tmpDir}
-                                    cp '${templatePath}' '${tmpTheme}'
-                                    ${replaceColorsInFile(tmpTheme, palette)}
-                                    ${client.name} --uninstall-extension undefined_publisher.noctaliatheme 2>&1
-                                    unzip -q '${Quickshell.shellDir}/Assets/MatugenTemplates/noctaliatheme-0.0.1.vsix' -d ${tmpDir}
-                                    cp '${tmpTheme}' ${tmpDir}/extension/themes/NoctaliaTheme-color-theme.json
-                                    cd ${tmpDir} && zip -q -r ${modifiedVsix} .
-                                    ${client.name} --install-extension ${modifiedVsix} 2>&1
-                                    rm -rf ${tmpDir}
-                                
-                                    if [ -f "${settingsPath}" ]; then
-                                      sed -i 's/\\"workbench.colorTheme\\":[[:space:]]*\\"[^\\"]*/\\"workbench.colorTheme\\": \\"NoctaliaTheme/' "${settingsPath}"
-                                    fi
-                                  fi
-                                else
-                                  echo "Code client ${client.name} not found at ${baseConfigDir}, skipping"
-                                fi
-                              `;
+                              script += `\n`;
+                              script += `if [ -d "${baseConfigDir}" ]; then\n`;
+                              script += `  mkdir -p ${outputDir}\n`;
+                              script += `  cp '${templatePath}' '${outputPath}'\n`;
+                              script += `  ${replaceColorsInFile(outputPath, palette)}`;
+                              script += `else\n`;
+                              script += `  echo "Code client ${client.name} not found at ${baseConfigDir}, skipping"\n`;
+                              script += `fi\n`;
                             });
 
     return script;

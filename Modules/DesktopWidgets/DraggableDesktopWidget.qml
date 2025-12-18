@@ -6,35 +6,84 @@ import qs.Commons
 Item {
   id: root
 
-  // Required properties from parent (set by DesktopWidgets.qml loader)
   property ShellScreen screen
   property var widgetData: null
   property int widgetIndex: -1
 
-  // Optional customization
   property real defaultX: 100
   property real defaultY: 100
 
-  // Content slot - allows natural QML child syntax
   default property alias content: contentContainer.data
 
-  // Exposed state for child content (e.g., to disable shadow during drag)
   readonly property bool isDragging: internal.isDragging
   readonly property bool isScaling: internal.isScaling
 
-  // Whether to show the background container
   property bool showBackground: (widgetData && widgetData.showBackground !== undefined) ? widgetData.showBackground : true
 
-  // Widget size properties
   property real widgetScale: (widgetData && widgetData.scale !== undefined) ? widgetData.scale : 1.0
   property real minScale: 0.5
   property real maxScale: 3.0
 
-  // Scaling sensitivity and threshold constants
-  readonly property real scaleSensitivity: 0.0015  // Sensitivity for scaling (scale change per pixel of movement)
-  readonly property real scaleUpdateThreshold: 0.015  // Minimum change required to update scale value
+  readonly property real scaleSensitivity: 0.0015
+  readonly property real scaleUpdateThreshold: 0.015
 
-  // Internal dragging and scaling state
+  // Grid size ensures lines pass through screen center on both axes
+  readonly property int gridSize: {
+    if (!screen)
+      return 30;
+    var baseSize = Math.round(screen.width * 0.015);
+    baseSize = Math.max(20, Math.min(60, baseSize));
+
+    var centerX = screen.width / 2;
+    var centerY = screen.height / 2;
+    var bestSize = baseSize;
+    var bestDistance = Infinity;
+
+    for (var offset = -10; offset <= 10; offset++) {
+      var candidate = baseSize + offset;
+      if (candidate < 20 || candidate > 60)
+        continue;
+
+      var remainderX = centerX % candidate;
+      var remainderY = centerY % candidate;
+
+      if (remainderX === 0 && remainderY === 0) {
+        return candidate;
+      }
+
+      var distance = Math.abs(remainderX) + Math.abs(remainderY);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestSize = candidate;
+      }
+    }
+
+    var gcd = function (a, b) {
+      while (b !== 0) {
+        var temp = b;
+        b = a % b;
+        a = temp;
+      }
+      return a;
+    };
+
+    var centerGcd = gcd(Math.round(centerX), Math.round(centerY));
+    if (centerGcd > 0) {
+      for (var divisor = Math.floor(centerGcd / 60); divisor <= Math.ceil(centerGcd / 20); divisor++) {
+        if (centerGcd % divisor !== 0)
+          continue;
+        var candidate = centerGcd / divisor;
+        if (candidate >= 20 && candidate <= 60) {
+          if (Math.abs(candidate - baseSize) < Math.abs(bestSize - baseSize)) {
+            bestSize = candidate;
+          }
+        }
+      }
+    }
+
+    return bestSize;
+  }
+
   QtObject {
     id: internal
     property bool isDragging: false
@@ -47,17 +96,21 @@ Item {
     property real initialHeight: 0
     property point initialMousePos: Qt.point(0, 0)
     property real initialScale: 1.0
-    property real lastScale: 1.0  // Track the last applied scale during scaling operation
-
-    // Global state to manage scaling vs dragging exclusivity
-    // When any operation starts (drag or scale), lock the type until operation completes
+    property real lastScale: 1.0
+    // Locks operation type to prevent switching between drag/scale mid-operation
     property string operationType: ""  // "drag" or "scale" or ""
   }
 
-  // Helper function to update widget data in settings
+  function snapToGrid(coord) {
+    if (!Settings.data.desktopWidgets.gridSnap) {
+      return coord;
+    }
+    return Math.round(coord / root.gridSize) * root.gridSize;
+  }
+
   function updateWidgetData(properties) {
     if (widgetIndex < 0 || !screen || !screen.name) {
-      return; // Early return if necessary data is missing
+      return;
     }
 
     var monitorWidgets = Settings.data.desktopWidgets.monitorWidgets || [];
@@ -81,31 +134,20 @@ Item {
   x: internal.isDragging ? internal.dragOffsetX : internal.baseX
   y: internal.isDragging ? internal.dragOffsetY : internal.baseY
 
-  // Apply scale to the widget from top-left corner
+  // Scale from top-left corner to prevent position drift
   scale: widgetScale
   transformOrigin: Item.TopLeft
-  // Use smooth animation outside edit mode only
-  Behavior on scale {
-    enabled: !Settings.data.desktopWidgets.editMode
-    NumberAnimation {
-      duration: 200
-      easing.type: Easing.InOutQuad
-    }
-  }
 
-  // Update base position from widgetData when not dragging
   onWidgetDataChanged: {
     if (!internal.isDragging) {
       internal.baseX = (widgetData && widgetData.x !== undefined) ? widgetData.x : defaultX;
       internal.baseY = (widgetData && widgetData.y !== undefined) ? widgetData.y : defaultY;
-      // Update scale from widgetData if available
       if (widgetData && widgetData.scale !== undefined) {
         widgetScale = widgetData.scale;
       }
     }
   }
 
-  // Edit mode decoration rectangle
   Rectangle {
     id: decorationRect
     anchors.fill: parent
@@ -117,7 +159,6 @@ Item {
     z: -1
   }
 
-  // Container with shadow
   Rectangle {
     id: container
     anchors.fill: parent
@@ -142,7 +183,6 @@ Item {
     }
   }
 
-  // Content slot
   Item {
     id: contentContainer
     anchors.fill: parent
@@ -218,6 +258,17 @@ Item {
           newY = Math.max(0, Math.min(newY, root.parent.height - scaledHeight));
         }
 
+        // Apply grid snapping if enabled
+        if (Settings.data.desktopWidgets.gridSnap) {
+          newX = root.snapToGrid(newX);
+          newY = root.snapToGrid(newY);
+          // Re-clamp after snapping to ensure widget stays within bounds
+          if (root.parent && scaledWidth > 0 && scaledHeight > 0) {
+            newX = Math.max(0, Math.min(newX, root.parent.width - scaledWidth));
+            newY = Math.max(0, Math.min(newY, root.parent.height - scaledHeight));
+          }
+        }
+
         internal.dragOffsetX = newX;
         internal.dragOffsetY = newY;
       }
@@ -278,7 +329,8 @@ Item {
       internal.isDragging = false;
       internal.isScaling = false;
       internal.operationType = "";
-      internal.lastScale = root.widgetScale;  // Sync lastScale with current scale when operation is canceled
+      // Sync lastScale when operation is canceled to prevent drift
+      internal.lastScale = root.widgetScale;
     }
   }
 }

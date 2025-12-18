@@ -759,6 +759,10 @@
       "none": "无",
       "wave": "波形"
     },
+    "visualizer-visibility": {
+      "always": "始终可见",
+      "with-background": "仅在有背景时"
+    },
     "workspace-labels": {
       "index": "索引",
       "index+name": "索引和名称",
@@ -969,6 +973,17 @@
           "label": "可视化类型"
         }
       },
+      "panel": {
+        "applications": {
+          "empty": "目前没有应用程序正在播放音频。"
+        },
+        "input": "输入",
+        "output": "输出",
+        "tabs": {
+          "devices": "设备",
+          "volumes": "音量"
+        }
+      },
       "title": "音频",
       "volumes": {
         "input-volume": {
@@ -1156,6 +1171,10 @@
         "compositors": {
           "description": "合成器主题。",
           "label": "合成器",
+          "mango": {
+            "description": "写入 {filepath}。需要芒果",
+            "description-missing": "需要安装 {app}"
+          },
           "niri": {
             "description": "写入 {filepath}。需要 niri v25.11+",
             "description-missing": "需要安装 {app}"
@@ -1346,18 +1365,6 @@
     },
     "desktop-widgets": {
       "clock": {
-        "enabled": {
-          "description": "在桌面上显示一个时钟小部件。",
-          "label": "启用时钟小部件"
-        },
-        "height": {
-          "description": "时钟小部件的高度，以像素为单位。",
-          "label": "高度"
-        },
-        "section": {
-          "description": "配置时钟小部件外观。",
-          "label": "时钟小部件"
-        },
         "clock-display": {
           "description": "通过从下面的列表添加标记来自定义时钟显示。要使用 12 小时制，必须包含 'AP' 标记。",
           "label": "时钟显示"
@@ -1368,33 +1375,30 @@
           "placeholder": "选择自定义字体...",
           "search-placeholder": "搜索字体..."
         },
+        "enabled": {
+          "description": "在桌面上显示一个时钟小部件。",
+          "label": "启用时钟小部件"
+        },
         "format": {
           "description": "提示：使用 \\n 创建换行。",
           "label": "格式"
+        },
+        "height": {
+          "description": "时钟小部件的高度，以像素为单位。",
+          "label": "高度"
         },
         "minimal-mode": {
           "description": "使用包含时间和日期的简约时钟显示。",
           "label": "简约模式"
         },
         "preview": "预览",
+        "section": {
+          "description": "配置时钟小部件外观。",
+          "label": "时钟小部件"
+        },
         "show-background": {
           "description": "显示时钟小部件的背景容器。",
           "label": "显示背景"
-        },
-        "use-custom-font": {
-          "description": "使用自定义字体覆盖时钟的默认字体选择。",
-          "label": "使用自定义字体"
-        },
-        "use-primary-color": {
-          "description": "启用后，将应用主颜色进行强调。",
-          "label": "使用主颜色"
-        },
-        "style": {
-          "analog": "模拟",
-          "description": "选择时钟显示样式。",
-          "digital": "数字",
-          "label": "时钟样式",
-          "minimal": "简约"
         },
         "show-date": {
           "description": "在时间下方显示当前日期。",
@@ -1403,6 +1407,21 @@
         "show-seconds": {
           "description": "在时间中显示秒。",
           "label": "显示秒数"
+        },
+        "style": {
+          "analog": "模拟",
+          "description": "选择时钟显示样式。",
+          "digital": "数字",
+          "label": "时钟样式",
+          "minimal": "简约"
+        },
+        "use-custom-font": {
+          "description": "使用自定义字体覆盖时钟的默认字体选择。",
+          "label": "使用自定义字体"
+        },
+        "use-primary-color": {
+          "description": "启用后，将应用主颜色进行强调。",
+          "label": "使用主颜色"
         },
         "width": {
           "description": "时钟小部件的宽度，以像素为单位。",
@@ -1416,6 +1435,9 @@
         "controls-explanation": "鼠标左键：移动小组件\n鼠标右键：调整小组件大小",
         "description": "启用编辑模式以移动和重新定位桌面小组件。启用后，小组件会显示拖动轮廓，并且可以重新定位。",
         "exit-button": "退出编辑模式",
+        "grid-snap": {
+          "label": "网格对齐"
+        },
         "label": "编辑模式"
       },
       "enabled": {
@@ -1429,13 +1451,13 @@
         }
       },
       "media-player": {
-        "hide-mode": {
-          "description": "控制当没有媒体播放时小部件的行为。",
-          "label": "隐藏模式"
-        },
         "enabled": {
           "description": "在桌面上显示媒体播放器小部件。",
           "label": "启用媒体播放器小部件"
+        },
+        "hide-mode": {
+          "description": "控制当没有媒体播放时小部件的行为。",
+          "label": "隐藏模式"
         },
         "section": {
           "description": "配置媒体播放器小部件外观。",
@@ -1448,6 +1470,10 @@
         "visualizer-type": {
           "description": "选择桌面媒体播放器的背景可视化类型。",
           "label": "可视化类型"
+        },
+        "visualizer-visibility": {
+          "description": "控制音频可视化器的显示时机。",
+          "label": "音频可视化器可见性"
         }
       },
       "title": "桌面小部件",
@@ -1564,6 +1590,10 @@
         "icon-size": {
           "description": "调整 Dock 的整体大小。",
           "label": "Dock 大小"
+        },
+        "hide-show-speed": {
+          "description": "调整 Dock 隐藏/显示动画的速度。",
+          "label": "隐藏/显示速度"
         },
         "inactive-indicators": {
           "description": "为所有应用显示指示器小药丸，而不仅仅是当前活跃的应用。",
@@ -2078,6 +2108,11 @@
         "downloaded": "已下载",
         "not-downloaded": "未下载"
       },
+      "hot-reload": {
+        "description": "当插件文件发生更改时自动重新加载插件。对插件开发很有用。",
+        "label": "热重载（开发模式）"
+      },
+      "hot-reloaded": "已重新加载插件：{name}",
       "install": "安装",
       "install-error": "安装失败：{error}",
       "install-success": "成功安装 {plugin}",
@@ -2643,6 +2678,7 @@
     "move-to-center-section": "中央部分",
     "move-to-left-section": "左侧部分",
     "move-to-right-section": "右侧部分",
+    "mute": "静音",
     "next-media": "下一首",
     "next-month": "下个月",
     "night-light-disabled": "夜间模式",
@@ -2677,6 +2713,7 @@
     "stop-screen-recording": "屏幕录制器",
     "switch-to-dark-mode": "深色模式",
     "switch-to-light-mode": "浅色模式",
+    "unmute": "取消静音",
     "up": "上级目录",
     "volume-at": "输出音量：{volume}%",
     "wallpaper-selector": "壁纸选择器",
