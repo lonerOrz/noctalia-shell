@@ -171,6 +171,7 @@ Item {
     target: CompositorService
     function onWorkspacesChanged() {
       refreshWorkspaces();
+      root.triggerUnifiedWave();
     }
     function onWindowListChanged() {
       if (showApplications || showLabelsOnlyWhenOccupied) {
@@ -178,7 +179,7 @@ Item {
       }
     }
     function onActiveWindowChanged() {
-      if (showApplications || showLabelsOnlyWhenOccupied) {
+      if (showApplications) {
         refreshWorkspaces();
       }
     }
@@ -231,7 +232,6 @@ Item {
     for (var i = 0; i < localWorkspaces.count; i++) {
       const ws = localWorkspaces.get(i);
       if (ws.isFocused === true) {
-        root.triggerUnifiedWave();
         root.workspaceChanged(ws.id, Color.mPrimary);
         break;
       }
@@ -450,7 +450,6 @@ Item {
 
             return Qt.alpha(Color.mSecondary, 0.3);
           }
-          scale: model.isActive ? 1.0 : 0.9
           z: 0
 
           MouseArea {

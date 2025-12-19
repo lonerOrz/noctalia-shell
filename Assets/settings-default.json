@@ -158,6 +158,7 @@
     "wallhavenOrder": "desc",
     "wallhavenCategories": "111",
     "wallhavenPurity": "100",
+    "wallhavenRatios": "",
     "wallhavenResolutionMode": "atleast",
     "wallhavenResolutionWidth": "",
     "wallhavenResolutionHeight": ""
@@ -269,7 +270,7 @@
     "pinnedStatic": false,
     "inactiveIndicators": false,
     "deadOpacity": 0.6,
-    "animationSpeed": 1.0
+    "animationSpeed": 1
   },
   "network": {
     "wifiEnabled": true
@@ -406,7 +407,9 @@
     "wallpaperChange": "",
     "darkModeChange": "",
     "screenLock": "",
-    "screenUnlock": ""
+    "screenUnlock": "",
+    "performanceModeEnabled": "",
+    "performanceModeDisabled": ""
   },
   "desktopWidgets": {
     "enabled": false,
