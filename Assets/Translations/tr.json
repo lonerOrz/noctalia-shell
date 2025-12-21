@@ -752,10 +752,6 @@
       "top_left": "Sol üst",
       "top_right": "Sağ üst"
     },
-    "visualizer-quality": {
-      "high": "Yüksek",
-      "low": "Düşük"
-    },
     "visualizer-types": {
       "linear": "Doğrusal",
       "mirrored": "Yansıtılmış",
@@ -966,10 +962,6 @@
         "section": {
           "description": "Tercih ettiğiniz ve yoksayacağınız ortam uygulamalarını ayarlayın.",
           "label": "Ortam oynatıcıları"
-        },
-        "visualizer-quality": {
-          "description": "Yüksek kalite ekran kartını daha fazla kullanır.",
-          "label": "Görselleştirme kalitesi"
         },
         "visualizer-type": {
           "description": "Ortam oynatımı için bir görselleştirme türü seçin",
@@ -1753,6 +1745,10 @@
         "placeholder": "örn., notify-send \"Duvar Kâğıdı\" \"Değişti\""
       }
     },
+    "indicator": {
+      "default-value": "Varsayılan: {value}",
+      "system-default": "Sistem Varsayılanı"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1900,6 +1896,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "Bluetooth yönetimini etkinleştir.",
         "label": "Bluetooth'u Etkinleştir"
       },
       "section": {
@@ -1907,6 +1904,7 @@
       },
       "title": "Ağ",
       "wifi": {
+        "description": "Kablosuz ağları yönet (NetworkManager gerektirir).",
         "label": "Kablosuz Bağlantıyı Etkinleştir"
       }
     },

@@ -733,10 +733,6 @@
       "top_left": "Top left",
       "top_right": "Top right"
     },
-    "visualizer-quality": {
-      "high": "High",
-      "low": "Low"
-    },
     "visualizer-types": {
       "linear": "Linear",
       "mirrored": "Mirrored",
@@ -880,10 +876,6 @@
     "title": "Session Menu"
   },
   "settings": {
-    "indicator": {
-      "default-value": "Default: {value}",
-      "system-default": "System Default"
-    },
     "about": {
       "contributors": {
         "section": {
@@ -951,10 +943,6 @@
         "section": {
           "description": "Set your preferred and ignored media applications.",
           "label": "Media players"
-        },
-        "visualizer-quality": {
-          "description": "High quality use more GPU ressources.",
-          "label": "Visualization quality"
         },
         "visualizer-type": {
           "description": "Choose a visualization type for media playback.",
@@ -1816,6 +1804,10 @@
         "placeholder": "e.g., notify-send \"Wallpaper\" \"Changed\""
       }
     },
+    "indicator": {
+      "default-value": "Default: {value}",
+      "system-default": "System Default"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1967,6 +1959,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "Activate Bluetooth management.",
         "label": "Enable Bluetooth"
       },
       "section": {
@@ -1974,6 +1967,7 @@
       },
       "title": "Network",
       "wifi": {
+        "description": "Manage wireless networks (requires NetworkManager).",
         "label": "Enable Wi-Fi"
       }
     },

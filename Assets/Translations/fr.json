@@ -752,10 +752,6 @@
       "top_left": "En haut à gauche",
       "top_right": "En haut à droite"
     },
-    "visualizer-quality": {
-      "high": "Haut/Haute",
-      "low": "Bas"
-    },
     "visualizer-types": {
       "linear": "Linéaire",
       "mirrored": "Miroir",
@@ -966,10 +962,6 @@
         "section": {
           "description": "Définissez vos applications multimédias préférées et ignorées.",
           "label": "Lecteurs multimédias"
-        },
-        "visualizer-quality": {
-          "description": "L'utilisation de haute qualité nécessite plus de ressources GPU.",
-          "label": "Qualité de la visualisation"
         },
         "visualizer-type": {
           "description": "Choisissez un type de visualisation pour la lecture multimédia.",
@@ -1753,6 +1745,10 @@
         "placeholder": "ex: notify-send \"Fond d'écran\" \"Changé\""
       }
     },
+    "indicator": {
+      "default-value": "Par défaut : {value}",
+      "system-default": "Par défaut du système"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1900,6 +1896,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "Activer la gestion Bluetooth.",
         "label": "Activer le Bluetooth"
       },
       "section": {
@@ -1907,6 +1904,7 @@
       },
       "title": "Réseau",
       "wifi": {
+        "description": "Gérer les réseaux sans fil (nécessite NetworkManager).",
         "label": "Activer le Wi-Fi"
       }
     },

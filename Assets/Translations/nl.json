@@ -752,10 +752,6 @@
       "top_left": "Linksboven",
       "top_right": "Rechtsboven"
     },
-    "visualizer-quality": {
-      "high": "Hoog",
-      "low": "Laag"
-    },
     "visualizer-types": {
       "linear": "Lineair",
       "mirrored": "Gespiegeld",
@@ -966,10 +962,6 @@
         "section": {
           "description": "Stel je favoriete en genegeerde media-applicaties in.",
           "label": "Mediaspelers"
-        },
-        "visualizer-quality": {
-          "description": "Een hogere kwaliteit gebruikt meer GPU-resources.",
-          "label": "Visualisatiekwaliteit"
         },
         "visualizer-type": {
           "description": "Kies een visualisatietype voor mediaweergave.",
@@ -1753,6 +1745,10 @@
         "placeholder": "bijv. notify-send \"Achtergrond\" \"Gewijzigd\""
       }
     },
+    "indicator": {
+      "default-value": "Standaard: {value}",
+      "system-default": "Systeemstandaard"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1900,6 +1896,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "Bluetooth-beheer activeren.",
         "label": "Bluetooth inschakelen"
       },
       "section": {
@@ -1907,6 +1904,7 @@
       },
       "title": "Netwerk",
       "wifi": {
+        "description": "Draadloze netwerken beheren (vereist NetworkManager).",
         "label": "Wi-Fi inschakelen"
       }
     },

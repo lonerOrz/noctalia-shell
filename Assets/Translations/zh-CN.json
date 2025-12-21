@@ -752,10 +752,6 @@
       "top_left": "左上",
       "top_right": "右上"
     },
-    "visualizer-quality": {
-      "high": "高",
-      "low": "低"
-    },
     "visualizer-types": {
       "linear": "线性",
       "mirrored": "镜像",
@@ -966,10 +962,6 @@
         "section": {
           "description": "设置您首选和要忽略的媒体应用程序。",
           "label": "媒体播放器"
-        },
-        "visualizer-quality": {
-          "description": "高质量使用更多 GPU 资源。",
-          "label": "可视化质量"
         },
         "visualizer-type": {
           "description": "选择媒体播放的可视化类型",
@@ -1753,6 +1745,10 @@
         "placeholder": "例如：notify-send \"壁纸\" \"已更改\""
       }
     },
+    "indicator": {
+      "default-value": "默认值：{value}",
+      "system-default": "系统默认"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1900,6 +1896,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "启用蓝牙管理。",
         "label": "启用蓝牙"
       },
       "section": {
@@ -1907,6 +1904,7 @@
       },
       "title": "网络",
       "wifi": {
+        "description": "管理无线网络（需要 NetworkManager）。",
         "label": "启用 Wi-Fi"
       }
     },

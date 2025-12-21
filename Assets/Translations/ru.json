@@ -752,10 +752,6 @@
       "top_left": "Вверху слева",
       "top_right": "Вверху справа"
     },
-    "visualizer-quality": {
-      "high": "Высокое",
-      "low": "Низкое"
-    },
     "visualizer-types": {
       "linear": "Линейный",
       "mirrored": "Зеркальный",
@@ -966,10 +962,6 @@
         "section": {
           "description": "Установите предпочитаемые и игнорируемые медиа-приложения.",
           "label": "Медиаплееры"
-        },
-        "visualizer-quality": {
-          "description": "Высокое качество использует больше ресурсов GPU.",
-          "label": "Качество визуализации"
         },
         "visualizer-type": {
           "description": "Выберите тип визуализации для воспроизведения медиа.",
@@ -1753,6 +1745,10 @@
         "placeholder": "например, notify-send \"Wallpaper\" \"Changed\""
       }
     },
+    "indicator": {
+      "default-value": "По умолчанию: {value}",
+      "system-default": "По умолчанию"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1900,6 +1896,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "Включить управление Bluetooth.",
         "label": "Включить Bluetooth"
       },
       "section": {
@@ -1907,6 +1904,7 @@
       },
       "title": "Сеть",
       "wifi": {
+        "description": "Управление беспроводными сетями (требуется NetworkManager).",
         "label": "Включить Wi-Fi"
       }
     },

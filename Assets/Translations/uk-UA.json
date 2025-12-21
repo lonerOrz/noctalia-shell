@@ -752,10 +752,6 @@
       "top_left": "Згори ліворуч",
       "top_right": "Згори праворуч"
     },
-    "visualizer-quality": {
-      "high": "Високий",
-      "low": "Низький"
-    },
     "visualizer-types": {
       "linear": "Лінійний",
       "mirrored": "Дзеркальний",
@@ -966,10 +962,6 @@
         "section": {
           "description": "Встановіть бажані та ігноровані медіазастосунки.",
           "label": "Медіаплеєри"
-        },
-        "visualizer-quality": {
-          "description": "Висока якість використовує більше ресурсів GPU.",
-          "label": "Якість візуалізації"
         },
         "visualizer-type": {
           "description": "Виберіть тип візуалізації для відтворення медіа",
@@ -1753,6 +1745,10 @@
         "placeholder": "напр., notify-send \"Шпалери\" \"Змінено\""
       }
     },
+    "indicator": {
+      "default-value": "За замовчуванням: {value}",
+      "system-default": "Системні налаштування за замовчуванням"
+    },
     "launcher": {
       "settings": {
         "clip-preview": {
@@ -1900,6 +1896,7 @@
     },
     "network": {
       "bluetooth": {
+        "description": "Активувати керування Bluetooth.",
         "label": "Увімкнути Bluetooth"
       },
       "section": {
@@ -1907,6 +1904,7 @@
       },
       "title": "Мережа",
       "wifi": {
+        "description": "Керування бездротовими мережами (потребує NetworkManager).",
         "label": "Увімкнути Wi-Fi"
       }
     },
