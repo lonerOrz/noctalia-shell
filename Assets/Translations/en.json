@@ -608,6 +608,10 @@
       "diffM": "1 minute ago",
       "diffMM": "{diff} minutes ago",
       "now": "now"
+    },
+    "countdown-completed": {
+      "title": "Countdown Completed",
+      "body": "The countdown '{name}' has completed."
     }
   },
   "options": {
@@ -1500,7 +1504,10 @@
           "start-tooltip": "Start",
           "reset-tooltip": "Reset",
           "edit-tooltip": "Edit Countdown",
-          "setup-prompt": "Set up your countdown"
+          "select-button": "Select",
+          "cancel-button": "Cancel",
+          "setup-prompt": "Set up your countdown",
+          "time-up": "Time's up!"
         },
         "settings": {
           "title": {
