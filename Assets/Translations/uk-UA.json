@@ -296,7 +296,7 @@
         }
       },
       "notification-history": {
-        "hide-badge-when-zero": {
+        "hide-widget-when-zero": {
           "description": "Приховувати значок сповіщень, коли немає непрочитаних сповіщень.",
           "label": "Приховувати значок при нулі"
         },
@@ -466,18 +466,28 @@
   "bluetooth": {
     "panel": {
       "available-devices": "Доступні пристрої",
+      "battery": "Акумулятор",
       "blocked": "Заблоковано",
       "connect": "Підключити",
       "connected-devices": "Підключені пристрої",
       "connecting": "Підключення…",
+      "device-address": "Адреса пристрою",
       "disabled": "Bluetooth вимкнено",
       "disconnect": "Відключити",
+      "discoverable": "Виявний",
       "enable-message": "Увімкніть Bluetooth, щоб побачити доступні пристрої.",
+      "info": "Інформація",
       "known-devices": "Відомі пристрої",
+      "pair": "Пара",
+      "paired": "У парі",
+      "paired-devices": "З'єднані пристрої",
       "pairing": "Створення пари...",
       "pairing-mode": "Переконайтеся, що ваш пристрій у режимі з'єднання.",
       "scanning": "Сканування пристроїв...",
-      "title": "Bluetooth"
+      "signal": "Сигнал",
+      "title": "Bluetooth",
+      "trusted": "Надійний",
+      "unpair": "Розірвати пару"
     }
   },
   "calendar": {
@@ -537,7 +547,9 @@
     "cancel": "Скасувати",
     "check-settings": "Перевірте налаштування для деталей.",
     "close": "Закрити",
-    "save": "Зберегти"
+    "no": "Ні",
+    "save": "Зберегти",
+    "yes": "Так"
   },
   "context-menu": {
     "clear-history": "Очистити історію",
@@ -1168,12 +1180,10 @@
           "description": "Оформлення композитора.",
           "label": "Композитори",
           "mango": {
-            "description": "Записати {filepath}. Потребує mango",
-            "description-missing": "Потрібно встановити {app}"
+            "description": "Записати {filepath}. Потребує mango"
           },
           "niri": {
-            "description": "Записати {filepath}. Потребує niri v25.11+",
-            "description-missing": "Потрібно встановити {app}"
+            "description": "Записати {filepath}. Потребує niri v25.11+"
           }
         },
         "misc": {
@@ -1186,54 +1196,42 @@
         },
         "programs": {
           "cava": {
-            "description": "Записати {filepath}",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath}"
           },
           "code": {
-            "description": "Записати {filepath} — тему HyprLuna потрібно встановити та активувати вручну",
-            "description-missing": "Клієнт Code не виявлено — встановіть VSCode або VSCodium"
+            "description": "Записати {filepath} — тему HyprLuna потрібно встановити та активувати вручну"
           },
           "description": "Оформлення окремих застосункiв.",
           "discord": {
-            "description": "Записати {filepath} для {client} — тему HyprLuna потрібно активувати вручну",
-            "description-missing": "Клієнт Discord не виявлено — встановіть vencord, vesktop, webcord, armcord, equibop, lightcord або dorion"
+            "description": "Записати {filepath} для {client} — тему HyprLuna потрібно активувати вручну"
           },
           "emacs": {
-            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Стандартний: ~/.emacs.d/themes/noctalia.el<br>Застосувати вручну: (load-theme 'noctalia t)",
-            "description-missing": "Потрібно встановити {app}"
+            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Стандартний: ~/.emacs.d/themes/noctalia.el<br>Застосувати вручну: (load-theme 'noctalia t)"
           },
           "fuzzel": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та перезавантажити"
           },
           "label": "Застосунки",
           "pywalfox": {
-            "description": "Записати {filepath} та запустити pywalfox update",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та запустити pywalfox update"
           },
           "spicetify": {
-            "description": "Записати {filepath} — тему Comfy потрібно встановити та активувати вручну",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} — тему Comfy потрібно встановити та активувати вручну"
           },
           "telegram": {
-            "description": "Записати {filepath}",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath}"
           },
           "vicinae": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та перезавантажити"
           },
           "walker": {
-            "description": "Записати {filepath} та встановити тему noctalia",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та встановити тему noctalia"
           },
           "yazi": {
-            "description": "Записати {filepath} — flavor потрібно активувати вручну",
-            "description-missing": "Потрібно встановити {app}"
+            "description": "Записати {filepath} — flavor потрібно активувати вручну"
           },
           "zed": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та перезавантажити"
           }
         },
         "section": {
@@ -1242,26 +1240,21 @@
         },
         "terminal": {
           "alacritty": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібно встановити {app}"
+            "description": "Записати {filepath} та перезавантажити"
           },
           "description": "Оформлення емулятора терміналу.",
           "foot": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та перезавантажити"
           },
           "ghostty": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та перезавантажити"
           },
           "kitty": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібна установка {app}"
+            "description": "Записати {filepath} та перезавантажити"
           },
           "label": "Термінал",
           "wezterm": {
-            "description": "Записати {filepath} та перезавантажити",
-            "description-missing": "Потрібно встановити {app}"
+            "description": "Записати {filepath} та перезавантажити"
           }
         },
         "ui": {
@@ -1388,10 +1381,6 @@
           "label": "Мінімальний режим"
         },
         "preview": "Попередній перегляд",
-        "section": {
-          "description": "Налаштуйте вигляд віджета годинника.",
-          "label": "Віджет годинника"
-        },
         "show-background": {
           "description": "Показати фоновий контейнер для віджета годинника.",
           "label": "Показати фон"
@@ -1457,10 +1446,6 @@
           "description": "Керує поведінкою віджета, коли медіа не відтворюється.",
           "label": "Режим приховування"
         },
-        "section": {
-          "description": "Налаштуйте вигляд віджета медіаплеєра.",
-          "label": "Віджет медіаплеєра"
-        },
         "show-background": {
           "description": "Показати фоновий контейнер для віджета медіаплеєра.",
           "label": "Показати фон"
@@ -1484,19 +1469,9 @@
           "description": "Показувати погодний віджет на робочому столі.",
           "label": "Увімкнути віджет погоди"
         },
-        "section": {
-          "description": "Налаштуйте вигляд віджета погоди.",
-          "label": "Віджет погоди"
-        },
         "show-background": {
           "description": "Показати фоновий контейнер для погодного віджета.",
           "label": "Показати фон"
-        }
-      },
-      "widgets": {
-        "section": {
-          "description": "Додати та налаштувати віджети робочого столу",
-          "label": "Настільні віджети"
         }
       }
     },
@@ -2579,8 +2554,20 @@
       "low-desc": "Рівень заряду: {percent}%. Будь ласка, підключіть зарядний пристрій."
     },
     "bluetooth": {
+      "confirm-code": "Підтвердьте код {value} на іншому пристрої",
+      "connect-failed": "Не вдалося під'єднатися до пристрою.",
       "disabled": "Вимкнено",
-      "enabled": "Увімкнено"
+      "disconnect-failed": "Не вдалося від'єднатися від пристрою",
+      "discoverable-change-failed": "Не вдалося змінити стан видимості",
+      "discoverable-disabled": "Виявлення вимкнено",
+      "discoverable-enabled": "Виявлення ввімкнено",
+      "display-code": "Введіть код {value} на іншому пристрої",
+      "enabled": "Увімкнено",
+      "forget-failed": "Не вдалося забути пристрій",
+      "pair-failed": "Не вдалося створити пару з пристроєм",
+      "passkey-required": "Потрібен ключ доступу, що зберігається на пристрої",
+      "pincode-required": "PIN-код, необхідний пристроєм",
+      "state-change-failed": "Не вдалося змінити стан Bluetooth"
     },
     "clipboard": {
       "unavailable": "Історія буфера обміну недоступна",
@@ -2663,9 +2650,13 @@
     },
     "wifi": {
       "connected": "Підключено до '{ssid}'",
+      "connection-failed": "З'єднання не вдалося",
+      "connection-timeout": "Час очікування з'єднання вичерпано.",
       "disabled": "Вимкнено",
       "disconnected": "Відключено від '{ssid}'",
-      "enabled": "Увімкнено"
+      "enabled": "Увімкнено",
+      "incorrect-password": "Неправильний пароль",
+      "network-not-found": "Мережу не знайдено"
     }
   },
   "tooltips": {
@@ -2689,6 +2680,7 @@
     "grid-view": "Мережевий вигляд",
     "hidden-files-hide": "Приховані файли",
     "hidden-files-show": "Приховані файли",
+    "hide-unnamed-devices": "Приховати пристрої без назви",
     "home": "Домашній каталог",
     "input-muted": "Увімкнути/вимкнути вимкнення звуку мікрофона",
     "keep-awake": "Заборона сну",
@@ -2731,6 +2723,7 @@
     "search-close": "Закрити пошук",
     "session-menu": "Меню сеансу",
     "set-power-profile": "{profile} профіль живлення",
+    "show-all-devices": "Показати всі пристрої",
     "start-screen-recording": "Запис екрана",
     "stop-screen-recording": "Запис екрана",
     "switch-to-dark-mode": "Темний режим",
@@ -2923,17 +2916,26 @@
       "disabled": "Wi-Fi вимкнено",
       "disconnect": "Відключити",
       "disconnecting": "Відключення...",
+      "dns": "DNS",
       "enable-message": "Увімкніть Wi-Fi, щоб побачити доступні мережі.",
       "enter-password": "Введіть пароль...",
       "forget": "Забути",
       "forget-network": "Забути цю мережу?",
       "forgetting": "Забування...",
+      "gateway": "Шлюз",
+      "info": "Інформація",
+      "internet": "Інтернет",
+      "internet-connected": "Підключено до Інтернету",
+      "internet-limited": "Немає інтернету",
+      "ipv4": "IPv4",
       "known-networks": "Відомі мережі",
+      "link-speed": "Швидкість з'єднання",
       "no-networks": "Мереж не знайдено",
       "password": "Пароль",
       "saved": "Збережено",
       "scan-again": "Сканувати знову",
       "searching": "Пошук близьких мереж...",
+      "security": "Безпека",
       "title": "Wi-Fi"
     }
   }

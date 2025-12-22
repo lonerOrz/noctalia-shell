@@ -204,14 +204,15 @@ Singleton {
     },
     {
       "id": "zed",
-      "name": "Zeditor",
+      "name": "Zed",
       "category": "applications",
       "input": "zed.json",
       "outputs": [
         {
           "path": "~/.config/zed/themes/noctalia.json"
         }
-      ]
+      ],
+      "dualMode": true // Template contains both dark and light theme patterns
     },
     {
       "id": "spicetify",
