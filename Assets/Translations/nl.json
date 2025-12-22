@@ -544,6 +544,7 @@
     "close-app": "Sluit {app}",
     "connect-vpn": "Verbinding maken met {name}",
     "cycle-visualizer": "Cyclusvisualisatie",
+    "delete": "Verwijderen",
     "disable-bluetooth": "Bluetooth uitschakelen",
     "disable-dnd": "Niet Storen uitschakelen",
     "disable-wifi": "Wi-Fi uitschakelen",
@@ -1424,16 +1425,18 @@
         }
       },
       "edit-mode": {
+        "add-widget": "Widget toevoegen",
         "button": {
           "label": "Ga naar de bewerkingsmodus"
         },
-        "controls-explanation": "Linkermuisknop: Widget verplaatsen\nRechtermuisknop: Widget vergroten/verkleinen",
+        "controls-explanation": "Linksklikken en slepen: Widget verplaatsen of het formaat wijzigen.\nRechtermuisknop: Het contextmenu openen.",
         "description": "Schakel de bewerkingsmodus in om desktopwidgets te verplaatsen en te herpositioneren. In de ingeschakelde modus tonen widgets een sleepomtrek en kunnen ze worden verplaatst.",
         "exit-button": "Bewerkingsmodus verlaten",
         "grid-snap": {
           "label": "Raster uitlijnen"
         },
-        "label": "Bewerkingsmodus"
+        "label": "Bewerkingsmodus",
+        "open-settings": "Instellingen openen"
       },
       "enabled": {
         "description": "Desktopwidgets volledig in- of uitschakelen.",
@@ -1461,6 +1464,10 @@
         "show-background": {
           "description": "Toon de achtergrondcontainer voor de mediaspeler-widget.",
           "label": "Toon achtergrond"
+        },
+        "show-buttons": {
+          "description": "Toon mediabesturingsknoppen (afspelen/pauzeren, vorige, volgende) op de mediaspeler-widget.",
+          "label": "Knoppen weergeven"
         },
         "visualizer-type": {
           "description": "Kies een visualisatietype voor de achtergrond van de desktop mediaspeler.",
@@ -1770,6 +1777,10 @@
         "grid-view": {
           "description": "Items in een raster weergeven in plaats van een lijst.",
           "label": "Rasterweergave"
+        },
+        "icon-mode": {
+          "description": "Gebruik native systeemiconen in plaats van Tabler-iconen.",
+          "label": "Gebruik native iconen"
         },
         "position": {
           "description": "Kies waar het launcher-paneel verschijnt.",
@@ -2179,7 +2190,7 @@
       "update-incompatible": "Vereist Noctalia v{version} of hoger",
       "update-success": "{plugin} is bijgewerkt naar v{version}",
       "update-version": "v{huidig} → v{nieuw}",
-      "updating": "{plugin} bijwerken..."
+      "updating": "Bezig met updaten..."
     },
     "screen-recorder": {
       "audio": {
