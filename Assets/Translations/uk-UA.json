@@ -55,6 +55,10 @@
           "description": "Виберіть, як ви хочете, щоб це значення відображалося.",
           "label": "Режим відображення"
         },
+        "hide-if-not-detected": {
+          "description": "Приховати віджет, коли в системі не виявлено акумулятор.",
+          "label": "Приховати, якщо не виявлено"
+        },
         "low-battery-threshold": {
           "description": "Показувати попередження, коли батарея падає нижче цього відсотка.",
           "label": "Поріг попередження про низький заряд батареї"
@@ -597,6 +601,18 @@
       "chat": "Чат",
       "development": "Розвиток",
       "education": "Освіта",
+      "emoji": {
+        "activity": "Активність",
+        "animals": "Тварини",
+        "flags": "Прапори",
+        "food": "Їжа та напої",
+        "nature": "Природа",
+        "objects": "Об'єкти",
+        "people": "Люди та тіло",
+        "recent": "Нещодавні",
+        "symbols": "Символи",
+        "travel": "Подорожі та місця"
+      },
       "game": "Ігри",
       "graphics": "Графіка",
       "misc": "Різне",
@@ -1178,6 +1194,9 @@
       "templates": {
         "compositors": {
           "description": "Оформлення композитора.",
+          "hyprland": {
+            "description": "Записати {filepath}."
+          },
           "label": "Композитори",
           "mango": {
             "description": "Записати {filepath}. Потребує mango"
@@ -1199,14 +1218,18 @@
             "description": "Записати {filepath}"
           },
           "code": {
-            "description": "Записати {filepath} — тему HyprLuna потрібно встановити та активувати вручну"
+            "description": "Записати {filepath}",
+            "description-detected": "Застосовано до профілю за замовчуванням. Виявлено: {clients}",
+            "description-missing": "Редактор коду не виявлено (VSCode або VSCodium)"
           },
           "description": "Оформлення окремих застосункiв.",
           "discord": {
-            "description": "Записати {filepath} для {client} — тему HyprLuna потрібно активувати вручну"
+            "description": "Записати {filepath} для {client} — тему потрібно активувати вручну",
+            "description-detected": "Виявлено: {clients}",
+            "description-missing": "Клієнт Discord не виявлено"
           },
           "emacs": {
-            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Стандартний: ~/.emacs.d/themes/noctalia.el<br>Застосувати вручну: (load-theme 'noctalia t)"
+            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Стандартний: ~/.emacs.d/themes/noctalia.el"
           },
           "fuzzel": {
             "description": "Записати {filepath} та перезавантажити"
@@ -1918,6 +1941,24 @@
           "label": "Тривалість сповіщень"
         }
       },
+      "history": {
+        "critical-urgency": {
+          "description": "Зберігати сповіщення з критичним пріоритетом в історії.",
+          "label": "Зберігати критичну терміновість в історії"
+        },
+        "low-urgency": {
+          "description": "Зберігати сповіщення з низьким пріоритетом в історії.",
+          "label": "Зберігати низьку терміновість в історії"
+        },
+        "normal-urgency": {
+          "description": "Зберігати сповіщення з нормальним пріоритетом в історії.",
+          "label": "Зберігати нормальну терміновість в історії"
+        },
+        "section": {
+          "description": "Керування тим, які сповіщення зберігаються в історії залежно від рівня терміновості.",
+          "label": "Історія"
+        }
+      },
       "monitors": {
         "section": {
           "description": "Показувати сповіщення на певних моніторах. За замовчуванням на всіх, якщо не вибрано.",
@@ -2276,6 +2317,10 @@
         "description": "Відображати заголовок та кнопку закриття в верхній частині меню сеансу.",
         "label": "Показувати заголовок"
       },
+      "show-number-labels": {
+        "description": "Відображати числові мітки (1-2-3-4...) на кнопках і увімкнути числові гарячі клавіші для швидкого вибору.",
+        "label": "Показувати числові мітки"
+      },
       "title": "Меню сеансу"
     },
     "system-monitor": {
@@ -2291,9 +2336,9 @@
       "disk-section": {
         "label": "Використання диска"
       },
-      "enable-nvidia-gpu": {
-        "description": "Увага: Це розбудить ваш графічний процесор NVIDIA, що може значно вплинути на час роботи акумулятора на ноутбуках з гібридною графікою.",
-        "label": "Увімкнути моніторинг GPU NVIDIA"
+      "enable-dgpu-monitoring": {
+        "description": "Увага: Це розбудить ваш дискретний графічний процесор (NVIDIA/AMD), що може значно вплинути на час роботи акумулятора на ноутбуках з гібридною графікою.",
+        "label": "Увімкнути моніторинг дискретного GPU"
       },
       "general": {
         "section": {
@@ -2936,6 +2981,7 @@
       "scan-again": "Сканувати знову",
       "searching": "Пошук близьких мереж...",
       "security": "Безпека",
+      "signal": "Сигнал",
       "title": "Wi-Fi"
     }
   }

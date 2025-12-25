@@ -55,6 +55,10 @@
           "description": "Bu değerin nasıl görünmesini istediğinizi seçin.",
           "label": "Görüntüleme modu"
         },
+        "hide-if-not-detected": {
+          "description": "Sistemde pil algılanmadığında araç çubuğunu gizle.",
+          "label": "Algılanmazsa gizle"
+        },
         "low-battery-threshold": {
           "description": "Batarya bu yüzdeye düştüğünde uyarı göster.",
           "label": "Düşük batarya eşiği"
@@ -597,6 +601,18 @@
       "chat": "Sohbet",
       "development": "Geliştirme",
       "education": "Eğitim",
+      "emoji": {
+        "activity": "Aktivite",
+        "animals": "Hayvanlar",
+        "flags": "Bayraklar",
+        "food": "Yiyecek ve içecek",
+        "nature": "Doğa",
+        "objects": "Nesneler",
+        "people": "İnsanlar ve vücut",
+        "recent": "Son kullanılanlar",
+        "symbols": "Semboller",
+        "travel": "Seyahat ve yerler"
+      },
       "game": "Oyunlar",
       "graphics": "Grafikler",
       "misc": "Çeşitli",
@@ -1178,6 +1194,9 @@
       "templates": {
         "compositors": {
           "description": "Birleştirici temalandırma.",
+          "hyprland": {
+            "description": "{filepath} dosyasına yaz."
+          },
           "label": "Birleştiriciler",
           "mango": {
             "description": "{filepath} dosyasına yaz. mango gerektirir"
@@ -1199,14 +1218,18 @@
             "description": "{filepath} dosyasına yaz"
           },
           "code": {
-            "description": "{filepath} dosyasına yaz — HyprLuna temasının kurulu ve manuel olarak etkinleştirilmiş olması gerekir"
+            "description": "{filepath} dosyasına yaz",
+            "description-detected": "Varsayılan profile uygulandı. Algılandı: {clients}",
+            "description-missing": "Kod editörü algılanmadı (VSCode veya VSCodium)"
           },
           "description": "Uygulamaya özel temalandırma.",
           "discord": {
-            "description": "{client} için {filepath} dosyasına yaz — HyprLuna temasının manuel olarak etkinleştirilmesi gerekir"
+            "description": "{client} için {filepath} dosyasına yaz — Temanın manuel olarak etkinleştirilmesi gerekir",
+            "description-detected": "Algılandı: {clients}",
+            "description-missing": "Discord istemcisi algılanmadı"
           },
           "emacs": {
-            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standart: ~/.emacs.d/themes/noctalia.el<br>Manuel olarak uygula: (load-theme 'noctalia t)"
+            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standart: ~/.emacs.d/themes/noctalia.el"
           },
           "fuzzel": {
             "description": "{filepath} dosyasına yaz ve yeniden yükle"
@@ -1918,6 +1941,24 @@
           "label": "Bildirim süresi"
         }
       },
+      "history": {
+        "critical-urgency": {
+          "description": "Kritik öncelikli bildirimleri geçmişe kaydet.",
+          "label": "Kritik aciliyeti geçmişe kaydet"
+        },
+        "low-urgency": {
+          "description": "Düşük öncelikli bildirimleri geçmişe kaydet.",
+          "label": "Düşük aciliyeti geçmişe kaydet"
+        },
+        "normal-urgency": {
+          "description": "Normal öncelikli bildirimleri geçmişe kaydet.",
+          "label": "Normal aciliyeti geçmişe kaydet"
+        },
+        "section": {
+          "description": "Aciliyet seviyelerine göre hangi bildirimlerin geçmişe kaydedileceğini kontrol edin.",
+          "label": "Geçmiş"
+        }
+      },
       "monitors": {
         "section": {
           "description": "Bildirimleri belirli ekranlarda gösterin. Hiçbiri seçilmezse varsayılan olarak tümünde gösterilir.",
@@ -2276,6 +2317,10 @@
         "description": "Oturum Menüsünün üst kısmında başlığı ve kapat düğmesini göster.",
         "label": "Başlığı göster"
       },
+      "show-number-labels": {
+        "description": "Düğmelerde sayı etiketleri (1-2-3-4...) göster ve hızlı seçim için sayı tuş kısayollarını etkinleştir.",
+        "label": "Sayı etiketlerini göster"
+      },
       "title": "Oturum Menüsü"
     },
     "system-monitor": {
@@ -2291,9 +2336,9 @@
       "disk-section": {
         "label": "Disk Kullanımı"
       },
-      "enable-nvidia-gpu": {
-        "description": "Uyarı: Bu, NVIDIA GPU'nuzu uyandıracak ve bu da hibrit grafiklere sahip dizüstü bilgisayarlarda pil ömrünü önemli ölçüde etkileyebilir.",
-        "label": "NVIDIA GPU izlemeyi etkinleştir"
+      "enable-dgpu-monitoring": {
+        "description": "Uyarı: Bu, ayrık GPU'nuzu (NVIDIA/AMD) uyandıracak ve bu da hibrit grafiklere sahip dizüstü bilgisayarlarda pil ömrünü önemli ölçüde etkileyebilir.",
+        "label": "Ayrık GPU izlemeyi etkinleştir"
       },
       "general": {
         "section": {
@@ -2936,6 +2981,7 @@
       "scan-again": "Yeniden tara",
       "searching": "Yakındaki ağlar aranıyor...",
       "security": "Güvenlik",
+      "signal": "Sinyal",
       "title": "Kablosuz Bağlantı"
     }
   }

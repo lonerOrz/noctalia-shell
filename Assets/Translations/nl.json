@@ -55,6 +55,10 @@
           "description": "Kies hoe je wilt dat deze waarde wordt weergegeven.",
           "label": "Weergavemodus"
         },
+        "hide-if-not-detected": {
+          "description": "Verberg de widget als er geen batterij op het systeem wordt gedetecteerd.",
+          "label": "Verbergen indien niet gedetecteerd."
+        },
         "low-battery-threshold": {
           "description": "Toon een waarschuwing wanneer de batterij onder dit percentage komt.",
           "label": "Waarschuwingsdrempel voor lage batterij"
@@ -597,6 +601,18 @@
       "chat": "Chat",
       "development": "Ontwikkeling",
       "education": "Onderwijs",
+      "emoji": {
+        "activity": "Activiteit",
+        "animals": "Dieren",
+        "flags": "Vlaggen",
+        "food": "Eten en drinken",
+        "nature": "Natuur",
+        "objects": "Objecten",
+        "people": "Mensen en lichaam",
+        "recent": "Recent",
+        "symbols": "Symbolen",
+        "travel": "Reizen en plaatsen"
+      },
       "game": "Spellen",
       "graphics": "Grafische weergave",
       "misc": "Diversen",
@@ -1178,6 +1194,9 @@
       "templates": {
         "compositors": {
           "description": "Theming van compositor.",
+          "hyprland": {
+            "description": "Schrijf {filepath}."
+          },
           "label": "Compositors",
           "mango": {
             "description": "Schrijf {filepath}. Vereist mango"
@@ -1199,14 +1218,18 @@
             "description": "Schrijf {filepath}"
           },
           "code": {
-            "description": "Schrijf {filepath} — het HyprLuna-thema moet handmatig worden geïnstalleerd en geactiveerd"
+            "description": "Schrijf {filepath}",
+            "description-detected": "Toegepast op standaardprofiel. Gedetecteerd: {clients}",
+            "description-missing": "Geen code-editor gedetecteerd (VSCode of VSCodium)"
           },
           "description": "Toepassingsspecifieke theming.",
           "discord": {
-            "description": "Schrijf {filepath} voor {client} — het HyprLuna-thema moet handmatig worden geactiveerd"
+            "description": "Schrijf {filepath} voor {client} — Het theme moet handmatig worden geactiveerd",
+            "description-detected": "Gedetecteerd: {clients}",
+            "description-missing": "Geen Discord-client gedetecteerd"
           },
           "emacs": {
-            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standaard: ~/.emacs.d/themes/noctalia.el<br>Handmatig toepassen: (load-theme 'noctalia t)"
+            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standaard: ~/.emacs.d/themes/noctalia.el"
           },
           "fuzzel": {
             "description": "Schrijf {filepath} en herlaad"
@@ -1918,6 +1941,24 @@
           "label": "Duur van meldingen"
         }
       },
+      "history": {
+        "critical-urgency": {
+          "description": "Meldingen met kritieke prioriteit opslaan in de geschiedenis.",
+          "label": "Kritieke urgentie opslaan in geschiedenis"
+        },
+        "low-urgency": {
+          "description": "Meldingen met lage prioriteit opslaan in de geschiedenis.",
+          "label": "Lage urgentie opslaan in geschiedenis"
+        },
+        "normal-urgency": {
+          "description": "Meldingen met normale prioriteit opslaan in de geschiedenis.",
+          "label": "Normale urgentie opslaan in geschiedenis"
+        },
+        "section": {
+          "description": "Bepalen welke meldingen worden opgeslagen in de geschiedenis op basis van hun urgentieniveau.",
+          "label": "Geschiedenis"
+        }
+      },
       "monitors": {
         "section": {
           "description": "Meldingen op specifieke monitoren tonen. Standaard op alle als er geen zijn gekozen.",
@@ -2276,6 +2317,10 @@
         "description": "Toon de titel en sluitknop bovenaan het Sessiemenu.",
         "label": "Koptekst tonen"
       },
+      "show-number-labels": {
+        "description": "Nummerlabels (1-2-3-4...) op knoppen weergeven en nummertoetsen voor snelle selectie inschakelen.",
+        "label": "Nummerlabels tonen"
+      },
       "title": "Sessiemenu"
     },
     "system-monitor": {
@@ -2291,9 +2336,9 @@
       "disk-section": {
         "label": "Schijfgebruik"
       },
-      "enable-nvidia-gpu": {
-        "description": "Waarschuwing: Dit zal uw NVIDIA GPU activeren, wat een aanzienlijke impact kan hebben op de batterijduur van laptops met hybride grafische kaarten.",
-        "label": "NVIDIA GPU-monitoring inschakelen"
+      "enable-dgpu-monitoring": {
+        "description": "Waarschuwing: Dit zal uw dedicated GPU (NVIDIA/AMD) activeren, wat een aanzienlijke impact kan hebben op de batterijduur van laptops met hybride grafische kaarten.",
+        "label": "Dedicated GPU-monitoring inschakelen"
       },
       "general": {
         "section": {
@@ -2936,6 +2981,7 @@
       "scan-again": "Opnieuw scannen",
       "searching": "Zoeken naar netwerken in de buurt...",
       "security": "Beveiliging",
+      "signal": "Signaal",
       "title": "Wi-Fi"
     }
   }

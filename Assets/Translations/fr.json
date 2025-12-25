@@ -55,6 +55,10 @@
           "description": "Choisissez comment vous souhaitez que cette valeur apparaisse.",
           "label": "Mode d'affichage"
         },
+        "hide-if-not-detected": {
+          "description": "Masquer le widget lorsqu'aucune batterie n'est détectée sur le système.",
+          "label": "Se cacher si non détecté."
+        },
         "low-battery-threshold": {
           "description": "Afficher un avertissement lorsque la batterie tombe en dessous de ce pourcentage.",
           "label": "Seuil d'avertissement de batterie faible"
@@ -597,6 +601,18 @@
       "chat": "Conversation",
       "development": "Développement",
       "education": "Éducation",
+      "emoji": {
+        "activity": "Activité",
+        "animals": "Animaux",
+        "flags": "Drapeaux",
+        "food": "Nourriture et boissons",
+        "nature": "Nature",
+        "objects": "Objets",
+        "people": "Personnes et corps",
+        "recent": "Récent",
+        "symbols": "Symboles",
+        "travel": "Voyages et lieux"
+      },
       "game": "Jeux",
       "graphics": "Graphiques",
       "misc": "Divers",
@@ -1178,6 +1194,9 @@
       "templates": {
         "compositors": {
           "description": "Thématisation du compositeur.",
+          "hyprland": {
+            "description": "Écris {filepath}."
+          },
           "label": "Compositeurs",
           "mango": {
             "description": "Écrire {filepath}. Requiert mango"
@@ -1199,14 +1218,18 @@
             "description": "Écrire {filepath}"
           },
           "code": {
-            "description": "Écrire {filepath} — le thème HyprLuna doit être installé et activé manuellement"
+            "description": "Écrire {filepath}",
+            "description-detected": "Appliqué au profil par défaut. Détecté : {clients}",
+            "description-missing": "Aucun éditeur de code détecté (VSCode ou VSCodium)"
           },
           "description": "Thématisation spécifique aux applications.",
           "discord": {
-            "description": "Écrire {filepath} pour {client} — le thème HyprLuna doit être installé et activé manuellement"
+            "description": "Écrire {filepath} pour {client} — Le thème doit être activé manuellement",
+            "description-detected": "Détecté : {clients}",
+            "description-missing": "Aucun client Discord détecté"
           },
           "emacs": {
-            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standard: ~/.emacs.d/themes/noctalia.el<br>Appliquer manuellement: (load-theme 'noctalia t)"
+            "description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standard: ~/.emacs.d/themes/noctalia.el"
           },
           "fuzzel": {
             "description": "Écrire {filepath} et recharger"
@@ -1918,6 +1941,24 @@
           "label": "Durée des notifications"
         }
       },
+      "history": {
+        "critical-urgency": {
+          "description": "Enregistrer les notifications de priorité critique dans l'historique.",
+          "label": "Enregistrer l'urgence critique dans l'historique"
+        },
+        "low-urgency": {
+          "description": "Enregistrer les notifications de priorité faible dans l'historique.",
+          "label": "Enregistrer l'urgence faible dans l'historique"
+        },
+        "normal-urgency": {
+          "description": "Enregistrer les notifications de priorité normale dans l'historique.",
+          "label": "Enregistrer l'urgence normale dans l'historique"
+        },
+        "section": {
+          "description": "Contrôler quelles notifications sont enregistrées dans l'historique en fonction de leur niveau d'urgence.",
+          "label": "Historique"
+        }
+      },
       "monitors": {
         "section": {
           "description": "Afficher les notifications sur des moniteurs spécifiques. Par défaut, sur tous si aucun n'est choisi.",
@@ -2276,6 +2317,10 @@
         "description": "Afficher le titre et le bouton de fermeture en haut du Menu de session.",
         "label": "Afficher l'en-tête"
       },
+      "show-number-labels": {
+        "description": "Afficher les numéros (1-2-3-4...) sur les boutons et activer les raccourcis clavier numériques pour une sélection rapide.",
+        "label": "Afficher les numéros"
+      },
       "title": "Menu de session"
     },
     "system-monitor": {
@@ -2291,9 +2336,9 @@
       "disk-section": {
         "label": "Utilisation disque"
       },
-      "enable-nvidia-gpu": {
-        "description": "Attention : Ceci va activer votre GPU NVIDIA, ce qui peut avoir un impact significatif sur l'autonomie de la batterie des ordinateurs portables dotés de cartes graphiques hybrides.",
-        "label": "Activer la surveillance du GPU NVIDIA"
+      "enable-dgpu-monitoring": {
+        "description": "Attention : Ceci va activer votre GPU dédié (NVIDIA/AMD), ce qui peut avoir un impact significatif sur l'autonomie de la batterie des ordinateurs portables dotés de cartes graphiques hybrides.",
+        "label": "Activer la surveillance du GPU dédié"
       },
       "general": {
         "section": {
@@ -2936,6 +2981,7 @@
       "scan-again": "Analyser à nouveau",
       "searching": "Recherche de réseaux à proximité en cours...",
       "security": "Sécurité",
+      "signal": "Signal",
       "title": "Wi-Fi"
     }
   }

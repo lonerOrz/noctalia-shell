@@ -90,7 +90,10 @@
     "tooltipsEnabled": true,
     "panelBackgroundOpacity": 0.85,
     "panelsAttachedToBar": true,
-    "settingsPanelMode": "attached"
+    "settingsPanelMode": "attached",
+    "wifiDetailsViewMode": "grid",
+    "bluetoothDetailsViewMode": "grid",
+    "bluetoothHideUnnamedDevices": false
   },
   "location": {
     "name": "Tokyo",
@@ -250,7 +253,7 @@
     "cpuPollingInterval": 3000,
     "tempPollingInterval": 3000,
     "gpuPollingInterval": 3000,
-    "enableNvidiaGpu": false,
+    "enableDgpuMonitoring": false,
     "memPollingInterval": 3000,
     "diskPollingInterval": 3000,
     "networkPollingInterval": 3000,
@@ -282,6 +285,7 @@
     "position": "center",
     "showHeader": true,
     "largeButtonsStyle": false,
+    "showNumberLabels": true,
     "powerOptions": [
       {
         "action": "lock",
@@ -320,6 +324,11 @@
     "normalUrgencyDuration": 8,
     "criticalUrgencyDuration": 15,
     "enableKeyboardLayoutToast": true,
+    "saveToHistory": {
+      "low": true,
+      "normal": true,
+      "critical": true
+    },
     "sounds": {
       "enabled": false,
       "volume": 0.5,
@@ -389,8 +398,10 @@
     "yazi": false,
     "emacs": false,
     "niri": false,
+    "hyprland": false,
     "mango": false,
     "zed": false,
+    "helix": false,
     "enableUserTemplates": false
   },
   "nightLight": {

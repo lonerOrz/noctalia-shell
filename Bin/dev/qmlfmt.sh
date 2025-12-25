@@ -1,19 +1,29 @@
 #!/usr/bin/env -S bash
 set -euo pipefail
 
-# Find qmlformat in PATH
-if ! command -v qmlformat >/dev/null 2>&1; then
-    echo "Error: 'qmlformat' not found in PATH." >&2
-    echo "On NixOS, install it via: nix-shell -p qt6.qttools" >&2
+# QML Formatter Script
+
+# Find qmlformat binary
+QMLFORMAT=""
+for path in "/usr/lib64/qt6/bin/qmlformat" "/usr/lib/qt6/bin/qmlformat"; do
+    if [ -x "$path" ]; then
+        QMLFORMAT="$path"
+        break
+    fi
+done
+
+if [ -z "$QMLFORMAT" ]; then
+    echo "No 'qmlformat' found in standard locations." >&2
+    echo "To proceed, install it via 'qt6-tools', 'qt6-declarative-tools' or 'qt6-qtdeclarative-devel'" >&2
     exit 1
 fi
 
 format_file() {
-    qmlformat -w 2 -W 360 -S --semicolon-rule always -i "$1" \
-        || { echo "Failed: $1" >&2; return 1; }
+    "${QMLFORMAT}" -w 2 -W 360 -S --semicolon-rule always -i "$1" || { echo "Failed: $1" >&2; return 1; }
 }
 
 export -f format_file
+export QMLFORMAT
 
 mapfile -t all_files < <(find "${1:-.}" -name "*.qml" -type f)
 [ ${#all_files[@]} -eq 0 ] && { echo "No QML files found"; exit 0; }
