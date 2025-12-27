@@ -320,6 +320,10 @@
         }
       },
       "system-monitor": {
+        "compact-mode": {
+          "description": "将统计数据以迷你条形图而非文本值的形式显示。防止布局偏移。",
+          "label": "紧凑模式"
+        },
         "cpu-temperature": {
           "description": "如果可用，显示CPU温度读数。",
           "label": "CPU温度"
@@ -351,6 +355,10 @@
         "storage-usage": {
           "description": "显示磁盘空间使用信息。",
           "label": "存储使用率"
+        },
+        "use-monospace-font": {
+          "description": "请使用等宽字体以保持字符宽度一致。",
+          "label": "等宽字体"
         }
       },
       "taskbar": {
@@ -482,11 +490,13 @@
       "enable-message": "启用蓝牙以查看可用设备。",
       "info": "信息",
       "known-devices": "已知设备",
+      "no-devices": "没有可用设备",
       "pair": "一对",
       "paired": "配对",
       "paired-devices": "已配对的设备",
       "pairing": "配对...",
       "pairing-mode": "确保您的设备处于配对模式。",
+      "refresh-devices": "刷新设备",
       "scanning": "正在扫描设备...",
       "signal": "信号",
       "title": "蓝牙",
@@ -766,7 +776,7 @@
       "never": "从不滚动"
     },
     "settings-panel-mode": {
-      "attached": "连接到杆的面板",
+      "attached": "面板附加到工具栏",
       "centered": "居中面板",
       "window": "分离窗口"
     },
@@ -1081,7 +1091,7 @@
           "label": "显示小部件轮廓"
         },
         "transparent": {
-          "description": "这将阻止面板连接到栏上。",
+          "description": "这将阻止面板附加到工具栏。",
           "label": "透明背景"
         }
       },
@@ -1195,14 +1205,14 @@
         "compositors": {
           "description": "合成器主题。",
           "hyprland": {
-            "description": "写入 {filepath}。"
+            "description": "写入 {filepath}"
           },
           "label": "合成器",
           "mango": {
-            "description": "写入 {filepath}。需要芒果"
+            "description": "写入 {filepath}，需要 Mango"
           },
           "niri": {
-            "description": "写入 {filepath}。需要 niri v25.11+"
+            "description": "写入 {filepath}，需要 Niri v25.11+"
           }
         },
         "misc": {
@@ -1219,7 +1229,7 @@
           },
           "code": {
             "description": "写入 {filepath}",
-            "description-detected": "已应用到默认配置文件。检测到: {clients}",
+            "description-detected": "已应用到默认配置文件，检测到: {clients}",
             "description-missing": "未检测到代码编辑器（VSCode 或 VSCodium）"
           },
           "description": "应用程序特定主题",
@@ -1418,6 +1428,7 @@
         },
         "style": {
           "analog": "模拟",
+          "binary": "二进制",
           "description": "选择时钟显示样式。",
           "digital": "数字",
           "label": "时钟样式",
@@ -2455,6 +2466,12 @@
     },
     "wallpaper": {
       "automation": {
+        "change-mode": {
+          "alphabetical": "按字母顺序",
+          "description": "选择自动更改时如何选择壁纸。",
+          "label": "更改模式",
+          "random": "随机"
+        },
         "custom-interval": {
           "description": "以 HH:MM 格式输入时间（例如：01:30）。",
           "label": "自定义间隔"
@@ -2466,6 +2483,10 @@
         "random-wallpaper": {
           "description": "按固定间隔调度随机壁纸更改。",
           "label": "随机壁纸"
+        },
+        "scheduled-change": {
+          "description": "按固定间隔自动更改壁纸。",
+          "label": "计划更改"
         },
         "section": {
           "label": "自动化"
@@ -2587,6 +2608,18 @@
     "user-requested": "用户请求",
     "welcome-back": "欢迎回来，",
     "widget-settings-title": "{widget} 设置"
+  },
+  "system-monitor": {
+    "cpu-temp": "CPU 温度",
+    "cpu-usage": "CPU 使用率",
+    "disk": "磁盘",
+    "download": "下载",
+    "download-speed": "下载速度",
+    "gpu-temp": "GPU 温度",
+    "memory": "内存",
+    "title": "系统监视器",
+    "upload": "上传",
+    "upload-speed": "上传速度"
   },
   "toast": {
     "airplane-mode": {
@@ -2790,6 +2823,11 @@
     "no-match": "未找到匹配项。",
     "no-wallpaper": "未找到壁纸。",
     "panel": {
+      "apikey": {
+        "help": "访问 NSFW 内容需要 API 密钥。",
+        "label": "API 密钥",
+        "placeholder": "输入您的Wallhaven API密钥"
+      },
       "apply-all-monitors": {
         "description": "一次性将选定的壁纸应用到所有显示器。",
         "label": "应用到所有显示器"
@@ -2808,6 +2846,7 @@
       "purity": {
         "all": "全部",
         "label": "内容过滤器",
+        "nsfw": "少儿不宜",
         "sfw": "SFW",
         "sketchy": "Sketchy"
       },
@@ -2955,6 +2994,7 @@
   },
   "wifi": {
     "panel": {
+      "action-required": "需要动作",
       "available-networks": "可用网络",
       "connect": "连接",
       "connected": "已连接",
@@ -2967,6 +3007,7 @@
       "forget": "忘记",
       "forget-network": "忘记此网络？",
       "forgetting": "正在忘记...",
+      "frequency": "频率",
       "gateway": "网关",
       "info": "信息",
       "internet": "互联网",
@@ -2981,8 +3022,15 @@
       "scan-again": "重新扫描",
       "searching": "正在搜索附近网络...",
       "security": "安全",
-      "signal": "信号",
       "title": "Wi-Fi"
+    },
+    "signal": {
+      "excellent": "优秀",
+      "fair": "一般",
+      "good": "好",
+      "poor": "差",
+      "very-good": "非常好",
+      "weak": "弱"
     }
   }
 }

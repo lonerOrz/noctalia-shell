@@ -320,6 +320,10 @@
         }
       },
       "system-monitor": {
+        "compact-mode": {
+          "description": "İstatistikleri metin değerleri yerine mini çubuk grafikler olarak görüntüleyin. Düzen kaymasını önler.",
+          "label": "Kompakt mod"
+        },
         "cpu-temperature": {
           "description": "Mevcut işlemci sıcaklık okumalarını gösterir.",
           "label": "İşlemci sıcaklığı"
@@ -351,6 +355,10 @@
         "storage-usage": {
           "description": "Disk alanı kullanım bilgilerini göster.",
           "label": "Depolama kullanımı"
+        },
+        "use-monospace-font": {
+          "description": "```\nTekdüze karakter genişliği için tek aralıklı yazı tipini kullanın.\n```",
+          "label": "Tek aralıklı yazı tipi"
         }
       },
       "taskbar": {
@@ -482,11 +490,13 @@
       "enable-message": "Mevcut cihazları görmek için Bluetooth'u etkinleştirin.",
       "info": "Bilgi",
       "known-devices": "Bilinen cihazlar",
+      "no-devices": "Mevcut cihaz yok",
       "pair": "Çift",
       "paired": "Eşleştirilmiş",
       "paired-devices": "Eşleştirilmiş cihazlar",
       "pairing": "Eşleştiriliyor...",
       "pairing-mode": "Cihazınızın eşleştirme modunda olduğundan emin olun.",
+      "refresh-devices": "Cihazları yenile",
       "scanning": "Cihazlar tarınıyor...",
       "signal": "Sinyal",
       "title": "Bluetooth",
@@ -766,7 +776,7 @@
       "never": "Asla Kaydırma"
     },
     "settings-panel-mode": {
-      "attached": "Çubuğa bağlı panel",
+      "attached": "Panel çubuğa takılı",
       "centered": "Ortalanmış panel",
       "window": "Ayrı pencere"
     },
@@ -1081,7 +1091,7 @@
           "label": "Araç kutusu ana hatlarını göster"
         },
         "transparent": {
-          "description": "Bu, panellerin çubuğa takılmasını önleyecektir.",
+          "description": "Bu, panellerin çubuğa takılmasını engelleyecektir.",
           "label": "Şeffaf arka plan"
         }
       },
@@ -1195,14 +1205,14 @@
         "compositors": {
           "description": "Birleştirici temalandırma.",
           "hyprland": {
-            "description": "{filepath} dosyasına yaz."
+            "description": "{filepath} dosyasına yaz"
           },
           "label": "Birleştiriciler",
           "mango": {
-            "description": "{filepath} dosyasına yaz. mango gerektirir"
+            "description": "{filepath} dosyasına yaz — Mango gerektirir"
           },
           "niri": {
-            "description": "{filepath} dosyasına yaz. niri v25.11+ gerektirir"
+            "description": "{filepath} dosyasına yaz — Niri v25.11+ gerektirir"
           }
         },
         "misc": {
@@ -1219,12 +1229,12 @@
           },
           "code": {
             "description": "{filepath} dosyasına yaz",
-            "description-detected": "Varsayılan profile uygulandı. Algılandı: {clients}",
+            "description-detected": "Varsayılan profile uygulandı — algılandı: {clients}",
             "description-missing": "Kod editörü algılanmadı (VSCode veya VSCodium)"
           },
           "description": "Uygulamaya özel temalandırma.",
           "discord": {
-            "description": "{client} için {filepath} dosyasına yaz — Temanın manuel olarak etkinleştirilmesi gerekir",
+            "description": "{client} için {filepath} dosyasına yaz — temanın manuel olarak etkinleştirilmesi gerekir",
             "description-detected": "Algılandı: {clients}",
             "description-missing": "Discord istemcisi algılanmadı"
           },
@@ -1418,6 +1428,7 @@
         },
         "style": {
           "analog": "Analog",
+          "binary": "İkili",
           "description": "Saat görüntüleme stilini seçin.",
           "digital": "Dijital",
           "label": "Saat stili",
@@ -2455,6 +2466,12 @@
     },
     "wallpaper": {
       "automation": {
+        "change-mode": {
+          "alphabetical": "Alfabetik",
+          "description": "Otomatik değiştirirken duvar kâğıtlarının nasıl seçileceğini seçin.",
+          "label": "Değiştirme modu",
+          "random": "Rastgele"
+        },
         "custom-interval": {
           "description": "Zamanı SS:DD olarak girin (örn., 01:30).",
           "label": "Özel aralık"
@@ -2466,6 +2483,10 @@
         "random-wallpaper": {
           "description": "Düzenli aralıklarla rastgele duvar kâğıdı değişiklikleri planlayın.",
           "label": "Rastgele duvar kâğıdı"
+        },
+        "scheduled-change": {
+          "description": "Düzenli aralıklarla duvar kâğıtlarını otomatik olarak değiştirin.",
+          "label": "Zamanlanmış değişiklik"
         },
         "section": {
           "label": "Otomasyon"
@@ -2587,6 +2608,18 @@
     "user-requested": "Kullanıcı istedi",
     "welcome-back": "Hoş geldiniz,",
     "widget-settings-title": "{widget} Ayarları"
+  },
+  "system-monitor": {
+    "cpu-temp": "CPU Sıcaklığı",
+    "cpu-usage": "CPU Kullanımı",
+    "disk": "Disk",
+    "download": "İndir",
+    "download-speed": "İndirme Hızı",
+    "gpu-temp": "GPU Sıcaklığı",
+    "memory": "Hafıza",
+    "title": "Sistem İzleyici",
+    "upload": "Yükle",
+    "upload-speed": "Yükleme Hızı"
   },
   "toast": {
     "airplane-mode": {
@@ -2790,6 +2823,11 @@
     "no-match": "Eşleşme bulunamadı.",
     "no-wallpaper": "Duvar kâğıdı bulunamadı.",
     "panel": {
+      "apikey": {
+        "help": "NSFW içeriğe erişmek için bir API anahtarı gereklidir.",
+        "label": "API Anahtarı",
+        "placeholder": "Wallhaven API Anahtarınızı girin"
+      },
       "apply-all-monitors": {
         "description": "Seçilen duvar kâğıdını tüm monitörlere aynı anda uygulayın.",
         "label": "Tüm monitörler için uygula"
@@ -2808,6 +2846,7 @@
       "purity": {
         "all": "Tümü",
         "label": "İçerik filtresi",
+        "nsfw": "Müstehcen",
         "sfw": "SFW",
         "sketchy": "Sketchy"
       },
@@ -2955,6 +2994,7 @@
   },
   "wifi": {
     "panel": {
+      "action-required": "Eylem gerekiyor",
       "available-networks": "Kullanılabilir Ağlar",
       "connect": "Bağlan",
       "connected": "Bağlı",
@@ -2967,6 +3007,7 @@
       "forget": "Unut",
       "forget-network": "Bu ağı unut?",
       "forgetting": "Unutuluyor...",
+      "frequency": "Frekans",
       "gateway": "Geçit",
       "info": "Bilgi",
       "internet": "İnternet",
@@ -2981,8 +3022,15 @@
       "scan-again": "Yeniden tara",
       "searching": "Yakındaki ağlar aranıyor...",
       "security": "Güvenlik",
-      "signal": "Sinyal",
       "title": "Kablosuz Bağlantı"
+    },
+    "signal": {
+      "excellent": "Mükemmel",
+      "fair": "Orta",
+      "good": "İyi",
+      "poor": "Kötü",
+      "very-good": "Çok İyi",
+      "weak": "Zayıf"
     }
   }
 }

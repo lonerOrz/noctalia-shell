@@ -320,6 +320,10 @@
         }
       },
       "system-monitor": {
+        "compact-mode": {
+          "description": "Afficher les statistiques sous forme de mini-graphiques à barres au lieu de valeurs textuelles. Empêche les décalages de mise en page.",
+          "label": "Mode compact"
+        },
         "cpu-temperature": {
           "description": "Afficher les lectures de température du CPU si disponibles.",
           "label": "Température du CPU"
@@ -351,6 +355,10 @@
         "storage-usage": {
           "description": "Afficher les informations d'utilisation de l'espace disque.",
           "label": "Utilisation du stockage"
+        },
+        "use-monospace-font": {
+          "description": "```\nUtilisez une police de caractères à chasse fixe pour une largeur de caractère uniforme.\n```",
+          "label": "Police à chasse fixe"
         }
       },
       "taskbar": {
@@ -482,11 +490,13 @@
       "enable-message": "Activez le Bluetooth pour voir les appareils disponibles.",
       "info": "Infos",
       "known-devices": "Appareils connus",
+      "no-devices": "Aucun appareil disponible",
       "pair": "Appairer",
       "paired": "Appairé",
       "paired-devices": "Appareils appairés",
       "pairing": "Appairage en cours...",
       "pairing-mode": "Assurez-vous que votre appareil est en mode d'appairage.",
+      "refresh-devices": "Actualiser les appareils",
       "scanning": "Recherche d'appareils en cours...",
       "signal": "Signal",
       "title": "Bluetooth",
@@ -766,7 +776,7 @@
       "never": "Ne Jamais Défiler"
     },
     "settings-panel-mode": {
-      "attached": "Panneau fixé à une barre",
+      "attached": "Panneau attaché à la barre",
       "centered": "Panneau centré",
       "window": "Fenêtre séparée"
     },
@@ -1195,14 +1205,14 @@
         "compositors": {
           "description": "Thématisation du compositeur.",
           "hyprland": {
-            "description": "Écris {filepath}."
+            "description": "Écrire {filepath}"
           },
           "label": "Compositeurs",
           "mango": {
-            "description": "Écrire {filepath}. Requiert mango"
+            "description": "Écrire {filepath} — requiert Mango"
           },
           "niri": {
-            "description": "Écrire {filepath}. Requiert niri v25.11+"
+            "description": "Écrire {filepath} — requiert Niri v25.11+"
           }
         },
         "misc": {
@@ -1219,12 +1229,12 @@
           },
           "code": {
             "description": "Écrire {filepath}",
-            "description-detected": "Appliqué au profil par défaut. Détecté : {clients}",
+            "description-detected": "Appliqué au profil par défaut — détecté : {clients}",
             "description-missing": "Aucun éditeur de code détecté (VSCode ou VSCodium)"
           },
           "description": "Thématisation spécifique aux applications.",
           "discord": {
-            "description": "Écrire {filepath} pour {client} — Le thème doit être activé manuellement",
+            "description": "Écrire {filepath} pour {client} — le thème doit être activé manuellement",
             "description-detected": "Détecté : {clients}",
             "description-missing": "Aucun client Discord détecté"
           },
@@ -1251,7 +1261,7 @@
             "description": "Écrire {filepath} et définir le thème sur noctalia"
           },
           "yazi": {
-            "description": "Écrire dans {filepath} — flavor doit être activée manuellement"
+            "description": "Écrire {filepath} — flavor doit être activée manuellement"
           },
           "zed": {
             "description": "Écrire {filepath} — le thème Comfy doit être installé et activé manuellement"
@@ -1277,7 +1287,7 @@
           },
           "label": "Terminal",
           "wezterm": {
-            "description": "Écrire {filepath} et recharger."
+            "description": "Écrire {filepath} et recharger"
           }
         },
         "ui": {
@@ -1418,6 +1428,7 @@
         },
         "style": {
           "analog": "Analogique",
+          "binary": "Binaire",
           "description": "Choisissez le style d'affichage de l'horloge.",
           "digital": "Numérique",
           "label": "Style d'horloge",
@@ -2437,7 +2448,7 @@
       },
       "settings-panel-mode": {
         "description": "Choisir la disposition des paramètres (peut nécessiter une réouverture).",
-        "label": "Mode du panneau de configuration"
+        "label": "Mode du panneau des paramètres"
       },
       "shadows": {
         "description": "Active les ombres portées sous les barres et les panneaux.",
@@ -2455,6 +2466,12 @@
     },
     "wallpaper": {
       "automation": {
+        "change-mode": {
+          "alphabetical": "Alphabétique",
+          "description": "Choisissez comment les fonds d'écran sont sélectionnés lors du changement automatique.",
+          "label": "Mode de changement",
+          "random": "Aléatoire"
+        },
         "custom-interval": {
           "description": "Entrez l'heure au format HH:MM (ex: 01:30).",
           "label": "Intervalle personnalisé"
@@ -2466,6 +2483,10 @@
         "random-wallpaper": {
           "description": "Planifiez des changements de fond d'écran aléatoires à intervalles réguliers.",
           "label": "Fond d'écran aléatoire"
+        },
+        "scheduled-change": {
+          "description": "Changer automatiquement les fonds d'écran à intervalles réguliers.",
+          "label": "Changement programmé"
         },
         "section": {
           "label": "Automatisation"
@@ -2587,6 +2608,18 @@
     "user-requested": "Demandé par l'utilisateur",
     "welcome-back": "Bon retour,",
     "widget-settings-title": "Paramètres de {widget}"
+  },
+  "system-monitor": {
+    "cpu-temp": "Température du processeur",
+    "cpu-usage": "Utilisation du processeur",
+    "disk": "Disque",
+    "download": "Télécharger",
+    "download-speed": "Vitesse de téléchargement",
+    "gpu-temp": "Température du GPU",
+    "memory": "Mémoire",
+    "title": "Moniteur système",
+    "upload": "Télécharger",
+    "upload-speed": "Vitesse de chargement"
   },
   "toast": {
     "airplane-mode": {
@@ -2790,6 +2823,11 @@
     "no-match": "Aucun résultat trouvé.",
     "no-wallpaper": "Aucun fond d'écran trouvé.",
     "panel": {
+      "apikey": {
+        "help": "Une clé API est requise pour accéder au contenu NSFW.",
+        "label": "Clé API",
+        "placeholder": "Entrez votre clé API Wallhaven"
+      },
       "apply-all-monitors": {
         "description": "Appliquer le fond d'écran sélectionné à tous les moniteurs en même temps.",
         "label": "Appliquer à tous les moniteurs"
@@ -2808,6 +2846,7 @@
       "purity": {
         "all": "Tout",
         "label": "Filtre de contenu",
+        "nsfw": "NSFW se traduit généralement par :\n\n*   **NSFW** (l'acronyme lui-même est souvent utilisé)\n*   **Contenu explicite**\n*   **Contenu réservé aux adultes**\n*   **Déconseillé au travail** (plus littéral)",
         "sfw": "SFW",
         "sketchy": "Sketchy"
       },
@@ -2955,6 +2994,7 @@
   },
   "wifi": {
     "panel": {
+      "action-required": "Action requise",
       "available-networks": "Réseaux disponibles",
       "connect": "Connecter",
       "connected": "Connecté",
@@ -2967,6 +3007,7 @@
       "forget": "Oublier",
       "forget-network": "Oublier ce réseau ?",
       "forgetting": "Oubli en cours...",
+      "frequency": "Fréquence",
       "gateway": "Passerelle",
       "info": "Info",
       "internet": "Internet",
@@ -2981,8 +3022,15 @@
       "scan-again": "Analyser à nouveau",
       "searching": "Recherche de réseaux à proximité en cours...",
       "security": "Sécurité",
-      "signal": "Signal",
       "title": "Wi-Fi"
+    },
+    "signal": {
+      "excellent": "Excellent",
+      "fair": "Fair",
+      "good": "Good",
+      "poor": "Poor",
+      "very-good": "Very Good",
+      "weak": "Weak"
     }
   }
 }

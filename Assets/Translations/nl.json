@@ -320,6 +320,10 @@
         }
       },
       "system-monitor": {
+        "compact-mode": {
+          "description": "Statistieken weergeven als mini-staafdiagrammen in plaats van tekstwaarden. Voorkomt lay-outverschuiving.",
+          "label": "Compacte modus"
+        },
         "cpu-temperature": {
           "description": "Toon CPU-temperatuur indien beschikbaar.",
           "label": "CPU-temperatuur"
@@ -351,6 +355,10 @@
         "storage-usage": {
           "description": "Toon informatie over schijfruimtegebruik.",
           "label": "Opslaggebruik"
+        },
+        "use-monospace-font": {
+          "description": "Gebruik een monospace lettertype voor een consistente tekenbreedte.",
+          "label": "Lettertype met vaste breedte"
         }
       },
       "taskbar": {
@@ -482,11 +490,13 @@
       "enable-message": "Schakel Bluetooth in om beschikbare apparaten te zien.",
       "info": "Info",
       "known-devices": "Bekende apparaten",
+      "no-devices": "Geen apparaten beschikbaar",
       "pair": "Koppelen",
       "paired": "Gekoppeld",
       "paired-devices": "Gekoppelde apparaten",
       "pairing": "Koppelen...",
       "pairing-mode": "Zorg ervoor dat je apparaat in koppelmodus staat.",
+      "refresh-devices": "Apparaten verversen",
       "scanning": "Zoeken naar apparaten...",
       "signal": "Signaal",
       "title": "Bluetooth",
@@ -766,7 +776,7 @@
       "never": "Nooit scrollen"
     },
     "settings-panel-mode": {
-      "attached": "Paneel bevestigd aan staaf",
+      "attached": "Paneel bevestigd aan de balk",
       "centered": "Gecentreerd paneel",
       "window": "Apart venster"
     },
@@ -1081,7 +1091,7 @@
           "label": "Toon widget-omtrekken"
         },
         "transparent": {
-          "description": "Dit voorkomt dat panelen aan de balk worden bevestigd.",
+          "description": "Dit voorkomt dat de panelen aan de balk worden bevestigd.",
           "label": "Transparante achtergrond"
         }
       },
@@ -1195,14 +1205,14 @@
         "compositors": {
           "description": "Theming van compositor.",
           "hyprland": {
-            "description": "Schrijf {filepath}."
+            "description": "Schrijf {filepath}"
           },
           "label": "Compositors",
           "mango": {
-            "description": "Schrijf {filepath}. Vereist mango"
+            "description": "Schrijf {filepath} — vereist Mango"
           },
           "niri": {
-            "description": "Schrijf {filepath}. Vereist niri v25.11+"
+            "description": "Schrijf {filepath} — vereist Niri v25.11+"
           }
         },
         "misc": {
@@ -1219,12 +1229,12 @@
           },
           "code": {
             "description": "Schrijf {filepath}",
-            "description-detected": "Toegepast op standaardprofiel. Gedetecteerd: {clients}",
+            "description-detected": "Toegepast op standaardprofiel — gedetecteerd: {clients}",
             "description-missing": "Geen code-editor gedetecteerd (VSCode of VSCodium)"
           },
           "description": "Toepassingsspecifieke theming.",
           "discord": {
-            "description": "Schrijf {filepath} voor {client} — Het theme moet handmatig worden geactiveerd",
+            "description": "Schrijf {filepath} voor {client} — het theme moet handmatig worden geactiveerd",
             "description-detected": "Gedetecteerd: {clients}",
             "description-missing": "Geen Discord-client gedetecteerd"
           },
@@ -1418,6 +1428,7 @@
         },
         "style": {
           "analog": "Analoog",
+          "binary": "Binair",
           "description": "Kies de weergavestijl van de klok.",
           "digital": "Digitaal",
           "label": "Klokstijl",
@@ -2455,6 +2466,12 @@
     },
     "wallpaper": {
       "automation": {
+        "change-mode": {
+          "alphabetical": "Alfabetisch",
+          "description": "Kies hoe achtergronden worden geselecteerd bij automatisch wisselen.",
+          "label": "Wisselmodus",
+          "random": "Willekeurig"
+        },
         "custom-interval": {
           "description": "Voer tijd in als UU:MM (bijv. 01:30).",
           "label": "Aangepast interval"
@@ -2466,6 +2483,10 @@
         "random-wallpaper": {
           "description": "Plan willekeurige achtergrondwissels op vaste intervallen.",
           "label": "Willekeurige achtergrond"
+        },
+        "scheduled-change": {
+          "description": "Wissel automatisch achtergronden op vaste intervallen.",
+          "label": "Geplande wissel"
         },
         "section": {
           "label": "Automatisering"
@@ -2587,6 +2608,18 @@
     "user-requested": "Door gebruiker aangevraagd",
     "welcome-back": "Welkom terug,",
     "widget-settings-title": "Instellingen voor {widget}"
+  },
+  "system-monitor": {
+    "cpu-temp": "CPU-temperatuur",
+    "cpu-usage": "CPU-gebruik",
+    "disk": "Schijf",
+    "download": "Downloaden",
+    "download-speed": "Downloadsnelheid",
+    "gpu-temp": "GPU-temperatuur",
+    "memory": "Geheugen",
+    "title": "Systeemmonitor",
+    "upload": "Uploaden",
+    "upload-speed": "Uploadsnelheid"
   },
   "toast": {
     "airplane-mode": {
@@ -2790,6 +2823,11 @@
     "no-match": "Geen resultaten gevonden.",
     "no-wallpaper": "Geen achtergrond gevonden.",
     "panel": {
+      "apikey": {
+        "help": "Een API-sleutel is vereist om toegang te krijgen tot NSFW-content.",
+        "label": "API-sleutel",
+        "placeholder": "Voer uw Wallhaven API-sleutel in"
+      },
       "apply-all-monitors": {
         "description": "Pas de geselecteerde achtergrond in één keer op alle monitoren toe.",
         "label": "Toepassen op alle monitoren"
@@ -2808,6 +2846,7 @@
       "purity": {
         "all": "Alles",
         "label": "Inhoudsfilter",
+        "nsfw": "Niet geschikt voor werk",
         "sfw": "SFW",
         "sketchy": "Sketchy"
       },
@@ -2955,6 +2994,7 @@
   },
   "wifi": {
     "panel": {
+      "action-required": "Actie vereist",
       "available-networks": "Beschikbare netwerken",
       "connect": "Verbinden",
       "connected": "Verbonden",
@@ -2967,6 +3007,7 @@
       "forget": "Vergeten",
       "forget-network": "Dit netwerk vergeten?",
       "forgetting": "Vergeten...",
+      "frequency": "Frequentie",
       "gateway": "Poort",
       "info": "Info",
       "internet": "Internet",
@@ -2981,8 +3022,15 @@
       "scan-again": "Opnieuw scannen",
       "searching": "Zoeken naar netwerken in de buurt...",
       "security": "Beveiliging",
-      "signal": "Signaal",
       "title": "Wi-Fi"
+    },
+    "signal": {
+      "excellent": "Uitstekend",
+      "fair": "Redelijk",
+      "good": "Goed",
+      "poor": "Slecht",
+      "very-good": "Erg goed",
+      "weak": "Zwak"
     }
   }
 }
