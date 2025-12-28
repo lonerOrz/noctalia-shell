@@ -94,6 +94,10 @@
           "label": "Vízszintes sáv"
         },
         "preview": "Előnézet",
+        "tooltip-format": {
+          "description": "Formátumsztring az óra fölé húzva megjelenő eszköztipphez. Hagyja üresen az alapértelmezett eszköztipp használatához.",
+          "label": "Eszköztipp formátum"
+        },
         "use-custom-font": {
           "description": "Felülbírálja az alapértelmezett betűtípus kiválasztását egy egyéni betűtípussal az órához.",
           "label": "Egyéni betűtípus használata"
@@ -536,7 +540,7 @@
     }
   },
   "clock": {
-    "tooltip": "Óra"
+    "tooltip": "Naptár"
   },
   "common": {
     "add": "Hozzáadás",
@@ -1299,6 +1303,10 @@
       "position": {
         "description": "Válassza ki, hol jelenjen meg a vezérlőközpont panel megnyitáskor.",
         "label": "Pozíció"
+      },
+      "system-monitor-disk-path": {
+        "description": "Válassza ki, hogy melyik lemez csatolási pontot kell figyelnie a rendszerfigyelő kártyának a vezérlőközpontban.",
+        "label": "Rendszerfigyelő lemez elérési útja"
       },
       "section": {
         "description": "A vezérlőközpont panel pozicionálásának és viselkedésének konfigurálása.",
@@ -2325,6 +2333,10 @@
       },
       "disk-section": {
         "label": "Lemezhasználat"
+      },
+      "disk-path": {
+        "description": "Válassza ki, hogy melyik lemez csatolási pontot szeretné figyelni.",
+        "label": "Lemez elérési útja"
       },
       "enable-dgpu-monitoring": {
         "description": "Figyelem: Ez felébreszti a dedikált GPU-t (NVIDIA/AMD), ami jelentősen befolyásolhatja az akkumulátor élettartamát a hibrid grafikával rendelkező laptopokon.",

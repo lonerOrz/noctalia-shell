@@ -94,6 +94,10 @@
           "label": "Horizontale Statusleiste"
         },
         "preview": "Vorschau",
+        "tooltip-format": {
+          "description": "Formatzeichenfolge für den Tooltip, der beim Überfahren der Uhr angezeigt wird. Leer lassen, um den Standard-Tooltip zu verwenden.",
+          "label": "Tooltip-Format"
+        },
         "use-custom-font": {
           "description": "Überschreibt die Standard-Schriftart mit einer benutzerdefinierten Schriftart für die Uhr.",
           "label": "Benutzerdefinierte Schriftart verwenden"
@@ -553,7 +557,7 @@
     }
   },
   "clock": {
-    "tooltip": "Uhr"
+    "tooltip": "Kalender"
   },
   "common": {
     "add": "Hinzufügen",
@@ -1315,6 +1319,10 @@
       "position": {
         "description": "Wählen Sie aus, wo das Kontrollzentrum-Panel angezeigt wird, wenn es geöffnet wird.",
         "label": "Position"
+      },
+      "system-monitor-disk-path": {
+        "description": "Wählen Sie, welchen Festplatten-Mountpunkt die Systemmonitor-Karte im Kontrollzentrum überwachen soll.",
+        "label": "Systemmonitor Festplattenpfad"
       },
       "section": {
         "description": "Konfigurieren Sie die Positionierung und das Verhalten des Kontrollzentrum-Panels.",
@@ -2343,6 +2351,10 @@
       },
       "disk-section": {
         "label": "Festplattennutzung"
+      },
+      "disk-path": {
+        "description": "Wählen Sie, welchen Festplatten-Mountpunkt überwacht werden soll.",
+        "label": "Festplattenpfad"
       },
       "enable-dgpu-monitoring": {
         "description": "Warnung: Dies aktiviert Ihre dedizierte GPU (NVIDIA/AMD), was die Akkulaufzeit von Laptops mit Hybridgrafik erheblich beeinträchtigen kann.",

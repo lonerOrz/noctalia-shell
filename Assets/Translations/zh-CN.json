@@ -94,6 +94,10 @@
           "label": "水平栏"
         },
         "preview": "预览",
+        "tooltip-format": {
+          "description": "悬停在时钟上时显示的工具提示的格式字符串。留空以使用默认工具提示。",
+          "label": "工具提示格式"
+        },
         "use-custom-font": {
           "description": "使用自定义字体覆盖时钟的默认字体选择。",
           "label": "使用自定义字体"
@@ -553,7 +557,7 @@
     }
   },
   "clock": {
-    "tooltip": "时钟"
+    "tooltip": "日历"
   },
   "common": {
     "add": "添加",
@@ -1316,6 +1320,10 @@
       "position": {
         "description": "选择打开控制中心时面板出现的位置。",
         "label": "位置"
+      },
+      "system-monitor-disk-path": {
+        "description": "选择控制中心中的系统监视器卡片应监视的磁盘挂载点。",
+        "label": "系统监视器磁盘路径"
       },
       "section": {
         "description": "配置控制中心面板的位置和行为。",
@@ -2346,6 +2354,10 @@
       },
       "disk-section": {
         "label": "磁盘使用率"
+      },
+      "disk-path": {
+        "description": "选择要监视的磁盘挂载点。",
+        "label": "磁盘路径"
       },
       "enable-dgpu-monitoring": {
         "description": "警告：这将唤醒您的独立显卡 (NVIDIA/AMD)，这可能会显著影响配备混合显卡的笔记本电脑的电池续航时间。",

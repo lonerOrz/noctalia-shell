@@ -37,11 +37,12 @@ Rectangle {
   readonly property var now: Time.now
 
   // Resolve settings: try user settings or defaults from BarWidgetRegistry
-  readonly property bool usePrimaryColor: widgetSettings.usePrimaryColor !== undefined ? widgetSettings.usePrimaryColor : widgetMetadata.usePrimaryColor
-  readonly property bool useCustomFont: widgetSettings.useCustomFont !== undefined ? widgetSettings.useCustomFont : widgetMetadata.useCustomFont
-  readonly property string customFont: widgetSettings.customFont !== undefined ? widgetSettings.customFont : widgetMetadata.customFont
-  readonly property string formatHorizontal: widgetSettings.formatHorizontal !== undefined ? widgetSettings.formatHorizontal : widgetMetadata.formatHorizontal
-  readonly property string formatVertical: widgetSettings.formatVertical !== undefined ? widgetSettings.formatVertical : widgetMetadata.formatVertical
+  readonly property bool usePrimaryColor: widgetSettings.usePrimaryColor !== undefined ? widgetSettings.usePrimaryColor : (widgetMetadata && widgetMetadata.usePrimaryColor !== undefined ? widgetMetadata.usePrimaryColor : false)
+  readonly property bool useCustomFont: widgetSettings.useCustomFont !== undefined ? widgetSettings.useCustomFont : (widgetMetadata && widgetMetadata.useCustomFont !== undefined ? widgetMetadata.useCustomFont : false)
+  readonly property string customFont: widgetSettings.customFont !== undefined ? widgetSettings.customFont : (widgetMetadata && widgetMetadata.customFont !== undefined ? widgetMetadata.customFont : "")
+  readonly property string formatHorizontal: widgetSettings.formatHorizontal !== undefined ? widgetSettings.formatHorizontal : (widgetMetadata && widgetMetadata.formatHorizontal !== undefined ? widgetMetadata.formatHorizontal : "HH:mm")
+  readonly property string formatVertical: widgetSettings.formatVertical !== undefined ? widgetSettings.formatVertical : (widgetMetadata && widgetMetadata.formatVertical !== undefined ? widgetMetadata.formatVertical : "HH:mm")
+  readonly property string tooltipFormat: widgetSettings.tooltipFormat !== undefined ? widgetSettings.tooltipFormat : (widgetMetadata && widgetMetadata.tooltipFormat !== undefined ? widgetMetadata.tooltipFormat : "")
 
   implicitWidth: isBarVertical ? Style.capsuleHeight : Math.round((isBarVertical ? verticalLoader.implicitWidth : horizontalLoader.implicitWidth) + Style.marginM * 2)
 
@@ -149,6 +150,15 @@ Rectangle {
                  }
   }
 
+  // Build tooltip text with formatted time/date
+  function buildTooltipText() {
+    if (tooltipFormat && tooltipFormat.trim() !== "") {
+      return I18n.locale.toString(now, tooltipFormat.trim());
+    }
+    // Fallback to default if no format is set
+    return I18n.tr("clock.tooltip"); // Defaults to "Calendar"
+  }
+
   MouseArea {
     id: clockMouseArea
     anchors.fill: parent
@@ -157,10 +167,12 @@ Rectangle {
     acceptedButtons: Qt.LeftButton | Qt.RightButton
     onEntered: {
       if (!PanelService.getPanel("clockPanel", screen)?.active) {
-        TooltipService.show(root, I18n.tr("clock.tooltip"), BarService.getTooltipDirection());
+        TooltipService.show(root, buildTooltipText(), BarService.getTooltipDirection());
+        tooltipRefreshTimer.start();
       }
     }
     onExited: {
+      tooltipRefreshTimer.stop();
       TooltipService.hide();
     }
     onClicked: mouse => {
@@ -175,5 +187,16 @@ Rectangle {
                    PanelService.getPanel("clockPanel", screen)?.toggle(this);
                  }
                }
+  }
+
+  Timer {
+    id: tooltipRefreshTimer
+    interval: 1000
+    repeat: true
+    onTriggered: {
+      if (clockMouseArea.containsMouse && !PanelService.getPanel("clockPanel", screen)?.active) {
+        TooltipService.updateText(buildTooltipText());
+      }
+    }
   }
 }
