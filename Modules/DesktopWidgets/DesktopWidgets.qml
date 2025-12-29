@@ -291,15 +291,6 @@ Variants {
             required property var modelData
             required property int index
 
-            Connections {
-                target: widgetLoader
-                function onWidgetDataChanged() {
-                    if (widgetLoader.item) {
-                        widgetLoader.item.widgetData = widgetLoader.widgetData;
-                    }
-                }
-            }
-
             sourceComponent: {
               // Access registeredWidgets and pluginReloadCounter to create reactive binding
               var _ = root.pluginReloadCounter;

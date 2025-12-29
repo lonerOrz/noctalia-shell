@@ -36,6 +36,9 @@ NBox {
     return Settings.data.systemMonitor.diskPath || "/";
   }
 
+  // NOTE: This implementation uses a custom planet-style visualization
+  // instead of the upstream NCircleStat components to maintain the unique
+  // orbital animation design that shows system stats as planets orbiting
   Item {
     id: stage
     anchors.fill: parent
@@ -219,49 +222,6 @@ NBox {
           disk.item.valueText = `${Math.round(SystemStatService.diskPercents?.["/"] ?? 0)}%`;
           disk.item.speedSec = stage.speedFromValue(d, 4, 30);
         }
-      }
-    }
-
-    Column {
-      anchors.centerIn: parent
-      spacing: Style.marginXS
-
-      NCircleStat {
-        ratio: SystemStatService.cpuUsage / 100
-        icon: "cpu-usage"
-        contentScale: 0.95
-        height: content.widgetHeight
-        Layout.alignment: Qt.AlignHCenter
-        fillColor: SystemStatService.cpuColor
-        tooltipText: I18n.tr("system-monitor.cpu-usage") + `: ${Math.round(SystemStatService.cpuUsage)}%`
-      }
-      NCircleStat {
-        ratio: SystemStatService.cpuTemp / 100
-        suffix: "°C"
-        icon: "cpu-temperature"
-        contentScale: 0.95
-        height: content.widgetHeight
-        Layout.alignment: Qt.AlignHCenter
-        fillColor: SystemStatService.tempColor
-        tooltipText: I18n.tr("system-monitor.cpu-temp") + `: ${Math.round(SystemStatService.cpuTemp)}°C`
-      }
-      NCircleStat {
-        ratio: SystemStatService.memPercent / 100
-        icon: "memory"
-        contentScale: 0.95
-        height: content.widgetHeight
-        Layout.alignment: Qt.AlignHCenter
-        fillColor: SystemStatService.memColor
-        tooltipText: I18n.tr("system-monitor.memory") + `: ${Math.round(SystemStatService.memPercent)}%`
-      }
-      NCircleStat {
-        ratio: (SystemStatService.diskPercents[root.diskPath] ?? 0) / 100
-        icon: "storage"
-        contentScale: 0.95
-        height: content.widgetHeight
-        Layout.alignment: Qt.AlignHCenter
-        fillColor: SystemStatService.getDiskColor(root.diskPath)
-        tooltipText: I18n.tr("system-monitor.disk") + `: ${SystemStatService.diskPercents[root.diskPath] || 0}%\n${root.diskPath}`
       }
     }
   }
