@@ -442,6 +442,10 @@
           "description": "Çubuğun bulunduğu ekran yerine, şu anda odaklanmış ekrandaki çalışma alanlarını göster.",
           "label": "Odaklanmış Ekranı Takip Et"
         },
+        "grouped-border-opacity": {
+          "description": "Çalışma alanı kapsayıcı kenarlıklarının opaklık düzeyini ayarlayın",
+          "label": "Kenarlık opaklığı"
+        },
         "hide-unoccupied": {
           "description": "Penceresi olmayan çalışma alanlarını gösterme.",
           "label": "Dolu olmayanları gizle"
@@ -457,6 +461,10 @@
         "show-labels-only-when-occupied": {
           "description": "Yalnızca pencere içeren çalışma alanı etiketlerini göster.",
           "label": "Yalnızca dolu olduğunda etiketleri göster"
+        },
+        "unfocused-icons-opacity": {
+          "description": "Odaklanılmamış uygulama simgelerinin opaklık düzeyini ayarlayın",
+          "label": "Odak dışı simgelerin opaklığı"
         }
       }
     }
@@ -1056,6 +1064,10 @@
     },
     "bar": {
       "appearance": {
+        "background-opacity": {
+          "description": "Çubuğun arka plan opaklığını özel olarak ayarlayın.",
+          "label": "Çubuk arka plan opaklığı"
+        },
         "capsule-opacity": {
           "description": "Kapsül gösterildiğinde araç takımı arka planlarının saydamlık seviyesini ayarla.",
           "label": "Kapsül saydamlığı"
@@ -1094,9 +1106,9 @@
           "description": "Her widget'ın etrafında görünür bir kenarlık görüntüler.",
           "label": "Araç kutusu ana hatlarını göster"
         },
-        "transparent": {
-          "description": "Bu, panellerin çubuğa takılmasını engelleyecektir.",
-          "label": "Şeffaf arka plan"
+        "use-separate-opacity": {
+          "description": "Çubuk arka planı için ayrı bir opaklık değeri kullanmayı etkinleştir.",
+          "label": "Ayrı çubuk opaklığı kullan"
         }
       },
       "monitors": {
@@ -1321,10 +1333,6 @@
         "description": "Kontrol merkezi paneli açıldığında nerede görüneceğini seçin.",
         "label": "Konum"
       },
-      "system-monitor-disk-path": {
-        "description": "Kontrol merkezindeki sistem izleyici kartının izlemesi gereken disk bağlama noktasını seçin.",
-        "label": "Sistem izleyici disk yolu"
-      },
       "section": {
         "description": "Kontrol merkezi paneli konumunu ve davranışını yapılandırın.",
         "label": "Görünüm"
@@ -1391,6 +1399,10 @@
         "sectionLeft": "Sol",
         "sectionRight": "Sağ"
       },
+      "system-monitor-disk-path": {
+        "description": "Kontrol merkezindeki sistem izleyici kartının izlemesi gereken disk bağlama noktasını seçin.",
+        "label": "Sistem izleyici disk yolu"
+      },
       "title": "Kontrol Merkezi"
     },
     "desktop-widgets": {
@@ -1422,6 +1434,10 @@
           "label": "Minimal mod"
         },
         "preview": "Önizleme",
+        "rounded-corners": {
+          "description": "Widget arka planı için yuvarlatılmış köşeler kullanın.",
+          "label": "Yuvarlatılmış köşeler"
+        },
         "show-background": {
           "description": "Saat widget'ı için arka plan kabını göster.",
           "label": "Arka planı göster"
@@ -1488,6 +1504,14 @@
           "description": "Ortam çalınmadığında araç takımının nasıl davrandığını kontrol eder.",
           "label": "Gizleme modu"
         },
+        "rounded-corners": {
+          "description": "Widget kenarlarında yuvarlak köşeleri etkinleştir.",
+          "label": "Yuvarlatılmış köşeler"
+        },
+        "show-album-art": {
+          "description": "Albüm kapağını ve parça bilgilerini (başlık ve sanatçı) göster.",
+          "label": "Albüm kapağını ve başlığını göster"
+        },
         "show-background": {
           "description": "Medya oynatıcı widget'ı için arka plan konteynerini göster.",
           "label": "Arka planı göster"
@@ -1496,13 +1520,13 @@
           "description": "Medya oynatıcı widget'ında medya kontrol düğmelerini (oynat/durdur, önceki, sonraki) göster.",
           "label": "Düğmeleri göster"
         },
+        "show-visualizer": {
+          "description": "Ses görselleştirici katmanını göster.",
+          "label": "Görselleştiriciyi göster"
+        },
         "visualizer-type": {
           "description": "Masaüstü medya oynatıcı arka planı için bir görselleştirme türü seçin.",
           "label": "Görselleştirme türü"
-        },
-        "visualizer-visibility": {
-          "description": "Ses görselleştiricisinin ne zaman görünür olduğunu kontrol edin.",
-          "label": "Ses görselleştirici görünürlüğü"
         }
       },
       "title": "Masaüstü Araçları",
@@ -2243,6 +2267,10 @@
         }
       },
       "general": {
+        "copy-to-clipboard": {
+          "description": "Kaydı bitirdikten sonra dosyayı panoya kopyala.",
+          "label": "Panoya kopyala"
+        },
         "output-folder": {
           "description": "Ekran kayıtlarının kaydedileceği klasör.",
           "label": "Çıktı klasörü",
@@ -2352,12 +2380,12 @@
       "custom-highlight-colors-title": {
         "label": "Özel vurgulama renkleri"
       },
-      "disk-section": {
-        "label": "Disk Kullanımı"
-      },
       "disk-path": {
         "description": "Hangi disk bağlama noktasının izleneceğini seçin.",
         "label": "Disk yolu"
+      },
+      "disk-section": {
+        "label": "Disk Kullanımı"
       },
       "enable-dgpu-monitoring": {
         "description": "Uyarı: Bu, ayrık GPU'nuzu (NVIDIA/AMD) uyandıracak ve bu da hibrit grafiklere sahip dizüstü bilgisayarlarda pil ömrünü önemli ölçüde etkileyebilir.",

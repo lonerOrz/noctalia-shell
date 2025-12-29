@@ -3,6 +3,7 @@ import QtQuick.Controls
 import Quickshell
 import qs.Commons
 import qs.Services.System
+import qs.Services.UI
 import qs.Widgets
 
 NBox {
@@ -24,6 +25,15 @@ NBox {
     hoverEnabled: true
     onEntered: root.scaleFactor = 2.8
     onExited: root.scaleFactor = 1.0
+  }
+
+  // Get diskPath from bar's SystemMonitor widget if available, otherwise use settings
+  readonly property string diskPath: {
+    const sysMonWidget = BarService.lookupWidget("SystemMonitor");
+    if (sysMonWidget && sysMonWidget.diskPath) {
+      return sysMonWidget.diskPath;
+    }
+    return Settings.data.systemMonitor.diskPath || "/";
   }
 
   Item {
@@ -214,69 +224,44 @@ NBox {
 
     Column {
       anchors.centerIn: parent
-      spacing: 2
+      spacing: Style.marginXS
 
       NCircleStat {
-        value: SystemStatService.cpuUsage
+        ratio: SystemStatService.cpuUsage / 100
         icon: "cpu-usage"
-        flat: true
-        contentScale: 0.8
+        contentScale: 0.95
         height: content.widgetHeight
-        anchors.horizontalCenter: parent.horizontalCenter
-        // Highlight color based on thresholds
-        fillColor: (SystemStatService.cpuUsage > Settings.data.systemMonitor.cpuCriticalThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (Settings.data.systemMonitor.criticalColor || Color.mError) : Color.mError) : (SystemStatService.cpuUsage > Settings.data.systemMonitor.cpuWarningThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (
-                                                                                                                                                                                                                                                                                                                                                                    Settings.data.systemMonitor.warningColor
-                                                                                                                                                                                                                                                                                                                                                                    || Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                                                                  Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                   Color.mPrimary
-        textColor: (SystemStatService.cpuUsage > Settings.data.systemMonitor.cpuCriticalThreshold) ? Color.mSurfaceVariant : (SystemStatService.cpuUsage > Settings.data.systemMonitor.cpuWarningThreshold) ? Color.mSurfaceVariant : Color.mOnSurface
+        Layout.alignment: Qt.AlignHCenter
+        fillColor: SystemStatService.cpuColor
+        tooltipText: I18n.tr("system-monitor.cpu-usage") + `: ${Math.round(SystemStatService.cpuUsage)}%`
       }
       NCircleStat {
-        value: SystemStatService.cpuTemp
+        ratio: SystemStatService.cpuTemp / 100
         suffix: "°C"
         icon: "cpu-temperature"
-        flat: true
-        contentScale: 0.8
+        contentScale: 0.95
         height: content.widgetHeight
-        anchors.horizontalCenter: parent.horizontalCenter
-        // Highlight color based on thresholds
-        fillColor: (SystemStatService.cpuTemp > Settings.data.systemMonitor.tempCriticalThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (Settings.data.systemMonitor.criticalColor || Color.mError) : Color.mError) : (SystemStatService.cpuTemp > Settings.data.systemMonitor.tempWarningThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (
-                                                                                                                                                                                                                                                                                                                                                                    Settings.data.systemMonitor.warningColor
-                                                                                                                                                                                                                                                                                                                                                                    || Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                                                                  Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                   Color.mPrimary
-        textColor: (SystemStatService.cpuTemp > Settings.data.systemMonitor.tempCriticalThreshold) ? Color.mSurfaceVariant : (SystemStatService.cpuTemp > Settings.data.systemMonitor.tempWarningThreshold) ? Color.mSurfaceVariant : Color.mOnSurface
+        Layout.alignment: Qt.AlignHCenter
+        fillColor: SystemStatService.tempColor
+        tooltipText: I18n.tr("system-monitor.cpu-temp") + `: ${Math.round(SystemStatService.cpuTemp)}°C`
       }
       NCircleStat {
-        value: SystemStatService.memPercent
+        ratio: SystemStatService.memPercent / 100
         icon: "memory"
-        flat: true
-        contentScale: 0.8
+        contentScale: 0.95
         height: content.widgetHeight
-        anchors.horizontalCenter: parent.horizontalCenter
-        // Highlight color based on thresholds
-        fillColor: (SystemStatService.memPercent > Settings.data.systemMonitor.memCriticalThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (Settings.data.systemMonitor.criticalColor || Color.mError) : Color.mError) : (SystemStatService.memPercent > Settings.data.systemMonitor.memWarningThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (
-                                                                                                                                                                                                                                                                                                                                                                        Settings.data.systemMonitor.warningColor
-                                                                                                                                                                                                                                                                                                                                                                        || Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                                                                      Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                       Color.mPrimary
-        textColor: (SystemStatService.memPercent > Settings.data.systemMonitor.memCriticalThreshold) ? Color.mSurfaceVariant : (SystemStatService.memPercent > Settings.data.systemMonitor.memWarningThreshold) ? Color.mSurfaceVariant : Color.mOnSurface
+        Layout.alignment: Qt.AlignHCenter
+        fillColor: SystemStatService.memColor
+        tooltipText: I18n.tr("system-monitor.memory") + `: ${Math.round(SystemStatService.memPercent)}%`
       }
       NCircleStat {
-        readonly property string diskPath: Settings.data.systemMonitor.diskPath || "/"
-        readonly property real diskPercent: SystemStatService.diskPercents[diskPath] ?? 0
-        value: diskPercent
+        ratio: (SystemStatService.diskPercents[root.diskPath] ?? 0) / 100
         icon: "storage"
-        flat: true
-        contentScale: 0.8
+        contentScale: 0.95
         height: content.widgetHeight
-        anchors.horizontalCenter: parent.horizontalCenter
-        // Highlight color based on thresholds
-        fillColor: (diskPercent > Settings.data.systemMonitor.diskCriticalThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (Settings.data.systemMonitor.criticalColor || Color.mError) : Color.mError) : (diskPercent > Settings.data.systemMonitor.diskWarningThreshold) ? (Settings.data.systemMonitor.useCustomColors ? (
-                                                                                                                                                                                                                                                                                                                                        Settings.data.systemMonitor.warningColor
-                                                                                                                                                                                                                                                                                                                                        || Color.mTertiary) :
-                                                                                                                                                                                                                                                                                                                                      Color.mTertiary) : Color.mPrimary
-        textColor: (diskPercent > Settings.data.systemMonitor.diskCriticalThreshold) ? Color.mSurfaceVariant : (diskPercent > Settings.data.systemMonitor.diskWarningThreshold) ? Color.mSurfaceVariant : Color.mOnSurface
+        Layout.alignment: Qt.AlignHCenter
+        fillColor: SystemStatService.getDiskColor(root.diskPath)
+        tooltipText: I18n.tr("system-monitor.disk") + `: ${SystemStatService.diskPercents[root.diskPath] || 0}%\n${root.diskPath}`
       }
     }
   }

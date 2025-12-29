@@ -3,32 +3,32 @@ import QtQuick.Layouts
 import Quickshell
 import qs.Commons
 import qs.Modules.DesktopWidgets
+import qs.Services.UI
 import qs.Widgets
 
 DraggableDesktopWidget {
   id: root
 
   readonly property var now: Time.now
+  readonly property var widgetMetadata: DesktopWidgetRegistry.widgetMetadata["Clock"]
 
-  property color clockTextColor: {
+  readonly property color clockTextColor: {
     if (usePrimaryColor) {
       return Color.mPrimary;
     }
     var txtColor = widgetData && widgetData.textColor ? widgetData.textColor : "";
     return (txtColor && txtColor !== "") ? txtColor : Color.mOnSurface;
   }
-  property real fontSize: {
+  readonly property real fontSize: {
     var size = widgetData && widgetData.fontSize ? widgetData.fontSize : 0;
     return (size && size > 0) ? size : Style.fontSizeXXXL * 2.5;
   }
-  property real widgetOpacity: (widgetData && widgetData.opacity) ? widgetData.opacity : 1.0
-  property bool showSeconds: (widgetData && widgetData.showSeconds !== undefined) ? widgetData.showSeconds : true
-  property bool showDate: (widgetData && widgetData.showDate !== undefined) ? widgetData.showDate : true
-  property string clockStyle: (widgetData && widgetData.clockStyle) ? widgetData.clockStyle : "digital"
-  property bool usePrimaryColor: (widgetData && widgetData.usePrimaryColor !== undefined) ? widgetData.usePrimaryColor : false
-  property bool useCustomFont: (widgetData && widgetData.useCustomFont !== undefined) ? widgetData.useCustomFont : false
-  property string customFont: (widgetData && widgetData.customFont) ? widgetData.customFont : ""
-  property string format: (widgetData && widgetData.format) ? widgetData.format : "HH:mm\\nd MMMM yyyy"
+  readonly property real widgetOpacity: (widgetData && widgetData.opacity !== undefined) ? widgetData.opacity : 1.0
+  readonly property string clockStyle: (widgetData && widgetData.clockStyle !== undefined) ? widgetData.clockStyle : (widgetMetadata.clockStyle !== undefined ? widgetMetadata.clockStyle : "digital")
+  readonly property bool usePrimaryColor: (widgetData && widgetData.usePrimaryColor !== undefined) ? widgetData.usePrimaryColor : (widgetMetadata.usePrimaryColor !== undefined ? widgetMetadata.usePrimaryColor : false)
+  readonly property bool useCustomFont: (widgetData && widgetData.useCustomFont !== undefined) ? widgetData.useCustomFont : (widgetMetadata.useCustomFont !== undefined ? widgetMetadata.useCustomFont : false)
+  readonly property string customFont: (widgetData && widgetData.customFont !== undefined) ? widgetData.customFont : ""
+  readonly property string format: (widgetData && widgetData.format !== undefined) ? widgetData.format : (widgetMetadata.format !== undefined ? widgetMetadata.format : "HH:mm\\nd MMMM yyyy")
 
   readonly property real contentPadding: clockStyle === "minimal" ? Style.marginL : Style.marginXL
   implicitWidth: contentLoader.item ? (contentLoader.item.implicitWidth || contentLoader.item.width || 0) + contentPadding * 2 : 0

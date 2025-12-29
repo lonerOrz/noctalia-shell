@@ -35,6 +35,7 @@ Variants {
     required property ShellScreen modelData
 
     // Reactive property for widgets on this specific screen
+    // Returns a fresh array whenever Settings changes
     property var screenWidgets: {
       if (!modelData || !modelData.name) {
         return [];
@@ -287,8 +288,8 @@ Variants {
             // Bind to registeredWidgets and pluginReloadCounter to re-evaluate when plugins register/unregister
             active: (modelData.id in root.registeredWidgets) && (root.pluginReloadCounter >= 0)
 
-            property var widgetData: modelData
-            property int widgetIndex: index
+            required property var modelData
+            required property int index
 
             Connections {
                 target: widgetLoader
@@ -310,8 +311,8 @@ Variants {
               if (item) {
                 item.screen = window.screen;
                 item.parent = widgetsContainer;
-                item.widgetData = widgetData;
-                item.widgetIndex = widgetIndex;
+                item.widgetData = modelData;
+                item.widgetIndex = index;
 
                 // Inject plugin API for plugin widgets
                 if (DesktopWidgetRegistry.isPluginWidget(modelData.id)) {
