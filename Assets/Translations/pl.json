@@ -672,7 +672,8 @@
         "comfortable": "Komfortowy",
         "compact": "Kompaktowy",
         "default": "Domyślny",
-        "mini": "Mini"
+        "mini": "Mini",
+        "spacious": "Przestronny"
       },
       "position": {
         "bottom": "Dół",
@@ -729,7 +730,7 @@
         "center": "Środek",
         "center_left": "Środek lewo",
         "center_right": "Środek prawo",
-        "follow_bar": "Podążaj za paskiem (domyślne)",
+        "follow_bar": "Podążaj za paskiem",
         "top_center": "Góra środek",
         "top_left": "Góra lewo",
         "top_right": "Góra prawo"
@@ -1809,6 +1810,10 @@
           "description": "Używaj natywnych ikon systemowych zamiast ikon Tabler.",
           "label": "Używaj natywnych ikon."
         },
+        "ignore-mouse-input": {
+          "description": "Wyłącz interakcję myszy i kółko przewijania w launcherze.",
+          "label": "Ignoruj dane wejściowe myszy."
+        },
         "position": {
           "description": "Wybierz, gdzie pojawia się panel launchera.",
           "label": "Pozycja"
@@ -2412,6 +2417,11 @@
       },
       "warning-color": {
         "label": "Kolor ostrzegawczy"
+      },
+      "external-monitor": {
+        "description": "Wprowadź polecenie lub ścieżkę aplikacji do uruchomienia przy aktywacji zewnętrznej aplikacji monitora systemu.",
+        "label": "Polecenie zewnętrznego monitora systemu",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {

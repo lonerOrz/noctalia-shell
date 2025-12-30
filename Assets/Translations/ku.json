@@ -672,7 +672,8 @@
         "comfortable": "Comfortable",
         "compact": "Compact",
         "default": "Berdest",
-        "mini": "Mini"
+        "mini": "Mini",
+        "spacious": "Berfireh"
       },
       "position": {
         "bottom": "Jêr",
@@ -729,7 +730,7 @@
         "center": "Navend",
         "center_left": "Navend çep",
         "center_right": "Navend rast",
-        "follow_bar": "Darikê bişopîne (berdest)",
+        "follow_bar": "Darikê bişopîne",
         "top_center": "Navenda jor",
         "top_left": "Jor çep",
         "top_right": "Jor rast"
@@ -1809,6 +1810,10 @@
           "description": "Use native system icons instead of Tabler icons.",
           "label": "Use native icons"
         },
+        "ignore-mouse-input": {
+          "description": "Di nav destpêkerê de, danûstandina mişkê û çerxa gerokê neçalak bike.",
+          "label": "Guherandina mişkê paşguh bike"
+        },
         "position": {
           "description": "Choose where the launcher panel appears.",
           "label": "Cih"
@@ -2412,6 +2417,11 @@
       },
       "warning-color": {
         "label": "Warning color"
+      },
+      "external-monitor": {
+        "description": "Fermanî an rêya sepanê binivîse ku dema sepana monitora pergala derveyî çalak dike were xebitandin.",
+        "label": "Fermana monitora pergala derveyî",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {
@@ -2796,6 +2806,7 @@
     "next-media": "Strana pêş",
     "next-month": "Next month",
     "night-light-disabled": "Night Light",
+    "night-light-enabled": "Ronahiya Şevê",
     "night-light-forced": "Night Light",
     "night-light-not-installed": "Night Light (not available)",
     "noctalia-performance-disabled": "Noctalia Performance Mode",

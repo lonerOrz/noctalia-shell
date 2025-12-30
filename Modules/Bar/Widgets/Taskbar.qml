@@ -19,6 +19,7 @@ Rectangle {
   property string section: ""
   property int sectionWidgetIndex: -1
   property int sectionWidgetsCount: 0
+  property real barScaling: 1.0
 
   readonly property string barPosition: Settings.data.bar.position
   readonly property bool isVerticalBar: barPosition === "left" || barPosition === "right"
@@ -43,7 +44,7 @@ Rectangle {
   readonly property bool smartWidth: (widgetSettings.smartWidth !== undefined) ? widgetSettings.smartWidth : widgetMetadata.smartWidth
   readonly property int maxTaskbarWidthPercent: (widgetSettings.maxTaskbarWidth !== undefined) ? widgetSettings.maxTaskbarWidth : widgetMetadata.maxTaskbarWidth
   readonly property real iconScale: (widgetSettings.iconScale !== undefined) ? widgetSettings.iconScale : widgetMetadata.iconScale
-  readonly property int itemSize: Math.round(((density === "compact") ? Style.capsuleHeight * 1.0 : Style.capsuleHeight * 0.9) * Math.max(0.1, iconScale))
+  readonly property int itemSize: Style.toOdd(Style.capsuleHeight * barScaling * Math.max(0.1, iconScale))
 
   // Maximum width for the taskbar widget to prevent overlapping with other widgets
   readonly property real maxTaskbarWidth: {
@@ -81,7 +82,8 @@ Rectangle {
     if (!selectedWindowId)
       return null;
     for (var i = 0; i < combinedModel.length; i++) {
-      if (combinedModel[i].id === selectedWindowId && combinedModel[i].window) {
+      // Using loose equality on purpose (==)
+      if (combinedModel[i].id == selectedWindowId && combinedModel[i].window) {
         return combinedModel[i].window;
       }
     }
@@ -451,13 +453,10 @@ Rectangle {
 
   GridLayout {
     id: taskbarLayout
-    anchors.fill: parent
-    anchors {
-      leftMargin: (root.showTitle || isVerticalBar) ? undefined : Style.marginM
-      rightMargin: (root.showTitle || isVerticalBar) ? undefined : Style.marginM
-      topMargin: (density === "compact") ? 0 : isVerticalBar ? Style.marginM : undefined
-      bottomMargin: (density === "compact") ? 0 : isVerticalBar ? Style.marginM : undefined
-    }
+
+    // Pixel-perfect centering
+    x: isVerticalBar ? Style.pixelAlignCenter(parent.width, width) : ((root.showTitle) ? Style.pixelAlignCenter(parent.width, width) : Style.marginM)
+    y: Style.pixelAlignCenter(parent.height, height)
 
     // Configure GridLayout to behave like RowLayout or ColumnLayout
     rows: isVerticalBar ? -1 : 1 // -1 means unlimited
@@ -548,7 +547,7 @@ Rectangle {
                 anchors.bottomMargin: -2
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: 4
+                width: Style.toOdd(root.itemSize * 0.25)
                 height: 4
                 color: taskbarItem.isFocused ? Color.mPrimary : Color.transparent
                 radius: Math.min(Style.radiusXXS, width / 2)

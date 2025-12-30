@@ -674,7 +674,8 @@
         "comfortable": "Comfortable",
         "compact": "Compact",
         "default": "Default",
-        "mini": "Mini"
+        "mini": "Mini",
+        "spacious": "Spacious"
       },
       "position": {
         "bottom": "Bottom",
@@ -731,7 +732,7 @@
         "center": "Center",
         "center_left": "Left center",
         "center_right": "Right center",
-        "follow_bar": "Follow bar (default)",
+        "follow_bar": "Follow bar",
         "top_center": "Top center",
         "top_left": "Top left",
         "top_right": "Top right"
@@ -1924,6 +1925,10 @@
           "description": "Use native system icons instead of Tabler icons.",
           "label": "Use native icons"
         },
+        "ignore-mouse-input": {
+          "description": "Disable mouse interaction and scrollwheel in the launcher.",
+          "label": "Ignore mouse input"
+        },
         "position": {
           "description": "Choose where the launcher panel appears.",
           "label": "Position"
@@ -2531,6 +2536,11 @@
       },
       "warning-color": {
         "label": "Warning color"
+      },
+      "external-monitor": {
+        "description": "Enter the command or application path to launch when activating the external system monitor application.",
+        "label": "External system monitor command",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {

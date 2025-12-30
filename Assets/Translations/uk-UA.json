@@ -689,7 +689,8 @@
         "comfortable": "Просторий",
         "compact": "Компактний",
         "default": "Стандартний",
-        "mini": "Міні"
+        "mini": "Міні",
+        "spacious": "Просторий"
       },
       "position": {
         "bottom": "Знизу",
@@ -743,10 +744,10 @@
         "bottom_center": "Знизу по центру",
         "bottom_left": "Знизу зліва",
         "bottom_right": "Знизу справа",
-        "center": "Центр (за замовчуванням)",
+        "center": "Центр",
         "center_left": "Зліва по центру",
         "center_right": "Справа по центру",
-        "follow_bar": "Слідувати за панеллю (за замовчуванням)",
+        "follow_bar": "Слідувати за панеллю",
         "top_center": "Зверху по центру",
         "top_left": "Зверху зліва",
         "top_right": "Зверху справа"
@@ -1826,6 +1827,10 @@
           "description": "Використовувати нативні системні іконки замість іконок Tabler.",
           "label": "Використовувати нативні іконки"
         },
+        "ignore-mouse-input": {
+          "description": "Вимкнути взаємодію з мишею та коліщатко прокрутки в лаунчері.",
+          "label": "Ігнорувати введення миші"
+        },
         "position": {
           "description": "Виберіть, де з'являється панель лаунчера.",
           "label": "Положення"
@@ -2433,6 +2438,11 @@
       },
       "warning-color": {
         "label": "Колір попередження"
+      },
+      "external-monitor": {
+        "description": "Введіть команду або шлях до програми для запуску при активації зовнішньої програми моніторингу системи.",
+        "label": "Команда зовнішнього монітора системи",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {

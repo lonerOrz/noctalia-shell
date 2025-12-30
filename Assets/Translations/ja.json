@@ -672,7 +672,8 @@
         "comfortable": "ゆったり",
         "compact": "コンパクト",
         "default": "標準",
-        "mini": "ミニ"
+        "mini": "ミニ",
+        "spacious": "広々とした"
       },
       "position": {
         "bottom": "下",
@@ -729,7 +730,7 @@
         "center": "中央",
         "center_left": "左側中央",
         "center_right": "右側中央",
-        "follow_bar": "バーに追従 (デフォルト)",
+        "follow_bar": "バーに追従",
         "top_center": "上部中央",
         "top_left": "左上",
         "top_right": "右上"
@@ -1809,6 +1810,10 @@
           "description": "Tablerアイコンではなく、ネイティブのシステムアイコンを使用します。",
           "label": "ネイティブアイコンを使用"
         },
+        "ignore-mouse-input": {
+          "description": "ランチャーでのマウス操作とスクロールホイールを無効にする。",
+          "label": "マウス入力を無視する"
+        },
         "position": {
           "description": "ランチャーパネルの表示位置を選択します。",
           "label": "表示位置"
@@ -2416,6 +2421,11 @@
       },
       "warning-color": {
         "label": "警告時の色"
+      },
+      "external-monitor": {
+        "description": "外部システムモニターアプリケーションを起動する際に実行するコマンドまたはアプリケーションパスを入力してください。",
+        "label": "外部システムモニターコマンド",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {
