@@ -590,6 +590,7 @@
     "enable-bluetooth": "Bluetooth aktivieren",
     "enable-dnd": "'Nicht stören' aktivieren",
     "enable-wifi": "WLAN aktivieren",
+    "lower-to-bottom": "Senken bis zum Anschlag / Ganz nach unten senken",
     "next": "Nächste/r/s",
     "open-calendar": "Kalender öffnen",
     "open-display-settings": "Anzeigeeinstellungen",
@@ -599,7 +600,9 @@
     "pause": "Pause",
     "play": "Spielen",
     "previous": "Vorherige",
+    "raise-to-top": "Nach oben verschieben",
     "random-wallpaper": "Zufälliges Hintergrundbild",
+    "reset": "Zurücksetzen",
     "toggle-mute": "Stummschaltung umschalten",
     "widget-settings": "Widget-Einstellungen"
   },
@@ -742,7 +745,7 @@
         "center": "Mitte (Standard)",
         "center_left": "Links mittig",
         "center_right": "Rechts mittig",
-        "follow_bar": "Folge dem Balken (Standard)",
+        "follow_bar": "Folge der Leiste (Standard)",
         "top_center": "Oben mittig",
         "top_left": "Oben links",
         "top_right": "Oben rechts"
@@ -1065,7 +1068,7 @@
       "appearance": {
         "background-opacity": {
           "description": "Lege die Hintergrundtransparenz speziell für die Leiste fest.",
-          "label": "Balken-Hintergrundtransparenz"
+          "label": "Leisten-Hintergrundtransparenz"
         },
         "capsule-opacity": {
           "description": "Deckkraft der Widget-Hintergründe festlegen, wenn Kapsel angezeigt wird.",
@@ -1106,8 +1109,8 @@
           "label": "Widget-Umrisse anzeigen"
         },
         "use-separate-opacity": {
-          "description": "Ermöglicht die Verwendung eines separaten Deckkraftwerts für den Balkenhintergrund.",
-          "label": "Separate Balken-Deckkraft"
+          "description": "Ermöglicht die Verwendung eines separaten Deckkraftwerts für den Leistenhintergrund.",
+          "label": "Separate Leisten-Deckkraft"
         }
       },
       "monitors": {
@@ -1601,8 +1604,8 @@
     "dock": {
       "appearance": {
         "background-opacity": {
-          "description": "Hintergrund-Transparenz des Docks anpassen.",
-          "label": "Hintergrund-Transparenz"
+          "description": "Hintergrundtransparenz des Docks anpassen.",
+          "label": "Hintergrundtransparenz"
         },
         "border-radius": {
           "description": "Den Radius der Dock-Umrandung anpassen.",
@@ -2012,7 +2015,7 @@
         },
         "background-opacity": {
           "description": "Transparenz der Benachrichtigungshintergründe anpassen.",
-          "label": "Hintergrund-Transparenz"
+          "label": "Hintergrundtransparenz"
         },
         "do-not-disturb": {
           "description": "Alle Benachrichtigungs-Popups deaktivieren.",
@@ -2109,7 +2112,7 @@
       },
       "background-opacity": {
         "description": "Kontrolliert die Transparenz des OSD Hintergrunds.",
-        "label": "Hintergrund-Transparenz"
+        "label": "Hintergrundtransparenz"
       },
       "description": "Bildschirm-Overlays wie Lautstärke- und Helligkeitsanzeigen konfigurieren.",
       "duration": {
@@ -2488,7 +2491,7 @@
         "label": "Einstellungs-Panel-Modus"
       },
       "shadows": {
-        "description": "Aktiviert Schlagschatten unter Balken und Panels.",
+        "description": "Aktiviert Schlagschatten unter Leisten und Panels.",
         "direction": {
           "description": "Wählen, aus welcher Richtung der Schatten fällt.",
           "label": "Schattenrichtung"

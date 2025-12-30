@@ -36,9 +36,8 @@ NBox {
     return Settings.data.systemMonitor.diskPath || "/";
   }
 
-  // NOTE: This implementation uses a custom planet-style visualization
-  // instead of the upstream NCircleStat components to maintain the unique
-  // orbital animation design that shows system stats as planets orbiting
+  readonly property real contentScale: 0.95 * Style.uiScaleRatio
+
   Item {
     id: stage
     anchors.fill: parent
@@ -209,8 +208,8 @@ NBox {
         item.orbitRadius = Math.round(51 * Style.uiScaleRatio);
         item.orbitColor = Color.mOnSurfaceVariant;
         item.iconName = "storage";
-        const d = (SystemStatService?.diskPercents?.["/"] ?? 0) / 100;
-        item.valueText = SystemStatService?.diskPercents?.["/"] ? `${Math.round(SystemStatService.diskPercents["/"])}%` : "N/A";
+        const d = (SystemStatService?.diskPercents?.[root.diskPath] ?? 0) / 100;
+        item.valueText = SystemStatService?.diskPercents?.[root.diskPath] ? `${Math.round(SystemStatService.diskPercents[root.diskPath])}%` : "N/A";
         item.speedSec = stage.speedFromValue(d, 4, 30);
       }
       Connections {
@@ -218,8 +217,8 @@ NBox {
         function onDiskPercentsChanged() {
           if (!disk.item)
             return;
-          const d = (SystemStatService.diskPercents?.["/"] ?? 0) / 100;
-          disk.item.valueText = `${Math.round(SystemStatService.diskPercents?.["/"] ?? 0)}%`;
+          const d = (SystemStatService.diskPercents?.[root.diskPath] ?? 0) / 100;
+          disk.item.valueText = `${Math.round(SystemStatService.diskPercents?.[root.diskPath] ?? 0)}%`;
           disk.item.speedSec = stage.speedFromValue(d, 4, 30);
         }
       }

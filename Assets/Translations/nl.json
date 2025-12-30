@@ -590,6 +590,7 @@
     "enable-bluetooth": "Bluetooth inschakelen",
     "enable-dnd": "Niet Storen inschakelen",
     "enable-wifi": "Wi-Fi inschakelen",
+    "lower-to-bottom": "Laagste naar beneden",
     "next": "Volgende",
     "open-calendar": "Open agenda",
     "open-display-settings": "Beeldscherminstellingen",
@@ -599,7 +600,9 @@
     "pause": "Pauze",
     "play": "Spelen",
     "previous": "Vorige",
+    "raise-to-top": "Naar boven halen",
     "random-wallpaper": "Willekeurige achtergrond",
+    "reset": "Resetten",
     "toggle-mute": "Dempen aan/uit",
     "widget-settings": "Widgetinstellingen"
   },
