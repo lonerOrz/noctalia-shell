@@ -241,6 +241,10 @@
         "display-mode": {
           "description": "Bu değerin nasıl görünmesini istediğinizi seçin.",
           "label": "Görüntüleme modu"
+        },
+        "show-icon": {
+          "description": "Klavye düzeni simgesini görüntüle.",
+          "label": "Simgeyi göster"
         }
       },
       "lock-keys": {
@@ -343,6 +347,10 @@
         "gpu-temperature": {
           "description": "GPU sıcaklık değerleri varsa göster.",
           "label": "GPU sıcaklığı"
+        },
+        "load-average": {
+          "description": "Sistem ortalama yükünü göster.",
+          "label": "Ortalama yük"
         },
         "memory-percentage": {
           "description": "Mutlak değerler yerine bellek kullanımını yüzde olarak göster.",
@@ -498,6 +506,7 @@
       "device-address": "Cihaz adresi",
       "disabled": "Bluetooth devre dışı",
       "disconnect": "Bağlantıyı Kes",
+      "disconnecting": "Bağlantı kesiliyor...",
       "discoverable": "Keşfedilebilir",
       "enable-message": "Mevcut cihazları görmek için Bluetooth'u etkinleştirin.",
       "info": "Bilgi",
@@ -511,6 +520,14 @@
       "refresh-devices": "Cihazları yenile",
       "scanning": "Cihazlar tarınıyor...",
       "signal": "Sinyal",
+      "signal-text": {
+        "excellent": "Sinyal: Mükemmel",
+        "fair": "Sinyal: Adil",
+        "good": "Sinyal: İyi",
+        "poor": "Sinyal: Zayıf",
+        "unknown": "Sinyal: Bilinmiyor",
+        "very-poor": "Sinyal: Çok zayıf"
+      },
       "title": "Bluetooth",
       "trusted": "Güvenilir",
       "unpair": "Eşleştirmeyi kaldır"
@@ -769,6 +786,7 @@
       "audio-sources": {
         "both": "Sistem çıktısı + mikrofon girişi",
         "microphone-input": "Mikrofon girişi",
+        "none": "Ses yok.",
         "system-output": "Sistem çıktısı"
       },
       "color-range": {
@@ -790,6 +808,10 @@
       "always": "Her Zaman Kaydır",
       "hover": "Üzerine Gelince Kaydır",
       "never": "Asla Kaydırma"
+    },
+    "session-menu-grid-layout": {
+      "grid": "Izgara",
+      "single-row": "Tek Sıra"
     },
     "settings-panel-mode": {
       "attached": "Panel çubuğa takılı",
@@ -843,6 +865,7 @@
   "plugins": {
     "applications": "Uygulamalar",
     "calculator": "Hesap makinesi",
+    "calculator-deprecated": ">calc komutu kullanımdan kaldırılmıştır ve yakında kaldırılacaktır. Lütfen matematiksel ifadeleri doğrudan aramaya yazın.",
     "calculator-description": "Hesap makinesi — matematiksel ifadeleri hesapla",
     "calculator-enter-expression": "Matematiksel bir ifade girin",
     "calculator-error": "Hata",
@@ -1957,7 +1980,11 @@
     "network": {
       "bluetooth": {
         "description": "Bluetooth yönetimini etkinleştir.",
-        "label": "Bluetooth'u Etkinleştir"
+        "label": "Bluetooth'u Etkinleştir",
+        "rssi-polling": {
+          "description": "Bağlı cihazlar için RSSI'yı bluetoothctl aracılığıyla periyodik olarak örnekleyin. Tüm cihazlar için mevcut olmayabilir; etkinleştirildiğinde minimum kaynak kullanır.",
+          "label": "Bluetooth sinyal yoklaması"
+        }
       },
       "section": {
         "description": "Kablosuz ve Bluetooth bağlantılarını yönetin."
@@ -2192,6 +2219,11 @@
         "no-plugins-description": "Eklenti kaynaklarınızı kontrol edin veya listeyi yenileyin.",
         "no-plugins-label": "Kullanılabilir eklenti yok"
       },
+      "collision": {
+        "already-installed": "Bu eklenti zaten yüklü.",
+        "custom-version-exists": "\"{source}\" kaynağından özel bir sürüm zaten yüklü.",
+        "official-version-exists": "Bu eklentinin resmi sürümü zaten yüklü."
+      },
       "filter": {
         "all": "Tüm",
         "downloaded": "İndirildi",
@@ -2212,6 +2244,7 @@
         "no-plugins-label": "Eklenti kurulu değil"
       },
       "installing": "{eklenti} kuruluyor...",
+      "open-plugins-tab": "Eklenti ayarlarına git",
       "plugin-settings-title": "{plugin} Ayarları",
       "refresh": {
         "refreshing": "Eklenti listesi yenileniyor...",
@@ -2222,6 +2255,10 @@
       },
       "settings-error-not-loaded": "Eklenti yüklenmedi",
       "settings-saved": "Eklenti ayarları kaydedildi.",
+      "source": {
+        "custom": "Özel kaynak",
+        "official": "Resmi"
+      },
       "sources": {
         "add-custom": "Özel depo ekle",
         "add-dialog": {
@@ -2253,6 +2290,7 @@
       "update-all": "Tümünü Güncelle ({count})",
       "update-all-success": "Tüm eklentiler başarıyla güncellendi.",
       "update-available": "{count} eklenti için güncelleme mevcut",
+      "update-available_plural": "{count} eklenti güncellemesi mevcut",
       "update-error": "Eklenti güncellenemedi: {plugin}: {error}",
       "update-incompatible": "Noctalia v{version} veya üzeri gerektirir.",
       "update-success": "{plugin} v{version} sürümüne güncellendi",
@@ -2360,6 +2398,10 @@
           "label": "Genel"
         }
       },
+      "large-buttons-layout": {
+        "description": "Oturum menüsü düğmelerinin nasıl görüntüleneceğini seçin.",
+        "label": "Büyük düğme düzeni"
+      },
       "large-buttons-style": {
         "description": "Oturum menüsünü büyük butonlarla ızgara düzeninde görüntüle.",
         "label": "Büyük düğme stili"
@@ -2399,6 +2441,11 @@
         "description": "Uyarı: Bu, ayrık GPU'nuzu (NVIDIA/AMD) uyandıracak ve bu da hibrit grafiklere sahip dizüstü bilgisayarlarda pil ömrünü önemli ölçüde etkileyebilir.",
         "label": "Ayrık GPU izlemeyi etkinleştir"
       },
+      "external-monitor": {
+        "description": "Harici sistem izleyici uygulamasını etkinleştirirken başlatılacak komut veya uygulama yolunu girin.",
+        "label": "Harici sistem izleyici komutu",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
+      },
       "general": {
         "section": {
           "description": "Sistem İzleyicisinin davranışını ve görünümünü yapılandırın.",
@@ -2410,6 +2457,9 @@
       },
       "highlight-colors-section": {
         "label": "Vurgulama Renkleri"
+      },
+      "load-average-section": {
+        "label": "Ortalama yük"
       },
       "memory-section": {
         "label": "Bellek Kullanımı"
@@ -2438,11 +2488,6 @@
       },
       "warning-color": {
         "label": "Uyarı rengi"
-      },
-      "external-monitor": {
-        "description": "Harici sistem izleyici uygulamasını etkinleştirirken başlatılacak komut veya uygulama yolunu girin.",
-        "label": "Harici sistem izleyici komutu",
-        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {
@@ -2458,6 +2503,10 @@
         "description": "Genel animasyon hızını ayarlar.",
         "label": "Animasyon hızı",
         "reset": "Animasyon hızını sıfırla"
+      },
+      "box-border": {
+        "description": "İçerik alanlarının etrafında bir çerçeve görüntüler.",
+        "label": "Konteyner ana hattı"
       },
       "box-border-radius": {
         "description": "Kenar çubukları, kartlar ve içerik panelleri gibi ana düzen bölümlerinin köşe yuvarlaklığını ayarlar.",
@@ -2585,8 +2634,8 @@
           "tooltip": "Duvar kâğıdı klasörü"
         },
         "hide-wallpaper-filenames": {
-          "description": "Seçicide duvar kâğıdı dosya adlarını gizle.",
-          "label": "Dosya adlarını gizle"
+          "tooltip-hide": "Dosya adlarını gizleme",
+          "tooltip-show": "Dosya Adlarını Göster"
         },
         "monitor-specific": {
           "description": "Her ekran için farklı bir duvar kâğıdı klasörü ayarlayın.",
@@ -2669,6 +2718,7 @@
     "download": "İndir",
     "download-speed": "İndirme Hızı",
     "gpu-temp": "GPU Sıcaklığı",
+    "load-average": "Ortalama yük",
     "memory": "Hafıza",
     "title": "Sistem İzleyici",
     "upload": "Yükle",
@@ -2685,6 +2735,7 @@
       "low-desc": "Batarya % {percent}. Lütfen şarj bağlantısını yapın."
     },
     "bluetooth": {
+      "address-copied": "Adres panoya kopyalandı",
       "confirm-code": "Diğer cihazdaki {value} kodunu onayla",
       "connect-failed": "Cihaza bağlanılamadı",
       "disabled": "Devre dışı",
@@ -2727,7 +2778,8 @@
       "enabled": "Etkin"
     },
     "keyboard-layout": {
-      "changed": "Klavye düzeni {layout} olarak değiştirildi"
+      "changed": "Klavye düzeni {layout} olarak değiştirildi",
+      "title": "Klavye"
     },
     "kofi": {
       "opened": "Ko-fi sayfası tarayıcınızda açıldı"
@@ -2801,6 +2853,7 @@
     "close": "Kapat",
     "collapse": "Kenar çubuğunu daralt",
     "connect-disconnect-devices": "Bluetooth cihazı",
+    "copy-address": "Adresi kopyala",
     "delete-notification": "Bildiriyi sil",
     "disable-keep-awake": "Uyanık kal",
     "do-not-disturb-disabled": "Rahatsız etme",
@@ -2916,6 +2969,9 @@
         }
       },
       "search": "Ara:",
+      "solid-color": {
+        "tooltip": "Düz renk arka plan"
+      },
       "sorting": {
         "date_added": "Eklenme tarihi",
         "favorites": "Favoriler",

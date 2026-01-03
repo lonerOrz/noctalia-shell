@@ -92,9 +92,7 @@
     "panelBackgroundOpacity": 0.93,
     "panelsAttachedToBar": true,
     "settingsPanelMode": "attached",
-    "wifiDetailsViewMode": "grid",
-    "bluetoothDetailsViewMode": "grid",
-    "bluetoothHideUnnamedDevices": false
+    "boxBorderEnabled": false
   },
   "location": {
     "name": "Tokyo",
@@ -150,6 +148,8 @@
     "setWallpaperOnAllMonitors": true,
     "fillMode": "crop",
     "fillColor": "#000000",
+    "useSolidColor": false,
+    "solidColor": "#1a1a2e",
     "randomEnabled": false,
     "wallpaperChangeMode": "random",
     "randomIntervalSec": 300,
@@ -187,6 +187,7 @@
   },
   "controlCenter": {
     "position": "close_to_bar_button",
+    "diskPath": "/",
     "shortcuts": {
       "left": [
         {
@@ -262,10 +263,10 @@
     "memPollingInterval": 3000,
     "diskPollingInterval": 3000,
     "networkPollingInterval": 3000,
+    "loadAvgPollingInterval": 3000,
     "useCustomColors": false,
     "warningColor": "",
     "criticalColor": "",
-    "diskPath": "/",
     "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
   },
   "dock": {
@@ -284,7 +285,12 @@
     "animationSpeed": 1
   },
   "network": {
-    "wifiEnabled": true
+    "wifiEnabled": true,
+    "bluetoothRssiPollingEnabled": false,
+    "bluetoothRssiPollIntervalMs": 10000,
+    "wifiDetailsViewMode": "grid",
+    "bluetoothDetailsViewMode": "grid",
+    "bluetoothHideUnnamedDevices": false
   },
   "sessionMenu": {
     "enableCountdown": true,
@@ -292,6 +298,7 @@
     "position": "center",
     "showHeader": true,
     "largeButtonsStyle": false,
+    "largeButtonsLayout": "grid",
     "showNumberLabels": true,
     "powerOptions": [
       {

@@ -241,6 +241,10 @@
         "display-mode": {
           "description": "Wählen Sie, wie dieser Wert angezeigt werden soll.",
           "label": "Anzeigemodus"
+        },
+        "show-icon": {
+          "description": "Das Tastaturlayout-Symbol anzeigen.",
+          "label": "Symbol anzeigen"
         }
       },
       "lock-keys": {
@@ -343,6 +347,10 @@
         "gpu-temperature": {
           "description": "Zeige GPU-Temperaturwerte an, falls verfügbar.",
           "label": "GPU-Temperatur"
+        },
+        "load-average": {
+          "description": "Systemlastdurchschnitt anzeigen.",
+          "label": "Lastdurchschnitt"
         },
         "memory-percentage": {
           "description": "Speicherverbrauch als Prozentsatz statt absolute Werte anzeigen.",
@@ -498,6 +506,7 @@
       "device-address": "Geräteadresse",
       "disabled": "Bluetooth ist deaktiviert",
       "disconnect": "Trennen",
+      "disconnecting": "Verbindung wird getrennt...",
       "discoverable": "Sichtbar",
       "enable-message": "Aktivieren Sie Bluetooth, um verfügbare Geräte zu sehen.",
       "info": "Info",
@@ -511,6 +520,14 @@
       "refresh-devices": "Geräte aktualisieren",
       "scanning": "Scannen nach Geräten...",
       "signal": "Signal",
+      "signal-text": {
+        "excellent": "Signal: Ausgezeichnet",
+        "fair": "Signal: Schwach",
+        "good": "Signal: Gut",
+        "poor": "Signal: Schlecht",
+        "unknown": "Signal: Unbekannt",
+        "very-poor": "Signal: Sehr schlecht"
+      },
       "title": "Bluetooth",
       "trusted": "Vertrauenswürdig",
       "unpair": "Entkoppeln"
@@ -768,6 +785,7 @@
       "audio-sources": {
         "both": "System-Ausgabe + Mikrofon-Eingabe",
         "microphone-input": "Mikrofon-Eingabe",
+        "none": "Kein Audio",
         "system-output": "System-Ausgabe"
       },
       "color-range": {
@@ -789,6 +807,10 @@
       "always": "Immer Scrollen",
       "hover": "Beim Hover Scrollen",
       "never": "Nie Scrollen"
+    },
+    "session-menu-grid-layout": {
+      "grid": "Raster",
+      "single-row": "Einzelne Reihe"
     },
     "settings-panel-mode": {
       "attached": "Panel an der Leiste angeheftet",
@@ -842,6 +864,7 @@
   "plugins": {
     "applications": "Anwendungen",
     "calculator": "Rechner",
+    "calculator-deprecated": "Der Befehl >calc ist veraltet und wird bald entfernt. Bitte geben Sie stattdessen mathematische Ausdrücke direkt in die Suche ein.",
     "calculator-description": "Rechner — mathematische Ausdrücke auswerten",
     "calculator-enter-expression": "Mathematischen Ausdruck eingeben",
     "calculator-error": "Fehler",
@@ -1954,7 +1977,11 @@
     "network": {
       "bluetooth": {
         "description": "Bluetooth-Verwaltung aktivieren.",
-        "label": "Bluetooth aktivieren"
+        "label": "Bluetooth aktivieren",
+        "rssi-polling": {
+          "description": "Periodisch RSSI für verbundene Geräte über bluetoothctl abfragen. Ist möglicherweise nicht für alle Geräte verfügbar; verbraucht bei Aktivierung minimale Ressourcen.",
+          "label": "Bluetooth-Signalabfrage"
+        }
       },
       "section": {
         "description": "WLAN- und Bluetooth-Verbindungen verwalten."
@@ -2189,6 +2216,11 @@
         "no-plugins-description": "Überprüfen Sie Ihre Plugin-Quellen oder aktualisieren Sie die Liste.",
         "no-plugins-label": "Keine Plugins verfügbar"
       },
+      "collision": {
+        "already-installed": "Dieses Plugin ist bereits installiert.",
+        "custom-version-exists": "Eine benutzerdefinierte Version von \"{source}\" ist bereits installiert.",
+        "official-version-exists": "Die offizielle Version dieses Plugins ist bereits installiert."
+      },
       "filter": {
         "all": "Alle",
         "downloaded": "Heruntergeladen",
@@ -2209,6 +2241,7 @@
         "no-plugins-label": "Keine Plugins installiert"
       },
       "installing": "{Plugin} wird installiert...",
+      "open-plugins-tab": "Plugin-Einstellungen öffnen",
       "plugin-settings-title": "{plugin} Einstellungen",
       "refresh": {
         "refreshing": "Aktualisiere Plugin-Liste...",
@@ -2219,6 +2252,10 @@
       },
       "settings-error-not-loaded": "Plugin nicht geladen",
       "settings-saved": "Plugin-Einstellungen gespeichert",
+      "source": {
+        "custom": "Benutzerdefinierte Quelle",
+        "official": "Offiziell"
+      },
       "sources": {
         "add-custom": "Benutzerdefiniertes Repository hinzufügen",
         "add-dialog": {
@@ -2250,6 +2287,7 @@
       "update-all": "Alle aktualisieren ({count})",
       "update-all-success": "Alle Plugins wurden erfolgreich aktualisiert.",
       "update-available": "{count} Plugin-Update(s) verfügbar",
+      "update-available_plural": "{count} Plugin-Aktualisierungen verfügbar",
       "update-error": "Fehler beim Aktualisieren des Plugins: {plugin}: {error}",
       "update-incompatible": "Benötigt Noctalia v{version} oder höher",
       "update-success": "{plugin} wurde auf v{version} aktualisiert",
@@ -2357,6 +2395,10 @@
           "label": "Allgemein"
         }
       },
+      "large-buttons-layout": {
+        "description": "Wählen Sie, wie die Sitzungsmenü-Schaltflächen angezeigt werden.",
+        "label": "Layout mit großen Schaltflächen"
+      },
       "large-buttons-style": {
         "description": "Das Sitzungsmenü mit großen Schaltflächen in einem Rasterlayout anzeigen.",
         "label": "Stil: Große Schaltflächen"
@@ -2396,6 +2438,11 @@
         "description": "Warnung: Dies aktiviert Ihre dedizierte GPU (NVIDIA/AMD), was die Akkulaufzeit von Laptops mit Hybridgrafik erheblich beeinträchtigen kann.",
         "label": "Dedizierte GPU-Überwachung aktivieren"
       },
+      "external-monitor": {
+        "description": "Geben Sie den Befehl oder Anwendungspfad ein, um die externe Systemmonitor-Anwendung zu starten.",
+        "label": "Externer Systemmonitor-Befehl",
+        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
+      },
       "general": {
         "section": {
           "description": "Konfigurieren Sie das Verhalten und Aussehen des Systemmonitors.",
@@ -2407,6 +2454,9 @@
       },
       "highlight-colors-section": {
         "label": "Hervorhebungsfarben"
+      },
+      "load-average-section": {
+        "label": "Lastdurchschnitt"
       },
       "memory-section": {
         "label": "Speicherverbrauch"
@@ -2435,11 +2485,6 @@
       },
       "warning-color": {
         "label": "Warnfarbe"
-      },
-      "external-monitor": {
-        "description": "Geben Sie den Befehl oder Anwendungspfad ein, um die externe Systemmonitor-Anwendung zu starten.",
-        "label": "Externer Systemmonitor-Befehl",
-        "placeholder": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
       }
     },
     "user-interface": {
@@ -2455,6 +2500,10 @@
         "description": "Globale Animationsgeschwindigkeit anpassen.",
         "label": "Animationsgeschwindigkeit",
         "reset": "Animationsgeschwindigkeit zurücksetzen"
+      },
+      "box-border": {
+        "description": "Zeigt eine Umrandung um Inhaltsbereiche an.",
+        "label": "Containerumriss"
       },
       "box-border-radius": {
         "description": "Passt die Eckenrundung wichtiger Layoutbereiche an, wie z. B. Seitenleisten, Karten und Inhaltsbereiche.",
@@ -2582,8 +2631,8 @@
           "tooltip": "Hintergrundbild-Ordner"
         },
         "hide-wallpaper-filenames": {
-          "description": "Hintergrundbilddateinamen im Auswahlmenü ausblenden.",
-          "label": "Dateinamen ausblenden"
+          "tooltip-hide": "Dateinamen ausblenden",
+          "tooltip-show": "Dateinamen anzeigen"
         },
         "monitor-specific": {
           "description": "Unterschiedlichen Hintergrundbild-Ordner für jeden Monitor festlegen.",
@@ -2666,6 +2715,7 @@
     "download": "Herunterladen",
     "download-speed": "Download-Geschwindigkeit",
     "gpu-temp": "GPU-Temperatur",
+    "load-average": "Lastdurchschnitt",
     "memory": "Arbeitsspeicher",
     "title": "Systemüberwachung",
     "upload": "Hochladen",
@@ -2682,6 +2732,7 @@
       "low-desc": "Batterie ist bei {percent}%. Bitte schließen Sie das Ladegerät an."
     },
     "bluetooth": {
+      "address-copied": "Adresse in die Zwischenablage kopiert",
       "confirm-code": "Bestätigungscode {value} auf dem anderen Gerät bestätigen.",
       "connect-failed": "Verbindung mit dem Gerät fehlgeschlagen",
       "disabled": "Deaktiviert",
@@ -2724,7 +2775,8 @@
       "enabled": "Aktiviert"
     },
     "keyboard-layout": {
-      "changed": "Tastaturlayout geändert zu {layout}"
+      "changed": "Tastaturlayout geändert zu {layout}",
+      "title": "Tastatur"
     },
     "kofi": {
       "opened": "Ko-fi-Seite in Ihrem Browser geöffnet"
@@ -2798,6 +2850,7 @@
     "close": "Schließen",
     "collapse": "Seitenleiste einklappen",
     "connect-disconnect-devices": "Bluetooth-Gerät",
+    "copy-address": "Adresse kopieren",
     "delete-notification": "Benachrichtigung löschen",
     "disable-keep-awake": "Wach halten",
     "do-not-disturb-disabled": "Nicht stören",
@@ -2913,6 +2966,9 @@
         }
       },
       "search": "Suchen:",
+      "solid-color": {
+        "tooltip": "Einfarbiger Hintergrund"
+      },
       "sorting": {
         "date_added": "Hinzugefügt am",
         "favorites": "Favoriten",

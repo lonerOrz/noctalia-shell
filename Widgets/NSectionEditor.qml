@@ -250,7 +250,7 @@ NBox {
 
             width: root.calculateWidgetWidth(parent.width)
             height: root.widgetItemHeight
-            radius: Style.radiusL
+            radius: Style.iRadiusL
             color: root.getWidgetColor(modelData)[0]
             border.color: Color.mOutline
             border.width: Style.borderS
@@ -456,7 +456,7 @@ NBox {
         id: dragGhost
         width: 0
         height: Style.baseWidgetSize * 1.15
-        radius: Style.radiusL
+        radius: Style.iRadiusL
         color: Color.transparent
         border.color: Color.mOutline
         border.width: Style.borderS
@@ -524,7 +524,8 @@ NBox {
         acceptedButtons: Qt.LeftButton
         preventStealing: true // Always prevent stealing to ensure we get all events
         propagateComposedEvents: true // Allow events to propagate when not handled
-        hoverEnabled: true // Always track mouse for drag operations
+        hoverEnabled: potentialDrag || dragStarted // Only track hover during drag operations
+        cursorShape: dragStarted ? Qt.ClosedHandCursor : Qt.ArrowCursor
 
         property point startPos: Qt.point(0, 0)
         property bool dragStarted: false
