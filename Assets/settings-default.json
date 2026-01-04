@@ -17,8 +17,10 @@
     "widgets": {
       "left": [
         {
-          "id": "Clock",
-          "usePrimaryColor": false
+          "id": "Launcher"
+        },
+        {
+          "id": "Clock"
         },
         {
           "id": "SystemMonitor"
@@ -183,7 +185,9 @@
     "viewMode": "list",
     "showCategories": true,
     "iconMode": "tabler",
-    "ignoreMouseInput": false
+    "showIconBackground": true,
+    "ignoreMouseInput": false,
+    "screenshotAnnotationTool": ""
   },
   "controlCenter": {
     "position": "close_to_bar_button",

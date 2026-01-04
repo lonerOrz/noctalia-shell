@@ -238,6 +238,12 @@
           "label": "Pokaż ikonę"
         }
       },
+      "launcher": {
+        "use-primary-color": {
+          "description": "Po włączeniu, stosuje kolor podstawowy dla podkreślenia.",
+          "label": "Użyj koloru podstawowego."
+        }
+      },
       "lock-keys": {
         "browse": "Przeglądaj",
         "show-caps-lock": {
@@ -598,6 +604,7 @@
     "enable-bluetooth": "Włącz Bluetooth",
     "enable-dnd": "Włącz Nie przeszkadzać",
     "enable-wifi": "Włącz Wi-Fi",
+    "launcher-settings": "Ustawienia programu uruchamiającego",
     "lower-to-bottom": "Opuść na dół.",
     "next": "Następny",
     "open-calendar": "Otwórz kalendarz",
@@ -657,6 +664,32 @@
     },
     "delete": "Usuń",
     "pin": "Przypnij",
+    "providers": {
+      "applications": "Aplikacje",
+      "calculator": "Kalkulator",
+      "calculator-deprecated": "Polecenie >calc jest przestarzałe i wkrótce zostanie usunięte. Zamiast tego wpisuj wyrażenia matematyczne bezpośrednio w wyszukiwarce.",
+      "calculator-description": "Kalkulator — obliczaj wyrażenia matematyczne",
+      "calculator-enter-expression": "Wpisz wyrażenie matematyczne",
+      "calculator-error": "Błąd",
+      "calculator-name": "Kalkulator",
+      "clipboard": "Historia schowka",
+      "clipboard-clear-description": "Wyczyść całą historię schowka",
+      "clipboard-clear-description-full": "Usuń wszystkie elementy z historii schowka",
+      "clipboard-clear-history": "Wyczyść historię schowka",
+      "clipboard-delete": "Usuń wpis ze schowka",
+      "clipboard-history-disabled": "Historia schowka wyłączona",
+      "clipboard-history-disabled-description": "Włącz historię schowka w ustawieniach lub zainstaluj cliphist",
+      "clipboard-loading": "Ładowanie historii schowka...",
+      "clipboard-loading-description": "Proszę czekać",
+      "clipboard-search-description": "Szukaj w historii schowka",
+      "command": "Polecenie",
+      "command-description": "Uruchamiaj polecenia powłoki",
+      "command-name": "Polecenie",
+      "emoji": "Wybór Emoji",
+      "emoji-loading": "Ładowanie emoji...",
+      "emoji-loading-description": "Proszę czekać",
+      "emoji-search-description": "Szukaj i kopiuj emoji"
+    },
     "unpin": "Odepnij"
   },
   "lock-screen": {
@@ -852,32 +885,6 @@
     "search-wallpapers": "Wpisz, aby filtrować tapety...",
     "select": "Wybierz",
     "test": "Test"
-  },
-  "plugins": {
-    "applications": "Aplikacje",
-    "calculator": "Kalkulator",
-    "calculator-deprecated": "Polecenie >calc jest przestarzałe i wkrótce zostanie usunięte. Zamiast tego wpisuj wyrażenia matematyczne bezpośrednio w wyszukiwarce.",
-    "calculator-description": "Kalkulator — obliczaj wyrażenia matematyczne",
-    "calculator-enter-expression": "Wpisz wyrażenie matematyczne",
-    "calculator-error": "Błąd",
-    "calculator-name": "Kalkulator",
-    "clipboard": "Historia schowka",
-    "clipboard-clear-description": "Wyczyść całą historię schowka",
-    "clipboard-clear-description-full": "Usuń wszystkie elementy z historii schowka",
-    "clipboard-clear-history": "Wyczyść historię schowka",
-    "clipboard-delete": "Usuń wpis ze schowka",
-    "clipboard-history-disabled": "Historia schowka wyłączona",
-    "clipboard-history-disabled-description": "Włącz historię schowka w ustawieniach lub zainstaluj cliphist",
-    "clipboard-loading": "Ładowanie historii schowka...",
-    "clipboard-loading-description": "Proszę czekać",
-    "clipboard-search-description": "Szukaj w historii schowka",
-    "command": "Polecenie",
-    "command-description": "Uruchamiaj polecenia powłoki",
-    "command-name": "Polecenie",
-    "emoji": "Wybór Emoji",
-    "emoji-loading": "Ładowanie emoji...",
-    "emoji-loading-description": "Proszę czekać",
-    "emoji-search-description": "Szukaj i kopiuj emoji"
   },
   "quickSettings": {
     "bluetooth": {
@@ -1817,6 +1824,11 @@
     },
     "launcher": {
       "settings": {
+        "annotation-tool": {
+          "description": "Komenda do uruchomienia po kliknięciu przycisku adnotacji w historii schowka. Obraz zostanie przekazany do tej komendy.",
+          "label": "Narzędzie do adnotacji",
+          "placeholder": "Przepraszam, nie rozumiem. Proszę podać tekst do przetłumaczenia."
+        },
         "clip-preview": {
           "description": "Pokaż podgląd zawartości schowka przy użyciu polecenia >clip.",
           "label": "Włącz podgląd schowka"
@@ -1856,6 +1868,10 @@
         "show-categories": {
           "description": "Pokaż karty kategorii do filtrowania aplikacji.",
           "label": "Pokaż kategorie"
+        },
+        "show-icon-background": {
+          "description": "Pokaż zaokrąglone tło prostokątne za ikonami.",
+          "label": "Pokaż tło ikony"
         },
         "sort-by-usage": {
           "description": "Gdy włączone, najczęściej uruchamiane aplikacje pojawiają się na początku listy.",
@@ -2863,6 +2879,7 @@
     "move-to-center-section": "Sekcja środkowa",
     "move-to-left-section": "Sekcja lewa",
     "move-to-right-section": "Sekcja prawa",
+    "move-to-section": "Przejdź do {sekcja}",
     "mute": "Wycisz",
     "next-media": "Następny utwór",
     "next-month": "Następny miesiąc",
@@ -2872,6 +2889,7 @@
     "night-light-not-installed": "Podświetlenie nocne (niedostępne)",
     "noctalia-performance-disabled": "Tryb wydajności Noctalia",
     "noctalia-performance-enabled": "Tryb wydajności Noctalia",
+    "open-annotation-tool": "Otwórz za pomocą narzędzia do adnotacji.",
     "open-control-center": "Centrum sterowania",
     "open-notification-history-disable-dnd": "Historia powiadomień",
     "open-notification-history-enable-dnd": "Historia powiadomień",

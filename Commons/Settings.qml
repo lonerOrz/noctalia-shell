@@ -215,13 +215,10 @@ Singleton {
       widgets: JsonObject {
         property list<var> left: [
           {
-            "icon": "rocket",
-            "id": "CustomButton",
-            "leftClickExec": "qs -c noctalia-shell ipc call launcher toggle"
+            "id": "Launcher"
           },
           {
-            "id": "Clock",
-            "usePrimaryColor": false
+            "id": "Clock"
           },
           {
             "id": "SystemMonitor"
@@ -404,7 +401,9 @@ Singleton {
       property bool showCategories: true
       // Icon mode: "tabler" or "native"
       property string iconMode: "tabler"
+      property bool showIconBackground: true
       property bool ignoreMouseInput: false
+      property string screenshotAnnotationTool: ""
     }
 
     // control center

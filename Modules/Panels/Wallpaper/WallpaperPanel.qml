@@ -376,6 +376,7 @@ SmartPanel {
             NTextInput {
               id: searchInput
               placeholderText: Settings.data.wallpaper.useWallhaven ? I18n.tr("placeholders.search-wallhaven") : I18n.tr("placeholders.search-wallpapers")
+              fontSize: Style.fontSizeM
               Layout.fillWidth: true
 
               property bool initializing: true
@@ -493,9 +494,10 @@ SmartPanel {
                               panelContent.updateWallhavenResolution();
 
                               // If the view is already initialized, trigger a new search when switching to it
+                              // Preserve current page when switching back to Wallhaven source
                               if (wallhavenView && wallhavenView.initialized && !WallhavenService.fetching) {
                                 wallhavenView.loading = true;
-                                WallhavenService.search(Settings.data.wallpaper.wallhavenQuery || "", 1);
+                                WallhavenService.search(Settings.data.wallpaper.wallhavenQuery || "", WallhavenService.currentPage);
                               }
                             }
                           }
@@ -1047,8 +1049,9 @@ SmartPanel {
         }
 
         // Now check if we can actually search (fetching check is in WallhavenService.search)
+        // Use persisted currentPage to maintain state across window reopening
         loading = true;
-        WallhavenService.search(Settings.data.wallpaper.wallhavenQuery || "", 1);
+        WallhavenService.search(Settings.data.wallpaper.wallhavenQuery || "", WallhavenService.currentPage);
       }
     }
 

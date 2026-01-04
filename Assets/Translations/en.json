@@ -238,6 +238,12 @@
           "label": "Show icon"
         }
       },
+      "launcher": {
+        "use-primary-color": {
+          "description": "When enabled, this applies the primary color for emphasis.",
+          "label": "Use primary color"
+        }
+      },
       "lock-keys": {
         "browse": "Browse",
         "show-caps-lock": {
@@ -596,6 +602,7 @@
     "enable-bluetooth": "Enable Bluetooth",
     "enable-dnd": "Enable Do Not Disturb",
     "enable-wifi": "Enable Wi-Fi",
+    "launcher-settings": "Launcher settings",
     "lower-to-bottom": "Lower to bottom",
     "next": "Next",
     "open-calendar": "Open calendar",
@@ -655,6 +662,32 @@
     },
     "delete": "Delete",
     "pin": "Pin",
+    "providers": {
+      "applications": "Applications",
+      "calculator": "Calculator",
+      "calculator-deprecated": "The >calc command is deprecated and will be removed soon. Please type math expressions directly in search instead.",
+      "calculator-description": "Calculator — evaluate mathematical expressions",
+      "calculator-enter-expression": "Enter a mathematical expression",
+      "calculator-error": "Error",
+      "calculator-name": "Calculator",
+      "clipboard": "Clipboard history",
+      "clipboard-clear-description": "Clear all clipboard history",
+      "clipboard-clear-description-full": "Remove all items from clipboard history",
+      "clipboard-clear-history": "Clear clipboard history",
+      "clipboard-delete": "Delete clipboard entry",
+      "clipboard-history-disabled": "Clipboard history disabled",
+      "clipboard-history-disabled-description": "Enable clipboard history in settings or install cliphist",
+      "clipboard-loading": "Loading clipboard history...",
+      "clipboard-loading-description": "Please wait",
+      "clipboard-search-description": "Search clipboard history",
+      "command": "Command",
+      "command-description": "Run shell commands",
+      "command-name": "Command",
+      "emoji": "Emoji picker",
+      "emoji-loading": "Loading emojis...",
+      "emoji-loading-description": "Please wait",
+      "emoji-search-description": "Search and copy emojis"
+    },
     "unpin": "Unpin"
   },
   "lock-screen": {
@@ -854,32 +887,6 @@
     "search-wallpapers": "Type to filter wallpapers...",
     "select": "Select",
     "test": "Test"
-  },
-  "plugins": {
-    "applications": "Applications",
-    "calculator": "Calculator",
-    "calculator-deprecated": "The >calc command is deprecated and will be removed soon. Please type math expressions directly in search instead.",
-    "calculator-description": "Calculator — evaluate mathematical expressions",
-    "calculator-enter-expression": "Enter a mathematical expression",
-    "calculator-error": "Error",
-    "calculator-name": "Calculator",
-    "clipboard": "Clipboard history",
-    "clipboard-clear-description": "Clear all clipboard history",
-    "clipboard-clear-description-full": "Remove all items from clipboard history",
-    "clipboard-clear-history": "Clear clipboard history",
-    "clipboard-delete": "Delete clipboard entry",
-    "clipboard-history-disabled": "Clipboard history disabled",
-    "clipboard-history-disabled-description": "Enable clipboard history in settings or install cliphist",
-    "clipboard-loading": "Loading clipboard history...",
-    "clipboard-loading-description": "Please wait",
-    "clipboard-search-description": "Search clipboard history",
-    "command": "Command",
-    "command-description": "Run shell commands",
-    "command-name": "Command",
-    "emoji": "Emoji picker",
-    "emoji-loading": "Loading emojis...",
-    "emoji-loading-description": "Please wait",
-    "emoji-search-description": "Search and copy emojis"
   },
   "quickSettings": {
     "bluetooth": {
@@ -1928,6 +1935,11 @@
     },
     "launcher": {
       "settings": {
+        "annotation-tool": {
+          "description": "Command to run when clicking the annotate button in clipboard history, The image will be piped to this command.",
+          "label": "Annotation tool",
+          "placeholder": "e.g. 'gradia', 'satty -f -'"
+        },
         "clip-preview": {
           "description": "Show a preview of the clipboard content when using the >clip command.",
           "label": "Enable clip preview"
@@ -1971,6 +1983,10 @@
         "show-categories": {
           "description": "Show category tabs for filtering applications.",
           "label": "Show categories"
+        },
+        "show-icon-background": {
+          "description": "Show a rounded rectangle background behind icons.",
+          "label": "Show icon background"
         },
         "sort-by-usage": {
           "description": "When enabled, frequently launched apps appear first in the list.",
@@ -2982,6 +2998,7 @@
     "move-to-center-section": "Center section",
     "move-to-left-section": "Left section",
     "move-to-right-section": "Right section",
+    "move-to-section": "Move to {section}",
     "mute": "Mute",
     "next-media": "Next track",
     "next-month": "Next month",
@@ -2991,6 +3008,7 @@
     "night-light-not-installed": "Night Light (not available)",
     "noctalia-performance-disabled": "Noctalia Performance Mode",
     "noctalia-performance-enabled": "Noctalia Performance Mode",
+    "open-annotation-tool": "Open with annotation tool",
     "open-control-center": "Control center",
     "open-notification-history-disable-dnd": "Notification history",
     "open-notification-history-enable-dnd": "Notification history",
@@ -3038,6 +3056,7 @@
       "apikey": {
         "help": "An API key is required to access NSFW content.",
         "label": "API Key",
+        "managed-by-env": "Managed via NOCTALIA_WALLHAVEN_API_KEY environment variable.",
         "placeholder": "Enter your Wallhaven API Key"
       },
       "apply-all-monitors": {

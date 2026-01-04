@@ -255,6 +255,12 @@
           "label": "Simgeyi göster"
         }
       },
+      "launcher": {
+        "use-primary-color": {
+          "description": "Etkinleştirildiğinde, vurgu için birincil rengi uygular.",
+          "label": "Ana renk kullan."
+        }
+      },
       "lock-keys": {
         "browse": "Göz at",
         "show-caps-lock": {
@@ -615,6 +621,7 @@
     "enable-bluetooth": "Bluetooth'u etkinleştir",
     "enable-dnd": "Rahatsız Etmeyin'i Etkinleştir",
     "enable-wifi": "Kablosuz Bağlantıyı etkinleştir",
+    "launcher-settings": "Başlatıcı ayarları",
     "lower-to-bottom": "Alta doğru alçalt",
     "next": "Sonraki",
     "open-calendar": "Takvimi aç",
@@ -674,6 +681,32 @@
     },
     "delete": "Sil",
     "pin": "Sabitle",
+    "providers": {
+      "applications": "Uygulamalar",
+      "calculator": "Hesap makinesi",
+      "calculator-deprecated": ">calc komutu kullanımdan kaldırılmıştır ve yakında kaldırılacaktır. Lütfen matematiksel ifadeleri doğrudan aramaya yazın.",
+      "calculator-description": "Hesap makinesi — matematiksel ifadeleri hesapla",
+      "calculator-enter-expression": "Matematiksel bir ifade girin",
+      "calculator-error": "Hata",
+      "calculator-name": "Hesap makinesi",
+      "clipboard": "Panoya geçmiş",
+      "clipboard-clear-description": "Tüm panoya geçmişini temizle",
+      "clipboard-clear-description-full": "Tüm öğeleri panoya geçmişinden kaldır",
+      "clipboard-clear-history": "Panoya geçmişini temizle",
+      "clipboard-delete": "Panodaki öğeyi sil",
+      "clipboard-history-disabled": "Panoya geçmişi devre dışı",
+      "clipboard-history-disabled-description": "Panoya geçmişini ayarlarda etkinleştir veya cliphist kur",
+      "clipboard-loading": "Panoya geçmişi yükleniyor...",
+      "clipboard-loading-description": "Lütfen bekleyin",
+      "clipboard-search-description": "Panoya geçmişini ara",
+      "command": "Komut",
+      "command-description": "Kabuk komutlarını çalıştır",
+      "command-name": "Komut",
+      "emoji": "Emoji seçici",
+      "emoji-loading": "Emojiler yükleniyor...",
+      "emoji-loading-description": "Lütfen bekleyin",
+      "emoji-search-description": "Emoji arama ve kopyalama"
+    },
     "unpin": "Sabitlemeyi kaldır"
   },
   "lock-screen": {
@@ -869,32 +902,6 @@
     "search-wallpapers": "Duvar kâğıtlarını filtrelemek için yazın...",
     "select": "Seç",
     "test": "Test"
-  },
-  "plugins": {
-    "applications": "Uygulamalar",
-    "calculator": "Hesap makinesi",
-    "calculator-deprecated": ">calc komutu kullanımdan kaldırılmıştır ve yakında kaldırılacaktır. Lütfen matematiksel ifadeleri doğrudan aramaya yazın.",
-    "calculator-description": "Hesap makinesi — matematiksel ifadeleri hesapla",
-    "calculator-enter-expression": "Matematiksel bir ifade girin",
-    "calculator-error": "Hata",
-    "calculator-name": "Hesap makinesi",
-    "clipboard": "Panoya geçmiş",
-    "clipboard-clear-description": "Tüm panoya geçmişini temizle",
-    "clipboard-clear-description-full": "Tüm öğeleri panoya geçmişinden kaldır",
-    "clipboard-clear-history": "Panoya geçmişini temizle",
-    "clipboard-delete": "Panodaki öğeyi sil",
-    "clipboard-history-disabled": "Panoya geçmişi devre dışı",
-    "clipboard-history-disabled-description": "Panoya geçmişini ayarlarda etkinleştir veya cliphist kur",
-    "clipboard-loading": "Panoya geçmişi yükleniyor...",
-    "clipboard-loading-description": "Lütfen bekleyin",
-    "clipboard-search-description": "Panoya geçmişini ara",
-    "command": "Komut",
-    "command-description": "Kabuk komutlarını çalıştır",
-    "command-name": "Komut",
-    "emoji": "Emoji seçici",
-    "emoji-loading": "Emojiler yükleniyor...",
-    "emoji-loading-description": "Lütfen bekleyin",
-    "emoji-search-description": "Emoji arama ve kopyalama"
   },
   "quickSettings": {
     "bluetooth": {
@@ -1834,6 +1841,11 @@
     },
     "launcher": {
       "settings": {
+        "annotation-tool": {
+          "description": "Panodaki geçmişte açıklama ekle düğmesine tıklandığında çalıştırılacak komut. Görüntü bu komuta yönlendirilecektir.",
+          "label": "Açıklama aracı",
+          "placeholder": "gradia, satty -f -"
+        },
         "clip-preview": {
           "description": ">clip komutu kullanılırken panodaki içeriğin önizlemesini gösterir.",
           "label": "Panoyu önizlemeyi etkinleştir"
@@ -1873,6 +1885,10 @@
         "show-categories": {
           "description": "Uygulamaları filtrelemek için kategori sekmelerini göster.",
           "label": "Kategorileri göster"
+        },
+        "show-icon-background": {
+          "description": "Simgelerin arkasında yuvarlak köşeli dikdörtgen bir arka plan göster.",
+          "label": "Simge arka planını göster"
         },
         "sort-by-usage": {
           "description": "Etkinleştirildiğinde, sıkça başlatılan uygulamalar listede ilk olarak görünür.",
@@ -2884,6 +2900,7 @@
     "move-to-center-section": "Orta bölüm",
     "move-to-left-section": "Sol bölüm",
     "move-to-right-section": "Sağ bölüm",
+    "move-to-section": "{section} bölümüne git.",
     "mute": "Sessiz",
     "next-media": "Sonraki parça",
     "next-month": "Sonraki ay",
@@ -2893,6 +2910,7 @@
     "night-light-not-installed": "Gece ışığı (mevcut değil)",
     "noctalia-performance-disabled": "Noctalia performans modu",
     "noctalia-performance-enabled": "Noctalia performans modu",
+    "open-annotation-tool": "Açıklama aracıyla aç",
     "open-control-center": "Kontrol merkezi",
     "open-notification-history-disable-dnd": "Bildirim geçmişi",
     "open-notification-history-enable-dnd": "Bildirim geçmişi",

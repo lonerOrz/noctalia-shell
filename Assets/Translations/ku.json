@@ -238,6 +238,12 @@
           "label": "Nîşanê nîşan bide"
         }
       },
+      "launcher": {
+        "use-primary-color": {
+          "description": "Dema ku hat çalak kirin, ev rengê sereke ji bo teqezkirinê bikar tîne.",
+          "label": "Rengê bingehîn bikar bîne"
+        }
+      },
       "lock-keys": {
         "browse": "Bigere",
         "show-caps-lock": {
@@ -598,6 +604,7 @@
     "enable-bluetooth": "Bluetooth çalak bike",
     "enable-dnd": "Dengê dernexîne çalak bike",
     "enable-wifi": "Wi-Fi çalak bike",
+    "launcher-settings": "Mîhengên destpêkerê",
     "lower-to-bottom": "Daxistin bo binî",
     "next": "Pêş",
     "open-calendar": "Salnameyê veke",
@@ -657,6 +664,32 @@
     },
     "delete": "Jê bibe",
     "pin": "Bi dar bixe",
+    "providers": {
+      "applications": "Serlêdan",
+      "calculator": "Hesabker",
+      "calculator-deprecated": "Fermana >calc hatiye betalkirin û dê di demeke nêz de were rakirin. Ji kerema xwe rasterast di lêgerînê de îfadeyên matematîkê binivîse.",
+      "calculator-description": "Hesabker — nirxandina îfadeyên matematîkî",
+      "calculator-enter-expression": "Têketineke matematîkî binivîse",
+      "calculator-error": "Şaşetî",
+      "calculator-name": "Hesabker",
+      "clipboard": "Dîroka clipboardê",
+      "clipboard-clear-description": "Hemû dîroka clipboardê paqij bike",
+      "clipboard-clear-description-full": "Hemû tiştan ji dîroka clipboardê rake",
+      "clipboard-clear-history": "Dîroka clipboardê paqij bike",
+      "clipboard-delete": "Jêbirina navnîşa clipboardê",
+      "clipboard-history-disabled": "Dîroka clipboardê neçalak e",
+      "clipboard-history-disabled-description": "Dîroka clipboardê di mîhengan de çalak bike an cliphist saz bike.",
+      "clipboard-loading": "Dîroka clipboardê tê barkirin...",
+      "clipboard-loading-description": "Tika raweste",
+      "clipboard-search-description": "Lêgerîna dîroka clipboardê",
+      "command": "Ferman",
+      "command-description": "Fermanên shell bixebitîne",
+      "command-name": "Ferman",
+      "emoji": "Hilbijêrê îmojî",
+      "emoji-loading": "Îmojî tên barkriin...",
+      "emoji-loading-description": "Tika raweste",
+      "emoji-search-description": "Lêgerîn û kopîkirina emojiyan"
+    },
     "unpin": "Bi dar nexe"
   },
   "lock-screen": {
@@ -852,32 +885,6 @@
     "search-wallpapers": "Binivîse da ku dîwêran parzûn bikî...",
     "select": "Hilbijêre",
     "test": "Test"
-  },
-  "plugins": {
-    "applications": "Serlêdan",
-    "calculator": "Hesabker",
-    "calculator-deprecated": "Fermana >calc hatiye betalkirin û dê di demeke nêz de were rakirin. Ji kerema xwe rasterast di lêgerînê de îfadeyên matematîkê binivîse.",
-    "calculator-description": "Hesabker — nirxandina îfadeyên matematîkî",
-    "calculator-enter-expression": "Têketineke matematîkî binivîse",
-    "calculator-error": "Şaşetî",
-    "calculator-name": "Hesabker",
-    "clipboard": "Dîroka clipboardê",
-    "clipboard-clear-description": "Hemû dîroka clipboardê paqij bike",
-    "clipboard-clear-description-full": "Hemû tiştan ji dîroka clipboardê rake",
-    "clipboard-clear-history": "Dîroka clipboardê paqij bike",
-    "clipboard-delete": "Jêbirina navnîşa clipboardê",
-    "clipboard-history-disabled": "Dîroka clipboardê neçalak e",
-    "clipboard-history-disabled-description": "Dîroka clipboardê di mîhengan de çalak bike an cliphist saz bike.",
-    "clipboard-loading": "Dîroka clipboardê tê barkirin...",
-    "clipboard-loading-description": "Tika raweste",
-    "clipboard-search-description": "Lêgerîna dîroka clipboardê",
-    "command": "Ferman",
-    "command-description": "Fermanên shell bixebitîne",
-    "command-name": "Ferman",
-    "emoji": "Hilbijêrê îmojî",
-    "emoji-loading": "Îmojî tên barkriin...",
-    "emoji-loading-description": "Tika raweste",
-    "emoji-search-description": "Lêgerîn û kopîkirina emojiyan"
   },
   "quickSettings": {
     "bluetooth": {
@@ -1817,6 +1824,11 @@
     },
     "launcher": {
       "settings": {
+        "annotation-tool": {
+          "description": "Fermana ku dema tikandina bişkoka şîrovekirinê di dîroka clipboardê de were xebitandin, Wêne dê ji vê fermanê re were şandin.",
+          "label": "Amûra şîrovekirinê",
+          "placeholder": "Ez ji te hez dikim."
+        },
         "clip-preview": {
           "description": "Dîmenek pêşdîtinê ya naveroka clipboardê nîşan bide dema ku emrê >clip tê bikaranîn.",
           "label": "Pêşdîtina klîpê çalak bike"
@@ -1856,6 +1868,10 @@
         "show-categories": {
           "description": "Tabên kategoriyê nîşan bide ji bo parzûnkirina sepanan.",
           "label": "Kategoriyan nîşan bide"
+        },
+        "show-icon-background": {
+          "description": "Li paş îkonan paşxaneyeke çargoşe ya gilover nîşan bide.",
+          "label": "Paşxaneya îkonê nîşan bide"
         },
         "sort-by-usage": {
           "description": "Dema ku çalak be, sepanên ku pir caran têne destpêkirin pêşî di lîsteyê de xuya dibin.",
@@ -2863,6 +2879,7 @@
     "move-to-center-section": "Navenda beşê",
     "move-to-left-section": "Beşa çepê",
     "move-to-right-section": "Beşa rastê",
+    "move-to-section": "Here'ke {section} here.",
     "mute": "Bêdeng bike",
     "next-media": "Strana pêş",
     "next-month": "Meha bê",
@@ -2872,6 +2889,7 @@
     "night-light-not-installed": "Ronahiya Şevê (tune)",
     "noctalia-performance-disabled": "Moda Performansa Noctalia",
     "noctalia-performance-enabled": "Noctalia Moda Performansê",
+    "open-annotation-tool": "Bi amûra şîrovekirinê veke",
     "open-control-center": "Navenda kontrolê",
     "open-notification-history-disable-dnd": "Dîroka agahdariyê",
     "open-notification-history-enable-dnd": "Dîroka agahdariyê",

@@ -255,6 +255,12 @@
           "label": "Icoon weergeven"
         }
       },
+      "launcher": {
+        "use-primary-color": {
+          "description": "Indien ingeschakeld, past dit de primaire kleur toe voor nadruk.",
+          "label": "Gebruik een primaire kleur"
+        }
+      },
       "lock-keys": {
         "browse": "Bladeren",
         "show-caps-lock": {
@@ -615,6 +621,7 @@
     "enable-bluetooth": "Bluetooth inschakelen",
     "enable-dnd": "Niet Storen inschakelen",
     "enable-wifi": "Wi-Fi inschakelen",
+    "launcher-settings": "Launcher instellingen",
     "lower-to-bottom": "Laagste naar beneden",
     "next": "Volgende",
     "open-calendar": "Open agenda",
@@ -674,6 +681,32 @@
     },
     "delete": "Verwijderen",
     "pin": "Vastmaken",
+    "providers": {
+      "applications": "Applicaties",
+      "calculator": "Rekenmachine",
+      "calculator-deprecated": "De >calc opdracht is verouderd en zal binnenkort verwijderd worden. Typ wiskundige uitdrukkingen in plaats daarvan direct in de zoekopdracht.",
+      "calculator-description": "Rekenmachine — bereken wiskundige expressies",
+      "calculator-enter-expression": "Voer een wiskundige expressie in",
+      "calculator-error": "Fout",
+      "calculator-name": "Rekenmachine",
+      "clipboard": "Klembordgeschiedenis",
+      "clipboard-clear-description": "Klembordgeschiedenis wissen",
+      "clipboard-clear-description-full": "Alle items uit de klembordgeschiedenis verwijderen",
+      "clipboard-clear-history": "Klembordgeschiedenis wissen",
+      "clipboard-delete": "Klemborditem verwijderen",
+      "clipboard-history-disabled": "Klembordgeschiedenis uitgeschakeld",
+      "clipboard-history-disabled-description": "Schakel klembordgeschiedenis in de instellingen in of installeer cliphist",
+      "clipboard-loading": "Klembordgeschiedenis laden...",
+      "clipboard-loading-description": "Even geduld",
+      "clipboard-search-description": "Zoek in klembordgeschiedenis",
+      "command": "Commando",
+      "command-description": "Shell-opdrachten uitvoeren",
+      "command-name": "Commando",
+      "emoji": "Emoji-kiezer",
+      "emoji-loading": "Emoji's laden...",
+      "emoji-loading-description": "Even geduld",
+      "emoji-search-description": "Zoek en kopieer emoji's"
+    },
     "unpin": "Losmaken"
   },
   "lock-screen": {
@@ -869,32 +902,6 @@
     "search-wallpapers": "Typ om achtergronden te filteren...",
     "select": "Selecteren",
     "test": "Test"
-  },
-  "plugins": {
-    "applications": "Applicaties",
-    "calculator": "Rekenmachine",
-    "calculator-deprecated": "De >calc opdracht is verouderd en zal binnenkort verwijderd worden. Typ wiskundige uitdrukkingen in plaats daarvan direct in de zoekopdracht.",
-    "calculator-description": "Rekenmachine — bereken wiskundige expressies",
-    "calculator-enter-expression": "Voer een wiskundige expressie in",
-    "calculator-error": "Fout",
-    "calculator-name": "Rekenmachine",
-    "clipboard": "Klembordgeschiedenis",
-    "clipboard-clear-description": "Klembordgeschiedenis wissen",
-    "clipboard-clear-description-full": "Alle items uit de klembordgeschiedenis verwijderen",
-    "clipboard-clear-history": "Klembordgeschiedenis wissen",
-    "clipboard-delete": "Klemborditem verwijderen",
-    "clipboard-history-disabled": "Klembordgeschiedenis uitgeschakeld",
-    "clipboard-history-disabled-description": "Schakel klembordgeschiedenis in de instellingen in of installeer cliphist",
-    "clipboard-loading": "Klembordgeschiedenis laden...",
-    "clipboard-loading-description": "Even geduld",
-    "clipboard-search-description": "Zoek in klembordgeschiedenis",
-    "command": "Commando",
-    "command-description": "Shell-opdrachten uitvoeren",
-    "command-name": "Commando",
-    "emoji": "Emoji-kiezer",
-    "emoji-loading": "Emoji's laden...",
-    "emoji-loading-description": "Even geduld",
-    "emoji-search-description": "Zoek en kopieer emoji's"
   },
   "quickSettings": {
     "bluetooth": {
@@ -1834,6 +1841,11 @@
     },
     "launcher": {
       "settings": {
+        "annotation-tool": {
+          "description": "Commando dat wordt uitgevoerd bij het klikken op de annotatieknop in de klembordgeschiedenis. De afbeelding wordt naar dit commando gepiped.",
+          "label": "Annotatietool",
+          "placeholder": "e.g. 'gradia', 'satty -f -'"
+        },
         "clip-preview": {
           "description": "Toon een voorbeeld van de inhoud van het klembord bij gebruik van het >clip-commando.",
           "label": "Klembordvoorbeeld inschakelen"
@@ -1873,6 +1885,10 @@
         "show-categories": {
           "description": "Categorieën-tabbladen weergeven voor het filteren van applicaties.",
           "label": "Categorieën weergeven"
+        },
+        "show-icon-background": {
+          "description": "Toon een afgeronde rechthoek achtergrond achter pictogrammen.",
+          "label": "Toon pictogramachtergrond"
         },
         "sort-by-usage": {
           "description": "Indien ingeschakeld, verschijnen vaak gestarte apps bovenaan in de lijst.",
@@ -2884,6 +2900,7 @@
     "move-to-center-section": "Middelste sectie",
     "move-to-left-section": "Linker sectie",
     "move-to-right-section": "Rechter sectie",
+    "move-to-section": "Ga naar {section}",
     "mute": "Dempen",
     "next-media": "Volgende track",
     "next-month": "Volgende maand",
@@ -2893,6 +2910,7 @@
     "night-light-not-installed": "Nachtlicht (niet beschikbaar)",
     "noctalia-performance-disabled": "Noctalia-prestatiemodus",
     "noctalia-performance-enabled": "Noctalia-prestatiemodus",
+    "open-annotation-tool": "Openen met annotatietool",
     "open-control-center": "Bedieningscentrum",
     "open-notification-history-disable-dnd": "Meldingsgeschiedenis",
     "open-notification-history-enable-dnd": "Meldingsgeschiedenis",

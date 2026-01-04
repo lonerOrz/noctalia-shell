@@ -255,6 +255,12 @@
           "label": "Показати значок"
         }
       },
+      "launcher": {
+        "use-primary-color": {
+          "description": "Якщо ввімкнено, це застосовує основний колір для підкреслення.",
+          "label": "Використовуйте основний колір"
+        }
+      },
       "lock-keys": {
         "browse": "Перегляд",
         "show-caps-lock": {
@@ -615,6 +621,7 @@
     "enable-bluetooth": "Увімкнути Bluetooth",
     "enable-dnd": "Увімкнути режим \"Не турбувати\"",
     "enable-wifi": "Увімкнути Wi-Fi",
+    "launcher-settings": "Налаштування панелі запуску",
     "lower-to-bottom": "Опустити донизу",
     "next": "Наступний",
     "open-calendar": "Відкрити календар",
@@ -674,6 +681,32 @@
     },
     "delete": "Видалити",
     "pin": "Закріпити",
+    "providers": {
+      "applications": "Застосунки",
+      "calculator": "Калькулятор",
+      "calculator-deprecated": "Команда >calc застаріла і скоро буде видалена. Будь ласка, введіть математичні вирази безпосередньо в пошуку.",
+      "calculator-description": "Калькулятор — обчислення математичних виразів",
+      "calculator-enter-expression": "Введіть математичний вираз",
+      "calculator-error": "Помилка",
+      "calculator-name": "Калькулятор",
+      "clipboard": "Історія буфера обміну",
+      "clipboard-clear-description": "Очистити всю історію буфера обміну",
+      "clipboard-clear-description-full": "Видалити всі елементи з історії буфера обміну",
+      "clipboard-clear-history": "Очистити історію буфера обміну",
+      "clipboard-delete": "Видалити запис з буфера обміну",
+      "clipboard-history-disabled": "Історія буфера обміну вимкнена",
+      "clipboard-history-disabled-description": "Увімкніть історію буфера обміну в налаштуваннях або встановіть cliphist",
+      "clipboard-loading": "Завантаження історії буфера обміну...",
+      "clipboard-loading-description": "Зачекайте, будь ласка",
+      "clipboard-search-description": "Пошук в історії буфера обміну",
+      "command": "Команда",
+      "command-description": "Виконати команди оболонки",
+      "command-name": "Команда",
+      "emoji": "Обрати емодзі",
+      "emoji-loading": "Завантаження емодзі...",
+      "emoji-loading-description": "Зачекайте, будь ласка",
+      "emoji-search-description": "Пошук і копіювання емодзі"
+    },
     "unpin": "Відкріпити"
   },
   "lock-screen": {
@@ -869,32 +902,6 @@
     "search-wallpapers": "Введіть для фільтрації шпалер...",
     "select": "Вибрати",
     "test": "Тест"
-  },
-  "plugins": {
-    "applications": "Застосунки",
-    "calculator": "Калькулятор",
-    "calculator-deprecated": "Команда >calc застаріла і скоро буде видалена. Будь ласка, введіть математичні вирази безпосередньо в пошуку.",
-    "calculator-description": "Калькулятор — обчислення математичних виразів",
-    "calculator-enter-expression": "Введіть математичний вираз",
-    "calculator-error": "Помилка",
-    "calculator-name": "Калькулятор",
-    "clipboard": "Історія буфера обміну",
-    "clipboard-clear-description": "Очистити всю історію буфера обміну",
-    "clipboard-clear-description-full": "Видалити всі елементи з історії буфера обміну",
-    "clipboard-clear-history": "Очистити історію буфера обміну",
-    "clipboard-delete": "Видалити запис з буфера обміну",
-    "clipboard-history-disabled": "Історія буфера обміну вимкнена",
-    "clipboard-history-disabled-description": "Увімкніть історію буфера обміну в налаштуваннях або встановіть cliphist",
-    "clipboard-loading": "Завантаження історії буфера обміну...",
-    "clipboard-loading-description": "Зачекайте, будь ласка",
-    "clipboard-search-description": "Пошук в історії буфера обміну",
-    "command": "Команда",
-    "command-description": "Виконати команди оболонки",
-    "command-name": "Команда",
-    "emoji": "Обрати емодзі",
-    "emoji-loading": "Завантаження емодзі...",
-    "emoji-loading-description": "Зачекайте, будь ласка",
-    "emoji-search-description": "Пошук і копіювання емодзі"
   },
   "quickSettings": {
     "bluetooth": {
@@ -1834,6 +1841,11 @@
     },
     "launcher": {
       "settings": {
+        "annotation-tool": {
+          "description": "Команда для запуску при натисканні кнопки анотування в історії буфера обміну, зображення буде передано в цю команду.",
+          "label": "Інструмент анотацій",
+          "placeholder": "градіа, сатті -ф -"
+        },
         "clip-preview": {
           "description": "Показувати попередній перегляд вмісту буфера обміну при використанні команди >clip.",
           "label": "Попередній перегляд буфера обміну"
@@ -1873,6 +1885,10 @@
         "show-categories": {
           "description": "Показувати вкладки категорій для фільтрації додатків.",
           "label": "Показувати категорії"
+        },
+        "show-icon-background": {
+          "description": "Показувати заокруглений прямокутник як фон за іконками.",
+          "label": "Показати фон іконки"
         },
         "sort-by-usage": {
           "description": "Коли увімкнено, часто використовувані застосунки з'являються першими в списку.",
@@ -2884,6 +2900,7 @@
     "move-to-center-section": "Центральна секція",
     "move-to-left-section": "Ліва секція",
     "move-to-right-section": "Права секція",
+    "move-to-section": "Перейти до {section}",
     "mute": "Вимкнути звук",
     "next-media": "Наступний трек",
     "next-month": "Наступний місяць",
@@ -2893,6 +2910,7 @@
     "night-light-not-installed": "Нічне світло (недоступне)",
     "noctalia-performance-disabled": "Режим продуктивності Noctalia",
     "noctalia-performance-enabled": "Режим продуктивності Noctalia",
+    "open-annotation-tool": "Відкрити за допомогою інструменту анотацій",
     "open-control-center": "Центр керування",
     "open-notification-history-disable-dnd": "Історія сповіщень",
     "open-notification-history-enable-dnd": "Історія сповіщень",
