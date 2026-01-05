@@ -577,7 +577,8 @@
     "panel": {
       "buttons": {
         "discord": "Rejoindre notre Discord",
-        "dismiss": "Ok"
+        "dismiss": "Ok",
+        "feedback": "Donner un avis."
       },
       "empty": "Les notes de version ne sont pas encore disponibles.",
       "highlight-title": "Points importants",
@@ -680,6 +681,7 @@
       "webbrowser": "Navigateur web"
     },
     "delete": "Supprimer",
+    "no-results": "Aucun résultat trouvé.",
     "pin": "Épingler",
     "providers": {
       "applications": "Applications",
@@ -705,6 +707,7 @@
       "emoji": "Sélecteur d'émojis",
       "emoji-loading": "Chargement des émojis...",
       "emoji-loading-description": "Veuillez patienter",
+      "emoji-no-recent": "Aucun emoji récent pour le moment.",
       "emoji-search-description": "Rechercher et copier des émojis"
     },
     "unpin": "Détacher"
@@ -989,6 +992,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Afficher le journal des modifications",
       "contributors": {
         "section": {
           "description": "Un grand merci à notre {count} <b>super</b> contributeur !",
@@ -1180,16 +1184,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Dérive des couleurs qui correspondent étroitement à l'image sous-jacente.",
-            "scheme-expressive": "Palette vibrante avec une saturation ludique.",
-            "scheme-fidelity": "Palette haute fidélité qui préserve les teintes sources.",
-            "scheme-fruit-salad": "Mélange coloré d'accents vifs et contrastés.",
-            "scheme-monochrome": "Palette minimaliste construite autour d'une seule teinte.",
-            "scheme-neutral": "Palette de couleurs atténuées aux tons doux et apaisants.",
-            "scheme-rainbow": "Palette diversifiée couvrant tout le spectre.",
-            "scheme-tonal-spot": "Palette équilibrée avec des accents ciblés."
-          },
+          "description": "Choisissez la méthode de génération de palette de couleurs que Matugen utilisera pour créer des couleurs à partir de votre fond d'écran.",
           "label": "Type de schéma Matugen"
         },
         "section": {
@@ -1323,6 +1318,9 @@
           },
           "zed": {
             "description": "Écrire {filepath} — le thème Comfy doit être installé et activé manuellement"
+          },
+          "zen-browser": {
+            "description": "Écrivez dans {filepath} ; copiez dans le fichier chrome/userChrome.css de votre profil Zen."
           }
         },
         "section": {
@@ -1846,6 +1844,10 @@
           "label": "Outil d'annotation",
           "placeholder": "gradia, satty -f -"
         },
+        "auto-paste": {
+          "description": "Coller automatiquement l'élément sélectionné du presse-papiers. Nécessite wtype.",
+          "label": "Collage automatique"
+        },
         "clip-preview": {
           "description": "Afficher un aperçu du contenu du presse-papiers lors de l'utilisation de la commande >clip.",
           "label": "Activer l'aperçu du presse-papiers"
@@ -2260,6 +2262,7 @@
       "hot-reloaded": "Plugin rechargé : {name}",
       "install": "Installer",
       "install-error": "Échec de l'installation : {error}",
+      "install-incompatible": "{plugin} nécessite Noctalia v{version} ou une version ultérieure.",
       "install-success": "Installation de {plugin} réussie.",
       "installed": {
         "description": "Gérer et configurer tous les plugins installés localement.",
@@ -2317,6 +2320,7 @@
       "update-available_plural": "{count} mises à jour d'extensions disponibles",
       "update-error": "Échec de la mise à jour du plugin : {plugin} : {error}",
       "update-incompatible": "Nécessite Noctalia v{version} ou une version ultérieure.",
+      "update-pending": "v{current} → v{new} (nécessite Noctalia v{required})",
       "update-success": "Mise à jour du plugin {plugin} vers la version {version}.",
       "update-version": "v{actuel} → v{nouveau}",
       "updating": "Mise à jour..."
@@ -2896,6 +2900,7 @@
     "list-view": "Vue en liste",
     "manage-vpn": "Connexions VPN",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Nombre maximal de widgets atteint.",
     "microphone-volume-at": "Volume du microphone : {volume}%",
     "move-to-center-section": "Section centrale",
     "move-to-left-section": "Section de gauche",
@@ -2958,6 +2963,7 @@
       "apikey": {
         "help": "Une clé API est requise pour accéder au contenu NSFW.",
         "label": "Clé API",
+        "managed-by-env": "Géré via la variable d'environnement NOCTALIA_WALLHAVEN_API_KEY.",
         "placeholder": "Entrez votre clé API Wallhaven"
       },
       "apply-all-monitors": {
@@ -3046,6 +3052,11 @@
     "thunderstorm": "Orage",
     "unknown": "Inconnu"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Sélectionner un fichier"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Appliquer",
@@ -3130,11 +3141,13 @@
   "wifi": {
     "panel": {
       "action-required": "Action requise",
+      "available-interfaces": "Interfaces disponibles",
       "available-networks": "Réseaux disponibles",
       "connect": "Connecter",
       "connected": "Connecté",
       "disabled": "Le Wi-Fi est désactivé",
       "disconnect": "Déconnecter",
+      "disconnected": "Déconnecté",
       "disconnecting": "Déconnexion en cours...",
       "dns": "DNS",
       "enable-message": "Activez le Wi-Fi pour voir les réseaux disponibles.",
@@ -3145,12 +3158,15 @@
       "frequency": "Fréquence",
       "gateway": "Passerelle",
       "info": "Info",
+      "interface": "Interface réseau",
       "internet": "Internet",
       "internet-connected": "Connecté à Internet",
       "internet-limited": "Pas d'internet",
+      "internet-status": "État de la connexion Internet",
       "ipv4": "IPv4",
       "known-networks": "Réseaux connus",
       "link-speed": "Vitesse de liaison",
+      "no-ethernet-devices": "Aucun périphérique Ethernet détecté.",
       "no-networks": "Aucun réseau trouvé",
       "password": "Mot de passe",
       "saved": "Enregistré",

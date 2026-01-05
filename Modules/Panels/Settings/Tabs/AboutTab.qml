@@ -7,6 +7,7 @@ import Quickshell.Io
 import qs.Commons
 import qs.Services.Noctalia
 import qs.Services.System
+import qs.Services.UI
 import qs.Widgets
 
 ColumnLayout {
@@ -224,48 +225,31 @@ ColumnLayout {
     }
   }
 
-  // Ko-fi support button
-  Rectangle {
+  // Action buttons row
+  RowLayout {
     Layout.alignment: Qt.AlignHCenter
     Layout.topMargin: Style.marginM
     Layout.bottomMargin: Style.marginM
-    width: supportRow.implicitWidth + Style.marginXL
-    height: supportRow.implicitHeight + Style.marginM
-    radius: Style.radiusS
-    color: supportArea.containsMouse ? Qt.alpha(Color.mOnSurface, 0.05) : Color.transparent
-    border.width: 0
+    spacing: Style.marginM
 
-    Behavior on color {
-      ColorAnimation {
-        duration: Style.animationFast
+    NButton {
+      icon: "sparkles"
+      text: I18n.tr("settings.about.changelog")
+      fontSize: Style.fontSizeXS
+      iconSize: Style.fontSizeS
+      outlined: true
+      onClicked: {
+        var screen = PanelService.openedPanel?.screen || Quickshell.screens[0];
+        UpdateService.viewChangelog(screen);
       }
     }
 
-    RowLayout {
-      id: supportRow
-      anchors.centerIn: parent
-      spacing: Style.marginS
-
-      NText {
-        text: I18n.tr("settings.about.support")
-        pointSize: Style.fontSizeXS
-        color: Color.mOnSurface
-        opacity: supportArea.containsMouse ? Style.opacityFull : Style.opacityMedium
-      }
-
-      NIcon {
-        icon: supportArea.containsMouse ? "heart-filled" : "heart"
-        pointSize: 14
-        color: Color.mOnSurface
-        opacity: supportArea.containsMouse ? Style.opacityFull : Style.opacityMedium
-      }
-    }
-
-    MouseArea {
-      id: supportArea
-      anchors.fill: parent
-      hoverEnabled: true
-      cursorShape: Qt.PointingHandCursor
+    NButton {
+      icon: "heart"
+      text: I18n.tr("settings.about.support")
+      fontSize: Style.fontSizeXS
+      iconSize: Style.fontSizeS
+      outlined: true
       onClicked: {
         Quickshell.execDetached(["xdg-open", "https://ko-fi.com/lysec"]);
         ToastService.showNotice(I18n.tr("settings.about.support"), I18n.tr("toast.kofi.opened"));
@@ -304,7 +288,7 @@ ColumnLayout {
         width: Math.max(Math.round(topContributorsFlow.width / 2 - Style.marginM - 1), Math.round(Style.baseWidgetSize * 4))
         height: Math.round(Style.baseWidgetSize * 2.3)
         radius: Style.radiusM
-        color: contributorArea.containsMouse ? Color.mHover : Color.transparent
+        color: contributorArea.containsMouse ? Color.mHover : "transparent"
         border.width: 1
         border.color: contributorArea.containsMouse ? Color.mPrimary : Color.mOutline
 
@@ -382,7 +366,7 @@ ColumnLayout {
             Rectangle {
               visible: wrapper.isRounded
               anchors.fill: parent
-              color: Color.transparent
+              color: "transparent"
               radius: width * 0.5
               border.width: Style.borderM
               border.color: Color.mPrimary
@@ -468,7 +452,7 @@ ColumnLayout {
         width: nameText.implicitWidth + Style.marginM * 2
         height: nameText.implicitHeight + Style.marginS * 2
         radius: Style.radiusS
-        color: nameArea.containsMouse ? Color.mHover : Color.transparent
+        color: nameArea.containsMouse ? Color.mHover : "transparent"
         border.width: Style.borderS
         border.color: nameArea.containsMouse ? Color.mPrimary : Color.mOutline
 

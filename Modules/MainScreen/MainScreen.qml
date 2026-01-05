@@ -19,6 +19,7 @@ import qs.Modules.Panels.Clock
 import qs.Modules.Panels.ControlCenter
 import qs.Modules.Panels.MediaPanel
 import qs.Modules.Panels.Launcher
+import qs.Modules.Panels.Network
 import qs.Modules.Panels.NotificationHistory
 import qs.Modules.Panels.Plugins
 import qs.Modules.Panels.SessionMenu
@@ -27,7 +28,6 @@ import qs.Modules.Panels.SetupWizard
 import qs.Modules.Panels.SystemStats
 import qs.Modules.Panels.Tray
 import qs.Modules.Panels.Wallpaper
-import qs.Modules.Panels.WiFi
 import qs.Services.Compositor
 import qs.Services.UI
 
@@ -82,7 +82,7 @@ PanelWindow {
     if (dimmerOpacity > 0 && isPanelOpen && !isPanelClosing) {
       return Qt.alpha(Color.mShadow, dimmerOpacity);
     }
-    return Color.transparent;
+    return "transparent";
   }
 
   Behavior on color {
@@ -281,9 +281,9 @@ PanelWindow {
       screen: root.screen
     }
 
-    WiFiPanel {
-      id: wifiPanel
-      objectName: "wifiPanel-" + (root.screen?.name || "unknown")
+    NetworkPanel {
+      id: networkPanel
+      objectName: "networkPanel-" + (root.screen?.name || "unknown")
       screen: root.screen
     }
 

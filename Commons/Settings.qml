@@ -284,6 +284,7 @@ Singleton {
       property int shadowOffsetY: 3
       property string language: ""
       property bool allowPanelsOnScreenWithoutBar: true
+      property bool showChangelogOnStartup: true
     }
 
     // ui
@@ -296,6 +297,13 @@ Singleton {
       property real panelBackgroundOpacity: 0.93
       property bool panelsAttachedToBar: true
       property string settingsPanelMode: "attached" // "centered", "attached", "window"
+      // Details view mode persistence for panels
+      property string wifiDetailsViewMode: "grid"   // "grid" or "list"
+      property string bluetoothDetailsViewMode: "grid" // "grid" or "list"
+      // Persist the last-opened view for the unified network panel: "wifi" | "ethernet"
+      property string networkPanelView: "wifi"
+      // Bluetooth available devices list: hide items without a name
+      property bool bluetoothHideUnnamedDevices: false
       property bool boxBorderEnabled: false
     }
 
@@ -387,6 +395,7 @@ Singleton {
     // applauncher
     property JsonObject appLauncher: JsonObject {
       property bool enableClipboardHistory: false
+      property bool autoPasteClipboard: false
       property bool enableClipPreview: true
       // Position: center, top_left, top_right, bottom_left, bottom_right, bottom_center, top_center
       property string position: "center"
@@ -415,7 +424,7 @@ Singleton {
       shortcuts: JsonObject {
         property list<var> left: [
           {
-            "id": "WiFi"
+            "id": "Network"
           },
           {
             "id": "Bluetooth"
@@ -655,6 +664,7 @@ Singleton {
       property bool mango: false
       property bool zed: false
       property bool helix: false
+      property bool zenBrowser: false
       property bool enableUserTemplates: false
     }
 

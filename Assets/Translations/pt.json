@@ -577,7 +577,8 @@
     "panel": {
       "buttons": {
         "discord": "Entre no nosso Discord",
-        "dismiss": "Ok"
+        "dismiss": "Ok",
+        "feedback": "Dar feedback"
       },
       "empty": "As notas da versão ainda não estão disponíveis.",
       "highlight-title": "Destaques",
@@ -680,6 +681,7 @@
       "webbrowser": "Navegador web"
     },
     "delete": "Apagar",
+    "no-results": "Nenhum resultado encontrado.",
     "pin": "Fixar",
     "providers": {
       "applications": "Aplicativos",
@@ -705,6 +707,7 @@
       "emoji": "Seletor de emojis",
       "emoji-loading": "Carregando emojis...",
       "emoji-loading-description": "Por favor, aguarde",
+      "emoji-no-recent": "Ainda não há emojis recentes.",
       "emoji-search-description": "Buscar e copiar emojis"
     },
     "unpin": "Desafixar"
@@ -989,6 +992,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Ver histórico de alterações",
       "contributors": {
         "section": {
           "description": "Agradecimentos ao nosso <b>incrível</b> colaborador!",
@@ -1180,16 +1184,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Deriva cores que correspondem de perto à imagem subjacente.",
-            "scheme-expressive": "Paleta vibrante com saturação divertida.",
-            "scheme-fidelity": "Paleta de alta fidelidade que preserva as tonalidades originais.",
-            "scheme-fruit-salad": "Mistura colorida de detalhes contrastantes e vibrantes.",
-            "scheme-monochrome": "Paleta minimalista construída em torno de uma única tonalidade.",
-            "scheme-neutral": "Paleta de cores neutras com tons suaves e calmantes.",
-            "scheme-rainbow": "Paleta diversificada abrangendo todo o espectro.",
-            "scheme-tonal-spot": "Paleta equilibrada com toques focais."
-          },
+          "description": "Escolha o método de geração de esquema de cores que o Matugen usará para criar cores a partir do seu papel de parede.",
           "label": "Tipo de esquema Matugen"
         },
         "section": {
@@ -1323,6 +1318,9 @@
           },
           "zed": {
             "description": "Escrever {filepath} e recarregar"
+          },
+          "zen-browser": {
+            "description": "Escreva em {filepath}; copie para o chrome/userChrome.css do seu perfil Zen."
           }
         },
         "section": {
@@ -1846,6 +1844,10 @@
           "label": "Ferramenta de anotação",
           "placeholder": "gradia, satty -f -"
         },
+        "auto-paste": {
+          "description": "Colar automaticamente o item selecionado da área de transferência. Requer wtype.",
+          "label": "Colar automaticamente"
+        },
         "clip-preview": {
           "description": "Mostra uma pré-visualização do conteúdo da área de transferência ao usar o comando >clip.",
           "label": "Ativar pré-visualização da área de transferência"
@@ -2260,6 +2262,7 @@
       "hot-reloaded": "Plugin recarregado: {name}",
       "install": "Instalar",
       "install-error": "Falha ao instalar: {error}",
+      "install-incompatible": "{plugin} requer Noctalia v{version} ou superior",
       "install-success": "{plugin} instalado com sucesso.",
       "installed": {
         "description": "Gerenciar e configurar todos os plugins instalados localmente.",
@@ -2317,6 +2320,7 @@
       "update-available_plural": "{count} atualizações de plugin disponíveis",
       "update-error": "Falha ao atualizar o plugin: {plugin}: {error}",
       "update-incompatible": "Requer Noctalia v{version} ou superior",
+      "update-pending": "v{atual} → v{novo} (requer Noctalia v{requerida})",
       "update-success": "{plugin} atualizado para a versão {version}",
       "update-version": "v{atual} → v{novo}",
       "updating": "Atualizando..."
@@ -2896,6 +2900,7 @@
     "list-view": "Visualização em lista",
     "manage-vpn": "Conexões VPN",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Número máximo de widgets atingido.",
     "microphone-volume-at": "Volume do microfone: {volume}%",
     "move-to-center-section": "Seção central",
     "move-to-left-section": "Seção esquerda",
@@ -2958,6 +2963,7 @@
       "apikey": {
         "help": "É necessária uma chave de API para acessar conteúdo NSFW.",
         "label": "Chave de API",
+        "managed-by-env": "Gerenciado através da variável de ambiente NOCTALIA_WALLHAVEN_API_KEY.",
         "placeholder": "Insira sua chave da API Wallhaven"
       },
       "apply-all-monitors": {
@@ -3046,6 +3052,11 @@
     "thunderstorm": "Tempestade",
     "unknown": "Desconhecido"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Selecione um arquivo"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Aplicar",
@@ -3130,11 +3141,13 @@
   "wifi": {
     "panel": {
       "action-required": "Ação Requerida",
+      "available-interfaces": "Interfaces disponíveis",
       "available-networks": "Redes Disponíveis",
       "connect": "Conectar",
       "connected": "Conectado",
       "disabled": "O Wi-Fi está desativado",
       "disconnect": "Desconectar",
+      "disconnected": "Desconectado(a)",
       "disconnecting": "Desconectando...",
       "dns": "DNS",
       "enable-message": "Ative o Wi-Fi para ver as redes disponíveis.",
@@ -3145,12 +3158,15 @@
       "frequency": "Frequência",
       "gateway": "Porta de entrada",
       "info": "Informação",
+      "interface": "Interface de rede",
       "internet": "Internet",
       "internet-connected": "Conectado à internet",
       "internet-limited": "Sem internet",
+      "internet-status": "Status da internet",
       "ipv4": "IPv4",
       "known-networks": "Redes Conhecidas",
       "link-speed": "Velocidade de ligação",
+      "no-ethernet-devices": "Nenhum dispositivo Ethernet detectado.",
       "no-networks": "Nenhuma rede encontrada",
       "password": "Senha",
       "saved": "Salva",

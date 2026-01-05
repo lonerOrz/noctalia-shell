@@ -560,7 +560,8 @@
     "panel": {
       "buttons": {
         "discord": "Têkeve Discorda me",
-        "dismiss": "Baş e"
+        "dismiss": "Baş e",
+        "feedback": "Nerînan bide"
       },
       "empty": "Nîşeyên weşanê hîn ne pêkan in.",
       "highlight-title": "Berbiroj",
@@ -663,6 +664,7 @@
       "webbrowser": "Geroka tevnê"
     },
     "delete": "Jê bibe",
+    "no-results": "Ti encamek nehat dîtin",
     "pin": "Bi dar bixe",
     "providers": {
       "applications": "Serlêdan",
@@ -688,6 +690,7 @@
       "emoji": "Hilbijêrê îmojî",
       "emoji-loading": "Îmojî tên barkriin...",
       "emoji-loading-description": "Tika raweste",
+      "emoji-no-recent": "Hîna emojiyên dawî tune ne",
       "emoji-search-description": "Lêgerîn û kopîkirina emojiyan"
     },
     "unpin": "Bi dar nexe"
@@ -972,6 +975,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Dîroka guhertinan bibîne",
       "contributors": {
         "section": {
           "description": "Silav ji {count} beşkdarên me yên <b>gewre</b> re!",
@@ -1163,16 +1167,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Rengên ku bi nêzîkî wêneya bingehîn re têkildar in, derdixe.",
-            "scheme-expressive": "Paletekî geş bi têrbûna lîstikvan.",
-            "scheme-fidelity": "Paletekek bi dilsoziya bilind ku rengên çavkaniyê diparêze.",
-            "scheme-fruit-salad": "Tevlîheviyek rengîn a devokên geş ên dijber.",
-            "scheme-monochrome": "Paletekî mînîmal ku li dora rengê bingehîn hatiye avakirin.",
-            "scheme-neutral": "Paletekî bêdeng bi rengên nerm û aram.",
-            "scheme-rainbow": "ڕەنگدانەوەی جۆراوجۆر کە تەواوی ڕەنگەکان دەگرێتەوە.",
-            "scheme-tonal-spot": "Paletekî hevseng bi tekezên fokus."
-          },
+          "description": "Rêbazê hilberîna şema rengan hilbijêre ku Matugen dê bikar bîne da ku rengan ji dîwarê te biafirîne.",
           "label": "Şêweya şemaya Matugen"
         },
         "section": {
@@ -1306,6 +1301,9 @@
           },
           "zed": {
             "description": "Write {filepath} and reload."
+          },
+          "zen-browser": {
+            "description": "{filepath} binivîse; kopî bike nav chrome/userChrome.css ya profîla xwe ya Zen."
           }
         },
         "section": {
@@ -1829,6 +1827,10 @@
           "label": "Amûra şîrovekirinê",
           "placeholder": "Ez ji te hez dikim."
         },
+        "auto-paste": {
+          "description": "Bi otomatîkî tişta clipboardê ya hilbijartî bişîne. Wtype hewce dike.",
+          "label": "Otomatîkî bixwe ve zeliqandin"
+        },
         "clip-preview": {
           "description": "Dîmenek pêşdîtinê ya naveroka clipboardê nîşan bide dema ku emrê >clip tê bikaranîn.",
           "label": "Pêşdîtina klîpê çalak bike"
@@ -2239,6 +2241,7 @@
       "hot-reloaded": "Plugin ji nû ve hate barkirin: {name}",
       "install": "Saz bike",
       "install-error": "Sazkirin bi ser neket: {error}",
+      "install-incompatible": "{plugin} pêdivî bi Noctalia v{version} an bilindtir heye",
       "install-success": "Bi serkeftî {plugin} hate sazkirin.",
       "installed": {
         "description": "Birêvebir û hemû pêvekên ku herêmî hatine sazkirin mîheng bike.",
@@ -2296,6 +2299,7 @@
       "update-available_plural": "{count} nûkirinên pêvekê hene",
       "update-error": "ڕێ ل نوو کرنەیا پلاکینێ هاتە گرتن: {plugin}: {error}",
       "update-incompatible": "Pêdivî ye Noctalia v{version} an bilindtir",
+      "update-pending": "v{niha} → v{nu} (hewce dike Noctalia v{pêwîst})",
       "update-success": "{plugin} hate nûkirin bo v{version}.",
       "update-version": "v{niha} → v{nû}",
       "updating": "Tê rojanekirin..."
@@ -2875,6 +2879,7 @@
     "list-view": "Dîtina lîsteyê",
     "manage-vpn": "Girêdanên VPN",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Hejmara herî zêde ya widgetan hate bidestxistin",
     "microphone-volume-at": "Hêjmara mîkrofonê: {volume}%",
     "move-to-center-section": "Navenda beşê",
     "move-to-left-section": "Beşa çepê",
@@ -2937,6 +2942,7 @@
       "apikey": {
         "help": "Pêdivî bi kilîta API heye ji bo gihîştina naveroka NSFW.",
         "label": "Kilîta API",
+        "managed-by-env": "Bi rêya guherbara hawîrdorê ya NOCTALIA_WALLHAVEN_API_KEY tê birêvebirin.",
         "placeholder": "API Key-a Wallhavenê xwe binivîse"
       },
       "apply-all-monitors": {
@@ -3025,6 +3031,11 @@
     "thunderstorm": "Bahoza bruskî",
     "unknown": "Nenas e"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Pelê hilbijêre"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Bisepîne",
@@ -3109,11 +3120,13 @@
   "wifi": {
     "panel": {
       "action-required": "Çalakî pêwîst e",
+      "available-interfaces": "Navên berdest",
       "available-networks": "Torên heyî",
       "connect": "Girê bide",
       "connected": "Girdayî",
       "disabled": "Wi‑Fi neçalak e",
       "disconnect": "Girêdanê qut bike",
+      "disconnected": "Qutbûyî",
       "disconnecting": "Tê qutkirin…",
       "dns": "DNS",
       "enable-message": "Wi‑Fi çalak bike da ku torên heyî bibîne.",
@@ -3124,12 +3137,15 @@
       "frequency": "Frekans",
       "gateway": "Dergeh",
       "info": "Zanyarî",
+      "interface": "Dîmendera torê",
       "internet": "Înternet",
       "internet-connected": "Înternet hat girêdan",
       "internet-limited": "Înternet tune ye",
+      "internet-status": "Rewşa Înternetê",
       "ipv4": "IPv4",
       "known-networks": "Torên nas",
       "link-speed": "Lêza girêdanê",
+      "no-ethernet-devices": "Amûrên Ethernetê nehatin dîtin",
       "no-networks": "Torên Wi‑Fi nehatin dîtin",
       "password": "Borînpeyv",
       "saved": "Hat tomarkirin",

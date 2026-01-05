@@ -577,7 +577,8 @@
     "panel": {
       "buttons": {
         "discord": "Присоединиться к нашему Discord",
-        "dismiss": "Ок"
+        "dismiss": "Ок",
+        "feedback": "Оставьте отзыв"
       },
       "empty": "Примечания к выпуску пока недоступны.",
       "highlight-title": "Основные изменения",
@@ -680,6 +681,7 @@
       "webbrowser": "Веб-браузер"
     },
     "delete": "Удалить",
+    "no-results": "Ничего не найдено.",
     "pin": "Закрепить",
     "providers": {
       "applications": "Приложения",
@@ -705,6 +707,7 @@
       "emoji": "Выбор эмодзи",
       "emoji-loading": "Загрузка эмодзи...",
       "emoji-loading-description": "Пожалуйста, подождите",
+      "emoji-no-recent": "Недавних эмодзи пока нет.",
       "emoji-search-description": "Поиск и копирование эмодзи"
     },
     "unpin": "Открепить"
@@ -989,6 +992,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Посмотреть список изменений",
       "contributors": {
         "section": {
           "description": "Благодарим нашего <b>замечательного</b> участника: {count}!",
@@ -1180,16 +1184,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Выводит цвета, которые максимально соответствуют основному изображению.",
-            "scheme-expressive": "Яркая палитра с игривой насыщенностью.",
-            "scheme-fidelity": "Палитра высокой точности, сохраняющая исходные оттенки.",
-            "scheme-fruit-salad": "Красочное сочетание ярких контрастных акцентов.",
-            "scheme-monochrome": "Минимальная палитра, построенная вокруг одного оттенка.",
-            "scheme-neutral": "Приглушенная палитра сдержанных и успокаивающих тонов.",
-            "scheme-rainbow": "Разнообразная палитра, охватывающая весь спектр.",
-            "scheme-tonal-spot": "Сбалансированная палитра с сфокусированными акцентами."
-          },
+          "description": "Выберите метод генерации цветовой схемы, который Matugen будет использовать для создания цветов из ваших обоев.",
           "label": "Тип схемы Matugen"
         },
         "section": {
@@ -1323,6 +1318,9 @@
           },
           "zed": {
             "description": "Записать {filepath} и перезагрузить"
+          },
+          "zen-browser": {
+            "description": "Запишите в {filepath}; скопируйте в chrome/userChrome.css вашего профиля Zen."
           }
         },
         "section": {
@@ -1846,6 +1844,10 @@
           "label": "Инструмент аннотирования",
           "placeholder": "градия, сатти -ф -"
         },
+        "auto-paste": {
+          "description": "Автоматически вставить выбранный элемент из буфера обмена. Требуется wtype.",
+          "label": "Автоматическая вставка"
+        },
         "clip-preview": {
           "description": "Показывать предварительный просмотр содержимого буфера обмена при использовании команды >clip.",
           "label": "Включить предварительный просмотр буфера обмена"
@@ -2260,6 +2262,7 @@
       "hot-reloaded": "Перезагружен плагин: {name}",
       "install": "Установить",
       "install-error": "Не удалось установить: {error}",
+      "install-incompatible": "{plugin} требует Noctalia версии {version} или выше.",
       "install-success": "Успешно установлен {plugin}",
       "installed": {
         "description": "Управляйте и настраивайте все локально установленные плагины.",
@@ -2317,6 +2320,7 @@
       "update-available_plural": "Доступно {count} обновлений плагинов",
       "update-error": "Не удалось обновить плагин: {plugin}: {error}",
       "update-incompatible": "Требуется Noctalia v{version} или выше",
+      "update-pending": "v{current} → v{new} (требуется Noctalia v{required})",
       "update-success": "Плагин {plugin} обновлён до версии {version}",
       "update-version": "v{текущее} → v{новое}",
       "updating": "Обновление..."
@@ -2896,6 +2900,7 @@
     "list-view": "Вид списком",
     "manage-vpn": "VPN-подключения",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Достигнуто максимальное количество виджетов.",
     "microphone-volume-at": "Громкость микрофона: {volume}%",
     "move-to-center-section": "Центральная секция",
     "move-to-left-section": "Левая секция",
@@ -2958,6 +2963,7 @@
       "apikey": {
         "help": "Для доступа к контенту NSFW требуется ключ API.",
         "label": "Ключ API",
+        "managed-by-env": "Управляется через переменную окружения NOCTALIA_WALLHAVEN_API_KEY.",
         "placeholder": "Введите свой API-ключ Wallhaven"
       },
       "apply-all-monitors": {
@@ -3046,6 +3052,11 @@
     "thunderstorm": "Гроза",
     "unknown": "Неизвестно"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Выберите файл"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Применить",
@@ -3130,11 +3141,13 @@
   "wifi": {
     "panel": {
       "action-required": "Требуется действие",
+      "available-interfaces": "Доступные интерфейсы",
       "available-networks": "Доступные сети",
       "connect": "Подключить",
       "connected": "Подключено",
       "disabled": "Wi-Fi отключен",
       "disconnect": "Отключить",
+      "disconnected": "Отключено",
       "disconnecting": "Отключение...",
       "dns": "DNS",
       "enable-message": "Включите Wi-Fi, чтобы увидеть доступные сети.",
@@ -3145,12 +3158,15 @@
       "frequency": "Частота",
       "gateway": "Шлюз",
       "info": "Информация",
+      "interface": "Сетевой интерфейс",
       "internet": "Интернет",
       "internet-connected": "Подключено к интернету",
       "internet-limited": "Нет интернета",
+      "internet-status": "Статус подключения к интернету",
       "ipv4": "IPv4",
       "known-networks": "Известные сети",
       "link-speed": "Скорость соединения",
+      "no-ethernet-devices": "Ethernet-устройства не обнаружены",
       "no-networks": "Сети не найдены",
       "password": "Пароль",
       "saved": "Сохранено",

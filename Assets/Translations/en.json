@@ -560,7 +560,8 @@
     "panel": {
       "buttons": {
         "discord": "Join our Discord",
-        "dismiss": "Ok"
+        "dismiss": "Ok",
+        "feedback": "Give feedback"
       },
       "empty": "Release notes are not available yet.",
       "highlight-title": "Highlights",
@@ -661,6 +662,7 @@
       "webbrowser": "Web Browser"
     },
     "delete": "Delete",
+    "no-results": "No results found",
     "pin": "Pin",
     "providers": {
       "applications": "Applications",
@@ -686,6 +688,7 @@
       "emoji": "Emoji picker",
       "emoji-loading": "Loading emojis...",
       "emoji-loading-description": "Please wait",
+      "emoji-no-recent": "No recent emojis yet",
       "emoji-search-description": "Search and copy emojis"
     },
     "unpin": "Unpin"
@@ -974,6 +977,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "View changelog",
       "contributors": {
         "section": {
           "description": "Shout-out to our {count} <b>awesome</b> contributor!",
@@ -1165,16 +1169,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Derives colors that closely match the underlying image.",
-            "scheme-expressive": "Vibrant palette with playful saturation.",
-            "scheme-fidelity": "High-fidelity palette that preserves source hues.",
-            "scheme-fruit-salad": "Colorful mix of bright contrasting accents.",
-            "scheme-monochrome": "Minimal palette built around a single hue.",
-            "scheme-neutral": "Muted palette with subdued and calming tones.",
-            "scheme-rainbow": "Diverse palette spanning the full spectrum.",
-            "scheme-tonal-spot": "Balanced palette with focused accents."
-          },
+          "description": "Choose the color scheme generation method that Matugen will use to create colors from your wallpaper.",
           "label": "Matugen scheme type"
         },
         "section": {
@@ -1308,6 +1303,9 @@
           },
           "zed": {
             "description": "Write {filepath} and reload"
+          },
+          "zen-browser": {
+            "description": "Write {filepath}; copy into your Zen profile's chrome/userChrome.css"
           }
         },
         "section": {
@@ -1940,6 +1938,10 @@
           "label": "Annotation tool",
           "placeholder": "e.g. 'gradia', 'satty -f -'"
         },
+        "auto-paste": {
+          "description": "Automatically paste the selected clipboard item. Requires wtype.",
+          "label": "Auto paste"
+        },
         "clip-preview": {
           "description": "Show a preview of the clipboard content when using the >clip command.",
           "label": "Enable clip preview"
@@ -2358,6 +2360,7 @@
       "hot-reloaded": "Reloaded plugin: {name}",
       "install": "Install",
       "install-error": "Failed to install: {error}",
+      "install-incompatible": "{plugin} requires Noctalia v{version} or higher",
       "install-success": "Successfully installed {plugin}",
       "installed": {
         "description": "Manage and configure all locally installed plugins.",
@@ -2415,6 +2418,7 @@
       "update-available_plural": "New plugin updates available ({count})",
       "update-error": "Failed to update plugin: {plugin}: {error}",
       "update-incompatible": "Requires Noctalia v{version} or higher",
+      "update-pending": "v{current} → v{new} (requires Noctalia v{required})",
       "update-success": "Updated {plugin} to v{version}",
       "update-version": "v{current} → v{new}",
       "updating": "Updating..."
@@ -2950,7 +2954,7 @@
     "wallpaper-colors": {
       "disabled": "Wallpaper colors disabled.",
       "enabled": "Wallpaper colors enabled.",
-      "label": "Wallpaper colors generation",
+      "label": "Wallpaper colors",
       "not-installed": "Matugen not installed — required for wallpaper color extraction."
     },
     "wifi": {
@@ -2994,6 +2998,7 @@
     "list-view": "List view",
     "manage-vpn": "VPN connections",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Maximum widgets reached",
     "microphone-volume-at": "Microphone volume: {volume}%",
     "move-to-center-section": "Center section",
     "move-to-left-section": "Left section",
@@ -3145,6 +3150,11 @@
     "thunderstorm": "Thunderstorm",
     "unknown": "Unknown"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Select a file"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Apply",
@@ -3229,11 +3239,13 @@
   "wifi": {
     "panel": {
       "action-required": "Action required",
+      "available-interfaces": "Available interfaces",
       "available-networks": "Available networks",
       "connect": "Connect",
       "connected": "Connected",
       "disabled": "Wi‑Fi is disabled",
       "disconnect": "Disconnect",
+      "disconnected": "Disconnected",
       "disconnecting": "Disconnecting…",
       "dns": "DNS",
       "enable-message": "Enable Wi‑Fi to see available networks.",
@@ -3244,12 +3256,15 @@
       "frequency": "Frequency",
       "gateway": "Gateway",
       "info": "Info",
+      "interface": "Network interface",
       "internet": "Internet",
       "internet-connected": "Internet connected",
       "internet-limited": "No internet",
+      "internet-status": "Internet status",
       "ipv4": "IPv4",
       "known-networks": "Known networks",
       "link-speed": "Link speed",
+      "no-ethernet-devices": "No Ethernet devices detected",
       "no-networks": "No Wi‑Fi networks found",
       "password": "Password",
       "saved": "Saved",

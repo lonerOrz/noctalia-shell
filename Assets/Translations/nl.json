@@ -577,7 +577,8 @@
     "panel": {
       "buttons": {
         "discord": "Word lid van onze Discord",
-        "dismiss": "Ok"
+        "dismiss": "Ok",
+        "feedback": "Geef feedback"
       },
       "empty": "Er zijn nog geen release-opmerkingen beschikbaar.",
       "highlight-title": "Hoogtepunten",
@@ -680,6 +681,7 @@
       "webbrowser": "Webbrowser"
     },
     "delete": "Verwijderen",
+    "no-results": "Geen resultaten gevonden.",
     "pin": "Vastmaken",
     "providers": {
       "applications": "Applicaties",
@@ -705,6 +707,7 @@
       "emoji": "Emoji-kiezer",
       "emoji-loading": "Emoji's laden...",
       "emoji-loading-description": "Even geduld",
+      "emoji-no-recent": "Nog geen recente emoji's.",
       "emoji-search-description": "Zoek en kopieer emoji's"
     },
     "unpin": "Losmaken"
@@ -989,6 +992,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Bekijk wijzigingslogboek",
       "contributors": {
         "section": {
           "description": "Een shout-out naar onze {count} <b>geweldige</b> bijdrager!",
@@ -1180,16 +1184,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Leidt kleuren af die nauw aansluiten bij de onderliggende afbeelding.",
-            "scheme-expressive": "Levendig palet met speelse verzadiging.",
-            "scheme-fidelity": "Palet met hoge getrouwheid dat brontinten behoudt.",
-            "scheme-fruit-salad": "Kleurrijke mix van heldere contrasterende accenten.",
-            "scheme-monochrome": "Minimaal palet rond één enkele tint.",
-            "scheme-neutral": "Gedempt palet met rustige, verzachte tonen.",
-            "scheme-rainbow": "Gevarieerd palet dat het volledige spectrum bestrijkt.",
-            "scheme-tonal-spot": "Gebalanceerd palet met gefocuste accenten."
-          },
+          "description": "Kies de methode voor het genereren van kleurenschema's die Matugen zal gebruiken om kleuren te maken van je achtergrond.",
           "label": "Matugen-schema type"
         },
         "section": {
@@ -1323,6 +1318,9 @@
           },
           "zed": {
             "description": "Schrijf {filepath} en herlaad"
+          },
+          "zen-browser": {
+            "description": "Schrijf {filepath}; kopieer naar het chrome/userChrome.css bestand van je Zen profiel."
           }
         },
         "section": {
@@ -1846,6 +1844,10 @@
           "label": "Annotatietool",
           "placeholder": "e.g. 'gradia', 'satty -f -'"
         },
+        "auto-paste": {
+          "description": "Plak automatisch het geselecteerde klemborditem. Vereist wtype.",
+          "label": "Automatisch plakken"
+        },
         "clip-preview": {
           "description": "Toon een voorbeeld van de inhoud van het klembord bij gebruik van het >clip-commando.",
           "label": "Klembordvoorbeeld inschakelen"
@@ -2260,6 +2262,7 @@
       "hot-reloaded": "Plugin opnieuw geladen: {name}",
       "install": "Installeren",
       "install-error": "Installatie mislukt: {error}",
+      "install-incompatible": "{plugin} vereist Noctalia v{version} of hoger",
       "install-success": "{plugin} succesvol geïnstalleerd",
       "installed": {
         "description": "Beheer en configureer alle lokaal geïnstalleerde plugins.",
@@ -2317,6 +2320,7 @@
       "update-available_plural": "{count} plugin updates beschikbaar",
       "update-error": "Plugin bijwerken mislukt: {plugin}: {error}",
       "update-incompatible": "Vereist Noctalia v{version} of hoger",
+      "update-pending": "v{current} → v{new} (vereist Noctalia v{required})",
       "update-success": "{plugin} is bijgewerkt naar v{version}",
       "update-version": "v{huidig} → v{nieuw}",
       "updating": "Bezig met updaten..."
@@ -2896,6 +2900,7 @@
     "list-view": "Lijstweergave",
     "manage-vpn": "VPN-verbindingen",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Maximum aantal widgets bereikt.",
     "microphone-volume-at": "Microfoonvolume: {volume}%",
     "move-to-center-section": "Middelste sectie",
     "move-to-left-section": "Linker sectie",
@@ -2958,6 +2963,7 @@
       "apikey": {
         "help": "Een API-sleutel is vereist om toegang te krijgen tot NSFW-content.",
         "label": "API-sleutel",
+        "managed-by-env": "Beheerd via de NOCTALIA_WALLHAVEN_API_KEY omgevingsvariabele.",
         "placeholder": "Voer uw Wallhaven API-sleutel in"
       },
       "apply-all-monitors": {
@@ -3046,6 +3052,11 @@
     "thunderstorm": "Onweer",
     "unknown": "Onbekend"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Selecteer een bestand"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Toepassen",
@@ -3130,11 +3141,13 @@
   "wifi": {
     "panel": {
       "action-required": "Actie vereist",
+      "available-interfaces": "Beschikbare interfaces",
       "available-networks": "Beschikbare netwerken",
       "connect": "Verbinden",
       "connected": "Verbonden",
       "disabled": "Wi-Fi is uitgeschakeld",
       "disconnect": "Verbreken",
+      "disconnected": "Verbinding verbroken",
       "disconnecting": "Verbreken...",
       "dns": "DNS",
       "enable-message": "Schakel Wi-Fi in om beschikbare netwerken te zien.",
@@ -3145,12 +3158,15 @@
       "frequency": "Frequentie",
       "gateway": "Poort",
       "info": "Info",
+      "interface": "Netwerkinterface",
       "internet": "Internet",
       "internet-connected": "Verbonden met internet",
       "internet-limited": "Geen internet",
+      "internet-status": "Internetstatus",
       "ipv4": "IPv4",
       "known-networks": "Bekende netwerken",
       "link-speed": "Link snelheid",
+      "no-ethernet-devices": "Geen Ethernet-apparaten gedetecteerd",
       "no-networks": "Geen netwerken gevonden",
       "password": "Wachtwoord",
       "saved": "Opgeslagen",

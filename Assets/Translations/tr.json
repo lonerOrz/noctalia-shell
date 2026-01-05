@@ -577,7 +577,8 @@
     "panel": {
       "buttons": {
         "discord": "Discord sunucumuza katıl",
-        "dismiss": "Tamam"
+        "dismiss": "Tamam",
+        "feedback": "Geri bildirim verin"
       },
       "empty": "Sürüm notları henüz hazır değil.",
       "highlight-title": "Öne çıkanlar",
@@ -680,6 +681,7 @@
       "webbrowser": "Tarayıcı"
     },
     "delete": "Sil",
+    "no-results": "Sonuç bulunamadı",
     "pin": "Sabitle",
     "providers": {
       "applications": "Uygulamalar",
@@ -705,6 +707,7 @@
       "emoji": "Emoji seçici",
       "emoji-loading": "Emojiler yükleniyor...",
       "emoji-loading-description": "Lütfen bekleyin",
+      "emoji-no-recent": "Henüz yeni emoji yok",
       "emoji-search-description": "Emoji arama ve kopyalama"
     },
     "unpin": "Sabitlemeyi kaldır"
@@ -989,6 +992,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Değişiklik günlüğünü görüntüle",
       "contributors": {
         "section": {
           "description": "{count} <b>harika</b> katılımcımıza <b>teşekkürler</b>!",
@@ -1180,16 +1184,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Temel görüntüye yakın renkler türetir.",
-            "scheme-expressive": "Oyuncak doygunlukla canlı palet.",
-            "scheme-fidelity": "Kaynak tonlarını koruyan yüksek sadakatli palet.",
-            "scheme-fruit-salad": "Canlı kontrast aksanların renkli karışımı.",
-            "scheme-monochrome": "Tek bir ton etrafında inşa edilmiş minimal palet.",
-            "scheme-neutral": "Sakinleştirici ve bastırılmış tonlarla yumuşak palet.",
-            "scheme-rainbow": "Tam spektrumu kapsayan çeşitli palet.",
-            "scheme-tonal-spot": "Odaklanmış aksanlarla dengeli palet."
-          },
+          "description": "Matugen'in duvar kağıdınızdan renkler oluşturmak için kullanacağı renk şeması oluşturma yöntemini seçin.",
           "label": "Matugen şema türü"
         },
         "section": {
@@ -1323,6 +1318,9 @@
           },
           "zed": {
             "description": "{filepath} dosyasına yaz ve yeniden yükle"
+          },
+          "zen-browser": {
+            "description": "{dosya yolu} yazın; Zen profilinizin chrome/userChrome.css dosyasına kopyalayın."
           }
         },
         "section": {
@@ -1846,6 +1844,10 @@
           "label": "Açıklama aracı",
           "placeholder": "gradia, satty -f -"
         },
+        "auto-paste": {
+          "description": "Seçili panodaki öğeyi otomatik olarak yapıştır. Wtype gerektirir.",
+          "label": "Otomatik yapıştırma"
+        },
         "clip-preview": {
           "description": ">clip komutu kullanılırken panodaki içeriğin önizlemesini gösterir.",
           "label": "Panoyu önizlemeyi etkinleştir"
@@ -2260,6 +2262,7 @@
       "hot-reloaded": "Yeniden yüklenen eklenti: {name}",
       "install": "Yükle",
       "install-error": "Yükleme başarısız oldu: {error}",
+      "install-incompatible": "{plugin} Noctalia v{version} veya daha üstünü gerektiriyor.",
       "install-success": "{plugin} başarıyla kuruldu",
       "installed": {
         "description": "Yerel olarak yüklenmiş tüm eklentileri yönetin ve yapılandırın.",
@@ -2317,6 +2320,7 @@
       "update-available_plural": "{count} eklenti güncellemesi mevcut",
       "update-error": "Eklenti güncellenemedi: {plugin}: {error}",
       "update-incompatible": "Noctalia v{version} veya üzeri gerektirir.",
+      "update-pending": "v{mevcut} → v{yeni} (Noctalia v{gerekli} gerektirir)",
       "update-success": "{plugin} v{version} sürümüne güncellendi",
       "update-version": "v{mevcut} → v{yeni}",
       "updating": "Güncelleniyor..."
@@ -2896,6 +2900,7 @@
     "list-view": "Liste görünümü",
     "manage-vpn": "VPN bağlantıları",
     "manage-wifi": "Kablosuz Bağlantı",
+    "max-widgets-reached": "Maksimum araç sayısına ulaşıldı.",
     "microphone-volume-at": "Mikrofon sesi: %{volume}",
     "move-to-center-section": "Orta bölüm",
     "move-to-left-section": "Sol bölüm",
@@ -2958,6 +2963,7 @@
       "apikey": {
         "help": "NSFW içeriğe erişmek için bir API anahtarı gereklidir.",
         "label": "API Anahtarı",
+        "managed-by-env": "NOCTALIA_WALLHAVEN_API_KEY ortam değişkeni aracılığıyla yönetilir.",
         "placeholder": "Wallhaven API Anahtarınızı girin"
       },
       "apply-all-monitors": {
@@ -3046,6 +3052,11 @@
     "thunderstorm": "Fırtına",
     "unknown": "Bilinmiyor"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Bir dosya seçin"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Uygula",
@@ -3130,11 +3141,13 @@
   "wifi": {
     "panel": {
       "action-required": "Eylem gerekiyor",
+      "available-interfaces": "Kullanılabilir arayüzler",
       "available-networks": "Kullanılabilir Ağlar",
       "connect": "Bağlan",
       "connected": "Bağlı",
       "disabled": "Kablosuz Bağlantı devre dışı",
       "disconnect": "Bağlantıyı kes",
+      "disconnected": "Bağlantı kesildi",
       "disconnecting": "Bağlantı kesiliyor...",
       "dns": "DNS",
       "enable-message": "Mevcut ağları görmek için kablosuz bağlantıyı etkinleştirin.",
@@ -3145,12 +3158,15 @@
       "frequency": "Frekans",
       "gateway": "Geçit",
       "info": "Bilgi",
+      "interface": "Ağ arayüzü",
       "internet": "İnternet",
       "internet-connected": "İnternete bağlı",
       "internet-limited": "İnternet yok",
+      "internet-status": "İnternet durumu",
       "ipv4": "IPv4",
       "known-networks": "Bilinen Ağlar",
       "link-speed": "Bağlantı hızı",
+      "no-ethernet-devices": "Ethernet aygıtı algılanmadı",
       "no-networks": "Ağ bulunamadı",
       "password": "Parola",
       "saved": "Kaydedildi",

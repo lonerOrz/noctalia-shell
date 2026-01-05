@@ -129,7 +129,7 @@ NBox {
     // Border
     Rectangle {
       anchors.fill: parent
-      color: Color.transparent
+      color: "transparent"
       border.color: Style.boxBorderColor
       border.width: Style.borderS
       radius: Style.radiusM
@@ -196,8 +196,8 @@ NBox {
     anchors.rightMargin: Style.marginM
     height: Style.barHeight * 0.6
     visible: MediaService.getAvailablePlayers().length > 1
-    radius: Style.radiusXS
-    color: Color.transparent
+    radius: Style.radiusM
+    color: "transparent"
 
     property var currentPlayer: MediaService.getAvailablePlayers()[MediaService.selectedPlayerIndex]
 

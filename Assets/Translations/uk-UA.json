@@ -577,7 +577,8 @@
     "panel": {
       "buttons": {
         "discord": "Приєднатися до нашого Discord",
-        "dismiss": "Ок"
+        "dismiss": "Ок",
+        "feedback": "Надати відгук"
       },
       "empty": "Примітки до релізу ще недоступні.",
       "highlight-title": "Основні зміни",
@@ -680,6 +681,7 @@
       "webbrowser": "Веб-браузер"
     },
     "delete": "Видалити",
+    "no-results": "Результатів не знайдено",
     "pin": "Закріпити",
     "providers": {
       "applications": "Застосунки",
@@ -705,6 +707,7 @@
       "emoji": "Обрати емодзі",
       "emoji-loading": "Завантаження емодзі...",
       "emoji-loading-description": "Зачекайте, будь ласка",
+      "emoji-no-recent": "Немає нещодавніх емодзі",
       "emoji-search-description": "Пошук і копіювання емодзі"
     },
     "unpin": "Відкріпити"
@@ -989,6 +992,7 @@
   },
   "settings": {
     "about": {
+      "changelog": "Переглянути журнал змін",
       "contributors": {
         "section": {
           "description": "Подяка нашому {count} <b>чудовому</b> учаснику!",
@@ -1180,16 +1184,7 @@
     "color-scheme": {
       "color-source": {
         "matugen-scheme-type": {
-          "description": {
-            "scheme-content": "Генерує кольори, що тісно збігаються з базовим зображенням.",
-            "scheme-expressive": "Яскрава палітра з грайливою насиченістю.",
-            "scheme-fidelity": "Високоточна палітра, що зберігає вихідні відтінки.",
-            "scheme-fruit-salad": "Барвистий мікс яскравих контрастних акцентів.",
-            "scheme-monochrome": "Мінімальна палітра на основі одного відтінку.",
-            "scheme-neutral": "Приглушена палітра з стриманими та заспокійливими тонами.",
-            "scheme-rainbow": "Різноманітна палітра, що охоплює весь спектр.",
-            "scheme-tonal-spot": "Збалансована палітра з фокусованими акцентами."
-          },
+          "description": "Виберіть метод генерації колірної схеми, який Matugen використовуватиме для створення кольорів з ваших шпалер.",
           "label": "Тип схеми Matugen"
         },
         "section": {
@@ -1323,6 +1318,9 @@
           },
           "zed": {
             "description": "Записати {filepath} та перезавантажити"
+          },
+          "zen-browser": {
+            "description": "Запишіть {filepath}; скопіюйте у chrome/userChrome.css вашого профілю Zen."
           }
         },
         "section": {
@@ -1846,6 +1844,10 @@
           "label": "Інструмент анотацій",
           "placeholder": "градіа, сатті -ф -"
         },
+        "auto-paste": {
+          "description": "Автоматично вставити вибраний елемент з буфера обміну. Потребує wtype.",
+          "label": "Автоматична вставка"
+        },
         "clip-preview": {
           "description": "Показувати попередній перегляд вмісту буфера обміну при використанні команди >clip.",
           "label": "Попередній перегляд буфера обміну"
@@ -2260,6 +2262,7 @@
       "hot-reloaded": "Перезавантажено плагін: {name}",
       "install": "Встановити",
       "install-error": "Не вдалося встановити: {error}",
+      "install-incompatible": "{plugin} вимагає Noctalia v{version} або вище",
       "install-success": "Успішно встановлено {plugin}",
       "installed": {
         "description": "Керуйте та налаштовуйте всі локально встановлені плагіни.",
@@ -2317,6 +2320,7 @@
       "update-available_plural": "Доступно {count} оновлень плагінів",
       "update-error": "Не вдалося оновити плагін: {plugin}: {error}",
       "update-incompatible": "Потрібна Noctalia v{version} або вище",
+      "update-pending": "v{current} → v{new} (потрібно Noctalia v{required})",
       "update-success": "Оновлено {plugin} до версії {version}",
       "update-version": "v{current} → v{new}",
       "updating": "Оновлення..."
@@ -2896,6 +2900,7 @@
     "list-view": "Список",
     "manage-vpn": "Підключення VPN",
     "manage-wifi": "Wi-Fi",
+    "max-widgets-reached": "Досягнуто максимальної кількості віджетів",
     "microphone-volume-at": "Гучність мікрофона: {volume}%",
     "move-to-center-section": "Центральна секція",
     "move-to-left-section": "Ліва секція",
@@ -2958,6 +2963,7 @@
       "apikey": {
         "help": "Для доступу до контенту NSFW потрібен ключ API.",
         "label": "Ключ API",
+        "managed-by-env": "Керується через змінну середовища NOCTALIA_WALLHAVEN_API_KEY.",
         "placeholder": "Введіть свій API-ключ Wallhaven"
       },
       "apply-all-monitors": {
@@ -3046,6 +3052,11 @@
     "thunderstorm": "Гроза",
     "unknown": "Невідомо"
   },
+  "widget": {
+    "file-picker": {
+      "title": "Виберіть файл"
+    }
+  },
   "widgets": {
     "color-picker": {
       "apply": "Застосувати",
@@ -3130,11 +3141,13 @@
   "wifi": {
     "panel": {
       "action-required": "Вимагається дія",
+      "available-interfaces": "Доступні інтерфейси",
       "available-networks": "Доступні мережі",
       "connect": "Підключити",
       "connected": "Підключено",
       "disabled": "Wi-Fi вимкнено",
       "disconnect": "Відключити",
+      "disconnected": "Відключено",
       "disconnecting": "Відключення...",
       "dns": "DNS",
       "enable-message": "Увімкніть Wi-Fi, щоб побачити доступні мережі.",
@@ -3145,12 +3158,15 @@
       "frequency": "Частота",
       "gateway": "Шлюз",
       "info": "Інформація",
+      "interface": "Мережевий інтерфейс",
       "internet": "Інтернет",
       "internet-connected": "Підключено до Інтернету",
       "internet-limited": "Немає інтернету",
+      "internet-status": "Статус Інтернету",
       "ipv4": "IPv4",
       "known-networks": "Відомі мережі",
       "link-speed": "Швидкість з'єднання",
+      "no-ethernet-devices": "Не виявлено Ethernet-пристроїв.",
       "no-networks": "Мереж не знайдено",
       "password": "Пароль",
       "saved": "Збережено",
