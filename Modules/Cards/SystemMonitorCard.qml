@@ -147,19 +147,6 @@ NBox {
       }
     }
 
-    Item {
-      width: parent.width
-      height: parent.height / 4
-
-      NCircleStat {
-        anchors.centerIn: parent
-        ratio: SystemStatService.memPercent / 100
-        icon: "memory"
-        contentScale: root.contentScale
-        fillColor: SystemStatService.memColor
-        tooltipText: I18n.tr("common.memory") + `: ${Math.round(SystemStatService.memPercent)}%`
-      }
-    }
 
     Loader {
       id: temp

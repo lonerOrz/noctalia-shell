@@ -17,9 +17,8 @@ import qs.Modules.Panels.Brightness
 import qs.Modules.Panels.Changelog
 import qs.Modules.Panels.Clock
 import qs.Modules.Panels.ControlCenter
-import qs.Modules.Panels.MediaPanel
-import qs.Modules.Panels.Launcher
 import qs.Modules.Panels.Media
+import qs.Modules.Panels.Launcher
 import qs.Modules.Panels.Network
 import qs.Modules.Panels.NotificationHistory
 import qs.Modules.Panels.Plugins
@@ -225,13 +224,6 @@ PanelWindow {
       id: controlCenterPanel
       objectName: "controlCenterPanel-" + (root.screen?.name || "unknown")
       screen: root.screen
-    }
-
-    MediaPanel {
-      id: mediaPanel
-      objectName: "mediaPanel-" + (root.screen?.name || "unknown")
-      screen: root.screen
-      z: 50
     }
 
     ChangelogPanel {
