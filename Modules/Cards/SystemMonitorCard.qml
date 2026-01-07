@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Shapes
 import Quickshell
 import qs.Commons
 import qs.Services.System
@@ -11,11 +12,12 @@ NBox {
   width: Math.round(100 * Style.uiScaleRatio)
   height: Math.round(100 * Style.uiScaleRatio)
 
+  // Simplified scale factor for visual enhancement only
   property real scaleFactor: 1.0
 
   Behavior on scaleFactor {
     NumberAnimation {
-      duration: 400
+      duration: 200
       easing.type: Easing.InOutQuad
     }
   }
@@ -23,198 +25,300 @@ NBox {
   MouseArea {
     anchors.fill: parent
     hoverEnabled: true
-    onEntered: root.scaleFactor = 2.8
+    onEntered: root.scaleFactor = 1.03  // Subtle hover effect
     onExited: root.scaleFactor = 1.0
   }
 
   readonly property string diskPath: Settings.data.controlCenter.diskPath || "/"
-  readonly property real contentScale: 0.95 * Style.uiScaleRatio
+
+  // Data values normalized to 0-1 range - moved to root level to be accessible in Shape
+  readonly property var values: [
+    (SystemStatService?.cpuUsage !== undefined ? SystemStatService.cpuUsage / 100 : 0.5),
+    (SystemStatService?.cpuTemp !== undefined ? SystemStatService.cpuTemp / 100 : 0.3),
+    (SystemStatService?.memPercent !== undefined ? SystemStatService.memPercent / 100 : 0.7),
+    (SystemStatService?.diskPercents?.[root.diskPath] !== undefined ? SystemStatService.diskPercents[root.diskPath] / 100 : 0.2),
+    (function() {
+      if (SystemStatService?.networkActivity !== undefined) return SystemStatService.networkActivity / 100;
+      if (SystemStatService?.networkUsage !== undefined) return SystemStatService.networkUsage / 100;
+      return 0.4;
+    })(),
+    (function() {
+      if (SystemStatService?.gpuUsage !== undefined) return SystemStatService.gpuUsage / 100;
+      if (SystemStatService?.swapUsage !== undefined) return SystemStatService.swapUsage / 100;
+      return 0.6;
+    })()
+  ]
 
   Item {
     id: stage
     anchors.fill: parent
     anchors.margins: Style.marginXS
 
-    function speedFromValue(v, minSec, maxSec) {
-      const val = Math.max(0, Math.min(1, v));
-      return maxSec - val * (maxSec - minSec);
+    // Central position
+    readonly property real centerX: width / 2
+    readonly property real centerY: height / 2
+
+    // Fixed maximum radius (50% of shortest dimension, nearly filling the box)
+    readonly property real maxRadius: Math.min(width, height) * 0.50
+
+    // Function to calculate point on radar chart - along radial axes
+    function point(index, factor) {
+      // Calculate angles for the 6 radial axes (every 60 degrees: 0°, 60°, 120°, 180°, 240°, 300°)
+      const angle = (Math.PI / 3) * index; // 60 degree increments: 0, π/3, 2π/3, π, 4π/3, 5π/3
+      return Qt.point(
+        centerX + Math.cos(angle) * maxRadius * factor,
+        centerY + Math.sin(angle) * maxRadius * factor
+      );
     }
 
+    // Main shape containing all visual elements
+    Shape {
+      anchors.fill: parent
+      antialiasing: true
+
+      // Background concentric hexagons (fixed, not affected by data)
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.2)
+        fillColor: "transparent"
+
+        PathMove {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(0) * stage.maxRadius * 0.3
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI/3) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(Math.PI/3) * stage.maxRadius * 0.3
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(2*Math.PI/3) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(2*Math.PI/3) * stage.maxRadius * 0.3
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(Math.PI) * stage.maxRadius * 0.3
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(4*Math.PI/3) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(4*Math.PI/3) * stage.maxRadius * 0.3
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(5*Math.PI/3) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(5*Math.PI/3) * stage.maxRadius * 0.3
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius * 0.3
+          y: stage.centerY + Math.sin(0) * stage.maxRadius * 0.3
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.3)
+        fillColor: "transparent"
+
+        PathMove {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(0) * stage.maxRadius * 0.6
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI/3) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(Math.PI/3) * stage.maxRadius * 0.6
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(2*Math.PI/3) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(2*Math.PI/3) * stage.maxRadius * 0.6
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(Math.PI) * stage.maxRadius * 0.6
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(4*Math.PI/3) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(4*Math.PI/3) * stage.maxRadius * 0.6
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(5*Math.PI/3) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(5*Math.PI/3) * stage.maxRadius * 0.6
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius * 0.6
+          y: stage.centerY + Math.sin(0) * stage.maxRadius * 0.6
+        }
+      }
+      ShapePath {
+        strokeWidth: 1.5
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.4)
+        fillColor: "transparent"
+
+        PathMove {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius
+          y: stage.centerY + Math.sin(0) * stage.maxRadius
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(Math.PI/3) * stage.maxRadius
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(2*Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(2*Math.PI/3) * stage.maxRadius
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI) * stage.maxRadius
+          y: stage.centerY + Math.sin(Math.PI) * stage.maxRadius
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(4*Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(4*Math.PI/3) * stage.maxRadius
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(5*Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(5*Math.PI/3) * stage.maxRadius
+        }
+        PathLine {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius
+          y: stage.centerY + Math.sin(0) * stage.maxRadius
+        }
+      }
+
+      // Radial axis lines (from center to max radius) - 6 lines to each vertex
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.25)
+        fillColor: "transparent"
+
+        PathMove { x: stage.centerX; y: stage.centerY }
+        PathLine {
+          x: stage.centerX + Math.cos(0) * stage.maxRadius
+          y: stage.centerY + Math.sin(0) * stage.maxRadius
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.25)
+        fillColor: "transparent"
+
+        PathMove { x: stage.centerX; y: stage.centerY }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(Math.PI/3) * stage.maxRadius
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.25)
+        fillColor: "transparent"
+
+        PathMove { x: stage.centerX; y: stage.centerY }
+        PathLine {
+          x: stage.centerX + Math.cos(2*Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(2*Math.PI/3) * stage.maxRadius
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.25)
+        fillColor: "transparent"
+
+        PathMove { x: stage.centerX; y: stage.centerY }
+        PathLine {
+          x: stage.centerX + Math.cos(Math.PI) * stage.maxRadius
+          y: stage.centerY + Math.sin(Math.PI) * stage.maxRadius
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.25)
+        fillColor: "transparent"
+
+        PathMove { x: stage.centerX; y: stage.centerY }
+        PathLine {
+          x: stage.centerX + Math.cos(4*Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(4*Math.PI/3) * stage.maxRadius
+        }
+      }
+      ShapePath {
+        strokeWidth: 1
+        strokeColor: Qt.alpha(Color.mOnSurfaceVariant, 0.25)
+        fillColor: "transparent"
+
+        PathMove { x: stage.centerX; y: stage.centerY }
+        PathLine {
+          x: stage.centerX + Math.cos(5*Math.PI/3) * stage.maxRadius
+          y: stage.centerY + Math.sin(5*Math.PI/3) * stage.maxRadius
+        }
+      }
+
+      // Main data polygon (the radar chart itself)
+      ShapePath {
+        id: dataPolygon
+        strokeWidth: 2
+        strokeColor: Qt.alpha(Color.mPrimary, 0.8)
+        fillColor: Qt.alpha(Color.mPrimary, 0.2)
+
+        // Calculate all points once and draw the polygon
+        PathMove {
+          x: stage.point(0, root.values[0]).x
+          y: stage.point(0, root.values[0]).y
+        }
+        PathLine {
+          x: stage.point(1, root.values[1]).x
+          y: stage.point(1, root.values[1]).y
+        }
+        PathLine {
+          x: stage.point(2, root.values[2]).x
+          y: stage.point(2, root.values[2]).y
+        }
+        PathLine {
+          x: stage.point(3, root.values[3]).x
+          y: stage.point(3, root.values[3]).y
+        }
+        PathLine {
+          x: stage.point(4, root.values[4]).x
+          y: stage.point(4, root.values[4]).y
+        }
+        PathLine {
+          x: stage.point(5, root.values[5]).x
+          y: stage.point(5, root.values[5]).y
+        }
+        PathLine {  // Close the polygon back to the first point
+          x: stage.point(0, root.values[0]).x
+          y: stage.point(0, root.values[0]).y
+        }
+      }
+    }
+
+    // Optional: Small dots at data points
     Repeater {
-      model: [
-        {
-          r: Math.round(25 * Style.uiScaleRatio),
-          color: Color.mPrimary
-        },
-        {
-          r: Math.round(33 * Style.uiScaleRatio),
-          color: Color.mTertiary
-        },
-        {
-          r: Math.round(42 * Style.uiScaleRatio),
-          color: Color.mSecondary
-        },
-        {
-          r: Math.round(51 * Style.uiScaleRatio),
-          color: Color.mOnSurfaceVariant
-        }
-      ]
+      model: 6
       Rectangle {
-        width: modelData.r * 2 * root.scaleFactor
-        height: modelData.r * 2 * root.scaleFactor
-        radius: width / 2
-        anchors.centerIn: parent
-        color: "transparent"
-        border.color: Qt.rgba(modelData.color.r, modelData.color.g, modelData.color.b, 0.4)
-        border.width: 1
-      }
-    }
-
-    Component {
-      id: planetDelegate
-      Item {
-        id: planet
-        property real orbitRadius: 25
-        property color orbitColor: "steelblue"
-        property string iconName: ""
-        property string valueText: "N/A"
-        property real speedSec: 15
-        property real angle: Math.random() * 360
-        width: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
-        height: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
-
-        Rectangle {
-          id: body
-          width: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
-          height: Math.round(8 * Style.uiScaleRatio) * root.scaleFactor
-          radius: width / 2
-          color: orbitColor
-          border.color: Qt.rgba(0, 0, 0, 0.15)
-          border.width: 1
-          x: (stage.width / 2) + Math.cos(planet.angle * Math.PI / 180) * (planet.orbitRadius * root.scaleFactor) - width / 2
-          y: (stage.height / 2) + Math.sin(planet.angle * Math.PI / 180) * (planet.orbitRadius * root.scaleFactor) - height / 2
-
-          NIcon {
-            anchors.centerIn: parent
-            icon: planet.iconName
-            color: Color.mOnPrimary
-            pointSize: Style.fontSizeTiny * root.scaleFactor
-            visible: root.scaleFactor > 1.5
-          }
-
-          NText {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.bottom
-            text: planet.valueText
-            color: Color.mOnSurfaceVariant
-            pointSize: Style.fontSizeTiny * root.scaleFactor
-            visible: root.scaleFactor > 1.5
+        x: stage.point(model.index, root.values[model.index]).x - 2
+        y: stage.point(model.index, root.values[model.index]).y - 2
+        width: 4
+        height: 4
+        radius: 2
+        color: {
+          switch(model.index) {
+            case 0: return Qt.alpha(Color.mPrimary, 0.9);
+            case 1: return Qt.alpha(Color.mTertiary, 0.9);
+            case 2: return Qt.alpha(Color.mSecondary, 0.9);
+            case 3: return Qt.alpha(Color.mOnSurfaceVariant, 0.9);
+            case 4: return Qt.alpha(Color.mError, 0.9);
+            case 5: return Qt.alpha(Color.mSuccess, 0.9);
+            default: return Qt.rgba(0.5, 0.5, 0.5, 0.9);
           }
         }
-
-        Timer {
-          interval: 40
-          repeat: true
-          running: true
-          onTriggered: {
-            const delta = 360 * (interval / (planet.speedSec * 1000));
-            planet.angle = (planet.angle + delta) % 360;
-          }
-        }
+        visible: root.scaleFactor > 1.01  // Only show on hover
       }
     }
 
-    Loader {
-      id: cpu
-      sourceComponent: planetDelegate
-      onLoaded: {
-        item.orbitRadius = Math.round(25 * Style.uiScaleRatio);
-        item.orbitColor = Color.mPrimary;
-        item.iconName = "cpu-usage";
-        const v = (SystemStatService?.cpuUsage ?? 0) / 100;
-        item.valueText = SystemStatService ? `${Math.round(SystemStatService.cpuUsage)}%` : "N/A";
-        item.speedSec = stage.speedFromValue(v, 4, 30);
-      }
-      Connections {
-        target: SystemStatService
-        function onCpuUsageChanged() {
-          if (!cpu.item)
-            return;
-          const v = (SystemStatService.cpuUsage ?? 0) / 100;
-          cpu.item.valueText = `${Math.round(SystemStatService.cpuUsage)}%`;
-          cpu.item.speedSec = stage.speedFromValue(v, 4, 30);
-        }
-      }
-    }
-
-
-    Loader {
-      id: temp
-      sourceComponent: planetDelegate
-      onLoaded: {
-        item.orbitRadius = Math.round(33 * Style.uiScaleRatio);
-        item.orbitColor = Color.mTertiary;
-        item.iconName = "cpu-temperature";
-        const v = (SystemStatService?.cpuTemp ?? 0) / 100;
-        item.valueText = SystemStatService ? `${Math.round(SystemStatService.cpuTemp)}°C` : "N/A";
-        item.speedSec = stage.speedFromValue(v, 4, 30);
-      }
-      Connections {
-        target: SystemStatService
-        function onCpuTempChanged() {
-          if (!temp.item)
-            return;
-          const v = (SystemStatService.cpuTemp ?? 0) / 100;
-          temp.item.valueText = `${Math.round(SystemStatService.cpuTemp)}°C`;
-          temp.item.speedSec = stage.speedFromValue(v, 4, 30);
-        }
-      }
-    }
-
-    Loader {
-      id: mem
-      sourceComponent: planetDelegate
-      onLoaded: {
-        item.orbitRadius = Math.round(42 * Style.uiScaleRatio);
-        item.orbitColor = Color.mSecondary;
-        item.iconName = "memory";
-        const v = (SystemStatService?.memPercent ?? 0) / 100;
-        item.valueText = SystemStatService ? `${Math.round(SystemStatService.memPercent)}%` : "NA";
-        item.speedSec = stage.speedFromValue(v, 4, 30);
-      }
-      Connections {
-        target: SystemStatService
-        function onMemPercentChanged() {
-          if (!mem.item)
-            return;
-          const v = (SystemStatService.memPercent ?? 0) / 100;
-          mem.item.valueText = `${Math.round(SystemStatService.memPercent)}%`;
-          mem.item.speedSec = stage.speedFromValue(v, 4, 30);
-        }
-      }
-    }
-
-    Loader {
-      id: disk
-      sourceComponent: planetDelegate
-      onLoaded: {
-        item.orbitRadius = Math.round(51 * Style.uiScaleRatio);
-        item.orbitColor = Color.mOnSurfaceVariant;
-        item.iconName = "storage";
-        const d = (SystemStatService?.diskPercents?.[root.diskPath] ?? 0) / 100;
-        item.valueText = SystemStatService?.diskPercents?.[root.diskPath] ? `${Math.round(SystemStatService.diskPercents[root.diskPath])}%` : "N/A";
-        item.speedSec = stage.speedFromValue(d, 4, 30);
-      }
-      Connections {
-        target: SystemStatService
-        function onDiskPercentsChanged() {
-          if (!disk.item)
-            return;
-          const d = (SystemStatService.diskPercents?.[root.diskPath] ?? 0) / 100;
-          disk.item.valueText = `${Math.round(SystemStatService.diskPercents?.[root.diskPath] ?? 0)}%`;
-          disk.item.speedSec = stage.speedFromValue(d, 4, 30);
-        }
-      }
+    // Connections to update when system stats change
+    Connections {
+      target: SystemStatService
+      function onCpuUsageChanged() { }
+      function onCpuTempChanged() { }
+      function onMemPercentChanged() { }
+      function onDiskPercentsChanged() { }
+      // Additional connections will be triggered automatically due to property bindings
     }
   }
 }
