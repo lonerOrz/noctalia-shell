@@ -146,6 +146,8 @@
       "show-scroll-lock-label": "Kilîda Rûpelê Bigere"
     },
     "media-mini": {
+      "compact-mode-description": "Çalak bike sêwirandinek ku cih digire ji bo Panela Lîstikvanê Medyayê.",
+      "compact-mode-label": "ڕێگای کورتکراوە",
       "hide-mode-description": "Kontrola ku widget çawa tevdigere dema ku tu medya nayê lîstin.",
       "max-width-description": "Mezinahiya herî zêde ya horizontî ya widgetê diyar dike. Widget dê bi naveroka kurt re were kurtkirin.",
       "no-active-player": "Bê lîstikvanê çalak.",
@@ -387,6 +389,7 @@
     "logout": "Derketina ji sîstemê",
     "look": "Binêre",
     "media": "Medya",
+    "media-player": "Lîstikvanê Medyayê",
     "memory": "Bîr",
     "monitors": "Çavdêr",
     "network": "Torağ",

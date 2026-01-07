@@ -146,6 +146,8 @@
       "show-scroll-lock-label": "Scroll Lock"
     },
     "media-mini": {
+      "compact-mode-description": "Увімкнути компактне розташування для панелі медіаплеєра.",
+      "compact-mode-label": "Компактний режим",
       "hide-mode-description": "Керує поведінкою віджета, коли медіа не відтворюється.",
       "max-width-description": "Встановлює максимальний горизонтальний розмір віджета. Віджет зменшується для коротшого вмісту.",
       "no-active-player": "Немає активного плеєра",
@@ -387,6 +389,7 @@
     "logout": "Вийти",
     "look": "Подивись",
     "media": "Медіа",
+    "media-player": "Медіапрогравач",
     "memory": "Пам'ять",
     "monitors": "Монітори",
     "network": "Мережа",
