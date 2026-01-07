@@ -26,8 +26,8 @@ Singleton {
       }
       // Toast: dark/light mode switched
       const enabled = !!Settings.data.colorSchemes.darkMode;
-      const label = enabled ? I18n.tr("toast.dark-mode.dark-mode") : I18n.tr("toast.dark-mode.light-mode");
-      const description = I18n.tr("toast.dark-mode.enabled");
+      const label = enabled ? I18n.tr("tooltips.switch-to-dark-mode") : I18n.tr("tooltips.switch-to-light-mode");
+      const description = I18n.tr("toast.wifi.enabled");
       ToastService.showNotice(label, description, "dark-mode");
     }
   }
@@ -192,8 +192,8 @@ Singleton {
         writeColorsToDisk(variant);
         Logger.i("ColorScheme", "Applying color scheme:", getBasename(path));
 
-        // Generate Matugen templates if any are enabled and setting allows it
-        if (Settings.data.colorSchemes.generateTemplatesForPredefined && hasEnabledTemplates()) {
+        // Generate templates for predefined color schemes
+        if (hasEnabledTemplates()) {
           AppThemeService.generateFromPredefinedScheme(data);
         }
       } catch (e) {

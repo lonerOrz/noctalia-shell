@@ -319,6 +319,8 @@ Singleton {
       property bool showCalendarWeather: true
       property bool analogClockInCalendar: false
       property int firstDayOfWeek: -1 // -1 = auto (use locale), 0 = Sunday, 1 = Monday, 6 = Saturday
+      property bool hideWeatherTimezone: false
+      property bool hideWeatherCityName: false
     }
 
     // calendar
@@ -410,7 +412,7 @@ Singleton {
       property bool showCategories: true
       // Icon mode: "tabler" or "native"
       property string iconMode: "tabler"
-      property bool showIconBackground: true
+      property bool showIconBackground: false
       property bool ignoreMouseInput: false
       property string screenshotAnnotationTool: ""
     }
@@ -635,7 +637,6 @@ Singleton {
       property string manualSunrise: "06:30"
       property string manualSunset: "18:30"
       property string matugenSchemeType: "scheme-fruit-salad"
-      property bool generateTemplatesForPredefined: true
     }
 
     // templates toggles
