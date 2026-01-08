@@ -151,6 +151,8 @@
       "hide-mode-description": "Controla el comportamiento del widget cuando no se está reproduciendo ningún medio.",
       "max-width-description": "Establece el tamaño horizontal máximo del widget. El widget se reducirá para adaptarse a contenido más corto.",
       "no-active-player": "Sin reproductor activo",
+      "panel-section-description": "Configurar la apariencia y el comportamiento del panel emergente del reproductor multimedia.",
+      "panel-section-label": "Panel del reproductor multimedia",
       "scrolling-mode-description": "Controlar cuándo está habilitado el desplazamiento de texto para títulos de pista largos.",
       "scrolling-mode-label": "Modo de desplazamiento",
       "show-album-art-description": "Mostrar la portada del álbum de la pista que se está reproduciendo actualmente.",
@@ -397,6 +399,7 @@
     "night-light": "Luz de noche",
     "no": "No",
     "no-results": "Sin resultados",
+    "no-summary": "Sin resumen",
     "none": "Ninguno",
     "notifications": "Notificaciones",
     "official": "Oficial",
@@ -475,9 +478,6 @@
     "force-open": "Forzar la apertura",
     "on-hover": "Al pasar el ratón por encima"
   },
-  "general": {
-    "no-summary": "Sin resumen"
-  },
   "hide-modes": {
     "hidden": "Ocultar cuando esté vacío",
     "idle": "Ocultar cuando esté inactivo",
@@ -509,7 +509,6 @@
       "system": "Sistema",
       "webbrowser": "Navegador web"
     },
-    "no-results": "No se encontraron resultados.",
     "providers": {
       "applications": "Aplicaciones",
       "calculator": "Calculadora",

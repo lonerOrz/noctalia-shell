@@ -151,6 +151,8 @@
       "hide-mode-description": "Steuert das Verhalten des Widgets, wenn keine Medien abgespielt werden.",
       "max-width-description": "Stellt die maximale Horizontalgröße des Widgets ein. Das Widget wird sich an kürzere Inhalte anpassen.",
       "no-active-player": "Kein aktiver Player",
+      "panel-section-description": "Konfigurieren Sie das Aussehen und Verhalten des Media Player Popup-Panels.",
+      "panel-section-label": "Medienwiedergabe-Panel",
       "scrolling-mode-description": "Steuern, wann Textscrolling für lange Track-Titel aktiviert ist.",
       "scrolling-mode-label": "Scrollmodus",
       "show-album-art-description": "Albumcover des aktuell abgespielten Tracks anzeigen.",
@@ -397,6 +399,7 @@
     "night-light": "Nachtlicht",
     "no": "Nein",
     "no-results": "Keine Ergebnisse",
+    "no-summary": "Keine Zusammenfassung",
     "none": "Keine",
     "notifications": "Benachrichtigungen",
     "official": "Offiziell",
@@ -475,9 +478,6 @@
     "force-open": "Aufbrechen",
     "on-hover": "Beim Überfahren mit der Maus"
   },
-  "general": {
-    "no-summary": "Keine Zusammenfassung"
-  },
   "hide-modes": {
     "hidden": "Ausblenden, wenn leer",
     "idle": "Ausblenden, wenn inaktiv",
@@ -509,7 +509,6 @@
       "system": "System",
       "webbrowser": "Webbrowser"
     },
-    "no-results": "Keine Ergebnisse gefunden",
     "providers": {
       "applications": "Anwendungen",
       "calculator": "Rechner",

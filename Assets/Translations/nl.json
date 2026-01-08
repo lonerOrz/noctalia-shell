@@ -151,6 +151,8 @@
       "hide-mode-description": "Bepaalt hoe de widget zich gedraagt wanneer er geen media wordt afgespeeld.",
       "max-width-description": "Stelt de maximale horizontale grootte van de widget in. De widget krimpt mee met kortere inhoud.",
       "no-active-player": "Geen actieve speler",
+      "panel-section-description": "Configureer het uiterlijk en gedrag van het pop-upvenster van de Mediaspeler.",
+      "panel-section-label": "Mediaspelerpaneel",
       "scrolling-mode-description": "Bepaalt wanneer tekstscrollen wordt ingeschakeld voor lange tracktitels.",
       "scrolling-mode-label": "Scrollmodus",
       "show-album-art-description": "Toon de albumhoes van het huidige nummer.",
@@ -397,6 +399,7 @@
     "night-light": "Nachtlampje",
     "no": "Nee",
     "no-results": "Geen resultaten",
+    "no-summary": "Geen samenvatting",
     "none": "Geen",
     "notifications": "Meldingen",
     "official": "Officieel",
@@ -475,9 +478,6 @@
     "force-open": "Openbreken",
     "on-hover": "Bij zweven"
   },
-  "general": {
-    "no-summary": "Geen samenvatting"
-  },
   "hide-modes": {
     "hidden": "Verbergen indien leeg",
     "idle": "Verbergen indien inactief",
@@ -509,7 +509,6 @@
       "system": "Systeem",
       "webbrowser": "Webbrowser"
     },
-    "no-results": "Geen resultaten gevonden.",
     "providers": {
       "applications": "Applicaties",
       "calculator": "Rekenmachine",

@@ -151,6 +151,8 @@
       "hide-mode-description": "Controla o comportamento do widget quando nenhuma mídia está sendo reproduzida.",
       "max-width-description": "Define o tamanho horizontal máximo do widget. O widget será reduzido para se adequar a conteúdo mais curto.",
       "no-active-player": "Nenhum player ativo",
+      "panel-section-description": "Configure a aparência e o comportamento do painel pop-up do Media Player.",
+      "panel-section-label": "Painel do Reprodutor de Mídia",
       "scrolling-mode-description": "Controlar quando a rolagem de texto está habilitada para títulos de faixa longos.",
       "scrolling-mode-label": "Modo de rolagem",
       "show-album-art-description": "Exibir a arte do álbum da faixa atualmente sendo reproduzida.",
@@ -397,6 +399,7 @@
     "night-light": "Luz Noturna",
     "no": "Não",
     "no-results": "Nenhum resultado",
+    "no-summary": "Sem resumo",
     "none": "Nenhum.",
     "notifications": "Notificações",
     "official": "Oficial",
@@ -475,9 +478,6 @@
     "force-open": "Forçar a abertura",
     "on-hover": "Ao passar o mouse"
   },
-  "general": {
-    "no-summary": "Sem resumo"
-  },
   "hide-modes": {
     "hidden": "Ocultar quando vazio",
     "idle": "Ocultar quando inativo",
@@ -509,7 +509,6 @@
       "system": "Sistema",
       "webbrowser": "Navegador web"
     },
-    "no-results": "Nenhum resultado encontrado.",
     "providers": {
       "applications": "Aplicativos",
       "calculator": "Calculadora",

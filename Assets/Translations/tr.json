@@ -151,6 +151,8 @@
       "hide-mode-description": "Ortam çalınmadığında araç takımının nasıl davrandığını kontrol eder.",
       "max-width-description": "Araç takımının en fazla yatay boyutunu ayarlar. Araç takımı daha kısa içerik için küçülecektir.",
       "no-active-player": "Etkin çalar yok",
+      "panel-section-description": "Medya Oynatıcı açılır panelinin görünümünü ve davranışını yapılandırın.",
+      "panel-section-label": "Medya Oynatıcı Paneli",
       "scrolling-mode-description": "Uzun parça başlıkları için metin kaydırmanın ne zaman etkinleştirileceğini kontrol et.",
       "scrolling-mode-label": "Kaydırma modu",
       "show-album-art-description": "Şu anda çalan parçanın albüm kapağını göster.",
@@ -397,6 +399,7 @@
     "night-light": "Gece Lambası",
     "no": "Hayır",
     "no-results": "Sonuç bulunamadı",
+    "no-summary": "Özet yok",
     "none": "Hiçbiri",
     "notifications": "Bildirimler",
     "official": "Resmi",
@@ -475,9 +478,6 @@
     "force-open": "Zorla açmak",
     "on-hover": "Üzerine gelindiğinde"
   },
-  "general": {
-    "no-summary": "Özet yok"
-  },
   "hide-modes": {
     "hidden": "Boş olduğunda gizle",
     "idle": "Boşta kalınca gizle",
@@ -509,7 +509,6 @@
       "system": "Sistem",
       "webbrowser": "Tarayıcı"
     },
-    "no-results": "Sonuç bulunamadı",
     "providers": {
       "applications": "Uygulamalar",
       "calculator": "Hesap makinesi",

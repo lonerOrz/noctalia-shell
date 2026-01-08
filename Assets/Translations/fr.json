@@ -151,6 +151,8 @@
       "hide-mode-description": "Contrôle le comportement du widget lorsqu'aucun média n'est en cours de lecture.",
       "max-width-description": "Définit la taille horizontale maximale du widget. Le widget se rétrécira pour s'adapter à un contenu plus court.",
       "no-active-player": "Aucun lecteur actif",
+      "panel-section-description": "Configurer l'apparence et le comportement du panneau contextuel du lecteur multimédia.",
+      "panel-section-label": "Panneau du lecteur multimédia",
       "scrolling-mode-description": "Contrôler quand le défilement de texte est activé pour les titres de piste longs.",
       "scrolling-mode-label": "Mode de défilement",
       "show-album-art-description": "Afficher la pochette d'album de la piste en cours de lecture.",
@@ -397,6 +399,7 @@
     "night-light": "Veilleuse",
     "no": "Non",
     "no-results": "Aucun résultat",
+    "no-summary": "Aucun résumé",
     "none": "Aucun(e)",
     "notifications": "Notifications",
     "official": "Officiel",
@@ -475,9 +478,6 @@
     "force-open": "Forcer l'ouverture",
     "on-hover": "Au survol"
   },
-  "general": {
-    "no-summary": "Aucun résumé"
-  },
   "hide-modes": {
     "hidden": "Masquer quand vide",
     "idle": "Masquer quand inactif",
@@ -509,7 +509,6 @@
       "system": "Système",
       "webbrowser": "Navigateur web"
     },
-    "no-results": "Aucun résultat trouvé.",
     "providers": {
       "applications": "Applications",
       "calculator": "Calculatrice",

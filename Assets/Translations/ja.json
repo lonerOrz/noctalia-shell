@@ -151,6 +151,8 @@
       "hide-mode-description": "再生中のメディアがない場合のウィジェットの動作を制御します。",
       "max-width-description": "ウィジェットの最大幅を設定します。内容が短い場合は自動的に縮小します。",
       "no-active-player": "アクティブなプレーヤーなし",
+      "panel-section-description": "メディアプレーヤーのポップアップパネルの表示と動作を設定します。",
+      "panel-section-label": "メディアプレーヤーパネル",
       "scrolling-mode-description": "長いトラックタイトルのスクロール動作を制御します。",
       "scrolling-mode-label": "スクロールモード",
       "show-album-art-description": "現在再生中のトラックのアルバムアートを表示します。",
@@ -397,6 +399,7 @@
     "night-light": "ナイトライト",
     "no": "いいえ",
     "no-results": "結果はありません。",
+    "no-summary": "概要なし",
     "none": "なし",
     "notifications": "通知",
     "official": "公式 (kōshiki)",
@@ -475,9 +478,6 @@
     "force-open": "こじ開ける",
     "on-hover": "マウスオーバー時"
   },
-  "general": {
-    "no-summary": "概要なし"
-  },
   "hide-modes": {
     "hidden": "空の場合に非表示",
     "idle": "アイドル時に非表示",
@@ -509,7 +509,6 @@
       "system": "システム",
       "webbrowser": "ウェブブラウザ"
     },
-    "no-results": "結果が見つかりませんでした。",
     "providers": {
       "applications": "アプリケーション",
       "calculator": "電卓",
