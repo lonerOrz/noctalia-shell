@@ -841,7 +841,7 @@ Singleton {
 
     stdout: StdioCollector {
       onStreamFinished: {
-        Logger.i("Network", "Wi-Fi state change command executed.");
+        Logger.i("Network", "Wi-Fi state change command executed");
         // Re-check the state to ensure it's in sync
         syncWifiState();
       }
@@ -1031,7 +1031,12 @@ Singleton {
             continue;
           }
 
-          const security = remainingLine2.substring(thirdLastColonIdx + 1);
+          let security = remainingLine2.substring(thirdLastColonIdx + 1);
+          // This change will add a slash where mixed security protocols are used.
+          if (security) {
+            security = security.replace("WPA2 WPA3", "WPA2/WPA3").replace("WPA1 WPA2", "WPA1/WPA2");
+          }
+
           const ssid = remainingLine2.substring(0, thirdLastColonIdx);
 
           if (ssid) {

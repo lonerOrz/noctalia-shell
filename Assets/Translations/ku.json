@@ -16,10 +16,10 @@
     "open-calendar": "Salnameyê veke",
     "open-display-settings": "Sazkariyên dîmenderê",
     "open-launcher": "Destpêkarê veke",
-    "open-mixer": "Têkelkerê deng",
     "open-settings": "Sazkariyan veke",
     "raise-to-top": "Serê jorîn bilind bike",
     "random-wallpaper": "Wêneyê dîwarê rasthatî",
+    "run-custom-command": "Fermana xwerû bimeşîne",
     "toggle-mute": "Guherandin bêdeng bike",
     "widget-settings": "Sazkariyên alavê"
   },
@@ -146,13 +146,13 @@
       "show-scroll-lock-label": "Kilîda Rûpelê Bigere"
     },
     "media-mini": {
-      "compact-mode-description": "Çalak bike sêwirandinek ku cih digire ji bo Panela Lîstikvanê Medyayê.",
+      "compact-mode-description": "Çalak bike sêwirandinek ku cih digire ji bo panelê lîstikvanê medyayê.",
       "compact-mode-label": "ڕێگای کورتکراوە",
       "hide-mode-description": "Kontrola ku widget çawa tevdigere dema ku tu medya nayê lîstin.",
       "max-width-description": "Mezinahiya herî zêde ya horizontî ya widgetê diyar dike. Widget dê bi naveroka kurt re were kurtkirin.",
       "no-active-player": "Bê lîstikvanê çalak.",
-      "panel-section-description": "Xuyakirina xuyabûn û reftarên panela pop-up a Media Player.",
-      "panel-section-label": "Panela Lîstikvanê Medyayê",
+      "panel-section-description": "Xuyakirina xuyabûn û reftarên panelê lîstikvanê medyayê.",
+      "panel-section-label": "Panelê lîstikvanê medyayê",
       "scrolling-mode-description": "Kontrola dema ku geroka nivîsê ji bo sernavên rêyên dirêj tê çalak kirin.",
       "scrolling-mode-label": "Moda Gerandinê",
       "show-album-art-description": "Wêneyê albûmê ya strana ku niha lê tê guhdarîkirin nîşan bide.",
@@ -295,11 +295,6 @@
     }
   },
   "calendar": {
-    "timer": {
-      "hours": "d",
-      "minutes": "x",
-      "seconds": "ç"
-    },
     "weather-loading": "Rewşa bayê tê barkirin…"
   },
   "changelog": {
@@ -341,13 +336,13 @@
     "brightness": "Ronahî",
     "browse": "Gerîn",
     "calendar": "Salname",
+    "calendar-panel": "Panelê salnameyê",
     "cancel": "Têk bibe",
     "cards": "Kartên",
     "charging": "Barkirin",
     "check-settings": "Ji bo hûragahiyan sazkariyan kontrol bike",
     "clear": "Paqij bike",
     "clipboard": "Klîpbir",
-    "clock-panel": "Panela Saetê",
     "close": "Bigire",
     "colors": "Rengan",
     "command": "Ferman",
@@ -391,7 +386,7 @@
     "logout": "Derketina ji sîstemê",
     "look": "Binêre",
     "media": "Medya",
-    "media-player": "Lîstikvanê Medyayê",
+    "media-player": "Lîstikvanê medyayê",
     "memory": "Bîr",
     "monitors": "Çavdêr",
     "network": "Torağ",
@@ -433,12 +428,10 @@
     "sources": "Çavkanî",
     "start": "Destpêkirin",
     "stop": "Raweste.",
-    "stopwatch": "Demjimêra rawestandinê",
     "suspend": "Rawestîne",
     "templates": "Şablonan",
     "test": "Test",
     "thresholds": "Asteyan",
-    "timer": "Demjimêr",
     "title": "Sernav",
     "toast": "Tost",
     "trusted": "Bawerîpêkirî",
@@ -463,9 +456,6 @@
     "power-profile": {
       "tooltip-action": "Power profile",
       "tooltip-disabled": "Daemonê power-profiles-daemon saz bike da ku profîlên hêzê bikar bîne"
-    },
-    "screen-recorder": {
-      "label-stopped": "Tomar bike"
     },
     "wifi": {
       "label-disconnected": "Wi-Fi qut bû.",
@@ -573,20 +563,6 @@
       "quick-settings-style-modern": "Nûjen"
     },
     "frame-rates-fps": "{fps} FPS",
-    "screen-recording": {
-      "audio-sources-both": "Derana pergalê + ketana mîkrofonê",
-      "audio-sources-microphone-input": "Ketana mîkrofonê",
-      "audio-sources-none": "Bê deng.",
-      "audio-sources-system-output": "Derana pergal",
-      "color-range-full": "Tijî",
-      "color-range-limited": "Sînorkirî",
-      "quality-high": "Bilind",
-      "quality-medium": "Navîn",
-      "quality-ultra": "Ultra",
-      "quality-very-high": "Pir bilind",
-      "sources-portal": "Dergeh",
-      "sources-screen": "Dîmender"
-    },
     "scrolling-modes": {
       "always": "Her tim bigere",
       "hover": "Li ser gerandinê bigere",
@@ -594,17 +570,12 @@
     },
     "session-menu-grid-layout": {
       "grid": "Tor",
-      "single-row": "Yek Rêz"
+      "single-row": "Yek rêz"
     },
     "settings-panel-mode": {
       "attached": "Panel bi bar ve girêdayî ye",
       "centered": "Panela navendîkirî",
       "window": "Pencereya cuda"
-    },
-    "shadow-direction": {
-      "bottom": "Jêr",
-      "center": "Serê jor",
-      "top": "Jêr"
     },
     "visualizer-types": {
       "linear": "Xêzikî",
@@ -616,7 +587,7 @@
     },
     "workspace-labels": {
       "index": "Naverok",
-      "index+name": "Naverok û nav",
+      "index-and-name": "Naverok û nav",
       "name": "Nav"
     }
   },
@@ -657,6 +628,7 @@
       "media-scrolling-title-description": "Çalak bike geroka domdar ji bo sernavên medyayê yên dirêj.",
       "media-scrolling-title-label": "Navnîşana ku digere",
       "media-title": "Lîstikvanên medyayê",
+      "on-middle-clicked-description": "Fermana ku dema bişkok bi mişkê navîn tê tikandin, bê rêvebirin.",
       "panel-applications-empty": "Ni sepanên ku niha deng lêdixin tune ne.",
       "title": "Deng",
       "visualizer-type-description": "Cureyeke cureyek dîtbarîkirinê ji bo lêdana medyayê.",
@@ -760,12 +732,12 @@
       "templates-programs-discord-description-missing": "Mu dîtina muşterîyê Discord tune.",
       "templates-programs-emacs-description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standard: ~/.emacs.d/themes/noctalia.el<br>Apply manually: (load-theme 'noctalia t)",
       "templates-programs-label": "Bername",
-      "templates-programs-pywalfox-description": "Binivîse {filepath} û pywalfox update bimeşîne",
+      "templates-programs-pywalfox-description": "Binivîse {filepath} û 'pywalfox update' bimeşîne",
       "templates-programs-spicetify-description": "{filepath} binivîse — Pêdivî ye ku temaya Comfy bi destan were sazkirin û aktîvkirin",
       "templates-programs-walker-description": "{filepath} binivîse û temayê bike noctalia.",
       "templates-programs-yazi-description": "{filepath} binivîse — divê çêj bi destan were aktîfkirin",
-      "templates-programs-zed-description": "Write {filepath} and reload.",
-      "templates-programs-zen-browser-description": "{filepath} binivîse; kopî bike nav chrome/userChrome.css ya profîla xwe ya Zen.",
+      "templates-programs-zed-description": "Binivîse {filepath} û vegerîne”.",
+      "templates-programs-zen-browser-description": "{filepath} binivîse — kopî bike nav chrome/userChrome.css ya profîla xwe ya Zen",
       "templates-terminal-description": "Şêweya termînalê.",
       "templates-terminal-label": "Termînal",
       "templates-ui-description": "Xuyangavî û amûrên UI yên mijûlkirina sermaseyê.",
@@ -775,7 +747,7 @@
     },
     "control-center": {
       "cards-desc": "Xwerû bike ka kîjan kontrol di navenda kontrolê de û bi çi rêzê de xuya dibin.",
-      "desc": "Vesazkirina cih û reftarên panela navenda kontrolê.",
+      "desc": "Vesazkirina cih û reftarên panelê navenda kontrolê.",
       "position-description": "Dema ku destgeha navenda kontrolê vebe, hilbijêre ka li ku derê bila xuya bibe.",
       "shortcuts-custom-button-command-description": "Fermana ku dema ku bişkok tê tikandin were meşandin.",
       "shortcuts-custom-button-enable-on-state-logic-description": "Çalak bike îkonek duyem û rewşa 'germ' li ser bingeha fermana kontrolê.",
@@ -948,7 +920,7 @@
       "screen-corners-title": "Quncikên dîmenderê"
     },
     "hooks": {
-      "info-command-info-description": "• Ferman bi rêya shellê (sh -c) tên meşandin<br>• Ferman di paşperdeyê de dimeşin (veqetandî)<br>• Bişkokên ceribandinê bi nirxên heyî dimeşin",
+      "info-command-info-description": "• Ferman bi rêya shellê (sh -lc) tên meşandin<br>• Ferman di paşperdeyê de dimeşin (veqetandî)<br>• Bişkokên ceribandinê bi nirxên heyî dimeşin",
       "info-command-info-label": "Agahiyên fermana hookê",
       "info-parameters-description": "• Hookê dîwarê: $1 = riya dîwarê, $2 = navê ekranê<br>• Hookê guhertina mijarê: $1 = rast/derew (Rewşa Moda Tarî)<br>• Hookên kilîtkirin/vekirina ekranê: Parametre tune<br>• Hookên moda performansê: Parametre tune",
       "info-parameters-label": "Parametreyên berdest",
@@ -991,6 +963,8 @@
       "settings-auto-paste-label": "Otomatîkî bixwe ve zeliqandin",
       "settings-clip-preview-description": "Dîmenek pêşdîtinê ya naveroka clipboardê nîşan bide dema ku emrê >clip tê bikaranîn.",
       "settings-clip-preview-label": "Pêşdîtina klîpê çalak bike",
+      "settings-clip-wrap-text-description": "Tekstê di lîsteya clipboardê de bipêçe, li şûna ku were kurtkirin.",
+      "settings-clip-wrap-text-label": "Pêça nivîsa clipboardê",
       "settings-clipboard-history-description": "Gihîştina tiştên ku berê hatine kopîkirin ji destpêkerê.",
       "settings-clipboard-history-label": "Dîroka clipboardê çalak bike",
       "settings-custom-launch-prefix-description": "Fermanên pêşgiran bi destpêkerek xwerû pêşda bikin (mînak, 'runapp' ji bo entegrasyona systemd).",
@@ -1003,7 +977,7 @@
       "settings-icon-mode-label": "Îkonên xwecihî bikar bîne",
       "settings-ignore-mouse-input-description": "Di nav destpêkerê de, danûstandina mişkê û çerxa gerokê neçalak bike.",
       "settings-ignore-mouse-input-label": "Guherandina mişkê paşguh bike",
-      "settings-position-description": "Cihê ku panela destpêkerê lê xuya dibe hilbijêre.",
+      "settings-position-description": "Cihê ku panelê destpêkerê lê xuya dibe hilbijêre.",
       "settings-show-categories-description": "Tabên kategoriyê nîşan bide ji bo parzûnkirina sepanan.",
       "settings-show-categories-label": "Kategoriyan nîşan bide",
       "settings-show-icon-background-description": "Li paş îkonan paşxaneyeke çargoşe ya gilover nîşan bide.",
@@ -1017,7 +991,7 @@
       "title": "Destpêkar"
     },
     "location": {
-      "calendar-cards-desc": "Rêk bixe û kartên di panela salnameyê de çalak/neçalak bike.",
+      "calendar-cards-desc": "Rêk bixe û kartên di panelê salnameyê de çalak/neçalak bike.",
       "calendar-cards-title": "Kartên salnameyê",
       "calendar-header-label": "Sernavê Salnameyê",
       "calendar-month-label": "Meh",
@@ -1214,7 +1188,6 @@
       "update-all-success": "Hemû pêvek bi serkeftî hatin nûkirin.",
       "update-available": "Rojanekirina pêveka nû heye",
       "update-available-plural": "Rojanekirinên pêvekên nû hene ({count})",
-      "update-available_plural": "Nûvekirinên pluginê hene ({count})",
       "update-error": "ڕێ ل نوو کرنەیا پلاکینێ هاتە گرتن: {plugin}: {error}",
       "update-incompatible": "Pêdivî ye Noctalia v{version} an bilindtir",
       "update-pending": "v{niha} → v{nu} (hewce dike Noctalia v{pêwîst})",
@@ -1223,38 +1196,7 @@
       "updating": "Tê rojanekirin..."
     },
     "region": {
-      "clock-panel-desc": "Xuyakirina xuyabûna panela demjimêrê.",
-      "clock-panel-title": "Panela demjimêrê",
       "title": "Herêm"
-    },
-    "screen-recorder": {
-      "audio-audio-codec-description": "ئۆپووس بۆ باشترین ئەنجام و بچووکترین قەبارەی دەنگی پێشنیار دەکرێت.",
-      "audio-audio-codec-label": "Kodkirina dengê",
-      "audio-audio-source-description": "Çavkaniya dengî ya ku di dema tomarkirinê de were girtin.",
-      "audio-audio-source-label": "Çavkaniya dengê",
-      "audio-desc": "Vebijarkên tomarkirina dengî saz bike.",
-      "audio-title": "Sazkariyên dengê",
-      "general-copy-to-clipboard-description": "Piştî qedandina tomarkirinê pelê kopî bike clipboardê.",
-      "general-copy-to-clipboard-label": "Kopî bo clipboardê",
-      "general-desc": "Derana tomarkirina dîmenderê û naverokê bi rê ve bibe.",
-      "general-output-folder-description": "Pelda ku dê tomarên dîmenderê lê bên hilanîn.",
-      "general-output-folder-label": "Peldanka deranê",
-      "general-select-output-folder": "Pelda qeydê hilbijêre",
-      "general-show-cursor-description": "Di vîdyoyê de nîşana mişkê tomar bike.",
-      "general-show-cursor-label": "Nîşankar nîşan bide",
-      "general-title": "Sazkariyên giştî",
-      "title": "Tomarkarê dîmenderê",
-      "video-color-range-description": "Ji bo çêtir lihevhatin, sînorkirî tê pêşniyarkirin.",
-      "video-color-range-label": "Rêjeya rengê",
-      "video-desc": "Vebijarkên tomarkirina vîdyoyê saz bike.",
-      "video-frame-rate-description": "ڕێژەی چوارچێوەی ئامانج بۆ تۆمارکردنی شاشە.",
-      "video-title": "Sazkariyên vîdyoyê",
-      "video-video-codec-description": "h264 kodeka herî berbelav e.",
-      "video-video-codec-label": "Kodkirinê vîdyoyê",
-      "video-video-quality-description": "Bilindtir kalîte dibe sedema mezinahiya pelên.",
-      "video-video-quality-label": "Kalîteya vîdyoyê",
-      "video-video-source-description": "Gerîn tê pêşniyarkirin, eger te artefakt dîtin, Screen biceribîne.",
-      "video-video-source-label": "Çavkaniya vîdyoyê"
     },
     "session-menu": {
       "countdown-duration-description": "Demjimêra heta pêkanîna kiryarên hêzê destnîşan bike.",
@@ -1271,12 +1213,12 @@
       "entry-settings-default-info-label": "Fermana xwerû",
       "entry-settings-title": "Vexîne {entry}",
       "entry-settings-tooltip": "Fermanê vesazkirinê",
-      "general-desc": "Maneja reftar û xuyabûna panela menûya rûniştinê.",
+      "general-desc": "Maneja reftar û xuyabûna panelê menûya rûniştinê.",
       "large-buttons-layout-description": "Çawa bişkokên menuya danişînê bên nîşandan hilbijêre.",
       "large-buttons-layout-label": "Rêzika bişkokên mezin",
       "large-buttons-style-description": "Pêşeka danişînê bi bişkokên mezin di şêweya grîd de nîşan bide.",
       "large-buttons-style-label": "Şêwaza bişkokên mezin",
-      "position-description": "Dema ku panela menuya danişînê vebe, hilbijêre ku li ku derê xuya bibe.",
+      "position-description": "Dema ku panelê menuya danişînê vebe, hilbijêre ku li ku derê xuya bibe.",
       "show-header-description": "Sernavê û bişkoka girtinê li jorê menuyê rûniştinê nîşan bide.",
       "show-header-label": "Serpê nîşan bide",
       "show-number-labels-description": "Li ser bişkokan etîketên hejmaran (1-2-3-4...) nîşan bide û ji bo hilbijartina bilez kilîdên hejmaran çalak bike.",
@@ -1337,7 +1279,7 @@
       "scaling-label": "Pîvana navbeynê",
       "scaling-reset-scaling": "Pîvana navbeynê vegerîne",
       "settings-panel-mode-description": "Hilbijêre şêweyê mîhengan (dibe ku ji nû ve vekirinê hewce bike).",
-      "settings-panel-mode-label": "Rewşa panela mîhengan",
+      "settings-panel-mode-label": "Rewşa panelê mîhengan",
       "shadows-description": "Dîsa siya di bin bar û panelan de çalak dike.",
       "shadows-direction-description": "Hilbijêre ku siya ji ku tê avêtin.",
       "shadows-direction-label": "Arasteya siya",
@@ -1383,7 +1325,7 @@
       "settings-recursive-search-label": "Lêgerîna binyadan",
       "settings-select-monitor-folder": "Hilbijêre peldanka dîwarê dîmenderê",
       "settings-selector-description": "Wêneyê dîwarê xwe hilbijêre.",
-      "settings-selector-position-description": "Cihê ku panela hilbijêra dîwêr lê xuya dike hilbijêre.",
+      "settings-selector-position-description": "Cihê ku panelê hilbijêra dîwêr lê xuya dike hilbijêre.",
       "settings-title": "Mîhengên dîwêr"
     }
   },
@@ -1393,7 +1335,6 @@
     "enter-text-to-collapse": "e.g., 'tiştek nayê lîstin'. Use /regex/ for patterns.",
     "enter-tooltip": "Têketina sernavê amûrê",
     "enter-width-pixels": "Firehiya bi pîxel binivîse",
-    "profile-picture-path": "/home/bikarhêner/.rû",
     "search": "Bigere...",
     "search-icons": "b.m., noctalia, niri, betarî, ewr",
     "search-launcher": "Li navnîşan bigere... an jî ji bo fermanan > bikar bîne",
@@ -1506,8 +1447,8 @@
     },
     "internet-limited": "Pêwendîdar bê înternetê.",
     "ipc": {
-      "powerpanel-deprecated": "PowerPanel bo navê SessionMenu hate guhertin, ev bangewaziya IPC dê di demeke nêz de bê bikaranîn. Ji kerema xwe li şûna wê \"ipc call sessionMenu toggle\" bikar bînin.",
-      "sidepanel-deprecated": "Panela Alîgir wekî Navenda Kontrolê hate guhertin, ev banga IPC dê di demek nêz de were betal kirin. Ji kerema xwe \"ipc call controlCenter toggle\" bikar bînin."
+      "powerpanel-deprecated": "PowerPanel wekî SessionMenu hate guhertin, ev bangewaziya IPC dê di demeke nêz de bê bikaranîn. Ji kerema xwe li şûna wê \"ipc call sessionMenu toggle\" bikar bînin.",
+      "sidepanel-deprecated": "SidePanel wekî ControlPanel hate guhertin, ev banga IPC dê di demek nêz de were betal kirin. Ji kerema xwe \"ipc call controlCenter toggle\" bikar bînin."
     },
     "keyboard-layout": {
       "changed": "Şêwaza kilîtdankê bo {layout} hat guhertin.",
@@ -1577,7 +1518,6 @@
     "click-to-start-recording": "Tomarkarê dîmenderê (dest bi tomarkirinê bike)",
     "click-to-stop-recording": "Tomarkarê dîmenderê (tomarkirinê rawestîne)",
     "collapse": "Sidebarê veşêre",
-    "connect-disconnect-devices": "Amûra Bluetooth",
     "copy-address": "Navnîşana kopî bike",
     "delete-notification": "Agahdariyê jê bibe",
     "do-not-disturb-enabled": "Dengê dernexîne",
@@ -1617,11 +1557,9 @@
     "refresh-wallhaven": "Nûkirina encamên Wallhavenê",
     "refresh-wallpaper-list": "Nûkirina lîsteya dîwêr",
     "remove-widget": "Rakire amûrekê",
-    "screen-recorder-not-installed": "Tomarkarê dîmenderê (nehatiye sazkirin)",
     "search-close": "Lêgerînê bigire",
     "session-menu": "Menuya danişînê",
     "show-all-devices": "Hemû amûran nîşan bide",
-    "stop-screen-recording": "Tomarkarê dîmenderê",
     "switch-to-dark-mode": "Awaya tarî",
     "switch-to-light-mode": "Awaya ronahî",
     "unmute": "Bêdeng neke",

@@ -16,10 +16,10 @@
     "open-calendar": "Otwórz kalendarz",
     "open-display-settings": "Ustawienia ekranu",
     "open-launcher": "Otwórz launcher",
-    "open-mixer": "Mikser dźwięku",
     "open-settings": "Otwórz ustawienia",
     "raise-to-top": "Przenieś na górę",
     "random-wallpaper": "Losowa tapeta",
+    "run-custom-command": "Uruchom własne polecenie",
     "toggle-mute": "Przełącz wyciszenie",
     "widget-settings": "Ustawienia widżetu"
   },
@@ -151,7 +151,7 @@
       "hide-mode-description": "Kontroluje zachowanie widżetu, gdy żadne media nie są odtwarzane.",
       "max-width-description": "Ustawia maksymalną szerokość poziomą widżetu. Widżet skurczy się, aby dopasować się do krótszej zawartości.",
       "no-active-player": "Brak aktywnego odtwarzacza",
-      "panel-section-description": "Skonfiguruj wygląd i zachowanie wyskakującego panelu Odtwarzacza multimediów.",
+      "panel-section-description": "Skonfiguruj wygląd i zachowanie panelu odtwarzacza multimediów.",
       "panel-section-label": "Panel odtwarzacza multimedialnego",
       "scrolling-mode-description": "Kontroluje, kiedy włączone jest przewijanie tekstu dla długich tytułów utworów.",
       "scrolling-mode-label": "Tryb przewijania",
@@ -295,11 +295,6 @@
     }
   },
   "calendar": {
-    "timer": {
-      "hours": "g",
-      "minutes": "m",
-      "seconds": "s"
-    },
     "weather-loading": "Ładowanie pogody…"
   },
   "changelog": {
@@ -309,7 +304,7 @@
     },
     "panel": {
       "buttons-discord": "Dołącz do Discorda",
-      "buttons-dismiss": "Ok",
+      "buttons-dismiss": "OK",
       "buttons-feedback": "Przekaż opinię.",
       "empty": "Informacje o wydaniu nie są jeszcze dostępne.",
       "highlight-title": "Najważniejsze zmiany",
@@ -341,13 +336,13 @@
     "brightness": "Jasność",
     "browse": "Przeglądaj",
     "calendar": "Kalendarz",
+    "calendar-panel": "Panel kalendarza",
     "cancel": "Anuluj",
     "cards": "Karty",
     "charging": "Ładowanie",
     "check-settings": "Sprawdź Ustawienia, aby uzyskać szczegóły",
     "clear": "Jasny, przejrzysty, oczywisty.",
     "clipboard": "Schowek",
-    "clock-panel": "Panel zegara",
     "close": "Zamknij",
     "colors": "Kolory",
     "command": "Komenda",
@@ -433,12 +428,10 @@
     "sources": "Źródła",
     "start": "Start.",
     "stop": "Stop.",
-    "stopwatch": "Stoper",
     "suspend": "Zawiesić",
     "templates": "Szablony",
     "test": "Test",
     "thresholds": "Progi",
-    "timer": "Stoper",
     "title": "Tytuł",
     "toast": "Tost",
     "trusted": "Zaufany",
@@ -463,9 +456,6 @@
     "power-profile": {
       "tooltip-action": "Profil zasilania",
       "tooltip-disabled": "Zainstaluj power-profiles-daemon, aby korzystać z profili zasilania"
-    },
-    "screen-recorder": {
-      "label-stopped": "Nagraj"
     },
     "wifi": {
       "label-disconnected": "Wi-Fi rozłączone",
@@ -573,20 +563,6 @@
       "quick-settings-style-modern": "Nowoczesny"
     },
     "frame-rates-fps": "{fps} FPS",
-    "screen-recording": {
-      "audio-sources-both": "Wyjście systemowe + mikrofon",
-      "audio-sources-microphone-input": "Wejście mikrofonu",
-      "audio-sources-none": "Brak dźwięku.",
-      "audio-sources-system-output": "Wyjście systemowe",
-      "color-range-full": "Pełny",
-      "color-range-limited": "Ograniczony",
-      "quality-high": "Wysoka",
-      "quality-medium": "Średnia",
-      "quality-ultra": "Ultra",
-      "quality-very-high": "Bardzo wysoka",
-      "sources-portal": "Portal",
-      "sources-screen": "Ekran"
-    },
     "scrolling-modes": {
       "always": "Zawsze przewijaj",
       "hover": "Przewijaj po najechaniu",
@@ -601,11 +577,6 @@
       "centered": "Panel wyśrodkowany",
       "window": "Oddzielne okno"
     },
-    "shadow-direction": {
-      "bottom": "Poniżej",
-      "center": "Nad głową",
-      "top": "Powyżej"
-    },
     "visualizer-types": {
       "linear": "Liniowy",
       "mirrored": "Lustrzany",
@@ -616,7 +587,7 @@
     },
     "workspace-labels": {
       "index": "Indeks",
-      "index+name": "Indeks i nazwa",
+      "index-and-name": "Indeks i nazwa",
       "name": "Nazwa"
     }
   },
@@ -657,6 +628,7 @@
       "media-scrolling-title-description": "Włącz ciągłe przewijanie długich tytułów mediów.",
       "media-scrolling-title-label": "Przewijany tytuł",
       "media-title": "Odtwarzacze mediów",
+      "on-middle-clicked-description": "Komenda do wykonania po kliknięciu środkowym przyciskiem myszy.",
       "panel-applications-empty": "Żadna aplikacja nie odtwarza obecnie dźwięku",
       "title": "Audio",
       "visualizer-type-description": "Wybierz typ wizualizacji odtwarzania multimediów.",
@@ -760,12 +732,12 @@
       "templates-programs-discord-description-missing": "Nie wykryto klienta Discord — zainstaluj vencord, vesktop, webcord, armcord, equibop, lightcord lub dorion",
       "templates-programs-emacs-description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standard: ~/.emacs.d/themes/noctalia.el<br>Zastosuj ręcznie: (load-theme 'noctalia t)",
       "templates-programs-label": "Programy",
-      "templates-programs-pywalfox-description": "Zapisz {filepath} i uruchom pywalfox update",
+      "templates-programs-pywalfox-description": "Zapisz {filepath} i uruchom 'pywalfox update'",
       "templates-programs-spicetify-description": "Zapisz {filepath} — motyw Comfy musi być zainstalowany i aktywowany ręcznie",
       "templates-programs-walker-description": "Zapisz {filepath} i ustaw motyw na noctalia",
       "templates-programs-yazi-description": "Zapisz {filepath} — styl musi być aktywowany ręcznie",
       "templates-programs-zed-description": "Zapisz {filepath} i przeładuj",
-      "templates-programs-zen-browser-description": "Zapisz w {filepath}; skopiuj do chrome/userChrome.css w swoim profilu Zen.",
+      "templates-programs-zen-browser-description": "Zapisz {filepath} — skopiuj do pliku chrome/userChrome.css w swoim profilu Zen",
       "templates-terminal-description": "Motywy emulatora terminala.",
       "templates-terminal-label": "Terminal",
       "templates-ui-description": "Motywy środowiska graficznego i toolkitów UI.",
@@ -948,7 +920,7 @@
       "screen-corners-title": "Narożniki ekranu"
     },
     "hooks": {
-      "info-command-info-description": "• Polecenia są wykonywane przez powłokę (sh -c)<br>• Polecenia działają w tle (detached)<br>• Przyciski testowe wykonują się z aktualnymi wartościami",
+      "info-command-info-description": "• Polecenia są wykonywane przez powłokę (sh -lc)<br>• Polecenia działają w tle (detached)<br>• Przyciski testowe wykonują się z aktualnymi wartościami",
       "info-command-info-label": "Informacje o poleceniach Hook",
       "info-parameters-description": "• Hook tapety: $1 = ścieżka tapety, $2 = nazwa ekranu<br>• Hook zmiany motywu: $1 = true/false (stan trybu ciemnego)<br>• Hooki blokady: Brak parametrów",
       "info-parameters-label": "Dostępne parametry",
@@ -991,6 +963,8 @@
       "settings-auto-paste-label": "Automatyczne wklejanie",
       "settings-clip-preview-description": "Pokaż podgląd zawartości schowka przy użyciu polecenia >clip.",
       "settings-clip-preview-label": "Włącz podgląd schowka",
+      "settings-clip-wrap-text-description": "Zawijaj tekst na liście schowka zamiast go obcinać.",
+      "settings-clip-wrap-text-label": "Zawijaj tekst ze schowka",
       "settings-clipboard-history-description": "Dostęp do wcześniej skopiowanych elementów z poziomu launchera.",
       "settings-clipboard-history-label": "Włącz historię schowka",
       "settings-custom-launch-prefix-description": "Poprzedzaj polecenia własnym prefiksem (np. 'runapp' dla integracji z systemd).",
@@ -1214,7 +1188,6 @@
       "update-all-success": "Wszystkie wtyczki zaktualizowane pomyślnie.",
       "update-available": "Dostępna nowa aktualizacja wtyczki",
       "update-available-plural": "Dostępne nowe aktualizacje wtyczek ({count})",
-      "update-available_plural": "Dostępne aktualizacje wtyczek ({count})",
       "update-error": "Błąd aktualizacji wtyczki {plugin}: {error}",
       "update-incompatible": "Wymaga Noctalia v{version} lub nowszej",
       "update-pending": "v{bieżąca} → v{nowa} (wymaga Noctalii v{wymagana})",
@@ -1223,38 +1196,7 @@
       "updating": "Aktualizowanie {plugin}..."
     },
     "region": {
-      "clock-panel-desc": "Dostosuj wygląd panelu zegara.",
-      "clock-panel-title": "Panel zegara",
       "title": "Region"
-    },
-    "screen-recorder": {
-      "audio-audio-codec-description": "Opus jest zalecany dla najlepszej wydajności i najmniejszego rozmiaru pliku.",
-      "audio-audio-codec-label": "Kodek audio",
-      "audio-audio-source-description": "Źródło dźwięku do przechwycenia podczas nagrywania.",
-      "audio-audio-source-label": "Źródło audio",
-      "audio-desc": "Konfiguruj opcje nagrywania dźwięku.",
-      "audio-title": "Ustawienia audio",
-      "general-copy-to-clipboard-description": "Skopiuj plik do schowka po zakończeniu nagrywania.",
-      "general-copy-to-clipboard-label": "Kopiuj do schowka",
-      "general-desc": "Zarządzaj wyjściem i zawartością nagrań ekranu.",
-      "general-output-folder-description": "Folder, w którym będą zapisywane nagrania.",
-      "general-output-folder-label": "Folder wyjściowy",
-      "general-select-output-folder": "Wybierz folder wyjściowy",
-      "general-show-cursor-description": "Nagrywaj kursor myszy na wideo.",
-      "general-show-cursor-label": "Pokaż kursor",
-      "general-title": "Ustawienia ogólne",
-      "title": "Nagrywanie ekranu",
-      "video-color-range-description": "Zakres ograniczony (Limited) jest zalecany dla lepszej kompatybilności.",
-      "video-color-range-label": "Zakres kolorów",
-      "video-desc": "Konfiguruj opcje nagrywania wideo.",
-      "video-frame-rate-description": "Docelowa liczba klatek na sekundę (FPS).",
-      "video-title": "Ustawienia wideo",
-      "video-video-codec-description": "h264 to najczęściej spotykany kodek.",
-      "video-video-codec-label": "Kodek wideo",
-      "video-video-quality-description": "Wyższa jakość skutkuje większym rozmiarem plików.",
-      "video-video-quality-label": "Jakość wideo",
-      "video-video-source-description": "Zalecany jest Portal. Jeśli pojawiają się błędy, spróbuj Ekran (Screen).",
-      "video-video-source-label": "Źródło wideo"
     },
     "session-menu": {
       "countdown-duration-description": "Ustaw czas odliczania przed wykonaniem akcji zasilania.",
@@ -1393,7 +1335,6 @@
     "enter-text-to-collapse": "np. 'nic nie jest odtwarzane'. Użyj /regex/ dla wzorców.",
     "enter-tooltip": "Wpisz tekst podpowiedzi",
     "enter-width-pixels": "Wpisz szerokość w pikselach",
-    "profile-picture-path": "/home/użytkownik/.face",
     "search": "Szukaj...",
     "search-icons": "np. noctalia, niri, battery, cloud",
     "search-launcher": "Szukaj wpisów... lub użyj > dla poleceń",
@@ -1577,7 +1518,6 @@
     "click-to-start-recording": "Nagrywanie ekranu (start)",
     "click-to-stop-recording": "Nagrywanie ekranu (stop)",
     "collapse": "Zwiń pasek boczny",
-    "connect-disconnect-devices": "Urządzenie Bluetooth",
     "copy-address": "Kopiuj adres",
     "delete-notification": "Usuń powiadomienie",
     "do-not-disturb-enabled": "Nie przeszkadzać",
@@ -1617,11 +1557,9 @@
     "refresh-wallhaven": "Odśwież wyniki Wallhaven",
     "refresh-wallpaper-list": "Odśwież listę tapet",
     "remove-widget": "Usuń widżet",
-    "screen-recorder-not-installed": "Nagrywanie ekranu (niezainstalowane)",
     "search-close": "Zamknij wyszukiwanie",
     "session-menu": "Menu sesji",
     "show-all-devices": "Pokaż wszystkie urządzenia.",
-    "stop-screen-recording": "Nagrywanie ekranu",
     "switch-to-dark-mode": "Tryb ciemny",
     "switch-to-light-mode": "Tryb jasny",
     "unmute": "Wyłącz wyciszenie",

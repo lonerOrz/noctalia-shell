@@ -41,6 +41,17 @@ Singleton {
   property bool pendingSave: false
   property int saveDebounceTimer: 0
 
+  Connections {
+    target: PanelService
+    function onPopupMenuWindowRegistered(screen) {
+      if (popupScheduled) {
+        if (!viewChangelogTargetScreen || viewChangelogTargetScreen.name === screen.name) {
+          openWhenReady();
+        }
+      }
+    }
+  }
+
   signal popupQueued(string fromVersion, string toVersion)
 
   function init() {
@@ -255,14 +266,48 @@ Singleton {
       return;
 
     if (!Quickshell.screens || Quickshell.screens.length === 0) {
-      Qt.callLater(openWhenReady);
       return;
     }
 
-    const targetScreen = viewChangelogTargetScreen || Quickshell.screens[0];
+    const monitors = Settings.data.bar.monitors || [];
+    const allowPanelsOnScreenWithoutBar = Settings.data.general.allowPanelsOnScreenWithoutBar;
+
+    function canShowPanelsOnScreen(screen) {
+      const name = screen?.name || "";
+      return allowPanelsOnScreenWithoutBar || monitors.length === 0 || monitors.includes(name);
+    }
+
+    let targetScreen = viewChangelogTargetScreen;
+
+    if (targetScreen) {
+      // Explicit screen requested - validate it
+      if (!canShowPanelsOnScreen(targetScreen)) {
+        Logger.w("UpdateService", "Changelog cannot be shown on screen without bar:", targetScreen.name);
+        popupScheduled = false;
+        viewChangelogTargetScreen = null;
+        return;
+      }
+    } else {
+      // No explicit screen - find one that can show panels
+      for (let i = 0; i < Quickshell.screens.length; i++) {
+        if (canShowPanelsOnScreen(Quickshell.screens[i])) {
+          targetScreen = Quickshell.screens[i];
+          break;
+        }
+      }
+
+      if (!targetScreen) {
+        Logger.w("UpdateService", "No screen available to show changelog");
+        popupScheduled = false;
+        return;
+      }
+    }
+
     const panel = PanelService.getPanel("changelogPanel", targetScreen);
     if (!panel) {
-      Qt.callLater(openWhenReady);
+      // Panel not found yet. Wait for popupMenuWindowRegistered signal.
+      // This avoids the memory leak (#1306).
+      Logger.d("UpdateService", "Waiting for changelogPanel on screen:", targetScreen.name);
       return;
     }
 

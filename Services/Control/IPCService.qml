@@ -36,15 +36,6 @@ Item {
   }
 
   IpcHandler {
-    target: "screenRecorder"
-    function toggle() {
-      if (ScreenRecorderService.isAvailable) {
-        ScreenRecorderService.toggleRecording();
-      }
-    }
-  }
-
-  IpcHandler {
     target: "settings"
     function toggle() {
       if (Settings.data.ui.settingsPanelMode === "window") {
@@ -102,12 +93,26 @@ Item {
     function dismissAll() {
       NotificationService.dismissAllActive();
     }
+
+    function getHistory(): string {
+      return JSON.stringify(NotificationService.getHistorySnapshot(), null, 2);
+    }
+
+    function removeFromHistory(id: string): bool {
+      return NotificationService.removeFromHistory(id);
+    }
   }
 
   IpcHandler {
     target: "idleInhibitor"
     function toggle() {
       return IdleInhibitorService.manualToggle();
+    }
+    function enable() {
+      IdleInhibitorService.addManualInhibitor(null);
+    }
+    function disable() {
+      IdleInhibitorService.removeManualInhibitor();
     }
   }
 

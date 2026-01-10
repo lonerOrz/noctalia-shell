@@ -1,7 +1,6 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../../../../Helpers/FuzzySort.js" as Fuzzysort
 import qs.Commons
 
 Item {
@@ -216,7 +215,7 @@ Item {
   function isAppPinned(app) {
     if (!app)
       return false;
-    const pinnedApps = Settings.data.dock.pinnedApps || [];
+    const pinnedApps = Settings.data.appLauncher.pinnedApps || [];
     const appId = getAppKey(app);
     const normalizedId = normalizeAppId(appId);
     return pinnedApps.some(pinnedId => normalizeAppId(pinnedId) === normalizedId);
@@ -271,7 +270,7 @@ Item {
     let hasPinned = false;
 
     // Check if there are any pinned apps
-    const pinnedApps = Settings.data.dock.pinnedApps || [];
+    const pinnedApps = Settings.data.appLauncher.pinnedApps || [];
     if (pinnedApps.length > 0) {
       // Verify that at least one pinned app exists in entries
       for (let app of entries) {
@@ -383,7 +382,7 @@ Item {
   }
 
   Connections {
-    target: Settings.data.dock
+    target: Settings.data.appLauncher
     function onPinnedAppsChanged() {
       const wasViewingPinned = selectedCategory === "Pinned";
       updateAvailableCategories();
@@ -475,8 +474,8 @@ Item {
     }
 
     // Use fuzzy search if available, fallback to simple search
-    if (typeof Fuzzysort !== 'undefined') {
-      const fuzzyResults = Fuzzysort.go(query, filteredEntries, {
+    if (typeof FuzzySort !== 'undefined') {
+      const fuzzyResults = FuzzySort.go(query, filteredEntries, {
                                           "keys": ["name", "comment", "genericName", "executableName"],
                                           "threshold": -1000,
                                           "limit": 20
@@ -615,13 +614,13 @@ Item {
     if (!appId)
       return;
     const normalizedId = normalizeAppId(appId);
-    let arr = (Settings.data.dock.pinnedApps || []).slice();
+    let arr = (Settings.data.appLauncher.pinnedApps || []).slice();
     const idx = arr.findIndex(pinnedId => normalizeAppId(pinnedId) === normalizedId);
     if (idx >= 0)
       arr.splice(idx, 1);
     else
       arr.push(appId);
-    Settings.data.dock.pinnedApps = arr;
+    Settings.data.appLauncher.pinnedApps = arr;
   }
 
   // -------------------------

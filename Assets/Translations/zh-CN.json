@@ -16,10 +16,10 @@
     "open-calendar": "打开日历",
     "open-display-settings": "显示设置",
     "open-launcher": "打开启动器",
-    "open-mixer": "音频混音器",
     "open-settings": "打开设置",
     "raise-to-top": "置顶",
     "random-wallpaper": "随机壁纸",
+    "run-custom-command": "运行自定义命令",
     "toggle-mute": "切换静音",
     "widget-settings": "小部件设置"
   },
@@ -151,7 +151,7 @@
       "hide-mode-description": "控制当没有媒体播放时小部件的行为。",
       "max-width-description": "设置小部件的最大水平尺寸。当内容较短时，小部件会自动收缩以适应内容。",
       "no-active-player": "无活动播放器",
-      "panel-section-description": "配置媒体播放器弹出面板的外观和行为。",
+      "panel-section-description": "配置媒体播放器面板的外观和行为。",
       "panel-section-label": "媒体播放器面板",
       "scrolling-mode-description": "控制何时为长曲目标题启用文本滚动。",
       "scrolling-mode-label": "滚动模式",
@@ -295,11 +295,6 @@
     }
   },
   "calendar": {
-    "timer": {
-      "hours": "h",
-      "minutes": "m",
-      "seconds": "s"
-    },
     "weather-loading": "正在加载天气…"
   },
   "changelog": {
@@ -341,13 +336,13 @@
     "brightness": "亮度",
     "browse": "浏览",
     "calendar": "日历",
+    "calendar-panel": "日历面板",
     "cancel": "取消",
     "cards": "卡片",
     "charging": "充电",
     "check-settings": "查看设置了解详情",
     "clear": "清晰",
     "clipboard": "剪贴板",
-    "clock-panel": "时钟面板",
     "close": "关闭",
     "colors": "颜色",
     "command": "命令",
@@ -433,12 +428,10 @@
     "sources": "来源",
     "start": "开始",
     "stop": "停止",
-    "stopwatch": "秒表",
     "suspend": "暂停",
     "templates": "模板",
     "test": "测试",
     "thresholds": "阈值",
-    "timer": "计时器",
     "title": "标题",
     "toast": "吐司",
     "trusted": "可信赖的",
@@ -463,9 +456,6 @@
     "power-profile": {
       "tooltip-action": "电源模式",
       "tooltip-disabled": "安装 power-profiles-daemon 以使用电源模式"
-    },
-    "screen-recorder": {
-      "label-stopped": "录制"
     },
     "wifi": {
       "label-disconnected": "Wi-Fi 已断开",
@@ -573,20 +563,6 @@
       "quick-settings-style-modern": "现代"
     },
     "frame-rates-fps": "{fps} FPS",
-    "screen-recording": {
-      "audio-sources-both": "系统输出 + 麦克风输入",
-      "audio-sources-microphone-input": "麦克风输入",
-      "audio-sources-none": "无音频",
-      "audio-sources-system-output": "系统输出",
-      "color-range-full": "完全",
-      "color-range-limited": "有限",
-      "quality-high": "高",
-      "quality-medium": "中等",
-      "quality-ultra": "超高",
-      "quality-very-high": "很高",
-      "sources-portal": "Portal",
-      "sources-screen": "Screen"
-    },
     "scrolling-modes": {
       "always": "始终滚动",
       "hover": "悬停时滚动",
@@ -601,11 +577,6 @@
       "centered": "居中面板",
       "window": "分离窗口"
     },
-    "shadow-direction": {
-      "bottom": "下方",
-      "center": "居中",
-      "top": "上方"
-    },
     "visualizer-types": {
       "linear": "线性",
       "mirrored": "镜像",
@@ -616,7 +587,7 @@
     },
     "workspace-labels": {
       "index": "索引",
-      "index+name": "索引和名称",
+      "index-and-name": "索引和名称",
       "name": "名称"
     }
   },
@@ -657,6 +628,7 @@
       "media-scrolling-title-description": "为长媒体标题启用连续滚动",
       "media-scrolling-title-label": "标题滚动",
       "media-title": "媒体播放器",
+      "on-middle-clicked-description": "鼠标中键点击时执行的命令。",
       "panel-applications-empty": "目前没有应用程序正在播放音频。",
       "title": "音频",
       "visualizer-type-description": "选择媒体播放的可视化类型。",
@@ -760,12 +732,12 @@
       "templates-programs-discord-description-missing": "未检测到 Discord 客户端",
       "templates-programs-emacs-description": "Doom: ~/.config/doom/themes/noctalia.el<br>标准: ~/.emacs.d/themes/noctalia.el",
       "templates-programs-label": "程序",
-      "templates-programs-pywalfox-description": "写入 {filepath} 并运行 pywalfox update",
+      "templates-programs-pywalfox-description": "写入 {filepath} 并运行 'pywalfox update'",
       "templates-programs-spicetify-description": "写入 {filepath}，Comfy 主题需要手动安装和激活",
       "templates-programs-walker-description": "写入 {filepath} 并将主题设置为 noctalia",
       "templates-programs-yazi-description": "写入 {filepath}，需要手动激活 flavor",
       "templates-programs-zed-description": "写入 {filepath} 并重新加载",
-      "templates-programs-zen-browser-description": "将 {filepath} 写入；复制到你的 Zen 配置文件的 chrome/userChrome.css 中",
+      "templates-programs-zen-browser-description": "写入 {filepath}，复制到你的 Zen 配置文件的 chrome/userChrome.css 中",
       "templates-terminal-description": "终端模拟器主题。",
       "templates-terminal-label": "终端",
       "templates-ui-description": "桌面环境和 UI 工具包主题。",
@@ -948,7 +920,7 @@
       "screen-corners-title": "屏幕边角"
     },
     "hooks": {
-      "info-command-info-description": "• 命令通过 shell 执行（sh -c）<br>• 命令在后台运行（分离）<br>• 测试按钮使用当前值执行",
+      "info-command-info-description": "• 命令通过 shell 执行（sh -lc）<br>• 命令在后台运行（分离）<br>• 测试按钮使用当前值执行",
       "info-command-info-label": "钩子命令信息",
       "info-parameters-description": "• 壁纸钩子：$1 = 壁纸路径, $2 = 屏幕名称<br>• 主题切换钩子：$1 = true/false（深色模式状态）<br>• 屏幕锁定/解锁钩子：无参数<br>• 性能模式钩子：无参数",
       "info-parameters-label": "可用参数",
@@ -991,6 +963,8 @@
       "settings-auto-paste-label": "自动粘贴",
       "settings-clip-preview-description": "在使用 >clip 命令时显示剪贴板内容的预览。",
       "settings-clip-preview-label": "启用剪贴板预览",
+      "settings-clip-wrap-text-description": "将剪贴板列表中的文本换行显示，而不是截断。",
+      "settings-clip-wrap-text-label": "环绕剪贴板文本",
       "settings-clipboard-history-description": "从启动器访问之前复制的项目。",
       "settings-clipboard-history-label": "启用剪贴板历史记录",
       "settings-custom-launch-prefix-description": "使用自定义启动器前缀命令（例如，'runapp'用于systemd集成）。",
@@ -1214,7 +1188,6 @@
       "update-all-success": "所有插件已成功更新。",
       "update-available": "新插件更新可用",
       "update-available-plural": "新插件更新可用（{count}个）",
-      "update-available_plural": "有插件更新可用 ({count})",
       "update-error": "更新插件失败：{plugin}：{error}",
       "update-incompatible": "需要 Noctalia v{version} 或更高版本",
       "update-pending": "v{当前} → v{新} (需要 Noctalia v{所需})",
@@ -1223,38 +1196,7 @@
       "updating": "正在更新..."
     },
     "region": {
-      "clock-panel-desc": "自定义时钟面板外观。",
-      "clock-panel-title": "时钟面板",
       "title": "地区"
-    },
-    "screen-recorder": {
-      "audio-audio-codec-description": "推荐使用 Opus 以获得最佳性能和最小的音频大小。",
-      "audio-audio-codec-label": "音频编解码器",
-      "audio-audio-source-description": "录制期间要捕获的音频源。",
-      "audio-audio-source-label": "音频源",
-      "audio-desc": "配置音频录制选项。",
-      "audio-title": "音频设置",
-      "general-copy-to-clipboard-description": "录制完成后将文件复制到剪贴板。",
-      "general-copy-to-clipboard-label": "复制到剪贴板",
-      "general-desc": "管理屏幕录制输出和内容。",
-      "general-output-folder-description": "屏幕录制将保存的文件夹。",
-      "general-output-folder-label": "输出文件夹",
-      "general-select-output-folder": "选择输出文件夹",
-      "general-show-cursor-description": "在视频中录制鼠标光标。",
-      "general-show-cursor-label": "显示光标",
-      "general-title": "常规设置",
-      "title": "屏幕录制",
-      "video-color-range-description": "推荐使用 Limited 以获得更好的兼容性。",
-      "video-color-range-label": "颜色范围",
-      "video-desc": "配置视频录制选项。",
-      "video-frame-rate-description": "屏幕录制的目标帧率。",
-      "video-title": "视频设置",
-      "video-video-codec-description": "h264 是最常见的编解码器。",
-      "video-video-codec-label": "视频编解码器",
-      "video-video-quality-description": "更高的质量会导致更大的文件大小。",
-      "video-video-quality-label": "视频质量",
-      "video-video-source-description": "推荐使用 Portal，如果出现伪影请尝试 Screen。",
-      "video-video-source-label": "视频源"
     },
     "session-menu": {
       "countdown-duration-description": "设置倒计时计时器在执行电源操作之前持续多长时间。",
@@ -1393,7 +1335,6 @@
     "enter-text-to-collapse": "例如，“nothing is playing”。使用 /regex/ 表示匹配模式。",
     "enter-tooltip": "输入工具提示",
     "enter-width-pixels": "输入宽度（像素）",
-    "profile-picture-path": "/home/user/.face",
     "search": "搜索...",
     "search-icons": "例如：noctalia, niri, battery, cloud",
     "search-launcher": "搜索条目...或使用 > 执行命令",
@@ -1577,7 +1518,6 @@
     "click-to-start-recording": "屏幕录制器（开始录制）",
     "click-to-stop-recording": "屏幕录制器（停止录制）",
     "collapse": "折叠侧边栏",
-    "connect-disconnect-devices": "蓝牙设备",
     "copy-address": "复制地址",
     "delete-notification": "删除通知",
     "do-not-disturb-enabled": "勿扰模式",
@@ -1617,11 +1557,9 @@
     "refresh-wallhaven": "刷新 Wallhaven 结果",
     "refresh-wallpaper-list": "刷新壁纸列表",
     "remove-widget": "移除小部件",
-    "screen-recorder-not-installed": "屏幕录制器（未安装）",
     "search-close": "关闭搜索",
     "session-menu": "会话菜单",
     "show-all-devices": "显示所有设备",
-    "stop-screen-recording": "屏幕录制器",
     "switch-to-dark-mode": "深色模式",
     "switch-to-light-mode": "浅色模式",
     "unmute": "取消静音",

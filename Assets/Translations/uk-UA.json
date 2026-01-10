@@ -16,10 +16,10 @@
     "open-calendar": "Відкрити календар",
     "open-display-settings": "Параметри дисплея",
     "open-launcher": "Відкрити панель запуску",
-    "open-mixer": "Аудіомікшер",
     "open-settings": "Відкрити налаштування",
     "raise-to-top": "Підняти вгору",
     "random-wallpaper": "Випадкові шпалери",
+    "run-custom-command": "Виконати власну команду",
     "toggle-mute": "Увімкнути/вимкнути звук",
     "widget-settings": "Налаштування віджета"
   },
@@ -151,7 +151,7 @@
       "hide-mode-description": "Керує поведінкою віджета, коли медіа не відтворюється.",
       "max-width-description": "Встановлює максимальний горизонтальний розмір віджета. Віджет зменшується для коротшого вмісту.",
       "no-active-player": "Немає активного плеєра",
-      "panel-section-description": "Налаштуйте зовнішній вигляд та поведінку спливаючої панелі медіаплеєра.",
+      "panel-section-description": "Налаштуйте зовнішній вигляд та поведінку панелі медіаплеєра.",
       "panel-section-label": "Панель медіаплеєра",
       "scrolling-mode-description": "Керування, коли увімкнено прокрутку тексту для довгих назв треків.",
       "scrolling-mode-label": "Режим прокрутки",
@@ -295,11 +295,6 @@
     }
   },
   "calendar": {
-    "timer": {
-      "hours": "г",
-      "minutes": "м",
-      "seconds": "с"
-    },
     "weather-loading": "Завантаження погоди…"
   },
   "changelog": {
@@ -309,7 +304,7 @@
     },
     "panel": {
       "buttons-discord": "Приєднатися до нашого Discord",
-      "buttons-dismiss": "Ок",
+      "buttons-dismiss": "ОК",
       "buttons-feedback": "Надати відгук",
       "empty": "Примітки до релізу ще недоступні.",
       "highlight-title": "Основні зміни",
@@ -341,13 +336,13 @@
     "brightness": "Яскравість",
     "browse": "Перегляд",
     "calendar": "Календар",
+    "calendar-panel": "Панель календаря",
     "cancel": "Скасувати",
     "cards": "Картки",
     "charging": "Заряджання",
     "check-settings": "Перевірте налаштування для деталей.",
     "clear": "Ясний/Прозорий",
     "clipboard": "Буфер обміну",
-    "clock-panel": "Панель годинника",
     "close": "Закрити",
     "colors": "Кольори",
     "command": "Команда",
@@ -433,12 +428,10 @@
     "sources": "Джерела",
     "start": "Почати",
     "stop": "Зупиніться",
-    "stopwatch": "Секундомір",
     "suspend": "Призупинити",
     "templates": "Шаблони",
     "test": "Тест",
     "thresholds": "Порогові значення",
-    "timer": "Таймер",
     "title": "Назва",
     "toast": "Тост",
     "trusted": "Надійний",
@@ -463,9 +456,6 @@
     "power-profile": {
       "tooltip-action": "Профіль живлення",
       "tooltip-disabled": "Встановіть power-profiles-daemon для використання профілів живлення"
-    },
-    "screen-recorder": {
-      "label-stopped": "Запис"
     },
     "wifi": {
       "label-disconnected": "Wi-Fi відключено",
@@ -573,20 +563,6 @@
       "quick-settings-style-modern": "Сучасний"
     },
     "frame-rates-fps": "{fps} к/с",
-    "screen-recording": {
-      "audio-sources-both": "Системний вихід + вхід мікрофона",
-      "audio-sources-microphone-input": "Вхід мікрофона",
-      "audio-sources-none": "Немає аудіо",
-      "audio-sources-system-output": "Системний вихід",
-      "color-range-full": "Повний",
-      "color-range-limited": "Обмежений",
-      "quality-high": "Висока",
-      "quality-medium": "Середня",
-      "quality-ultra": "Ультра",
-      "quality-very-high": "Дуже висока",
-      "sources-portal": "Портал",
-      "sources-screen": "Екран"
-    },
     "scrolling-modes": {
       "always": "Завжди прокручувати",
       "hover": "Прокручувати при наведенні",
@@ -601,11 +577,6 @@
       "centered": "Центрована панель",
       "window": "Окреме вікно"
     },
-    "shadow-direction": {
-      "bottom": "Знизу",
-      "center": "По центру",
-      "top": "Згори"
-    },
     "visualizer-types": {
       "linear": "Лінійний",
       "mirrored": "Дзеркальний",
@@ -616,7 +587,7 @@
     },
     "workspace-labels": {
       "index": "Індекс",
-      "index+name": "Індекс та назва",
+      "index-and-name": "Індекс та назва",
       "name": "Назва"
     }
   },
@@ -657,6 +628,7 @@
       "media-scrolling-title-description": "Увімкнути безперервну прокрутку для довгих назв медіа",
       "media-scrolling-title-label": "Прокрутка назви",
       "media-title": "Медіаплеєри",
+      "on-middle-clicked-description": "Команда для виконання при натисканні середньою кнопкою миші.",
       "panel-applications-empty": "Зараз жоден додаток не відтворює аудіо.",
       "title": "Аудіо",
       "visualizer-type-description": "Виберіть тип візуалізації для відтворення медіа.",
@@ -760,12 +732,12 @@
       "templates-programs-discord-description-missing": "Клієнт Discord не виявлено",
       "templates-programs-emacs-description": "Doom: ~/.config/doom/themes/noctalia.el<br>Стандартний: ~/.emacs.d/themes/noctalia.el",
       "templates-programs-label": "Застосунки",
-      "templates-programs-pywalfox-description": "Записати {filepath} та запустити pywalfox update",
+      "templates-programs-pywalfox-description": "Записати {filepath} та запустити 'pywalfox update'",
       "templates-programs-spicetify-description": "Записати {filepath} — тему Comfy потрібно встановити та активувати вручну",
       "templates-programs-walker-description": "Записати {filepath} та встановити тему noctalia",
       "templates-programs-yazi-description": "Записати {filepath} — flavor потрібно активувати вручну",
       "templates-programs-zed-description": "Записати {filepath} та перезавантажити",
-      "templates-programs-zen-browser-description": "Запишіть {filepath}; скопіюйте у chrome/userChrome.css вашого профілю Zen.",
+      "templates-programs-zen-browser-description": "Запишіть {filepath} — скопіюйте у chrome/userChrome.css вашого профілю Zen",
       "templates-terminal-description": "Оформлення емулятора терміналу.",
       "templates-terminal-label": "Термінал",
       "templates-ui-description": "Оформлення робочого середовища та інструментарію інтерфейсу.",
@@ -948,7 +920,7 @@
       "screen-corners-title": "Кути екрана"
     },
     "hooks": {
-      "info-command-info-description": "• Команди виконуються через оболонку (sh -c)<br>• Команди запускаються у фоні (відокремлено)<br>• Кнопки тестування виконують команди з поточними значеннями",
+      "info-command-info-description": "• Команди виконуються через оболонку (sh -lc)<br>• Команди запускаються у фоні (відокремлено)<br>• Кнопки тестування виконують команди з поточними значеннями",
       "info-command-info-label": "Інформація про команди хуків",
       "info-parameters-description": "• Хук шпалер: $1 = шлях до шпалер, $2 = назва екрана<br>• Хук перемикання теми: $1 = true/false (стан темного режиму)",
       "info-parameters-label": "Доступні параметри",
@@ -991,6 +963,8 @@
       "settings-auto-paste-label": "Автоматична вставка",
       "settings-clip-preview-description": "Показувати попередній перегляд вмісту буфера обміну при використанні команди >clip.",
       "settings-clip-preview-label": "Попередній перегляд буфера обміну",
+      "settings-clip-wrap-text-description": "Переносити текст у списку буфера обміну замість обрізання.",
+      "settings-clip-wrap-text-label": "Загорнути текст з буфера обміну",
       "settings-clipboard-history-description": "Отримати доступ до раніше скопійованих елементів із лаунчера.",
       "settings-clipboard-history-label": "Увімкнути історію буфера обміну",
       "settings-custom-launch-prefix-description": "Додати префікс до команд запуску лаунчером (напр., 'runapp' для інтеграції з systemd).",
@@ -1214,7 +1188,6 @@
       "update-all-success": "Усі плагіни успішно оновлено.",
       "update-available": "Доступне нове оновлення плагіна",
       "update-available-plural": "Доступні нові оновлення плагінів ({count})",
-      "update-available_plural": "Доступні оновлення плагінів ({count})",
       "update-error": "Не вдалося оновити плагін: {plugin}: {error}",
       "update-incompatible": "Потрібна Noctalia v{version} або вище",
       "update-pending": "v{current} → v{new} (потрібно Noctalia v{required})",
@@ -1223,38 +1196,7 @@
       "updating": "Оновлення..."
     },
     "region": {
-      "clock-panel-desc": "Налаштуйте вигляд панелі годинника.",
-      "clock-panel-title": "Панель годинника",
       "title": "Регіон"
-    },
-    "screen-recorder": {
-      "audio-audio-codec-description": "Opus рекомендується для найкращої продуктивності та найменшого розміру аудіо.",
-      "audio-audio-codec-label": "Кодек аудіо",
-      "audio-audio-source-description": "Джерело аудіо для захоплення під час запису.",
-      "audio-audio-source-label": "Джерело аудіо",
-      "audio-desc": "Налаштуйте параметри запису аудіо.",
-      "audio-title": "Налаштування аудіо",
-      "general-copy-to-clipboard-description": "Скопіювати файл у буфер обміну після завершення запису.",
-      "general-copy-to-clipboard-label": "Скопіювати в буфер обміну",
-      "general-desc": "Керуйте виведенням та вмістом запису екрана.",
-      "general-output-folder-description": "Тека, де зберігатимуться записи екрана.",
-      "general-output-folder-label": "Тека виведення",
-      "general-select-output-folder": "Вибрати теку виведення",
-      "general-show-cursor-description": "Записувати курсор миші у відео.",
-      "general-show-cursor-label": "Показувати курсор",
-      "general-title": "Загальні налаштування",
-      "title": "Запис екрана",
-      "video-color-range-description": "Обмежений рекомендується для кращої сумісності.",
-      "video-color-range-label": "Діапазон кольорів",
-      "video-desc": "Налаштуйте параметри запису відео.",
-      "video-frame-rate-description": "Цільова частота кадрів для записів екрана.",
-      "video-title": "Налаштування відео",
-      "video-video-codec-description": "h264 є найпоширенішим кодеком.",
-      "video-video-codec-label": "Кодек відео",
-      "video-video-quality-description": "Вища якість призводить до більшого розміру файлів.",
-      "video-video-quality-label": "Якість відео",
-      "video-video-source-description": "Рекомендується Portal, якщо виникають артефакти, спробуйте Screen.",
-      "video-video-source-label": "Джерело відео"
     },
     "session-menu": {
       "countdown-duration-description": "Встановити, як довго триває таймер зворотного відліку перед виконанням дій живлення.",
@@ -1393,7 +1335,6 @@
     "enter-text-to-collapse": "напр., 'нічого не відтворюється'. Використовуйте /regex/ для шаблонів.",
     "enter-tooltip": "Введіть підказку",
     "enter-width-pixels": "Введіть ширину в пікселях",
-    "profile-picture-path": "/home/user/.face",
     "search": "Пошук...",
     "search-icons": "напр., noctalia, niri, battery, cloud",
     "search-launcher": "Пошук записів... або використовуйте > для команд",
@@ -1577,7 +1518,6 @@
     "click-to-start-recording": "Запис екрана (почати запис)",
     "click-to-stop-recording": "Запис екрана (зупинити запис)",
     "collapse": "Згорнути бічну панель",
-    "connect-disconnect-devices": "Пристрій Bluetooth",
     "copy-address": "Копіювати адресу",
     "delete-notification": "Видалити сповіщення",
     "do-not-disturb-enabled": "Не турбувати",
@@ -1617,11 +1557,9 @@
     "refresh-wallhaven": "Оновити результати Wallhaven",
     "refresh-wallpaper-list": "Оновити список шпалер",
     "remove-widget": "Видалити віджет",
-    "screen-recorder-not-installed": "Запис екрана (не встановлено)",
     "search-close": "Закрити пошук",
     "session-menu": "Меню сеансу",
     "show-all-devices": "Показати всі пристрої",
-    "stop-screen-recording": "Запис екрана",
     "switch-to-dark-mode": "Темний режим",
     "switch-to-light-mode": "Світлий режим",
     "unmute": "Увімкнути звук",

@@ -27,11 +27,11 @@ Singleton {
                            "Launcher": launcherComponent,
                            "MediaMini": mediaMiniComponent,
                            "Microphone": microphoneComponent,
+                           "Network": networkComponent,
                            "NightLight": nightLightComponent,
                            "NoctaliaPerformance": noctaliaPerformanceComponent,
                            "NotificationHistory": notificationHistoryComponent,
                            "PowerProfile": powerProfileComponent,
-                           "ScreenRecorder": screenRecorderComponent,
                            "SessionMenu": sessionMenuComponent,
                            "Spacer": spacerComponent,
                            "SystemMonitor": systemMonitorComponent,
@@ -39,7 +39,6 @@ Singleton {
                            "Tray": trayComponent,
                            "Volume": volumeComponent,
                            "VPN": vpnComponent,
-                           "Network": networkComponent,
                            "WallpaperSelector": wallpaperSelectorComponent,
                            "Workspace": workspaceComponent
                          })
@@ -167,18 +166,20 @@ Singleton {
                                     "maxWidth": 145,
                                     "useFixedWidth": false,
                                     "hideWhenIdle": false,
-                                    "showAlbumArt": false,
+                                    "showAlbumArt": true,
                                     "showArtistFirst": true,
                                     "showVisualizer": false,
                                     "showProgressRing": true,
                                     "visualizerType": "linear",
+                                    "compactMode": false,
                                     "panelShowAlbumArt": true,
                                     "panelShowVisualizer": true,
                                     "compactShowAlbumArt": true,
                                     "compactShowVisualizer": false
                                   },
                                   "Microphone": {
-                                    "displayMode": "onhover"
+                                    "displayMode": "onhover",
+                                    "middleClickCommand": "pwvucontrol || pavucontrol"
                                   },
                                   "NotificationHistory": {
                                     "showUnreadBadge": true,
@@ -246,7 +247,8 @@ Singleton {
                                     "iconScale": 0.8
                                   },
                                   "Volume": {
-                                    "displayMode": "onhover"
+                                    "displayMode": "onhover",
+                                    "middleClickCommand": "pwvucontrol || pavucontrol"
                                   }
                                 })
 
@@ -307,9 +309,6 @@ Singleton {
   }
   property Component sessionMenuComponent: Component {
     SessionMenu {}
-  }
-  property Component screenRecorderComponent: Component {
-    ScreenRecorder {}
   }
   property Component controlCenterComponent: Component {
     ControlCenter {}

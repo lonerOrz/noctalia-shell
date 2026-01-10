@@ -16,10 +16,10 @@
     "open-calendar": "Takvimi aç",
     "open-display-settings": "Ekran ayarları",
     "open-launcher": "Başlatıcıyı aç",
-    "open-mixer": "Ses Karıştırıcısı",
     "open-settings": "Ayarları aç",
     "raise-to-top": "En üste taşı",
     "random-wallpaper": "Rastgele duvar kâğıdı",
+    "run-custom-command": "Özel komut çalıştır",
     "toggle-mute": "Sesi kapat/aç",
     "widget-settings": "Araç takımı ayarları"
   },
@@ -146,13 +146,13 @@
       "show-scroll-lock-label": "Kaydırma Kilidi"
     },
     "media-mini": {
-      "compact-mode-description": "Medya Oynatıcı Paneli için yerden tasarruf sağlayan bir düzeni etkinleştirin.",
+      "compact-mode-description": "Medya oynatıcı paneli için yerden tasarruf sağlayan bir düzeni etkinleştirin.",
       "compact-mode-label": "Sıkıştırılmış mod",
       "hide-mode-description": "Ortam çalınmadığında araç takımının nasıl davrandığını kontrol eder.",
       "max-width-description": "Araç takımının en fazla yatay boyutunu ayarlar. Araç takımı daha kısa içerik için küçülecektir.",
       "no-active-player": "Etkin çalar yok",
-      "panel-section-description": "Medya Oynatıcı açılır panelinin görünümünü ve davranışını yapılandırın.",
-      "panel-section-label": "Medya Oynatıcı Paneli",
+      "panel-section-description": "Medya oynatıcı panelinin görünümünü ve davranışını yapılandırın.",
+      "panel-section-label": "Medya oynatıcı paneli",
       "scrolling-mode-description": "Uzun parça başlıkları için metin kaydırmanın ne zaman etkinleştirileceğini kontrol et.",
       "scrolling-mode-label": "Kaydırma modu",
       "show-album-art-description": "Şu anda çalan parçanın albüm kapağını göster.",
@@ -295,11 +295,6 @@
     }
   },
   "calendar": {
-    "timer": {
-      "hours": "S",
-      "minutes": "d",
-      "seconds": "s"
-    },
     "weather-loading": "Hava durumu yükleniyor..."
   },
   "changelog": {
@@ -341,13 +336,13 @@
     "brightness": "Parlaklık",
     "browse": "Göz at",
     "calendar": "Takvim",
+    "calendar-panel": "Takvim paneli",
     "cancel": "İptal",
     "cards": "Kartlar",
     "charging": "Şarj etme",
     "check-settings": "Ayrıntılar için Ayarları Kontrol Et",
     "clear": "Açık",
     "clipboard": "Panoya",
-    "clock-panel": "Saat Paneli",
     "close": "Kapat",
     "colors": "Renkler",
     "command": "Komut",
@@ -433,12 +428,10 @@
     "sources": "Kaynaklar",
     "start": "Başlat",
     "stop": "Dur",
-    "stopwatch": "Kronometre",
     "suspend": "Askıya almak",
     "templates": "Şablonlar",
     "test": "Test",
     "thresholds": "Eşikler",
-    "timer": "Zamanlayıcı",
     "title": "Başlık",
     "toast": "Tost",
     "trusted": "Güvenilir",
@@ -463,9 +456,6 @@
     "power-profile": {
       "tooltip-action": "Güç profili",
       "tooltip-disabled": "Güç profillerini kullanmak için power-profiles-daemon kur"
-    },
-    "screen-recorder": {
-      "label-stopped": "Kaydet"
     },
     "wifi": {
       "label-disconnected": "Kablosuz Bağlantı Kesik",
@@ -573,38 +563,19 @@
       "quick-settings-style-modern": "Modern"
     },
     "frame-rates-fps": "{fps} FPS",
-    "screen-recording": {
-      "audio-sources-both": "Sistem çıktısı + mikrofon girişi",
-      "audio-sources-microphone-input": "Mikrofon girişi",
-      "audio-sources-none": "Ses yok.",
-      "audio-sources-system-output": "Sistem çıktısı",
-      "color-range-full": "Tam",
-      "color-range-limited": "Sınırlı",
-      "quality-high": "Yüksek",
-      "quality-medium": "Orta",
-      "quality-ultra": "Aşırı",
-      "quality-very-high": "Çok yüksek",
-      "sources-portal": "Portal",
-      "sources-screen": "Ekran"
-    },
     "scrolling-modes": {
-      "always": "Her Zaman Kaydır",
-      "hover": "Üzerine Gelince Kaydır",
-      "never": "Asla Kaydırma"
+      "always": "Her zaman kaydır",
+      "hover": "Üzerine gelince kaydır",
+      "never": "Asla kaydırma"
     },
     "session-menu-grid-layout": {
       "grid": "Izgara",
-      "single-row": "Tek Sıra"
+      "single-row": "Tek sıra"
     },
     "settings-panel-mode": {
       "attached": "Panel çubuğa takılı",
       "centered": "Ortalanmış panel",
       "window": "Ayrı pencere"
-    },
-    "shadow-direction": {
-      "bottom": "Alt",
-      "center": "Merkez",
-      "top": "Üst"
     },
     "visualizer-types": {
       "linear": "Doğrusal",
@@ -616,7 +587,7 @@
     },
     "workspace-labels": {
       "index": "İndeks",
-      "index+name": "Dizin ve Ad",
+      "index-and-name": "Dizin ve Ad",
       "name": "İsim"
     }
   },
@@ -657,6 +628,7 @@
       "media-scrolling-title-description": "Uzun ortam başlıkları için sürekli kaydırmayı etkinleştirin",
       "media-scrolling-title-label": "Kayan başlık",
       "media-title": "Ortam oynatıcıları",
+      "on-middle-clicked-description": "Düğmeye orta tıklama yapıldığında yürütülecek komut.",
       "panel-applications-empty": "Şu anda ses çalan uygulama yok.",
       "title": "Ses",
       "visualizer-type-description": "Medya oynatma için bir görselleştirme türü seçin.",
@@ -760,12 +732,12 @@
       "templates-programs-discord-description-missing": "Discord istemcisi algılanmadı",
       "templates-programs-emacs-description": "Doom: ~/.config/doom/themes/noctalia.el<br>Standart: ~/.emacs.d/themes/noctalia.el",
       "templates-programs-label": "Programlar",
-      "templates-programs-pywalfox-description": "{filepath} dosyasına yaz ve pywalfox güncellemesini çalıştır",
+      "templates-programs-pywalfox-description": "{filepath} dosyasına yaz ve 'pywalfox update' çalıştır",
       "templates-programs-spicetify-description": "{filepath} dosyasına yaz — Comfy temasının kurulu ve manuel olarak etkinleştirilmiş olması gerekir",
       "templates-programs-walker-description": "{filepath} dosyasına yaz ve temayı noctalia olarak ayarla",
       "templates-programs-yazi-description": "{filepath} dosyasına yaz — flavor manuel etkinleştirilmesi gerekir",
       "templates-programs-zed-description": "{filepath} dosyasına yaz ve yeniden yükle",
-      "templates-programs-zen-browser-description": "{dosya yolu} yazın; Zen profilinizin chrome/userChrome.css dosyasına kopyalayın.",
+      "templates-programs-zen-browser-description": "{dosya yolu} yazın — Zen profilinizin chrome/userChrome.css dosyasına kopyalayın",
       "templates-terminal-description": "Terminal emülatörü temalandırma.",
       "templates-terminal-label": "Terminal",
       "templates-ui-description": "Masaüstü ortamı ve kullanıcı arabilirimi araç seti temalandırma.",
@@ -948,7 +920,7 @@
       "screen-corners-title": "Ekran köşeleri"
     },
     "hooks": {
-      "info-command-info-description": "• Komutlar kabuk (sh -c) ile yürütülür<br>• Komutlar arka planda yürütülür (ayrık)<br>• Test düğmeleri mevcut değerlerle yürütülür",
+      "info-command-info-description": "• Komutlar kabuk (sh -lc) ile yürütülür<br>• Komutlar arka planda yürütülür (ayrık)<br>• Test düğmeleri mevcut değerlerle yürütülür",
       "info-command-info-label": "Komut Bilgisi",
       "info-parameters-description": "• Duvar Kâğıdı Kancası: $1 = duvar kâğıdı yolu, $2 = ekran adı<br>• Tema Geçiş Kancası: $1 = true/false (koyu mod durumu)",
       "info-parameters-label": "Kullanılabilir Parametreler",
@@ -991,6 +963,8 @@
       "settings-auto-paste-label": "Otomatik yapıştırma",
       "settings-clip-preview-description": ">clip komutu kullanılırken panodaki içeriğin önizlemesini gösterir.",
       "settings-clip-preview-label": "Panoyu önizlemeyi etkinleştir",
+      "settings-clip-wrap-text-description": "Panodaki metni kırpmak yerine listeye sığdır.",
+      "settings-clip-wrap-text-label": "Panoyu metni kaydır",
       "settings-clipboard-history-description": "Başlatıcıdan daha önce kopyalanan öğelere erişin.",
       "settings-clipboard-history-label": "Pano geçmişini etkinleştir",
       "settings-custom-launch-prefix-description": "Komutlara özel bir başlatıcı ile ön ek ekleyin (örn., systemd entegrasyonu için 'runapp').",
@@ -1214,7 +1188,6 @@
       "update-all-success": "Tüm eklentiler başarıyla güncellendi.",
       "update-available": "Yeni eklenti güncellemesi mevcut",
       "update-available-plural": "Yeni eklenti güncellemeleri mevcut ({count})",
-      "update-available_plural": "Eklenti güncellemeleri mevcut ({count})",
       "update-error": "Eklenti güncellenemedi: {plugin}: {error}",
       "update-incompatible": "Noctalia v{version} veya üzeri gerektirir.",
       "update-pending": "v{mevcut} → v{yeni} (Noctalia v{gerekli} gerektirir)",
@@ -1223,38 +1196,7 @@
       "updating": "Güncelleniyor..."
     },
     "region": {
-      "clock-panel-desc": "Saat paneli görünümünü özelleştirin.",
-      "clock-panel-title": "Saat paneli",
       "title": "Bölge"
-    },
-    "screen-recorder": {
-      "audio-audio-codec-description": "En iyi performans ve en küçük ses boyutu için Opus önerilir.",
-      "audio-audio-codec-label": "Ses çözücüsü",
-      "audio-audio-source-description": "Kayıt sırasında yakalanacak ses kaynağı.",
-      "audio-audio-source-label": "Ses kaynağı",
-      "audio-desc": "Ses kaydı seçeneklerini yapılandırın.",
-      "audio-title": "Ses ayarları",
-      "general-copy-to-clipboard-description": "Kaydı bitirdikten sonra dosyayı panoya kopyala.",
-      "general-copy-to-clipboard-label": "Panoya kopyala",
-      "general-desc": "Ekran kaydı çıktısını ve içeriğini yönetin.",
-      "general-output-folder-description": "Ekran kayıtlarının kaydedileceği klasör.",
-      "general-output-folder-label": "Çıktı klasörü",
-      "general-select-output-folder": "Çıktı klasörünü seç",
-      "general-show-cursor-description": "Görüntü fare imlecini kaydedin.",
-      "general-show-cursor-label": "İmleci göster",
-      "general-title": "Genel ayarlar",
-      "title": "Ekran kaydedici",
-      "video-color-range-description": "Daha iyi uyumluluk için Sınırlı önerilir.",
-      "video-color-range-label": "Renk aralığı",
-      "video-desc": "Görüntü kaydı seçeneklerini yapılandırın.",
-      "video-frame-rate-description": "Ekran kayıtları için hedef kare hızı.",
-      "video-title": "Görüntü ayarları",
-      "video-video-codec-description": "h264 en yaygın çözücüdür.",
-      "video-video-codec-label": "Görüntü çözücüsü",
-      "video-video-quality-description": "Daha yüksek kalite daha büyük dosya boyutları ile sonuçlanır.",
-      "video-video-quality-label": "Görüntü kalitesi",
-      "video-video-source-description": "Portal önerilir, eğer artefaktlar alırsanız Ekranı deneyin.",
-      "video-video-source-label": "Görüntü kaynağı"
     },
     "session-menu": {
       "countdown-duration-description": "Güç eylemlerini çalıştırmadan önce geri sayım zamanlayıcısının ne kadar süreceğini ayarlayın.",
@@ -1393,7 +1335,6 @@
     "enter-text-to-collapse": "örn., 'nothing is playing'. Desenler için /regex/ kullanın.",
     "enter-tooltip": "Araç ipucunu girin",
     "enter-width-pixels": "Genişliği piksel olarak girin",
-    "profile-picture-path": "/home/user/.face",
     "search": "Ara...",
     "search-icons": "örn., noctalia, niri, battery, cloud",
     "search-launcher": "Girişleri arayın... veya > komutları için kullanın",
@@ -1577,7 +1518,6 @@
     "click-to-start-recording": "Ekran kaydedici (kaydı başlat)",
     "click-to-stop-recording": "Ekran kaydedici (kaydı durdur)",
     "collapse": "Kenar çubuğunu daralt",
-    "connect-disconnect-devices": "Bluetooth cihazı",
     "copy-address": "Adresi kopyala",
     "delete-notification": "Bildiriyi sil",
     "do-not-disturb-enabled": "Rahatsız etme",
@@ -1617,11 +1557,9 @@
     "refresh-wallhaven": "Wallhaven sonuçlarını yenile",
     "refresh-wallpaper-list": "Duvar kâğıdı listesini yenile",
     "remove-widget": "Araç takımını kaldır",
-    "screen-recorder-not-installed": "Ekran kaydedici (yüklü değil)",
     "search-close": "Aramayı kapat",
     "session-menu": "Oturum Menüsü",
     "show-all-devices": "Tüm cihazları göster",
-    "stop-screen-recording": "Ekran kaydedici",
     "switch-to-dark-mode": "Koyu mod",
     "switch-to-light-mode": "Açık mod",
     "unmute": "Sessizliği aç",

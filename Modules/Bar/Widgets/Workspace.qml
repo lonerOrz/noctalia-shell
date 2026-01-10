@@ -39,6 +39,7 @@ Item {
   readonly property real baseDimensionRatio: 0.65 * (widgetSettings.labelMode === "none" ? 0.75 : 1)
 
   readonly property string labelMode: (widgetSettings.labelMode !== undefined) ? widgetSettings.labelMode : widgetMetadata.labelMode
+  readonly property bool hasLabel: (labelMode !== "none")
   readonly property bool hideUnoccupied: (widgetSettings.hideUnoccupied !== undefined) ? widgetSettings.hideUnoccupied : widgetMetadata.hideUnoccupied
   readonly property bool followFocusedScreen: (widgetSettings.followFocusedScreen !== undefined) ? widgetSettings.followFocusedScreen : widgetMetadata.followFocusedScreen
   readonly property int characterCount: isVertical ? 2 : ((widgetSettings.characterCount !== undefined) ? widgetSettings.characterCount : widgetMetadata.characterCount)
@@ -83,6 +84,9 @@ Item {
   property bool isDestroying: false
   property bool hovered: false
 
+  // Revision counter to force icon re-evaluation
+  property int iconRevision: 0
+
   property ListModel localWorkspaces: ListModel {}
   property real masterProgress: 0.0
   property bool effectsActive: false
@@ -97,8 +101,8 @@ Item {
 
   signal workspaceChanged(int workspaceId, color accentColor)
 
-  implicitWidth: showApplications ? (isVertical ? groupedGrid.implicitWidth + Style.marginM * 2 : Math.round(groupedGrid.implicitWidth + Style.marginM * 2)) : (isVertical ? Style.barHeight : computeWidth())
-  implicitHeight: showApplications ? (isVertical ? Math.round(groupedGrid.implicitHeight + Style.marginM * 2) : Style.barHeight) : (isVertical ? computeHeight() : Style.barHeight)
+  implicitWidth: showApplications ? (isVertical ? groupedGrid.implicitWidth : Math.round(groupedGrid.implicitWidth + horizontalPadding * hasLabel)) : (isVertical ? Style.barHeight : computeWidth())
+  implicitHeight: showApplications ? (isVertical ? Math.round(groupedGrid.implicitHeight + horizontalPadding * 0.6 * hasLabel) : Style.barHeight) : (isVertical ? computeHeight() : Style.barHeight)
 
   function getWorkspaceWidth(ws) {
     const d = Math.round(Style.capsuleHeight * root.baseDimensionRatio);
@@ -236,6 +240,14 @@ Item {
       if (showApplications) {
         refreshWorkspaces();
       }
+    }
+  }
+
+  // Refresh icons when DesktopEntries becomes available
+  Connections {
+    target: DesktopEntries.applications
+    function onValuesChanged() {
+      root.iconRevision++;
     }
   }
 
@@ -831,7 +843,10 @@ Item {
 
               width: parent.width
               height: parent.height
-              source: ThemeIcons.iconForAppId(model.appId)
+              source: {
+                root.iconRevision; // Force re-evaluation when revision changes
+                return ThemeIcons.iconForAppId(model.appId?.toLowerCase());
+              }
               smooth: true
               asynchronous: true
               opacity: model.isFocused ? Style.opacityFull : unfocusedIconsOpacity
@@ -1019,8 +1034,8 @@ Item {
     id: groupedGrid
     visible: showApplications
 
-    x: root.isVertical ? Style.pixelAlignCenter(parent.width, width) : Style.marginM
-    y: root.isVertical ? Style.marginM : Style.pixelAlignCenter(parent.height, height)
+    x: root.isVertical ? Style.pixelAlignCenter(parent.width, width) : Math.round(horizontalPadding * root.hasLabel)
+    y: root.isVertical ? Math.round(horizontalPadding * 0.4 * root.hasLabel) : Style.pixelAlignCenter(parent.height, height)
 
     spacing: Style.marginS
     flow: root.isVertical ? Flow.TopToBottom : Flow.LeftToRight
