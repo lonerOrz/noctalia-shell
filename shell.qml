@@ -8,7 +8,6 @@
 // Qt & Quickshell Core
 import QtQuick
 import Quickshell
-import Quickshell.Services.SystemTray
 
 // Commons & Services
 import qs.Commons
@@ -103,6 +102,7 @@ ShellRoot {
         PowerProfileService.init();
         HostService.init();
         GitHubService.init();
+        TelemetryService.init();
 
         delayedInitTimer.running = true;
         checkSetupWizard();
