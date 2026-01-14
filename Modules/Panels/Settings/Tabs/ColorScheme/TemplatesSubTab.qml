@@ -209,12 +209,9 @@ ColumnLayout {
       Layout.fillWidth: true
       Layout.preferredWidth: -1
       checked: Settings.data.templates.discord
-      enabled: ProgramCheckerService.availableDiscordClients.length > 0
       onToggled: checked => {
                    Settings.data.templates.discord = checked;
-                   if (ProgramCheckerService.availableDiscordClients.length > 0) {
-                     AppThemeService.generate();
-                   }
+                   AppThemeService.generate();
                  }
     }
 
@@ -275,12 +272,9 @@ ColumnLayout {
       Layout.fillWidth: true
       Layout.preferredWidth: -1
       checked: Settings.data.templates.code
-      enabled: ProgramCheckerService.availableCodeClients.length > 0
       onToggled: checked => {
                    Settings.data.templates.code = checked;
-                   if (ProgramCheckerService.availableCodeClients.length > 0) {
-                     AppThemeService.generate();
-                   }
+                   AppThemeService.generate();
                  }
     }
 
@@ -362,6 +356,18 @@ ColumnLayout {
       checked: Settings.data.templates.emacs
       onToggled: checked => {
                    Settings.data.templates.emacs = checked;
+                   AppThemeService.generate();
+                 }
+    }
+
+    NCheckbox {
+      label: "Helix"
+      description: I18n.tr("panels.color-scheme.templates-programs-zed-description", {
+                             "filepath": "~/.config/helix/themes/noctalia.toml"
+                           })
+      checked: Settings.data.templates.helix
+      onToggled: checked => {
+                   Settings.data.templates.helix = checked;
                    AppThemeService.generate();
                  }
     }
