@@ -41,7 +41,7 @@ Rectangle {
   readonly property string formatVertical: widgetSettings.formatVertical !== undefined ? widgetSettings.formatVertical : (widgetMetadata && widgetMetadata.formatVertical !== undefined ? widgetMetadata.formatVertical : "HH:mm")
   readonly property string tooltipFormat: widgetSettings.tooltipFormat !== undefined ? widgetSettings.tooltipFormat : (widgetMetadata && widgetMetadata.tooltipFormat !== undefined ? widgetMetadata.tooltipFormat : "")
 
-  implicitWidth: isBarVertical ? Style.capsuleHeight : Math.round((isBarVertical ? verticalLoader.implicitWidth : horizontalLoader.implicitWidth) + Style.marginM * 2)
+  implicitWidth: isBarVertical ? Style.capsuleHeight : Math.round((isBarVertical ? verticalLoader.implicitWidth : horizontalLoader.implicitWidth) + Style.marginXL)
 
   implicitHeight: isBarVertical ? Math.round(verticalLoader.implicitHeight + Style.marginS * 2) : Style.capsuleHeight
 
