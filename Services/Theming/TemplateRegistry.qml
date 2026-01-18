@@ -203,7 +203,7 @@ Singleton {
         },
         {
           "name": "codium",
-          "path": "~/.vscode-oss/extensions/noctalia.noctaliatheme-0.0.5/themes/NoctaliaTheme-color-theme.json"
+          "path": "~/.vscode-oss/extensions/noctalia.noctaliatheme-0.0.5-universal/themes/NoctaliaTheme-color-theme.json"
         }
       ]
     },
@@ -333,6 +333,17 @@ Singleton {
       "postProcess": () => `${colorsApplyScript} hyprland`
     },
     {
+      "id": "hyprtoolkit",
+      "name": "Hyprtoolkit",
+      "category": "system",
+      "input": "hyprtoolkit.conf",
+      "outputs": [
+        {
+          "path": "~/.config/hypr/hyprtoolkit.conf"
+        }
+      ]
+    },
+    {
       "id": "mango",
       "name": "Mango",
       "category": "compositor",
@@ -343,6 +354,18 @@ Singleton {
         }
       ],
       "postProcess": () => `${colorsApplyScript} mango`
+    },
+    {
+      "id": "btop",
+      "name": "btop",
+      "category": "misc",
+      "input": "btop.theme",
+      "outputs": [
+        {
+          "path": "~/.config/btop/themes/noctalia.theme"
+        }
+      ],
+      "postProcess": () => `${colorsApplyScript} btop`
     }
   ]
 
