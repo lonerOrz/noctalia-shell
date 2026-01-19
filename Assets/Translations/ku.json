@@ -209,6 +209,8 @@
       "network-traffic-label": "Trafîka torê",
       "storage-usage-description": "Agahiyên bikaranîna cîhê dîskê nîşan bide.",
       "storage-usage-label": "Bikaranîna hilanînê",
+      "swap-usage-description": "Bikaranîna bîra swapê nîşan bide.",
+      "swap-usage-label": "Bikaranîna Swapê",
       "use-monospace-font-description": "Bi kar tîne fonta monospace ji bo firehiya karakterê ya domdar.",
       "use-monospace-font-label": "Tîpa yek-firehî"
     },
@@ -357,6 +359,7 @@
     "contributors": "Beşdar",
     "countdown": "Jimartin",
     "date": "Dîrok",
+    "default": "Xwerû",
     "delete": "Jêbirin",
     "devices": "Amûr",
     "disabled": "Nabe kar",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "Asta rêjeya dengê ya tevahiya pergalê.",
       "volumes-step-size-description": "Guhertina pîvana gavê ji bo guhertinên deng (tekerê mişkê, kurteriyên klavyeyê).",
       "volumes-step-size-label": "Mezinahiya gava dengdanê",
+      "volumes-volume-feedback-description": "Dema ku deng tê sererastkirin dengekî bersivdanê lêxe",
+      "volumes-volume-feedback-label": "Dengê berteka qebareyê lêxe",
       "volumes-volume-overdrive-description": "Destûr dide bilindkirina deng ji sedî 100î zêdetir. Dibe ku ji hêla hemû hardware ve neyê piştgirîkirin.",
       "volumes-volume-overdrive-label": "Destûra zêdekirina deng"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "Nîşandan xêzên widgetê",
       "appearance-use-separate-opacity-description": "Destûrê bide ku ji bo paşxaneya bar nirxek opakbûna cuda were bikaranîn.",
       "appearance-use-separate-opacity-label": "Şefafiya bara cuda bikar bîne",
+      "monitor-configure-widgets": "Widgetan saz bike",
+      "monitor-override-settings": "Mîhengên gerdûnî betal bike",
+      "monitor-override-settings-description": "Ji bo vî monitorê mîhengên xwerû bikar bîne.",
+      "monitor-reset-all": "Hemûyan vegerîne",
+      "monitor-widgets-title": "Konfigurasyona Widgetê - {monitor}",
       "monitors-desc": "Nîşan bide bar li ser monitorên taybet. Eger tu kes neyê hilbijartin, ew ê bi awayekî xwerû hemûyan nîşan bide.",
+      "monitors-desc-new": "Mîheng bike ka kîjan çavdêr Barê nîşan didin û mîhengên ji bo her çavdêrekê xwerû bike.",
       "monitors-title": "Dîmender",
       "title": "Darik",
       "tray-blacklist-description": "Zêdekirina rêgezên derxistina trayê, piştgiriya wildcardan (*) dike.",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "nm-applet, Fcitx*",
       "tray-pin-application": "Sepanê bi dar bixe",
       "tray-unpin-application": "Sepanê bi dar nexe",
+      "use-global-widgets": "Widgetên gerdûnî bikar bîne",
       "widgets-desc": "Pêçikên amûran kaş bike da ku rêza wan biguherî. Ji bo veguhestina amûran di navbera beşan de an jî rakirina wan, menuya rast-klîk bikar bîne.",
       "widgets-title": "Cihkirina widgetan"
     },
     "color-scheme": {
-      "color-source-desc": "Mîhengên sereke yên rengên Noctalia.",
-      "color-source-matugen-scheme-type-description": "Rêbazê hilberîna şema rengan hilbijêre ku Matugen dê bikar bîne da ku rengan ji dîwarê te biafirîne.",
-      "color-source-matugen-scheme-type-label": "Şêweya şemaya Matugen",
-      "color-source-title": "Çavkaniya rengê",
-      "color-source-use-wallpaper-colors-description": "Bi Matugenê ji dîwarê xwe şemayên rengan çêbike. Rengan bixweber derdixe da ku temayeke hevgirtî çêbike.",
+      "color-source-use-wallpaper-colors-description": "Ji dîwarê xwe şemayên rengan çêbike. Rengan bixweber derdixe da ku temayek hevgirtî biafirîne.",
       "color-source-use-wallpaper-colors-label": "Rengên dîwêr bikar bîne",
       "dark-mode-mode-description": "Veguhestina otomatîkî di navbera moda ronahî û tarî de çalak dike.",
       "dark-mode-mode-label": "Bernameya Moda Tarî",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "Şablonên bikarhêner çalak bike",
       "templates-none-detected": "Tiştek nehat dîtin",
       "templates-write-path": "Dinivîse: {filepath}",
-      "title": "Şêweya rengan"
+      "title": "Şêweya rengan",
+      "wallpaper-method-description": "Rêbaza xweya bijare ya derxistina rengan hilbijêre.",
+      "wallpaper-method-label": "Rêbaza derxistina rengan"
     },
     "control-center": {
       "cards-desc": "Xwerû bike ka kîjan kontrol di navenda kontrolê de û bi çi rêzê de xuya dibin.",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "Pîl kêm e",
-      "low-desc": "Pîl li ser %{percent} e. Ji kerema xwe şarjê girêde."
+      "low-desc": "Pîl li ser %{percent} e. Ji kerema xwe şarjê girêde"
     },
     "bluetooth": {
-      "address-copied": "Navnîşan li clipboardê hate kopîkirin.",
+      "address-copied": "Navnîşan li clipboardê hate kopîkirin",
       "confirm-code": "Koda {value} li ser amûra din piştrast bike.",
-      "connect-failed": "Têk çû girêdan bi cîhazê re.",
-      "disconnect-failed": "Têkçûn di qutkirina ji cîhazê de.",
-      "discoverable-change-failed": "ڕا گۆڕینی باری دۆزراوە نەکرا.",
-      "discoverable-disabled": "Dîtbar neçalak kirin.",
-      "discoverable-enabled": "Hêzdar kirin.",
+      "connect-failed": "Têk çû girêdan bi cîhazê re",
+      "disconnect-failed": "Têkçûn di qutkirina ji cîhazê de",
+      "discoverable-change-failed": "ڕا گۆڕینی باری دۆزراوە نەکرا",
+      "discoverable-disabled": "Dîtbar neçalak kirin",
+      "discoverable-enabled": "Hêzdar kirin",
       "display-code": "Koda {value} li ser amûra din binivîse.",
-      "forget-failed": "Têk çû ku amûr were jibîrkirin.",
-      "pair-failed": "Cîhaz bi hev ve nehat girêdan.",
+      "forget-failed": "Têk çû ku amûr were jibîrkirin",
+      "pair-failed": "Cîhaz bi hev ve nehat girêdan",
       "passkey-required": "Pêdivî bi şîfreya amûrê heye.",
       "pincode-required": "Koda PIN ji hêla cîhazê ve tê xwestin.",
-      "state-change-failed": "فشل گوهارتنا حاله‌تا بلوتوثێ."
+      "state-change-failed": "فشل گوهارتنا حاله‌تا بلوتوثێ"
     },
     "clipboard": {
       "long-text": "Teksta dirêj",
       "unavailable": "Dîroka clipboardê tune ye",
-      "unavailable-desc": "Serlêdana 'cliphist' nehatiye sazkirin. Ji bo bikaranîna taybetmendiyên dîroka clipboardê, ji kerema xwe wê saz bikin."
+      "unavailable-desc": "Serlêdana 'cliphist' nehatiye sazkirin. Ji bo bikaranîna taybetmendiyên dîroka clipboardê, ji kerema xwe wê saz bikin"
     },
     "do-not-disturb": {
       "disabled": "Dengê dernexîne neçalak e",
-      "disabled-desc": "Hemû agahdarî tên nîşandan.",
+      "disabled-desc": "Hemû agahdarî tên nîşandan",
       "enabled": "Dengê dernexîne çalak e",
-      "enabled-desc": "Hûn ê van agahdariyan di dîroka xwe de bibînin."
+      "enabled-desc": "Hûn ê van agahdariyan di dîroka xwe de bibînin"
     },
-    "internet-limited": "Pêwendîdar bê înternetê.",
-    "ipc": {
-      "powerpanel-deprecated": "PowerPanel wekî SessionMenu hate guhertin, ev bangewaziya IPC dê di demeke nêz de bê bikaranîn. Ji kerema xwe li şûna wê \"ipc call sessionMenu toggle\" bikar bînin.",
-      "sidepanel-deprecated": "SidePanel wekî ControlPanel hate guhertin, ev banga IPC dê di demek nêz de were betal kirin. Ji kerema xwe \"ipc call controlCenter toggle\" bikar bînin."
-    },
+    "internet-limited": "Pêwendîdar bê înternetê",
     "keyboard-layout": {
       "changed": "Şêwaza kilîtdankê bo {layout} hat guhertin.",
       "title": "Klavyeya"
@@ -1498,13 +1504,13 @@
       "label": "Amûra dawî ya navenda kontrolê hate rakirin"
     },
     "night-light": {
-      "forced": "Çalakdarkirina bi zorê.",
-      "normal": "Moda normal.",
-      "not-installed": "wlsunset nehatiye sazkirin."
+      "forced": "Çalakdarkirina bi zorê",
+      "normal": "Moda normal",
+      "not-installed": "wlsunset nehatiye sazkirin"
     },
     "noctalia-performance": {
-      "disabled": "Rewşa performansê hat betalkirin.",
-      "enabled": "Rewşa performansê çalak bû.",
+      "disabled": "Rewşa performansê hat betalkirin",
+      "enabled": "Rewşa performansê çalak bû",
       "label": "Performansa Noctalîa"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "Pêvajoya şêma rengê ya pêşdiyarkirî têk çû"
     },
     "vpn": {
-      "connected": "Hat girêdan bi '{name}' re.",
-      "disconnected": "Ji '{name}' qut bû."
+      "connected": "Hat girêdan bi '{name}' re",
+      "disconnected": "Ji '{name}' qut bû"
     },
     "wallpaper-colors": {
-      "disabled": "Rengên dîwêr hatine bêbandorkirin.",
-      "enabled": "Rengên dîwêr hatine çalak kirin.",
+      "disabled": "Rengên dîwêr hatine bêbandorkirin",
+      "enabled": "Rengên dîwêr hatine çalak kirin",
       "label": "Afirandina rengên dîwêr",
-      "not-installed": "Matugen nehatiye sazkirin — ji bo derxistina rengê dîwêr hewce ye."
+      "not-installed": "Matugen nehatiye sazkirin — ji bo derxistina rengê dîwêr hewce ye"
     },
     "wifi": {
-      "connected": "Bi '{ssid}' ve hat girêdan.",
-      "connection-failed": "Girêdan têk çû.",
-      "connection-timeout": "Demja girêdanê bi dawî bû.",
-      "disabled": "Neçalakkirî.",
-      "disconnected": "Ji '{ssid}' qut bû.",
-      "enabled": "Çalakkirî.",
+      "connected": "Bi '{ssid}' ve hat girêdan",
+      "connection-failed": "Girêdan têk çû",
+      "connection-timeout": "Demja girêdanê bi dawî bû",
+      "disabled": "Neçalakkirî",
+      "disconnected": "Ji '{ssid}' qut bû",
+      "enabled": "Çalakkirî",
       "incorrect-password": "Borînpeyva şaş.",
       "network-not-found": "Tor nehat dîtin."
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "Birîn (Dagirtin)",
       "fit": "Guncav (Tê de)",
+      "repeat": "Dubarekirin (Tile)",
       "stretch": "Dirêjkirin"
     },
     "no-match": "Lihevhatin nehat dîtin.",

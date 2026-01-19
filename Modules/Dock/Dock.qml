@@ -100,8 +100,8 @@ Loader {
 
       // Bar detection and positioning properties
       readonly property bool hasBar: modelData && modelData.name ? (Settings.data.bar.monitors.includes(modelData.name) || (Settings.data.bar.monitors.length === 0)) : false
-      readonly property bool barAtSameEdge: hasBar && Settings.data.bar.position === dockPosition
-      readonly property int barHeight: Style.barHeight
+      readonly property bool barAtSameEdge: hasBar && Settings.getBarPositionForScreen(modelData?.name) === dockPosition
+      readonly property int barHeight: Style.getBarHeightForScreen(modelData?.name)
 
       // Shared state between windows
       property bool dockHovered: false
@@ -348,10 +348,10 @@ Loader {
           color: "transparent"
 
           // When bar is at same edge, position peek window past the bar so it receives mouse events
-          margins.top: dockPosition === "top" && barAtSameEdge ? (Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0)) : 0
-          margins.bottom: dockPosition === "bottom" && barAtSameEdge ? (Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0)) : 0
-          margins.left: dockPosition === "left" && barAtSameEdge ? (Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0)) : 0
-          margins.right: dockPosition === "right" && barAtSameEdge ? (Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0)) : 0
+          margins.top: dockPosition === "top" && barAtSameEdge ? (barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0)) : 0
+          margins.bottom: dockPosition === "bottom" && barAtSameEdge ? (barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0)) : 0
+          margins.left: dockPosition === "left" && barAtSameEdge ? (barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0)) : 0
+          margins.right: dockPosition === "right" && barAtSameEdge ? (barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0)) : 0
 
           WlrLayershell.namespace: "noctalia-dock-peek-" + (screen?.name || "unknown")
           WlrLayershell.exclusionMode: ExclusionMode.Ignore
@@ -427,26 +427,27 @@ Loader {
           anchors.right: dockPosition === "right"
 
           // Offset past bar when at same edge (skip bar offset if dock is exclusive - exclusion zones stack)
-          margins.top: dockPosition === "top" ? (barAtSameEdge && !exclusive ? Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0) + floatingMargin : floatingMargin) : 0
-          margins.bottom: dockPosition === "bottom" ? (barAtSameEdge && !exclusive ? Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0) + floatingMargin : floatingMargin) : 0
-          margins.left: dockPosition === "left" ? (barAtSameEdge && !exclusive ? Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0) + floatingMargin : floatingMargin) : 0
-          margins.right: dockPosition === "right" ? (barAtSameEdge && !exclusive ? Style.barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0) + floatingMargin : floatingMargin) : 0
+          margins.top: dockPosition === "top" ? (barAtSameEdge && !exclusive ? barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0) + floatingMargin : floatingMargin) : 0
+          margins.bottom: dockPosition === "bottom" ? (barAtSameEdge && !exclusive ? barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginVertical : 0) + floatingMargin : floatingMargin) : 0
+          margins.left: dockPosition === "left" ? (barAtSameEdge && !exclusive ? barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0) + floatingMargin : floatingMargin) : 0
+          margins.right: dockPosition === "right" ? (barAtSameEdge && !exclusive ? barHeight + (Settings.data.bar.floating ? Settings.data.bar.marginHorizontal : 0) + floatingMargin : floatingMargin) : 0
 
           // Container wrapper for animations
           Item {
             id: dockContainerWrapper
 
             // Helper properties for orthogonal bar detection
-            readonly property bool barOnLeft: hasBar && Settings.data.bar.position === "left" && !Settings.data.bar.floating
-            readonly property bool barOnRight: hasBar && Settings.data.bar.position === "right" && !Settings.data.bar.floating
-            readonly property bool barOnTop: hasBar && Settings.data.bar.position === "top" && !Settings.data.bar.floating
-            readonly property bool barOnBottom: hasBar && Settings.data.bar.position === "bottom" && !Settings.data.bar.floating
+            readonly property string screenBarPosition: Settings.getBarPositionForScreen(modelData?.name)
+            readonly property bool barOnLeft: hasBar && screenBarPosition === "left" && !Settings.data.bar.floating
+            readonly property bool barOnRight: hasBar && screenBarPosition === "right" && !Settings.data.bar.floating
+            readonly property bool barOnTop: hasBar && screenBarPosition === "top" && !Settings.data.bar.floating
+            readonly property bool barOnBottom: hasBar && screenBarPosition === "bottom" && !Settings.data.bar.floating
 
             // Calculate padding needed to shift center to match exclusive mode
-            readonly property int extraTop: (isVertical && !exclusive && barOnTop) ? Style.barHeight : 0
-            readonly property int extraBottom: (isVertical && !exclusive && barOnBottom) ? Style.barHeight : 0
-            readonly property int extraLeft: (!isVertical && !exclusive && barOnLeft) ? Style.barHeight : 0
-            readonly property int extraRight: (!isVertical && !exclusive && barOnRight) ? Style.barHeight : 0
+            readonly property int extraTop: (isVertical && !exclusive && barOnTop) ? barHeight : 0
+            readonly property int extraBottom: (isVertical && !exclusive && barOnBottom) ? barHeight : 0
+            readonly property int extraLeft: (!isVertical && !exclusive && barOnLeft) ? barHeight : 0
+            readonly property int extraRight: (!isVertical && !exclusive && barOnRight) ? barHeight : 0
 
             width: dockContainer.width + extraLeft + extraRight
             height: dockContainer.height + extraTop + extraBottom

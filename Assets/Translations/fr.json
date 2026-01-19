@@ -209,6 +209,8 @@
       "network-traffic-label": "Trafic réseau",
       "storage-usage-description": "Afficher les informations d'utilisation de l'espace disque.",
       "storage-usage-label": "Utilisation du stockage",
+      "swap-usage-description": "Afficher l'utilisation de la mémoire swap.",
+      "swap-usage-label": "Utilisation du swap",
       "use-monospace-font-description": "Utilisez une police de caractères à chasse fixe pour une largeur de caractère uniforme.",
       "use-monospace-font-label": "Police à chasse fixe"
     },
@@ -357,6 +359,7 @@
     "contributors": "Contributeurs",
     "countdown": "Compte à rebours",
     "date": "Date",
+    "default": "Par défaut",
     "delete": "Supprimer",
     "devices": "Appareils",
     "disabled": "Désactivé",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "Niveau de volume de l'ensemble du système.",
       "volumes-step-size-description": "Ajustez l'incrément pour les changements de volume (molette de la souris, raccourcis clavier).",
       "volumes-step-size-label": "Incrément de volume",
+      "volumes-volume-feedback-description": "Émettre un son de retour lors du réglage du volume",
+      "volumes-volume-feedback-label": "Jouer le son de retour de volume",
       "volumes-volume-overdrive-description": "Permet d'augmenter le volume au-delà de 100 %. Cette fonctionnalité peut ne pas être prise en charge par tout le matériel.",
       "volumes-volume-overdrive-label": "Autoriser le dépassement du volume"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "Afficher les contours des widgets",
       "appearance-use-separate-opacity-description": "Activer l'utilisation d'une valeur d'opacité distincte pour l'arrière-plan de la barre.",
       "appearance-use-separate-opacity-label": "Utiliser l'opacité des barres séparément",
+      "monitor-configure-widgets": "Configurer les widgets",
+      "monitor-override-settings": "Remplacer les paramètres globaux",
+      "monitor-override-settings-description": "Utiliser des paramètres personnalisés pour ce moniteur.",
+      "monitor-reset-all": "Réinitialiser tout",
+      "monitor-widgets-title": "Configuration du widget - {monitor}",
       "monitors-desc": "Afficher la barre sur des moniteurs spécifiques. Par défaut, sur tous si aucun n'est choisi.",
+      "monitors-desc-new": "Configurez les moniteurs qui affichent la barre et personnalisez les paramètres pour chaque moniteur.",
       "monitors-title": "Affichage sur les moniteurs",
       "title": "Barre",
       "tray-blacklist-description": "Ajouter des règles d'exclusion pour la boîte à miniatures, prend en charge les caractères génériques (*).",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "ex: nm-applet, Fcitx*",
       "tray-pin-application": "Épingler l'application",
       "tray-unpin-application": "Désépingler l'application",
+      "use-global-widgets": "Utiliser les widgets globaux",
       "widgets-desc": "Faites glisser les widgets pour modifier leur ordre. Utilisez le menu contextuel (clic droit) pour transférer les widgets entre les sections ou les supprimer.",
       "widgets-title": "Positionnement des widgets"
     },
     "color-scheme": {
-      "color-source-desc": "Paramètres principaux pour les couleurs de Noctalia.",
-      "color-source-matugen-scheme-type-description": "Choisissez la méthode de génération de palette de couleurs que Matugen utilisera pour créer des couleurs à partir de votre fond d'écran.",
-      "color-source-matugen-scheme-type-label": "Type de schéma Matugen",
-      "color-source-title": "Source des couleurs",
-      "color-source-use-wallpaper-colors-description": "Générer des schémas de couleurs à partir de votre fond d'écran avec Matugen. Extrait automatiquement les couleurs pour créer un thème cohérent.",
+      "color-source-use-wallpaper-colors-description": "Générez des schémas de couleurs à partir de votre fond d'écran. Extrait automatiquement les couleurs pour créer un thème cohérent.",
       "color-source-use-wallpaper-colors-label": "Utiliser les couleurs du fond d'écran",
       "dark-mode-mode-description": "Active la commutation automatique entre le mode clair et le mode sombre.",
       "dark-mode-mode-label": "Programmation du mode sombre",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "Activer les modèles utilisateur",
       "templates-none-detected": "Aucun détecté",
       "templates-write-path": "Écrit : {filepath}",
-      "title": "Jeu de couleurs"
+      "title": "Jeu de couleurs",
+      "wallpaper-method-description": "Choisissez votre méthode d'extraction de couleur préférée.",
+      "wallpaper-method-label": "Méthode d'extraction des couleurs"
     },
     "control-center": {
       "cards-desc": "Personnalisez les commandes qui apparaissent dans le centre de contrôle et leur ordre d'affichage.",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "Batterie faible",
-      "low-desc": "La batterie est à {percent}%. Veuillez brancher le chargeur."
+      "low-desc": "La batterie est à {percent}%. Veuillez brancher le chargeur"
     },
     "bluetooth": {
-      "address-copied": "Adresse copiée dans le presse-papiers.",
+      "address-copied": "Adresse copiée dans le presse-papiers",
       "confirm-code": "Confirmer le code {value} sur l'autre appareil.",
-      "connect-failed": "Échec de la connexion à l’appareil.",
-      "disconnect-failed": "Échec de la déconnexion de l’appareil.",
-      "discoverable-change-failed": "Échec du changement d’état détectable.",
-      "discoverable-disabled": "Détectable désactivé.",
-      "discoverable-enabled": "Détectable activé.",
+      "connect-failed": "Échec de la connexion à l’appareil",
+      "disconnect-failed": "Échec de la déconnexion de l’appareil",
+      "discoverable-change-failed": "Échec du changement d’état détectable",
+      "discoverable-disabled": "Détectable désactivé",
+      "discoverable-enabled": "Détectable activé",
       "display-code": "Entrez le code {value} sur l'autre appareil.",
-      "forget-failed": "Échec de l’oubli de l’appareil.",
-      "pair-failed": "Échec de l’appairage de l’appareil.",
+      "forget-failed": "Échec de l’oubli de l’appareil",
+      "pair-failed": "Échec de l’appairage de l’appareil",
       "passkey-required": "Clé d'identification requise par l'appareil.",
       "pincode-required": "Code PIN requis par l'appareil.",
-      "state-change-failed": "Échec du changement d’état du Bluetooth."
+      "state-change-failed": "Échec du changement d’état du Bluetooth"
     },
     "clipboard": {
       "long-text": "Texte long",
       "unavailable": "Historique du presse-papiers indisponible",
-      "unavailable-desc": "L'application 'cliphist' n'est pas installée. Veuillez l'installer pour utiliser les fonctionnalités d'historique du presse-papiers."
+      "unavailable-desc": "L'application 'cliphist' n'est pas installée. Veuillez l'installer pour utiliser les fonctionnalités d'historique du presse-papiers"
     },
     "do-not-disturb": {
       "disabled": "'Ne pas déranger' désactivé",
-      "disabled-desc": "Affichage de toutes les notifications.",
+      "disabled-desc": "Affichage de toutes les notifications",
       "enabled": "'Ne pas déranger' activé",
-      "enabled-desc": "Vous trouverez ces notifications dans votre historique."
+      "enabled-desc": "Vous trouverez ces notifications dans votre historique"
     },
-    "internet-limited": "Connecté sans Internet.",
-    "ipc": {
-      "powerpanel-deprecated": "PowerPanel a été renommé en SessionMenu, cet appel IPC sera bientôt obsolète. Veuillez utiliser \"ipc call sessionMenu toggle\" à la place.",
-      "sidepanel-deprecated": "SidePanel a été renommé en ControlCenter, cet appel IPC sera bientôt obsolète. Veuillez utiliser \"ipc call controlCenter toggle\" à la place."
-    },
+    "internet-limited": "Connecté sans Internet",
     "keyboard-layout": {
       "changed": "Disposition du clavier changée vers {layout}.",
       "title": "Clavier"
@@ -1498,13 +1504,13 @@
       "label": "Dernier widget du centre de contrôle supprimé"
     },
     "night-light": {
-      "forced": "Activation forcée.",
-      "normal": "Mode normal.",
-      "not-installed": "wlsunset non installé."
+      "forced": "Activation forcée",
+      "normal": "Mode normal",
+      "not-installed": "wlsunset non installé"
     },
     "noctalia-performance": {
-      "disabled": "Mode performance désactivé.",
-      "enabled": "Mode performance activé.",
+      "disabled": "Mode performance désactivé",
+      "enabled": "Mode performance activé",
       "label": "Noctalia Performance"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "Le traitement du schéma de couleurs prédéfini a échoué"
     },
     "vpn": {
-      "connected": "Connecté à '{name}'.",
-      "disconnected": "Déconnecté de '{name}'."
+      "connected": "Connecté à '{name}'",
+      "disconnected": "Déconnecté de '{name}'"
     },
     "wallpaper-colors": {
-      "disabled": "Couleurs du fond d'écran désactivées.",
-      "enabled": "Couleurs du fond d'écran activées.",
+      "disabled": "Couleurs du fond d'écran désactivées",
+      "enabled": "Couleurs du fond d'écran activées",
       "label": "Génération de couleurs pour fonds d'écran",
-      "not-installed": "Matugen non installé — requis pour l'extraction des couleurs du fond d'écran."
+      "not-installed": "Matugen non installé — requis pour l'extraction des couleurs du fond d'écran"
     },
     "wifi": {
-      "connected": "Connecté à '{ssid}'.",
-      "connection-failed": "Échec de la connexion.",
-      "connection-timeout": "Délai de connexion dépassé.",
-      "disabled": "Désactivé.",
-      "disconnected": "Déconnecté de '{ssid}'.",
-      "enabled": "Activé.",
+      "connected": "Connecté à '{ssid}'",
+      "connection-failed": "Échec de la connexion",
+      "connection-timeout": "Délai de connexion dépassé",
+      "disabled": "Désactivé",
+      "disconnected": "Déconnecté de '{ssid}'",
+      "enabled": "Activé",
       "incorrect-password": "Mot de passe incorrect.",
       "network-not-found": "Réseau introuvable."
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "Recadrer (Remplir)",
       "fit": "Ajuster (Contenir)",
+      "repeat": "Répéter (Mosaïque)",
       "stretch": "Étirer"
     },
     "no-match": "Aucun résultat trouvé.",

@@ -209,6 +209,8 @@
       "network-traffic-label": "Hálózati forgalom",
       "storage-usage-description": "Lemezterület-használati információk megjelenítése.",
       "storage-usage-label": "Tárhelyhasználat",
+      "swap-usage-description": "Swap memória használatának megjelenítése.",
+      "swap-usage-label": "Swap használat",
       "use-monospace-font-description": "Használj monospace betűtípust az egységes karakter-szélességhez.",
       "use-monospace-font-label": "Monospace betűtípus"
     },
@@ -357,6 +359,7 @@
     "contributors": "Közreműködők",
     "countdown": "Visszaszámlálás",
     "date": "Dátum",
+    "default": "Alapértelmezett",
     "delete": "Törlés",
     "devices": "Eszközök",
     "disabled": "Letiltva",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "Rendszerszintű hangerőszint.",
       "volumes-step-size-description": "Beállítja a hangerő változtatásának lépésméretét (görgő, billentyűparancsok).",
       "volumes-step-size-label": "Hangerő lépésmérete",
+      "volumes-volume-feedback-description": "Hangerő állításakor visszajelző hang lejátszása",
+      "volumes-volume-feedback-label": "Hangerő visszajelző hang lejátszása",
       "volumes-volume-overdrive-description": "Engedélyezi a hangerő 100% fölé emelését. Előfordulhat, hogy nem minden hardver támogatja.",
       "volumes-volume-overdrive-label": "Hangerő túllépésének engedélyezése"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "Widget körvonalak megjelenítése",
       "appearance-use-separate-opacity-description": "Lehetővé teszi egy külön átlátszatlansági érték használatát a sáv hátteréhez.",
       "appearance-use-separate-opacity-label": "Külön oszlop átlátszóság használata",
+      "monitor-configure-widgets": "Widgetek konfigurálása",
+      "monitor-override-settings": "Globális beállítások felülírása",
+      "monitor-override-settings-description": "Egyéni beállítások használata ehhez a monitorhoz.",
+      "monitor-reset-all": "Mindent visszaállít",
+      "monitor-widgets-title": "Widget konfiguráció - {monitor}",
       "monitors-desc": "Sáv megjelenítése meghatározott monitorokon. Alapértelmezetten minden monitoron, ha nincs kiválasztva.",
+      "monitors-desc-new": "Állítsd be, hogy mely monitorok jelenítsék meg a Bart, és szabj testre beállításokat monitoronként.",
       "monitors-title": "Monitorok megjelenítése",
       "title": "Sáv",
       "tray-blacklist-description": "Adjon hozzá tálca kizárási szabályokat, támogatja a helyettesítő karaktereket (*).",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "pl. nm-applet, Fcitx*",
       "tray-pin-application": "Alkalmazás rögzítése",
       "tray-unpin-application": "Alkalmazás feloldása",
+      "use-global-widgets": "Globális widgetek használata",
       "widgets-desc": "Húzza át a widgeteket a sorrendjük megváltoztatásához. Használja a jobb egérgombos menüt a widgetek szakaszok közötti áthelyezéséhez vagy eltávolításához.",
       "widgets-title": "Widgetek elhelyezése"
     },
     "color-scheme": {
-      "color-source-desc": "A Noctalia színeinek fő beállításai.",
-      "color-source-matugen-scheme-type-description": "Válassza ki a színséma-generálási módszert, amellyel a Matugen színeket fog létrehozni a háttérképéből.",
-      "color-source-matugen-scheme-type-label": "Matugen séma típusa",
-      "color-source-title": "Színforrás",
-      "color-source-use-wallpaper-colors-description": "Színsémák generálása a háttérképedből a Matugen használatával. Automatikusan kinyeri a színeket egy egységes téma létrehozásához.",
+      "color-source-use-wallpaper-colors-description": "Színsémák generálása a háttérképedből. Automatikusan kinyeri a színeket, hogy egy egységes témát hozzon létre.",
       "color-source-use-wallpaper-colors-label": "Háttérkép színeinek használata",
       "dark-mode-mode-description": "Engedélyezi az automatikus váltást a világos és sötét mód között.",
       "dark-mode-mode-label": "Sötét mód ütemezése",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "Felhasználói sablonok engedélyezése",
       "templates-none-detected": "Nem észlelt semmit",
       "templates-write-path": "Írja: {filepath}",
-      "title": "Színséma"
+      "title": "Színséma",
+      "wallpaper-method-description": "Válaszd ki a kedvenc színkinyerési módszeredet.",
+      "wallpaper-method-label": "Színkivonási módszer"
     },
     "control-center": {
       "cards-desc": "Személyre szabhatja, hogy mely vezérlők jelenjenek meg a vezérlőközpontban és milyen sorrendben.",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "Alacsony akkumulátor",
-      "low-desc": "Az akkumulátor {percent}%-on van. Kérjük, csatlakoztassa a töltőt."
+      "low-desc": "Az akkumulátor {percent}%-on van. Kérjük, csatlakoztassa a töltőt"
     },
     "bluetooth": {
-      "address-copied": "Cím a vágólapra másolva.",
+      "address-copied": "Cím a vágólapra másolva",
       "confirm-code": "Erősítse meg a {value} kódot a másik eszközön.",
-      "connect-failed": "Nem sikerült csatlakozni az eszközhöz.",
-      "disconnect-failed": "Nem sikerült leválasztani az eszközről.",
-      "discoverable-change-failed": "Nem sikerült megváltoztatni a felfedezhetőság állapotát.",
-      "discoverable-disabled": "Felfedezhetőség kikapcsolva.",
-      "discoverable-enabled": "Felfedezhetőség bekapcsolva.",
+      "connect-failed": "Nem sikerült csatlakozni az eszközhöz",
+      "disconnect-failed": "Nem sikerült leválasztani az eszközről",
+      "discoverable-change-failed": "Nem sikerült megváltoztatni a felfedezhetőság állapotát",
+      "discoverable-disabled": "Felfedezhetőség kikapcsolva",
+      "discoverable-enabled": "Felfedezhetőség bekapcsolva",
       "display-code": "Adja meg a {value} kódot a másik eszközön.",
-      "forget-failed": "Nem sikerült elfelejteni az eszközt.",
-      "pair-failed": "Nem sikerült párosítani az eszközt.",
+      "forget-failed": "Nem sikerült elfelejteni az eszközt",
+      "pair-failed": "Nem sikerült párosítani az eszközt",
       "passkey-required": "Az eszköz által megkövetelt jelszó.",
       "pincode-required": "Az eszköz által megkövetelt PIN.",
-      "state-change-failed": "Nem sikerült megváltoztatni a Bluetooth állapotot."
+      "state-change-failed": "Nem sikerült megváltoztatni a Bluetooth állapotot"
     },
     "clipboard": {
       "long-text": "Hosszú szöveg",
       "unavailable": "A vágólapelőzmények nem elérhetők",
-      "unavailable-desc": "A 'cliphist' alkalmazás nincs telepítve. Telepítse a vágólapelőzmények funkcióinak használatához."
+      "unavailable-desc": "A 'cliphist' alkalmazás nincs telepítve. Telepítse a vágólapelőzmények funkcióinak használatához"
     },
     "do-not-disturb": {
       "disabled": "Ne zavarjanak kikapcsolása",
-      "disabled-desc": "Minden értesítés megjelenítése.",
+      "disabled-desc": "Minden értesítés megjelenítése",
       "enabled": "Ne zavarjanak bekapcsolva",
-      "enabled-desc": "Ezeket az értesítéseket az előzményekben találja."
+      "enabled-desc": "Ezeket az értesítéseket az előzményekben találja"
     },
-    "internet-limited": "Csatlakoztatva internet nélkül.",
-    "ipc": {
-      "powerpanel-deprecated": "A PowerPanel átnevezésre került SessionMenu-re, ez az IPC-hívás hamarosan elavul. Kérjük, használja helyette az \"ipc call sessionMenu toggle\" parancsot.",
-      "sidepanel-deprecated": "A SidePanel átnevezésre került ControlCenter-re, ez az IPC-hívás hamarosan elavul. Kérjük, használja helyette az \"ipc call controlCenter toggle\" parancsot."
-    },
+    "internet-limited": "Csatlakoztatva internet nélkül",
     "keyboard-layout": {
       "changed": "Billentyűzetkiosztás megváltozott: {layout}.",
       "title": "Billentyűzet"
@@ -1498,13 +1504,13 @@
       "label": "Utolsó vezérlőközpont widget eltávolítva"
     },
     "night-light": {
-      "forced": "Kényszerített aktiválás.",
-      "normal": "Normál mód.",
-      "not-installed": "wlsunset nincs telepítve."
+      "forced": "Kényszerített aktiválás",
+      "normal": "Normál mód",
+      "not-installed": "wlsunset nincs telepítve"
     },
     "noctalia-performance": {
-      "disabled": "Teljesítmény mód kikapcsolva.",
-      "enabled": "Teljesítmény mód bekapcsolva.",
+      "disabled": "Teljesítmény mód kikapcsolva",
+      "enabled": "Teljesítmény mód bekapcsolva",
       "label": "Noctalia Teljesítmény"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "Előre definiált színséma feldolgozása sikertelen"
     },
     "vpn": {
-      "connected": "Csatlakozva a(z) „{name}” hálózathoz.",
-      "disconnected": "Kapcsolat megszakadt a(z) „{name}” hálózattal."
+      "connected": "Csatlakozva a(z) „{name}” hálózathoz",
+      "disconnected": "Kapcsolat megszakadt a(z) „{name}” hálózattal"
     },
     "wallpaper-colors": {
-      "disabled": "Háttérkép színek kikapcsolva.",
-      "enabled": "Háttérkép színek bekapcsolva.",
+      "disabled": "Háttérkép színek kikapcsolva",
+      "enabled": "Háttérkép színek bekapcsolva",
       "label": "Háttérkép színek generálása",
-      "not-installed": "Matugen nincs telepítve – szükséges a háttérkép színeinek kinyeréséhez."
+      "not-installed": "Matugen nincs telepítve – szükséges a háttérkép színeinek kinyeréséhez"
     },
     "wifi": {
-      "connected": "Csatlakozva a(z) „{ssid}” hálózathoz.",
-      "connection-failed": "Csatlakozás sikertelen.",
-      "connection-timeout": "Csatlakozási időtúllépés.",
-      "disabled": "Kikapcsolva.",
-      "disconnected": "Kapcsolat megszakadt a(z) „{ssid}” hálózattal.",
-      "enabled": "Bekapcsolva.",
+      "connected": "Csatlakozva a(z) „{ssid}” hálózathoz",
+      "connection-failed": "Csatlakozás sikertelen",
+      "connection-timeout": "Csatlakozási időtúllépés",
+      "disabled": "Kikapcsolva",
+      "disconnected": "Kapcsolat megszakadt a(z) „{ssid}” hálózattal",
+      "enabled": "Bekapcsolva",
       "incorrect-password": "Helytelen jelszó.",
       "network-not-found": "Hálózat nem található."
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "Vágás (Kitöltés)",
       "fit": "Illesztés (Tartalmazás)",
+      "repeat": "Ismétlés (Mozaik)",
       "stretch": "Nyújtás"
     },
     "no-match": "Nincs találat.",

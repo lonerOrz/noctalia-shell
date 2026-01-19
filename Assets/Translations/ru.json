@@ -209,6 +209,8 @@
       "network-traffic-label": "Сетевой трафик",
       "storage-usage-description": "Показывать информацию об использовании дискового пространства.",
       "storage-usage-label": "Использование хранилища",
+      "swap-usage-description": "Показать использование swap-памяти.",
+      "swap-usage-label": "Использование swap",
       "use-monospace-font-description": "Используйте моноширинный шрифт для единообразной ширины символов.",
       "use-monospace-font-label": "Моноширинный шрифт"
     },
@@ -357,6 +359,7 @@
     "contributors": "Участники",
     "countdown": "Обратный отсчёт",
     "date": "Дата",
+    "default": "По умолчанию",
     "delete": "Удалить",
     "devices": "Устройства",
     "disabled": "Отключено",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "Общесистемный уровень громкости.",
       "volumes-step-size-description": "Настройка шага изменения громкости (колесо прокрутки, сочетания клавиш).",
       "volumes-step-size-label": "Шаг изменения громкости",
+      "volumes-volume-feedback-description": "Воспроизводить звук при регулировке громкости",
+      "volumes-volume-feedback-label": "Воспроизвести звук обратной связи громкости",
       "volumes-volume-overdrive-description": "Разрешить повышение громкости выше 100%. Может не поддерживаться всем оборудованием.",
       "volumes-volume-overdrive-label": "Разрешить перегрузку громкости"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "Показать контуры виджетов",
       "appearance-use-separate-opacity-description": "Включить использование отдельного значения прозрачности для фона полосы.",
       "appearance-use-separate-opacity-label": "Использовать раздельную прозрачность столбцов",
+      "monitor-configure-widgets": "Настроить виджеты",
+      "monitor-override-settings": "Переопределить глобальные настройки",
+      "monitor-override-settings-description": "Использовать пользовательские настройки для этого монитора.",
+      "monitor-reset-all": "Сбросить все",
+      "monitor-widgets-title": "Настройка виджета - {monitor}",
       "monitors-desc": "Показывать панель на определенных мониторах. По умолчанию на всех, если ни один не выбран.",
+      "monitors-desc-new": "Настройте, на каких мониторах отображать Bar, и настройте параметры для каждого монитора.",
       "monitors-title": "Отображение на мониторах",
       "title": "Панель",
       "tray-blacklist-description": "Добавьте правила исключения трея, поддерживает подстановочные знаки (*).",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "например, nm-applet, Fcitx*",
       "tray-pin-application": "Закрепить приложение",
       "tray-unpin-application": "Открепить приложение",
+      "use-global-widgets": "Использовать глобальные виджеты",
       "widgets-desc": "Перетаскивайте виджеты, чтобы изменить их порядок. Используйте контекстное меню (правой кнопкой мыши), чтобы перемещать виджеты между разделами или удалять их.",
       "widgets-title": "Расположение виджетов"
     },
     "color-scheme": {
-      "color-source-desc": "Основные настройки цветов Noctalia.",
-      "color-source-matugen-scheme-type-description": "Выберите метод генерации цветовой схемы, который Matugen будет использовать для создания цветов из ваших обоев.",
-      "color-source-matugen-scheme-type-label": "Тип схемы Matugen",
-      "color-source-title": "Источник цвета",
-      "color-source-use-wallpaper-colors-description": "Генерировать цветовые схемы из ваших обоев с помощью Matugen. Автоматически извлекает цвета для создания целостной темы.",
+      "color-source-use-wallpaper-colors-description": "Создавайте цветовые схемы на основе ваших обоев. Автоматически извлекает цвета для создания целостной темы.",
       "color-source-use-wallpaper-colors-label": "Использовать цвета обоев",
       "dark-mode-mode-description": "Включает автоматическое переключение между светлым и темным режимами.",
       "dark-mode-mode-label": "Расписание темного режима",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "Включить пользовательские шаблоны",
       "templates-none-detected": "Не обнаружено",
       "templates-write-path": "Записывает: {filepath}",
-      "title": "Цветовая схема"
+      "title": "Цветовая схема",
+      "wallpaper-method-description": "Выберите ваш любимый метод извлечения цвета.",
+      "wallpaper-method-label": "Метод извлечения цвета"
     },
     "control-center": {
       "cards-desc": "Настройте, какие элементы управления появляются в центре управления и в каком порядке.",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "Низкий заряд батареи",
-      "low-desc": "Заряд батареи {percent}%. Пожалуйста, подключите зарядное устройство."
+      "low-desc": "Заряд батареи {percent}%. Пожалуйста, подключите зарядное устройство"
     },
     "bluetooth": {
-      "address-copied": "Адрес скопирован в буфер обмена.",
+      "address-copied": "Адрес скопирован в буфер обмена",
       "confirm-code": "Подтвердите код {value} на другом устройстве.",
-      "connect-failed": "Не удалось подключиться к устройству.",
-      "disconnect-failed": "Не удалось отключиться от устройства.",
-      "discoverable-change-failed": "Не удалось изменить состояние видимости.",
-      "discoverable-disabled": "Обнаружение отключено.",
-      "discoverable-enabled": "Обнаружение включено.",
+      "connect-failed": "Не удалось подключиться к устройству",
+      "disconnect-failed": "Не удалось отключиться от устройства",
+      "discoverable-change-failed": "Не удалось изменить состояние видимости",
+      "discoverable-disabled": "Обнаружение отключено",
+      "discoverable-enabled": "Обнаружение включено",
       "display-code": "Введите код {value} на другом устройстве.",
-      "forget-failed": "Не удалось удалить устройство.",
-      "pair-failed": "Не удалось выполнить сопряжение устройства.",
+      "forget-failed": "Не удалось удалить устройство",
+      "pair-failed": "Не удалось выполнить сопряжение устройства",
       "passkey-required": "Требуется ключ доступа устройства.",
       "pincode-required": "PIN-код, требуемый устройством.",
-      "state-change-failed": "Не удалось изменить состояние Bluetooth."
+      "state-change-failed": "Не удалось изменить состояние Bluetooth"
     },
     "clipboard": {
       "long-text": "Длинный текст",
       "unavailable": "История буфера обмена недоступна",
-      "unavailable-desc": "Приложение 'cliphist' не установлено. Пожалуйста, установите его, чтобы использовать функции истории буфера обмена."
+      "unavailable-desc": "Приложение 'cliphist' не установлено. Пожалуйста, установите его, чтобы использовать функции истории буфера обмена"
     },
     "do-not-disturb": {
       "disabled": "Режим 'Не беспокоить' отключен",
-      "disabled-desc": "Отображаются все уведомления.",
+      "disabled-desc": "Отображаются все уведомления",
       "enabled": "Режим 'Не беспокоить' включен",
-      "enabled-desc": "Вы найдете эти уведомления в своей истории."
+      "enabled-desc": "Вы найдете эти уведомления в своей истории"
     },
-    "internet-limited": "Подключено без доступа к интернету.",
-    "ipc": {
-      "powerpanel-deprecated": "PowerPanel переименован в SessionMenu, этот IPC-вызов скоро будет устаревшим. Пожалуйста, используйте \"ipc call sessionMenu toggle\" вместо этого.",
-      "sidepanel-deprecated": "SidePanel переименован в ControlCenter, этот IPC-вызов скоро будет устаревшим. Пожалуйста, используйте \"ipc call controlCenter toggle\" вместо этого."
-    },
+    "internet-limited": "Подключено без доступа к интернету",
     "keyboard-layout": {
       "changed": "Раскладка клавиатуры изменена на {layout}.",
       "title": "Клавиатура"
@@ -1498,13 +1504,13 @@
       "label": "Последний виджет центра управления удален"
     },
     "night-light": {
-      "forced": "Принудительная активация.",
-      "normal": "Нормальный режим.",
-      "not-installed": "wlsunset не установлен."
+      "forced": "Принудительная активация",
+      "normal": "Нормальный режим",
+      "not-installed": "wlsunset не установлен"
     },
     "noctalia-performance": {
-      "disabled": "Режим производительности Noctalia отключен.",
-      "enabled": "Режим производительности Noctalia включен.",
+      "disabled": "Режим производительности Noctalia отключен",
+      "enabled": "Режим производительности Noctalia включен",
       "label": "Производительность Noctalia"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "Сбой обработки предопределенной цветовой схемы"
     },
     "vpn": {
-      "connected": "Подключено к '{name}'.",
-      "disconnected": "Отключено от '{name}'."
+      "connected": "Подключено к '{name}'",
+      "disconnected": "Отключено от '{name}'"
     },
     "wallpaper-colors": {
-      "disabled": "Цвета обоев отключены.",
-      "enabled": "Цвета обоев включены.",
+      "disabled": "Цвета обоев отключены",
+      "enabled": "Цвета обоев включены",
       "label": "Генерация цветов обоев",
-      "not-installed": "Matugen не установлен — требуется для извлечения цветов обоев."
+      "not-installed": "Matugen не установлен — требуется для извлечения цветов обоев"
     },
     "wifi": {
-      "connected": "Подключено к '{ssid}'.",
-      "connection-failed": "Соединение не установлено.",
-      "connection-timeout": "Превышено время ожидания соединения.",
-      "disabled": "Отключен.",
-      "disconnected": "Отключено от '{ssid}'.",
-      "enabled": "Включен.",
+      "connected": "Подключено к '{ssid}'",
+      "connection-failed": "Соединение не установлено",
+      "connection-timeout": "Превышено время ожидания соединения",
+      "disabled": "Отключен",
+      "disconnected": "Отключено от '{ssid}'",
+      "enabled": "Включен",
       "incorrect-password": "Неверный пароль.",
       "network-not-found": "Сеть не найдена."
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "Обрезать (Заполнить)",
       "fit": "Подогнать (Вместить)",
+      "repeat": "Повторить (Замостить)",
       "stretch": "Растянуть"
     },
     "no-match": "Совпадений не найдено.",

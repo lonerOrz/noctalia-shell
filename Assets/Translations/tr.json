@@ -209,6 +209,8 @@
       "network-traffic-label": "Ağ trafiği",
       "storage-usage-description": "Disk alanı kullanım bilgilerini göster.",
       "storage-usage-label": "Depolama kullanımı",
+      "swap-usage-description": "Takas belleği kullanımını göster.",
+      "swap-usage-label": "Takas kullanımı",
       "use-monospace-font-description": "Tekdüze karakter genişliği için tek aralıklı yazı tipini kullanın.",
       "use-monospace-font-label": "Tek aralıklı yazı tipi"
     },
@@ -357,6 +359,7 @@
     "contributors": "Katkıda bulunanlar",
     "countdown": "Geri sayım",
     "date": "Tarih",
+    "default": "Varsayılan",
     "delete": "Sil",
     "devices": "Cihazlar",
     "disabled": "Devre dışı",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "Sistem genelindeki ses seviyesi.",
       "volumes-step-size-description": "Ses değişimleri için adım boyutunu ayarlayın (tekerlek, klavye kısayolları).",
       "volumes-step-size-label": "Ses adım boyutu",
+      "volumes-volume-feedback-description": "Ses seviyesi ayarlanırken geri bildirim sesi çal",
+      "volumes-volume-feedback-label": "Ses düzeyi geri bildirim sesini çal",
       "volumes-volume-overdrive-description": "Sesi %100'ün üzerine çıkarmaya izin ver. Bazı donanımlar desteklemeyebilir.",
       "volumes-volume-overdrive-label": "Ses aşımına izin ver"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "Araç kutusu ana hatlarını göster",
       "appearance-use-separate-opacity-description": "Çubuk arka planı için ayrı bir opaklık değeri kullanmayı etkinleştir.",
       "appearance-use-separate-opacity-label": "Ayrı çubuk opaklığı kullan",
+      "monitor-configure-widgets": "Araçları yapılandır",
+      "monitor-override-settings": "Genel ayarları geçersiz kıl",
+      "monitor-override-settings-description": "Bu monitör için özel ayarları kullan.",
+      "monitor-reset-all": "Hepsini sıfırla",
+      "monitor-widgets-title": "Widget Yapılandırması - {monitor}",
       "monitors-desc": "Araç çubuğunu belirli ekranlarda gösterin. Hiçbiri seçilmezse varsayılan olarak tümünde gösterilir.",
+      "monitors-desc-new": "Çubuğun hangi monitörlerde görüntüleneceğini yapılandırın ve monitör başına ayarları özelleştirin.",
       "monitors-title": "Ekranlar",
       "title": "Araç çubuğu",
       "tray-blacklist-description": "Tepsi hariç tutma kuralları ekleyin, joker karakterleri destekler (*).",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "örn., nm-applet, Fcitx*",
       "tray-pin-application": "Uygulamayı sabitle",
       "tray-unpin-application": "Sabitlemeyi kaldır",
+      "use-global-widgets": "Genel araçları kullan",
       "widgets-desc": "Araç takımları sıralarını değiştirmek için sürükleyin. Araç takımlarını bölümler arasında aktarmak veya kaldırmak için sağ tıklama menüsünü kullanın.",
       "widgets-title": "Araç takımlarını konumlandırma"
     },
     "color-scheme": {
-      "color-source-desc": "Noctalia'nın renkleri için ana ayarlar.",
-      "color-source-matugen-scheme-type-description": "Matugen'in duvar kağıdınızdan renkler oluşturmak için kullanacağı renk şeması oluşturma yöntemini seçin.",
-      "color-source-matugen-scheme-type-label": "Matugen şema türü",
-      "color-source-title": "Renk kaynağı",
-      "color-source-use-wallpaper-colors-description": "Matugen kullanarak duvar kâğıdınızdan renk şemaları oluşturun. Bütünleşik bir tema oluşturmak için renkleri otomatik olarak çıkarır.",
+      "color-source-use-wallpaper-colors-description": "Duvar kağıdınızdan renk şemaları oluşturun. Uyumlu bir tema oluşturmak için renkleri otomatik olarak çıkarır.",
       "color-source-use-wallpaper-colors-label": "Duvar kâğıdı renklerini kullan",
       "dark-mode-mode-description": "Işık ve koyu mod arasında otomatik geçişi etkinleştirir.",
       "dark-mode-mode-label": "Koyu mod zamanlaması",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "Kullanıcı şablonlarını etkinleştir",
       "templates-none-detected": "Hiçbiri algılanmadı",
       "templates-write-path": "Yazıyor: {filepath}",
-      "title": "Renk şeması"
+      "title": "Renk şeması",
+      "wallpaper-method-description": "Favori renk çıkarma yönteminizi seçin.",
+      "wallpaper-method-label": "Renk çıkarma yöntemi"
     },
     "control-center": {
       "cards-desc": "Kontrol merkezinde hangi kontrollerin ve hangi sırada görüneceğini özelleştirin.",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "Düşük batarya",
-      "low-desc": "Batarya % {percent}. Lütfen şarj bağlantısını yapın."
+      "low-desc": "Batarya % {percent}. Lütfen şarj bağlantısını yapın"
     },
     "bluetooth": {
-      "address-copied": "Adres panoya kopyalandı.",
+      "address-copied": "Adres panoya kopyalandı",
       "confirm-code": "Diğer cihazdaki {value} kodunu onayla.",
-      "connect-failed": "Cihaza bağlanılamadı.",
-      "disconnect-failed": "Cihazla bağlantı kesilemedi.",
-      "discoverable-change-failed": "Keşfedilebilir durum değiştirilemedi.",
-      "discoverable-disabled": "Keşfedilebilir devre dışı.",
-      "discoverable-enabled": "Keşfedilebilir etkinleştirildi.",
+      "connect-failed": "Cihaza bağlanılamadı",
+      "disconnect-failed": "Cihazla bağlantı kesilemedi",
+      "discoverable-change-failed": "Keşfedilebilir durum değiştirilemedi",
+      "discoverable-disabled": "Keşfedilebilir devre dışı",
+      "discoverable-enabled": "Keşfedilebilir etkinleştirildi",
       "display-code": "Diğer cihazda {value} kodunu girin.",
-      "forget-failed": "Cihazı unutma başarısız oldu.",
-      "pair-failed": "Cihaz eşleştirilemedi.",
+      "forget-failed": "Cihazı unutma başarısız oldu",
+      "pair-failed": "Cihaz eşleştirilemedi",
       "passkey-required": "Cihaz tarafından istenen geçiş anahtarı.",
       "pincode-required": "Cihaz tarafından PIN kodu gerekiyor.",
-      "state-change-failed": "Bluetooth durumu değiştirilemedi."
+      "state-change-failed": "Bluetooth durumu değiştirilemedi"
     },
     "clipboard": {
       "long-text": "Uzun metin",
       "unavailable": "Panoya geçmişi kullanılamıyor",
-      "unavailable-desc": "'cliphist' uygulaması kurulu değil. Lütfen panoya geçmişi özelliklerini kullanmak için kurun."
+      "unavailable-desc": "'cliphist' uygulaması kurulu değil. Lütfen panoya geçmişi özelliklerini kullanmak için kurun"
     },
     "do-not-disturb": {
       "disabled": "'Rahatsız etme' devre dışı",
-      "disabled-desc": "Tüm bildirimler gösteriliyor.",
+      "disabled-desc": "Tüm bildirimler gösteriliyor",
       "enabled": "'Rahatsız etme' etin",
-      "enabled-desc": "Bu bildirimleri geçmişinizde bulacaksınız."
+      "enabled-desc": "Bu bildirimleri geçmişinizde bulacaksınız"
     },
-    "internet-limited": "İnternetsiz bağlandı.",
-    "ipc": {
-      "powerpanel-deprecated": "PowerPanel artık SessionMenu olarak adlandırılıyor, bu IPC çağrısı yakında kullanımdan kaldırılacak. Lütfen \"ipc call sessionMenu toggle\" kullanın.",
-      "sidepanel-deprecated": "SidePanel artık ControlCenter olarak adlandırılıyor, bu IPC çağrısı yakında kullanımdan kaldırılacak. Lütfen \"ipc call controlCenter toggle\" kullanın."
-    },
+    "internet-limited": "İnternetsiz bağlandı",
     "keyboard-layout": {
       "changed": "Klavye düzeni {layout} olarak değiştirildi.",
       "title": "Klavye"
@@ -1498,13 +1504,13 @@
       "label": "Son kontrol merkezi araç takımı kaldırıldı"
     },
     "night-light": {
-      "forced": "Zorla etkinleştirme.",
-      "normal": "Normal mod.",
-      "not-installed": "wlsunset kurulu değil."
+      "forced": "Zorla etkinleştirme",
+      "normal": "Normal mod",
+      "not-installed": "wlsunset kurulu değil"
     },
     "noctalia-performance": {
-      "disabled": "Performans modu devre dışı bırakıldı.",
-      "enabled": "Performans modu etkinleştirildi.",
+      "disabled": "Performans modu devre dışı bırakıldı",
+      "enabled": "Performans modu etkinleştirildi",
       "label": "Noctalia Performans"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "Önceden tanımlanmış renk şeması işleme başarısız oldu"
     },
     "vpn": {
-      "connected": "'{name}' ile bağlantı kuruldu.",
-      "disconnected": "'{name}' bağlantısı kesildi."
+      "connected": "'{name}' ile bağlantı kuruldu",
+      "disconnected": "'{name}' bağlantısı kesildi"
     },
     "wallpaper-colors": {
-      "disabled": "Duvar kâğıdı renkleri devre dışı.",
-      "enabled": "Duvar kâğıdı renkleri etkin.",
+      "disabled": "Duvar kâğıdı renkleri devre dışı",
+      "enabled": "Duvar kâğıdı renkleri etkin",
       "label": "Duvar kâğıdı renkleri oluşturma",
-      "not-installed": "Matugen kurulu değil — duvar kâğıdı renk çıkarmak için gerekli."
+      "not-installed": "Matugen kurulu değil — duvar kâğıdı renk çıkarmak için gerekli"
     },
     "wifi": {
-      "connected": "'{ssid}' ile bağlandı.",
-      "connection-failed": "Bağlantı başarısız.",
-      "connection-timeout": "Bağlantı zaman aşımı.",
-      "disabled": "Devre dışı.",
-      "disconnected": "'{ssid}' bağlantısı kesildi.",
-      "enabled": "Etkin.",
+      "connected": "'{ssid}' ile bağlandı",
+      "connection-failed": "Bağlantı başarısız",
+      "connection-timeout": "Bağlantı zaman aşımı",
+      "disabled": "Devre dışı",
+      "disconnected": "'{ssid}' bağlantısı kesildi",
+      "enabled": "Etkin",
       "incorrect-password": "Yanlış şifre.",
       "network-not-found": "Ağ bulunamadı."
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "Kırp (Doldur)",
       "fit": "Sığ (İçer)",
+      "repeat": "Tekrarla (Döşe)",
       "stretch": "Ger"
     },
     "no-match": "Eşleşme bulunamadı.",

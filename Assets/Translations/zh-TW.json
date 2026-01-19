@@ -206,6 +206,8 @@
       "network-traffic-label": "網路流量",
       "storage-usage-description": "顯示磁碟空間的使用量",
       "storage-usage-label": "磁碟使用量",
+      "swap-usage-description": "顯示交換記憶體使用量。",
+      "swap-usage-label": "交換空間使用量",
       "use-monospace-font-description": "使用等寬字型可以達成一致的字元寬度",
       "use-monospace-font-label": "等寬字型"
     },
@@ -353,6 +355,7 @@
     "contributors": "貢獻者",
     "countdown": "倒數",
     "date": "日期",
+    "default": "預設",
     "delete": "刪除",
     "devices": "裝置",
     "disabled": "已停用",
@@ -669,6 +672,8 @@
       "volumes-output-volume-description": "系統全域音量",
       "volumes-step-size-description": "微調音量調整一格的大小 (滾輪及鍵盤快捷鍵)",
       "volumes-step-size-label": "音量步進大小",
+      "volumes-volume-feedback-description": "調整音量時播放回饋音效",
+      "volumes-volume-feedback-label": "播放音量回饋音效",
       "volumes-volume-overdrive-description": "增強音量調整超過100%, 不是所有硬體都支援這個設定",
       "volumes-volume-overdrive-label": "允許音量過載"
     },
@@ -695,7 +700,13 @@
       "appearance-show-outline-label": "顯示小工具外框",
       "appearance-use-separate-opacity-description": "啟用後可針對工具列背景使用分開的不透明度數值",
       "appearance-use-separate-opacity-label": "分開設定工具列不透明度",
+      "monitor-configure-widgets": "設定小工具",
+      "monitor-override-settings": "覆寫全域設定",
+      "monitor-override-settings-description": "使用此螢幕的自訂設定。",
+      "monitor-reset-all": "全部重設",
+      "monitor-widgets-title": "小工具設定 - {monitor}",
       "monitors-desc": "只在特定的顯示器顯示工具列, 如果全部取消勾選則會顯示在所有顯示器",
+      "monitors-desc-new": "設定哪些螢幕顯示 Bar，並自訂每個螢幕的設定。",
       "monitors-title": "在顯示器顯示",
       "title": "工具列",
       "tray-blacklist-description": "新增系統匣的排除項目, 支援萬用字元 (*)",
@@ -703,15 +714,12 @@
       "tray-blacklist-placeholder": "例如: nm-applet, Fcitx*",
       "tray-pin-application": "釘選程式",
       "tray-unpin-application": "取消釘選程式",
+      "use-global-widgets": "使用全域小工具",
       "widgets-desc": "拖曳小工具可以變更排列順序, 可利用右鍵選單在區塊間變動或直接解除它們",
       "widgets-title": "排列小工具"
     },
     "color-scheme": {
-      "color-source-desc": "Noctalia 界面顏色的主要設定",
-      "color-source-matugen-scheme-type-description": "選擇 Matugen 從你的桌布抽色時所使用的生成方式",
-      "color-source-matugen-scheme-type-label": "Matugen 配色模式",
-      "color-source-title": "顏色來源",
-      "color-source-use-wallpaper-colors-description": "使用 Matugen 從你的桌布產生主題配色, 自動抽色並建立一個適合的主題",
+      "color-source-use-wallpaper-colors-description": "從您的桌布產生配色方案。自動提取顏色以建立一個有凝聚力的主題。",
       "color-source-use-wallpaper-colors-label": "使用桌布配色",
       "dark-mode-mode-description": "啟用自動切換淺色及暗色模式",
       "dark-mode-mode-label": "深色模式",
@@ -750,7 +758,9 @@
       "templates-misc-user-templates-label": "啟用使用者模板",
       "templates-none-detected": "未偵測到",
       "templates-write-path": "寫入：{filepath}",
-      "title": "主題配色"
+      "title": "主題配色",
+      "wallpaper-method-description": "選擇您喜歡的顏色提取方法。",
+      "wallpaper-method-label": "色彩提取方法"
     },
     "control-center": {
       "cards-desc": "自訂控制中心出現的控制項目及排序",
@@ -913,7 +923,7 @@
       "screen-corners-solid-black-description": "使用黑色而不是工具列背景色",
       "screen-corners-solid-black-label": "黑色邊角",
       "screen-corners-title": "畫面邊角",
-      "settings-copied": "設定已複製到剪貼簿"
+      "settings-copied": "已複製設定至剪貼簿"
     },
     "hooks": {
       "info-command-info-description": "• 指令將透過 shell (sh -lc) 執行<br>• 指令會在背景 (detached 狀態) 執行<br>• 測試按鈕會以當下填寫的內容執行",
@@ -1034,7 +1044,7 @@
       "bluetooth-rssi-polling-description": "透過 bluetoothctl 定期取樣連接裝置的 RSSI 值; 不一定每個裝置都可用; 啟用時會使用最少資源",
       "bluetooth-rssi-polling-label": "回報藍牙訊號",
       "desc": "管理 Wi-Fi 及藍牙連線",
-      "wifi-description": "管理無線網路 (需要 NetworkManger 套件)"
+      "wifi-description": "管理無線網路 (需要 NetworkManager 套件)"
     },
     "notifications": {
       "duration-critical-urgency-description": "設定非常危急的通知該顯示多久",
@@ -1396,9 +1406,6 @@
       "enabled": "勿擾模式已啟用",
       "enabled-desc": "你會在歷史通知找到這些通知"
     },
-    "ipc": {
-      "powerpanel-deprecated": "電源面板已經改名為工作階段選單, 這個 IPC 呼叫將會棄用, 請改用 \"ipc call sessionMenu toggle\""
-    },
     "keyboard-layout": {
       "changed": "切換鍵盤佈局為 {layout}",
       "title": "鍵盤"
@@ -1504,6 +1511,7 @@
     "fill-modes": {
       "crop": "裁切 (填滿)",
       "fit": "調整 (收容)",
+      "repeat": "重複 (平鋪)",
       "stretch": "延展"
     },
     "no-match": "沒有相關結果",
@@ -1609,7 +1617,7 @@
       "search-placeholder": "選擇檔案及文件夾...",
       "select-file": "選擇檔案",
       "select-folder": "選擇文件夾",
-      "selected": "已選取：",
+      "selected": "已選取:",
       "title": "檔案選取器"
     },
     "file-picker-title": "選擇一個檔案",

@@ -209,6 +209,8 @@
       "network-traffic-label": "Tráfico de red",
       "storage-usage-description": "Mostrar la información del uso del espacio en disco.",
       "storage-usage-label": "Uso de almacenamiento",
+      "swap-usage-description": "Mostrar el uso de la memoria swap.",
+      "swap-usage-label": "Uso de swap",
       "use-monospace-font-description": "Utilice fuente monoespaciada para un ancho de carácter consistente.",
       "use-monospace-font-label": "Fuente monoespaciada"
     },
@@ -357,6 +359,7 @@
     "contributors": "Colaboradores",
     "countdown": "Cuenta regresiva",
     "date": "Fecha",
+    "default": "Predeterminado",
     "delete": "Borrar",
     "devices": "Dispositivos",
     "disabled": "Desactivado",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "Nivel de volumen de todo el sistema.",
       "volumes-step-size-description": "Ajusta el tamaño del paso para los cambios de volumen (rueda de desplazamiento, atajos de teclado).",
       "volumes-step-size-label": "Tamaño del paso de volumen",
+      "volumes-volume-feedback-description": "Reproducir un sonido de retroalimentación al ajustar el volumen",
+      "volumes-volume-feedback-label": "Reproducir sonido de retroalimentación de volumen",
       "volumes-volume-overdrive-description": "Permite subir el volumen por encima del 100 %. Es posible que no sea compatible con todo el hardware.",
       "volumes-volume-overdrive-label": "Permitir sobreamplificación de volumen"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "Mostrar contornos de widgets",
       "appearance-use-separate-opacity-description": "Permitir usar un valor de opacidad separado para el fondo de la barra.",
       "appearance-use-separate-opacity-label": "Usar opacidad de barra separada",
+      "monitor-configure-widgets": "Configurar widgets",
+      "monitor-override-settings": "Anular la configuración global",
+      "monitor-override-settings-description": "Usar ajustes personalizados para este monitor.",
+      "monitor-reset-all": "Restablecer todo",
+      "monitor-widgets-title": "Configuración del Widget - {monitor}",
       "monitors-desc": "Muestra la barra en monitores específicos. Por defecto, se muestra en todos si no se elige ninguno.",
+      "monitors-desc-new": "Configura qué monitores muestran la barra y personaliza los ajustes por monitor.",
       "monitors-title": "Visualización en monitores",
       "title": "Barra",
       "tray-blacklist-description": "Agregar reglas de exclusión de la bandeja, admite comodines (*).",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "ej., nm-applet, Fcitx*",
       "tray-pin-application": "Fijar aplicación",
       "tray-unpin-application": "Desfijar aplicación",
+      "use-global-widgets": "Usar widgets globales",
       "widgets-desc": "Arrastra los widgets para cambiar su orden. Usa el menú contextual (clic derecho) para transferir widgets entre secciones o eliminarlos.",
       "widgets-title": "Posicionamiento de widgets"
     },
     "color-scheme": {
-      "color-source-desc": "Configuración principal de los colores de Noctalia.",
-      "color-source-matugen-scheme-type-description": "Elige el método de generación de esquemas de color que Matugen usará para crear colores a partir de tu fondo de pantalla.",
-      "color-source-matugen-scheme-type-label": "Tipo de esquema Matugen",
-      "color-source-title": "Fuente de color",
-      "color-source-use-wallpaper-colors-description": "Generar esquemas de color desde tu fondo de pantalla usando Matugen. Extrae automáticamente colores para crear un tema cohesivo.",
+      "color-source-use-wallpaper-colors-description": "Genera esquemas de color a partir de tu fondo de pantalla. Extrae automáticamente los colores para crear un tema cohesivo.",
       "color-source-use-wallpaper-colors-label": "Usar colores del fondo de pantalla",
       "dark-mode-mode-description": "Permite el cambio automático entre el modo claro y el modo oscuro.",
       "dark-mode-mode-label": "Programación del modo oscuro",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "Habilitar plantillas de usuario",
       "templates-none-detected": "Ninguno detectado",
       "templates-write-path": "Escribe: {filepath}",
-      "title": "Esquema de colores"
+      "title": "Esquema de colores",
+      "wallpaper-method-description": "Elige tu método de extracción de color favorito.",
+      "wallpaper-method-label": "Método de extracción de color"
     },
     "control-center": {
       "cards-desc": "Personaliza qué controles aparecen en el centro de control y en qué orden.",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "Batería baja",
-      "low-desc": "La batería está al {percent}%. Por favor, conecta el cargador."
+      "low-desc": "La batería está al {percent}%. Por favor, conecta el cargador"
     },
     "bluetooth": {
-      "address-copied": "Dirección copiada al portapapeles.",
+      "address-copied": "Dirección copiada al portapapeles",
       "confirm-code": "Confirma el código {value} en el otro dispositivo.",
-      "connect-failed": "Error al conectar con el dispositivo.",
-      "disconnect-failed": "Error al desconectar del dispositivo.",
-      "discoverable-change-failed": "Error al cambiar el estado de visibilidad.",
-      "discoverable-disabled": "Visible desactivado.",
-      "discoverable-enabled": "Visible activado.",
+      "connect-failed": "Error al conectar con el dispositivo",
+      "disconnect-failed": "Error al desconectar del dispositivo",
+      "discoverable-change-failed": "Error al cambiar el estado de visibilidad",
+      "discoverable-disabled": "Visible desactivado",
+      "discoverable-enabled": "Visible activado",
       "display-code": "Introduce el código {value} en el otro dispositivo.",
-      "forget-failed": "Error al olvidar el dispositivo.",
-      "pair-failed": "Error al emparejar el dispositivo.",
+      "forget-failed": "Error al olvidar el dispositivo",
+      "pair-failed": "Error al emparejar el dispositivo",
       "passkey-required": "Se requiere una clave de acceso del dispositivo.",
       "pincode-required": "Se requiere el código PIN del dispositivo.",
-      "state-change-failed": "Error al cambiar el estado de Bluetooth."
+      "state-change-failed": "Error al cambiar el estado de Bluetooth"
     },
     "clipboard": {
       "long-text": "Texto largo",
       "unavailable": "Historial del portapapeles no disponible",
-      "unavailable-desc": "La aplicación 'cliphist' no está instalada. Por favor, instálala para usar las funciones de historial del portapapeles."
+      "unavailable-desc": "La aplicación 'cliphist' no está instalada. Por favor, instálala para usar las funciones de historial del portapapeles"
     },
     "do-not-disturb": {
       "disabled": "'No molestar' desactivado",
-      "disabled-desc": "Mostrando todas las notificaciones.",
+      "disabled-desc": "Mostrando todas las notificaciones",
       "enabled": "'No molestar' activado",
-      "enabled-desc": "Encontrarás estas notificaciones en tu historial."
+      "enabled-desc": "Encontrarás estas notificaciones en tu historial"
     },
-    "internet-limited": "Conectado sin Internet.",
-    "ipc": {
-      "powerpanel-deprecated": "PowerPanel ha sido renombrado a SessionMenu, esta llamada IPC será obsoleta pronto. Por favor, usa \"ipc call sessionMenu toggle\" en su lugar.",
-      "sidepanel-deprecated": "SidePanel ha sido renombrado a ControlCenter, esta llamada IPC será obsoleta pronto. Por favor, usa \"ipc call controlCenter toggle\" en su lugar."
-    },
+    "internet-limited": "Conectado sin Internet",
     "keyboard-layout": {
       "changed": "Distribución de teclado cambiada a {layout}.",
       "title": "Teclado"
@@ -1498,13 +1504,13 @@
       "label": "Se eliminó el último widget del centro de control"
     },
     "night-light": {
-      "forced": "Activación forzada.",
-      "normal": "Modo normal.",
-      "not-installed": "wlsunset no está instalado."
+      "forced": "Activación forzada",
+      "normal": "Modo normal",
+      "not-installed": "wlsunset no está instalado"
     },
     "noctalia-performance": {
-      "disabled": "Modo de rendimiento desactivado.",
-      "enabled": "Modo de rendimiento activado.",
+      "disabled": "Modo de rendimiento desactivado",
+      "enabled": "Modo de rendimiento activado",
       "label": "Noctalia Rendimiento"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "Falló el procesamiento del esquema de color predefinido"
     },
     "vpn": {
-      "connected": "Conectado a '{name}'.",
-      "disconnected": "Desconectado de '{name}'."
+      "connected": "Conectado a '{name}'",
+      "disconnected": "Desconectado de '{name}'"
     },
     "wallpaper-colors": {
-      "disabled": "Colores del fondo de pantalla desactivados.",
-      "enabled": "Colores del fondo de pantalla activados.",
+      "disabled": "Colores del fondo de pantalla desactivados",
+      "enabled": "Colores del fondo de pantalla activados",
       "label": "Generación de colores para fondos de pantalla",
-      "not-installed": "Matugen no instalado — requerido para extraer colores del fondo de pantalla."
+      "not-installed": "Matugen no instalado — requerido para extraer colores del fondo de pantalla"
     },
     "wifi": {
-      "connected": "Conectado a '{ssid}'.",
-      "connection-failed": "Error de conexión.",
-      "connection-timeout": "Tiempo de conexión agotado.",
-      "disabled": "Desactivado.",
-      "disconnected": "Desconectado de '{ssid}'.",
-      "enabled": "Activado.",
+      "connected": "Conectado a '{ssid}'",
+      "connection-failed": "Error de conexión",
+      "connection-timeout": "Tiempo de conexión agotado",
+      "disabled": "Desactivado",
+      "disconnected": "Desconectado de '{ssid}'",
+      "enabled": "Activado",
       "incorrect-password": "Contraseña incorrecta.",
       "network-not-found": "Red no encontrada."
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "Recortar (Rellenar)",
       "fit": "Ajustar (Contener)",
+      "repeat": "Repetir (Mosaico)",
       "stretch": "Estirar"
     },
     "no-match": "No se encontraron coincidencias.",

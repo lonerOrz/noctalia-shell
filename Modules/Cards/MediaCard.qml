@@ -194,7 +194,7 @@ NBox {
     anchors.topMargin: Style.marginXS / 2
     anchors.leftMargin: Style.marginM
     anchors.rightMargin: Style.marginM
-    height: Style.barHeight * 0.6
+    height: Style.baseWidgetSize * 0.4
     visible: MediaService.getAvailablePlayers().length > 1
     radius: Style.radiusM
     color: "transparent"

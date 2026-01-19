@@ -209,6 +209,8 @@
       "network-traffic-label": "ネットワークトラフィック",
       "storage-usage-description": "ストレージの使用状況を表示します。",
       "storage-usage-label": "ストレージ使用量",
+      "swap-usage-description": "スワップメモリの使用状況を表示します。",
+      "swap-usage-label": "スワップ使用量",
       "use-monospace-font-description": "タイプライター体で翻訳します。",
       "use-monospace-font-label": "等幅フォント"
     },
@@ -357,6 +359,7 @@
     "contributors": "貢献者",
     "countdown": "カウントダウン",
     "date": "日付",
+    "default": "デフォルト",
     "delete": "削除",
     "devices": "デバイス",
     "disabled": "無効",
@@ -678,6 +681,8 @@
       "volumes-output-volume-description": "システム全体の音量レベル。",
       "volumes-step-size-description": "音量の変化量（スクロールホイールやショートカットキー）を調整します。",
       "volumes-step-size-label": "ボリューム調整ステップ",
+      "volumes-volume-feedback-description": "音量を調整するときにフィードバック音を再生する",
+      "volumes-volume-feedback-label": "音量フィードバックサウンドを再生",
       "volumes-volume-overdrive-description": "音量を100%以上に上げることを許可します。すべてのハードウェアでサポートされているとは限りません。",
       "volumes-volume-overdrive-label": "100%以上の音量を許可"
     },
@@ -707,7 +712,13 @@
       "appearance-show-outline-label": "ウィジェットの枠線を表示",
       "appearance-use-separate-opacity-description": "バーの背景に別の不透明度の値を使用できるようにする。",
       "appearance-use-separate-opacity-label": "バーの不透明度を個別に設定",
+      "monitor-configure-widgets": "ウィジェットを設定",
+      "monitor-override-settings": "グローバル設定を上書き",
+      "monitor-override-settings-description": "このモニターにカスタム設定を使用する。",
+      "monitor-reset-all": "すべてリセット",
+      "monitor-widgets-title": "ウィジェット設定 - {monitor}",
       "monitors-desc": "バーを表示するディスプレイを選択します。未選択の場合は全てに表示されます。",
+      "monitors-desc-new": "どのモニターにBarを表示するかを設定し、モニターごとに設定をカスタマイズします。",
       "monitors-title": "表示するディスプレイ",
       "title": "バー",
       "tray-blacklist-description": "トレイから除外するルールを追加します。ワイルドカード (*) に対応しています。",
@@ -715,15 +726,12 @@
       "tray-blacklist-placeholder": "例: nm-applet, Fcitx*",
       "tray-pin-application": "アプリをピン留め",
       "tray-unpin-application": "ピン留めを解除",
+      "use-global-widgets": "グローバルウィジェットを使用する",
       "widgets-desc": "ウィジェットをドラッグして並べ替えます。右クリックメニューから、セクション間の移動や削除が行えます。",
       "widgets-title": "ウィジェットの配置"
     },
     "color-scheme": {
-      "color-source-desc": "Noctalia のメインカラーを設定します。",
-      "color-source-matugen-scheme-type-description": "Matugen が壁紙から色を作成するために使用する配色生成方法を選択してください。",
-      "color-source-matugen-scheme-type-label": "Matugen のスキームタイプ",
-      "color-source-title": "配色のソース",
-      "color-source-use-wallpaper-colors-description": "Matugen を使用して壁紙から配色を生成します。色を自動抽出して統一感のあるテーマを作成します。",
+      "color-source-use-wallpaper-colors-description": "壁紙から配色を生成します。色を自動的に抽出し、まとまりのあるテーマを作成します。",
       "color-source-use-wallpaper-colors-label": "壁紙の色を使用",
       "dark-mode-mode-description": "ライトモードとダークモードの自動切り替えを有効にします。",
       "dark-mode-mode-label": "ダークモードのスケジュール",
@@ -762,7 +770,9 @@
       "templates-misc-user-templates-label": "ユーザーテンプレートを有効化",
       "templates-none-detected": "検出されませんでした",
       "templates-write-path": "書き込み先: {filepath}",
-      "title": "配色"
+      "title": "配色",
+      "wallpaper-method-description": "お好みの色の抽出方法を選択してください。",
+      "wallpaper-method-label": "色の抽出方法"
     },
     "control-center": {
       "cards-desc": "コントロールセンターに表示する項目と、その順序をカスタマイズします。",
@@ -1455,39 +1465,35 @@
     },
     "battery": {
       "low": "バッテリー残量低下",
-      "low-desc": "バッテリー残量が {percent}% です。充電器を接続してください。"
+      "low-desc": "バッテリー残量が {percent}% です。充電器を接続してください"
     },
     "bluetooth": {
-      "address-copied": "アドレスをクリップボードにコピーしました。",
+      "address-copied": "アドレスをクリップボードにコピーしました",
       "confirm-code": "別のデバイスでコード{value}を確認してください。",
-      "connect-failed": "デバイスに接続できませんでした。",
-      "disconnect-failed": "デバイスから切断できませんでした。",
-      "discoverable-change-failed": "検出可能な状態の変更に失敗しました。",
-      "discoverable-disabled": "検出不能を無効にしました。",
-      "discoverable-enabled": "検出可能が有効。",
+      "connect-failed": "デバイスに接続できませんでした",
+      "disconnect-failed": "デバイスから切断できませんでした",
+      "discoverable-change-failed": "検出可能な状態の変更に失敗しました",
+      "discoverable-disabled": "検出不能を無効にしました",
+      "discoverable-enabled": "検出可能が有効",
       "display-code": "別のデバイスに{value}のコードを入力してください。",
-      "forget-failed": "デバイスの削除に失敗しました。",
-      "pair-failed": "デバイスのペアリングに失敗しました。",
+      "forget-failed": "デバイスの削除に失敗しました",
+      "pair-failed": "デバイスのペアリングに失敗しました",
       "passkey-required": "デバイスでパスキーが必要です。",
       "pincode-required": "デバイスがPINコードを要求しています。",
-      "state-change-failed": "Bluetoothの状態変更に失敗しました。"
+      "state-change-failed": "Bluetoothの状態変更に失敗しました"
     },
     "clipboard": {
       "long-text": "長いテキスト",
       "unavailable": "クリップボード履歴を利用できません",
-      "unavailable-desc": "cliphist がインストールされていません。クリップボード履歴機能を使用するにはインストールしてください。"
+      "unavailable-desc": "cliphist がインストールされていません。クリップボード履歴機能を使用するにはインストールしてください"
     },
     "do-not-disturb": {
       "disabled": "おやすみモードを無効化",
-      "disabled-desc": "すべての通知を表示します。",
+      "disabled-desc": "すべての通知を表示します",
       "enabled": "おやすみモードを有効化",
-      "enabled-desc": "通知は履歴に保存されます。"
+      "enabled-desc": "通知は履歴に保存されます"
     },
-    "internet-limited": "インターネット未接続。",
-    "ipc": {
-      "powerpanel-deprecated": "PowerPanel は SessionMenu に名称変更されました。この IPC コールはまもなく廃止されます。代わりに \"ipc call sessionMenu toggle\" を使用してください。",
-      "sidepanel-deprecated": "SidePanel は ControlCenter に名称変更されました。この IPC コールはまもなく廃止されます。代わりに \"ipc call controlCenter toggle\" を使用してください。"
-    },
+    "internet-limited": "インターネット未接続",
     "keyboard-layout": {
       "changed": "キーボードレイアウトを {layout} に変更しました。",
       "title": "キーボード"
@@ -1498,13 +1504,13 @@
       "label": "最後のコントロールセンターが削除されました"
     },
     "night-light": {
-      "forced": "強制的に有効化。",
-      "normal": "通常モード。",
-      "not-installed": "wlsunset がインストールされていません。"
+      "forced": "強制的に有効化",
+      "normal": "通常モード",
+      "not-installed": "wlsunset がインストールされていません"
     },
     "noctalia-performance": {
-      "disabled": "パフォーマンスモード: 無効。",
-      "enabled": "パフォーマンスモード: 有効。",
+      "disabled": "パフォーマンスモード: 無効",
+      "enabled": "パフォーマンスモード: 有効",
       "label": "Noctalia パフォーマンス"
     },
     "power-profile": {
@@ -1517,22 +1523,22 @@
       "title-predefined": "プリセット配色の処理に失敗しました"
     },
     "vpn": {
-      "connected": "{name} に接続しました。",
-      "disconnected": "{name} から切断しました。"
+      "connected": "{name} に接続しました",
+      "disconnected": "{name} から切断しました"
     },
     "wallpaper-colors": {
-      "disabled": "壁紙配色の生成: 無効。",
-      "enabled": "壁紙配色の生成: 有効。",
+      "disabled": "壁紙配色の生成: 無効",
+      "enabled": "壁紙配色の生成: 有効",
       "label": "壁紙配色の生成",
       "not-installed": "Matugen がインストールされていません（壁紙からの色抽出に必要です）。"
     },
     "wifi": {
-      "connected": "{ssid} に接続しました。",
-      "connection-failed": "接続に失敗しました。",
-      "connection-timeout": "接続タイムアウト。",
-      "disabled": "無効。",
-      "disconnected": "{ssid} から切断しました。",
-      "enabled": "有効。",
+      "connected": "{ssid} に接続しました",
+      "connection-failed": "接続に失敗しました",
+      "connection-timeout": "接続タイムアウト",
+      "disabled": "無効",
+      "disconnected": "{ssid} から切断しました",
+      "enabled": "有効",
       "incorrect-password": "パスワードが違います。",
       "network-not-found": "ネットワークが見つかりません。"
     }
@@ -1598,6 +1604,7 @@
     "fill-modes": {
       "crop": "拡大する",
       "fit": "画面に合わせる",
+      "repeat": "繰り返し（タイル）",
       "stretch": "引き伸ばして表示"
     },
     "no-match": "一致する項目がありません。",
