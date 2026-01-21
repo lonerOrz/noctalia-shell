@@ -48,6 +48,8 @@
       "device-default": "デフォルト（表示デバイス）",
       "device-description": "表示するバッテリーデバイスを選択します。",
       "device-label": "バッテリーデバイス",
+      "hide-if-idle-description": "バッテリーが充電または放電していないときは、ウィジェットを非表示にします。",
+      "hide-if-idle-label": "アイドル時に隠す",
       "hide-if-not-detected-description": "システムでバッテリーが検出されない場合は、ウィジェットを非表示にします。",
       "hide-if-not-detected-label": "検出されなければ隠れる",
       "low-battery-threshold-description": "バッテリー残量がこのパーセンテージを下回ると警告を表示します。",
@@ -325,7 +327,7 @@
   },
   "colors": {
     "error": "エラー",
-    "on-surface": "表面上 (Hyōmenjō)",
+    "on-surface": "表面上",
     "primary": "主要",
     "secondary": "二次的",
     "tertiary": "第三紀"
@@ -372,6 +374,7 @@
     "enabled": "有効",
     "events": "イベント",
     "execute": "実行",
+    "faithful": "忠実",
     "focus": "集中",
     "frequency": "頻度",
     "gateway": "ゲートウェイ",
@@ -451,6 +454,7 @@
     "update": "アップデート",
     "upload": "アップロード",
     "version": "バージョン",
+    "vibrant": "鮮やか",
     "visualizer": "ビジュアライザー",
     "volume": "ボリューム",
     "volumes": "ボリューム",
@@ -718,7 +722,7 @@
       "monitor-reset-all": "すべてリセット",
       "monitor-widgets-title": "ウィジェット設定 - {monitor}",
       "monitors-desc": "バーを表示するディスプレイを選択します。未選択の場合は全てに表示されます。",
-      "monitors-desc-new": "どのモニターにBarを表示するかを設定し、モニターごとに設定をカスタマイズします。",
+      "monitors-desc-new": "どのモニターにバーを表示するかを設定し、モニターごとに設定をカスタマイズします。",
       "monitors-title": "表示するディスプレイ",
       "title": "バー",
       "tray-blacklist-description": "トレイから除外するルールを追加します。ワイルドカード (*) に対応しています。",
@@ -738,15 +742,15 @@
       "dark-mode-mode-manual": "手動",
       "dark-mode-mode-off": "オフ",
       "dark-mode-switch-description": "夜間でも見やすいように、暗いテーマに切り替えます。",
-      "delete-error-description": "{scheme} の削除に失敗しました。",
+      "delete-error-description": "{scheme} の削除に失敗しました",
       "delete-error-title": "削除失敗",
-      "delete-success-description": "{scheme} を削除しました。",
+      "delete-success-description": "{scheme} を削除しました",
       "delete-success-title": "配色を削除しました",
       "download-button": "さらにダウンロード",
       "download-downloading": "ダウンロード中...",
       "download-empty": "利用可能な配色がありません",
       "download-error-api-error": "API エラー: {status}",
-      "download-error-description": "{scheme} のダウンロードに失敗しました。",
+      "download-error-description": "{scheme} のダウンロードに失敗しました",
       "download-error-download-failed": "ダウンロードに失敗しました（終了コード: {code}）",
       "download-error-invalid-response": "無効なAPIレスポンス形式",
       "download-error-no-files": "スキームのファイルが見つかりません",
@@ -754,11 +758,10 @@
       "download-error-rate-limit": "GitHub APIのレート制限を超えました",
       "download-error-title": "ダウンロード失敗",
       "download-fetching": "利用可能な配色を取得中...",
-      "download-success-description": "{scheme} をダウンロードしました。",
+      "download-success-description": "{scheme} をダウンロードしました",
       "download-success-title": "配色をダウンロードしました",
       "download-title": "配色のダウンロード",
       "predefined-desc": "あらかじめ用意された配色から選択します。",
-      "predefined-generate-templates-description": "プリセット配色を使用する際、Matugen テンプレート（GTK、ターミナルテーマなど）を生成します。",
       "predefined-generate-templates-label": "プリセット配色のテンプレートを生成する",
       "predefined-title": "プリセット配色",
       "templates-desc": "外部アプリケーションに配色を適用します。",
@@ -771,8 +774,8 @@
       "templates-none-detected": "検出されませんでした",
       "templates-write-path": "書き込み先: {filepath}",
       "title": "配色",
-      "wallpaper-method-description": "お好みの色の抽出方法を選択してください。",
-      "wallpaper-method-label": "色の抽出方法"
+      "wallpaper-method-description": "お好みのパレット生成方法を選択してください。",
+      "wallpaper-method-label": "パレット生成方法"
     },
     "control-center": {
       "cards-desc": "コントロールセンターに表示する項目と、その順序をカスタマイズします。",
@@ -1180,9 +1183,9 @@
       "available-label": "利用可能なプラグイン",
       "available-no-plugins-description": "プラグインのソースを確認するか、リストを更新してください。",
       "available-no-plugins-label": "利用可能なプラグインはありません",
-      "collision-already-installed": "このプラグインはすでにインストールされています。",
-      "collision-custom-version-exists": "「{source}」 発 の カスタム版 は 既に インストール されています。",
-      "collision-official-version-exists": "このプラグインの公式バージョンはすでにインストールされています。",
+      "collision-already-installed": "このプラグインはすでにインストールされています",
+      "collision-custom-version-exists": "「{source}」 発 の カスタム版 は 既に インストール されています",
+      "collision-official-version-exists": "このプラグインの公式バージョンはすでにインストールされています",
       "filter-downloaded": "ダウンロード済み",
       "filter-not-downloaded": "未ダウンロード",
       "filter-tags-description": "カテゴリーまたはダウンロード状況でプラグインを絞り込む",
@@ -1190,9 +1193,9 @@
       "hot-reload-description": "ファイルの変更時にプラグインを自動的にリロードします。プラグイン開発に便利です。",
       "hot-reload-label": "ホットリロード（開発モード）",
       "hot-reloaded": "プラグインをリロードしました: {name}",
-      "install-error": "インストールに失敗しました: {error}。",
+      "install-error": "インストールに失敗しました: {error}",
       "install-incompatible": "{plugin} には Noctalia v{version} 以降が必要です",
-      "install-success": "{plugin} をインストールしました。",
+      "install-success": "{plugin} をインストールしました",
       "installed-description": "ローカルにインストールされたすべてのプラグインを管理・設定します。",
       "installed-label": "インストール済みプラグイン",
       "installed-no-plugins-description": "「利用可能」セクションからプラグインをインストールしてください。",
@@ -1203,16 +1206,16 @@
       "plugin-settings-title": "{plugin} の設定",
       "refresh-refreshing": "プラグインリストを更新中...",
       "refresh-tooltip": "利用可能なプラグインを更新",
-      "settings-error-not-loaded": "プラグインは読み込まれていません。",
-      "settings-saved": "プラグイン設定を保存しました。",
+      "settings-error-not-loaded": "プラグインは読み込まれていません",
+      "settings-saved": "プラグイン設定を保存しました",
       "settings-tooltip": "プラグイン設定",
       "source-custom": "カスタムソース",
       "sources-add-custom": "カスタムリポジトリを追加",
       "sources-add-dialog-description": "プラグインソースとして GitHub リポジトリを追加します。",
-      "sources-add-dialog-error": "プラグインソースの追加に失敗しました。",
+      "sources-add-dialog-error": "プラグインソースの追加に失敗しました",
       "sources-add-dialog-name": "リポジトリ名",
       "sources-add-dialog-name-placeholder": "マイカスタムプラグイン",
-      "sources-add-dialog-success": "プラグインソースを追加しました。",
+      "sources-add-dialog-success": "プラグインソースを追加しました",
       "sources-add-dialog-title": "プラグインソースを追加",
       "sources-add-dialog-url": "リポジトリの URL",
       "sources-description": "プラグインリポジトリを管理します。",
@@ -1221,16 +1224,16 @@
       "title": "プラグイン",
       "uninstall-dialog-description": "本当に {plugin} をアンインストールしますか？すべてのプラグインデータが削除されます。",
       "uninstall-dialog-title": "プラグインのアンインストール",
-      "uninstall-error": "アンインストールに失敗しました: {error}。",
-      "uninstall-success": "{plugin} をアンインストールしました。",
+      "uninstall-error": "アンインストールに失敗しました: {error}",
+      "uninstall-success": "{plugin} をアンインストールしました",
       "uninstalling": "{plugin} をアンインストール中...",
       "update-all": "すべてアップデート ({count})",
-      "update-all-success": "すべてのプラグインをアップデートしました。",
+      "update-all-success": "すべてのプラグインをアップデートしました",
       "update-available": "新しいプラグインアップデートがあります",
       "update-available-plural": "新しいプラグインアップデートがあります（{count}個）",
-      "update-error": "プラグインのアップデートに失敗しました: {plugin}: {error}。",
-      "update-pending": "v{current} → v{new} (Noctalia v{required} ga hitsuyou)",
-      "update-success": "{plugin} を v{version} にアップデートしました。",
+      "update-error": "プラグインのアップデートに失敗しました: {plugin}: {error}",
+      "update-pending": "v{current} → v{new} (Noctalia v{required}が必要です)",
+      "update-success": "{plugin} を v{version} にアップデートしました",
       "update-version": "v{current} → v{new}",
       "updating": "更新中..."
     },
@@ -1401,12 +1404,13 @@
   },
   "session-menu": {
     "action-in-seconds": "{seconds} 秒後に {action}...",
+    "cancel-timer": "タイマーをキャンセル",
     "title": "セッションメニュー"
   },
   "setup": {
     "all-done": "完了！",
     "appearance": {
-      "subheader": "ダークモードとカラースキーム（Matugen またはプリセット）を選択します。"
+      "subheader": "Dark Modeと色のソース（壁紙または定義済み）を選択します。"
     },
     "customize": {
       "header": "自分好みにカスタマイズ",
@@ -1495,12 +1499,12 @@
     },
     "internet-limited": "インターネット未接続",
     "keyboard-layout": {
-      "changed": "キーボードレイアウトを {layout} に変更しました。",
+      "changed": "キーボードレイアウトを {layout} に変更しました",
       "title": "キーボード"
     },
-    "kofi-opened": "ブラウザで Ko-fi ページを開きました。",
+    "kofi-opened": "ブラウザで Ko-fi ページを開きました",
     "missing-control-center": {
-      "description": "コントロールセンターウィジェットがバーから削除されました。再度アクセスするには、ウィジェットを追加し直す必要があります。バーを右クリックして開くことも可能です。",
+      "description": "コントロールセンターウィジェットがバーから削除されました。再度アクセスするには、ウィジェットを追加し直す必要があります。バーを右クリックして開くことも可能です",
       "label": "最後のコントロールセンターが削除されました"
     },
     "night-light": {
@@ -1514,13 +1518,12 @@
       "label": "Noctalia パフォーマンス"
     },
     "power-profile": {
-      "changed": "電源プロファイルを変更しました。",
+      "changed": "電源プロファイルを変更しました",
       "profile-name": "{profile}"
     },
     "theming-processor-failed": {
-      "desc-generic": "テンプレートの処理中にエラーが発生しました。",
-      "title-matugen": "Matugen テンプレート処理に失敗しました",
-      "title-predefined": "プリセット配色の処理に失敗しました"
+      "desc-generic": "テンプレートの処理中にエラーが発生しました",
+      "title": "テンプレート処理に失敗しました"
     },
     "vpn": {
       "connected": "{name} に接続しました",
@@ -1529,18 +1532,15 @@
     "wallpaper-colors": {
       "disabled": "壁紙配色の生成: 無効",
       "enabled": "壁紙配色の生成: 有効",
-      "label": "壁紙配色の生成",
-      "not-installed": "Matugen がインストールされていません（壁紙からの色抽出に必要です）。"
+      "label": "壁紙配色の生成"
     },
     "wifi": {
       "connected": "{ssid} に接続しました",
       "connection-failed": "接続に失敗しました",
       "connection-timeout": "接続タイムアウト",
-      "disabled": "無効",
       "disconnected": "{ssid} から切断しました",
-      "enabled": "有効",
-      "incorrect-password": "パスワードが違います。",
-      "network-not-found": "ネットワークが見つかりません。"
+      "incorrect-password": "パスワードが違います",
+      "network-not-found": "ネットワークが見つかりません"
     }
   },
   "tooltips": {
@@ -1626,7 +1626,7 @@
       "purity-nsfw": "R-18",
       "purity-sfw": "全年齢",
       "purity-sketchy": "際どい",
-      "ratios-any": "どれか",
+      "ratios-any": "すべて",
       "ratios-label": "アスペクト比",
       "resolution-atleast": "以上",
       "resolution-exact": "完全一致",

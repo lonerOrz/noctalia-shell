@@ -48,6 +48,8 @@
       "device-default": "Пристрій відображення за замовчуванням",
       "device-description": "Виберіть пристрій з акумулятором для відображення.",
       "device-label": "Пристрій живлення від батареї",
+      "hide-if-idle-description": "Приховати віджет, коли акумулятор не заряджається та не розряджається.",
+      "hide-if-idle-label": "Приховати, коли неактивний",
       "hide-if-not-detected-description": "Приховати віджет, коли в системі не виявлено акумулятор.",
       "hide-if-not-detected-label": "Приховати, якщо не виявлено",
       "low-battery-threshold-description": "Показувати попередження, коли батарея падає нижче цього відсотка.",
@@ -372,6 +374,7 @@
     "enabled": "Увімкнено",
     "events": "Події",
     "execute": "Виконати",
+    "faithful": "Вірний",
     "focus": "Зосередженість",
     "frequency": "Частота",
     "gateway": "Шлюз",
@@ -451,6 +454,7 @@
     "update": "Оновлення",
     "upload": "Вивантажити",
     "version": "Версія",
+    "vibrant": "Яскравий",
     "visualizer": "Візуалізатор",
     "volume": "Об'єм",
     "volumes": "Обсяги",
@@ -738,15 +742,15 @@
       "dark-mode-mode-manual": "Вручну",
       "dark-mode-mode-off": "Вимкнено",
       "dark-mode-switch-description": "Перемикає на темнішу тему для зручного перегляду вночі.",
-      "delete-error-description": "Не вдалося видалити {scheme}.",
+      "delete-error-description": "Не вдалося видалити {scheme}",
       "delete-error-title": "Помилка видалення",
-      "delete-success-description": "{scheme} успішно видалено.",
+      "delete-success-description": "{scheme} успішно видалено",
       "delete-success-title": "Кольорову схему видалено",
       "download-button": "Завантажити ще",
       "download-downloading": "Завантаження...",
       "download-empty": "Немає доступних кольорових схем",
       "download-error-api-error": "Помилка API: {status}",
-      "download-error-description": "Не вдалося завантажити {scheme}.",
+      "download-error-description": "Не вдалося завантажити {scheme}",
       "download-error-download-failed": "Помилка завантаження з кодом виходу: {code}",
       "download-error-invalid-response": "Невірний формат відповіді API",
       "download-error-no-files": "Файли для схеми не знайдено",
@@ -754,11 +758,10 @@
       "download-error-rate-limit": "Перевищено ліміт запитів GitHub API",
       "download-error-title": "Помилка завантаження",
       "download-fetching": "Отримання доступних кольорових схем...",
-      "download-success-description": "{scheme} успішно завантажено.",
+      "download-success-description": "{scheme} успішно завантажено",
       "download-success-title": "Кольорову схему завантажено",
       "download-title": "Завантажити кольорові схеми",
       "predefined-desc": "Виберіть із колекції попередньо визначених колірних схем.",
-      "predefined-generate-templates-description": "Генерувати шаблони Matugen (GTK, теми терміналу тощо) при використанні попередньо визначених колірних схем.",
       "predefined-generate-templates-label": "Генерувати шаблони для попередньо визначених схем",
       "predefined-title": "Попередньо визначені колірні схеми",
       "templates-desc": "Застосовувати кольори до зовнішніх застосункiв.",
@@ -771,8 +774,8 @@
       "templates-none-detected": "Не виявлено",
       "templates-write-path": "Записує: {filepath}",
       "title": "Колірна схема",
-      "wallpaper-method-description": "Оберіть свій улюблений метод вилучення кольорів.",
-      "wallpaper-method-label": "Метод вилучення кольору"
+      "wallpaper-method-description": "Оберіть свій улюблений метод створення палітри.",
+      "wallpaper-method-label": "Метод створення палітри"
     },
     "control-center": {
       "cards-desc": "Налаштуйте, які елементи керування з'являються в центрі керування та в якому порядку.",
@@ -1180,9 +1183,9 @@
       "available-label": "Доступні плагіни",
       "available-no-plugins-description": "Перевірте вихідні коди вашого плагіна або оновіть список.",
       "available-no-plugins-label": "Немає доступних плагінів",
-      "collision-already-installed": "Цей плагін вже встановлено.",
-      "collision-custom-version-exists": "Вже встановлено власну версію з \"{source}\".",
-      "collision-official-version-exists": "Офіційна версія цього плагіна вже встановлена.",
+      "collision-already-installed": "Цей плагін вже встановлено",
+      "collision-custom-version-exists": "Вже встановлено власну версію з \"{source}\"",
+      "collision-official-version-exists": "Офіційна версія цього плагіна вже встановлена",
       "filter-downloaded": "Завантажено",
       "filter-not-downloaded": "Не завантажено",
       "filter-tags-description": "Фільтрувати плагіни за категорією або статусом завантаження",
@@ -1190,9 +1193,9 @@
       "hot-reload-description": "Автоматично перезавантажувати плагіни при зміні їхніх файлів. Корисно для розробки плагінів.",
       "hot-reload-label": "Гаряче перезавантаження (режим розробки)",
       "hot-reloaded": "Перезавантажено плагін: {name}",
-      "install-error": "Не вдалося встановити: {error}.",
+      "install-error": "Не вдалося встановити: {error}",
       "install-incompatible": "{plugin} вимагає Noctalia v{version} або вище",
-      "install-success": "Успішно встановлено {plugin}.",
+      "install-success": "Успішно встановлено {plugin}",
       "installed-description": "Керуйте та налаштовуйте всі локально встановлені плагіни.",
       "installed-label": "Встановлені плагіни",
       "installed-no-plugins-description": "Встановіть плагіни з розділу \"Доступний\".",
@@ -1203,16 +1206,16 @@
       "plugin-settings-title": "Налаштування {plugin}",
       "refresh-refreshing": "Оновлення списку плагінів...",
       "refresh-tooltip": "Оновити доступні плагіни",
-      "settings-error-not-loaded": "Плагін не завантажено.",
-      "settings-saved": "Налаштування плагіна збережено.",
+      "settings-error-not-loaded": "Плагін не завантажено",
+      "settings-saved": "Налаштування плагіна збережено",
       "settings-tooltip": "Налаштування плагіна",
       "source-custom": "Власне джерело",
       "sources-add-custom": "Додати власний репозиторій",
       "sources-add-dialog-description": "Додати репозиторій GitHub як джерело плагінів.",
-      "sources-add-dialog-error": "Не вдалося додати джерело плагінів.",
+      "sources-add-dialog-error": "Не вдалося додати джерело плагінів",
       "sources-add-dialog-name": "Назва репозиторію",
       "sources-add-dialog-name-placeholder": "Мої власні плагіни",
-      "sources-add-dialog-success": "Джерело плагіна успішно додано.",
+      "sources-add-dialog-success": "Джерело плагіна успішно додано",
       "sources-add-dialog-title": "Додати джерело плагіна",
       "sources-add-dialog-url": "URL репозиторію",
       "sources-description": "Керування репозиторіями плагінів.",
@@ -1221,16 +1224,16 @@
       "title": "Плагіни",
       "uninstall-dialog-description": "Ви впевнені, що хочете видалити {plugin}? Це призведе до видалення всіх даних плагіна.",
       "uninstall-dialog-title": "Видалити плагін",
-      "uninstall-error": "Не вдалося видалити: {error}.",
-      "uninstall-success": "Успішно видалено {plugin}.",
+      "uninstall-error": "Не вдалося видалити: {error}",
+      "uninstall-success": "Успішно видалено {plugin}",
       "uninstalling": "Видалення {plugin}...",
       "update-all": "Оновити все ({count})",
-      "update-all-success": "Усі плагіни успішно оновлено.",
+      "update-all-success": "Усі плагіни успішно оновлено",
       "update-available": "Доступне нове оновлення плагіна",
       "update-available-plural": "Доступні нові оновлення плагінів ({count})",
-      "update-error": "Не вдалося оновити плагін: {plugin}: {error}.",
+      "update-error": "Не вдалося оновити плагін: {plugin}: {error}",
       "update-pending": "v{current} → v{new} (потрібно Noctalia v{required})",
-      "update-success": "Оновлено {plugin} до версії {version}.",
+      "update-success": "Оновлено {plugin} до версії {version}",
       "update-version": "v{current} → v{new}",
       "updating": "Оновлення..."
     },
@@ -1401,12 +1404,13 @@
   },
   "session-menu": {
     "action-in-seconds": "{action} через {seconds} секунд...",
+    "cancel-timer": "Скасувати таймер",
     "title": "Меню сеансу"
   },
   "setup": {
     "all-done": "Готово!",
     "appearance": {
-      "subheader": "Виберіть темний режим та джерела кольорів (Matugen або попередньо визначені)."
+      "subheader": "Виберіть Dark Mode та джерела кольору (Шпалери або попередньо визначені)."
     },
     "customize": {
       "header": "Налаштуйте ваш досвід",
@@ -1495,12 +1499,12 @@
     },
     "internet-limited": "Підключено без інтернету",
     "keyboard-layout": {
-      "changed": "Розкладка клавіатури змінена на {layout}.",
+      "changed": "Розкладка клавіатури змінена на {layout}",
       "title": "Клавіатура"
     },
-    "kofi-opened": "Сторінка Ko-fi відкрита у вашому браузері.",
+    "kofi-opened": "Сторінка Ko-fi відкрита у вашому браузері",
     "missing-control-center": {
-      "description": "Віджет центру керування видалено з панелі. Щоб знову отримати до нього доступ з панелі, вам потрібно повторно додати віджет. Ви також можете відкрити його, клацнувши правою кнопкою миші на панелі.",
+      "description": "Віджет центру керування видалено з панелі. Щоб знову отримати до нього доступ з панелі, вам потрібно повторно додати віджет. Ви також можете відкрити його, клацнувши правою кнопкою миші на панелі",
       "label": "Останній віджет центру керування видалено"
     },
     "night-light": {
@@ -1514,13 +1518,12 @@
       "label": "Продуктивність Noctalia"
     },
     "power-profile": {
-      "changed": "Профіль живлення змінено.",
+      "changed": "Профіль живлення змінено",
       "profile-name": "{profile}"
     },
     "theming-processor-failed": {
-      "desc-generic": "Виникла помилка під час обробки шаблонів.",
-      "title-matugen": "Помилка обробки шаблонів Matugen",
-      "title-predefined": "Помилка обробки попередньо визначеної колірної схеми"
+      "desc-generic": "Виникла помилка під час обробки шаблонів",
+      "title": "Помилка обробки шаблонів"
     },
     "vpn": {
       "connected": "Підключено до '{name}'",
@@ -1529,18 +1532,15 @@
     "wallpaper-colors": {
       "disabled": "Кольори шпалер вимкнено",
       "enabled": "Кольори шпалер увімкнено",
-      "label": "Генерація кольорів шпалер",
-      "not-installed": "Matugen не встановлено — потрібний для витягу кольорів зі шпалер"
+      "label": "Генерація кольорів шпалер"
     },
     "wifi": {
       "connected": "Підключено до '{ssid}'",
       "connection-failed": "З'єднання не вдалося",
       "connection-timeout": "Час очікування з'єднання вичерпано",
-      "disabled": "Вимкнено",
       "disconnected": "Відключено від '{ssid}'",
-      "enabled": "Увімкнено",
-      "incorrect-password": "Неправильний пароль.",
-      "network-not-found": "Мережу не знайдено."
+      "incorrect-password": "Неправильний пароль",
+      "network-not-found": "Мережу не знайдено"
     }
   },
   "tooltips": {

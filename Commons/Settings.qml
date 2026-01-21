@@ -25,7 +25,7 @@ Singleton {
   - Default cache directory: ~/.cache/noctalia
   */
   readonly property alias data: adapter  // Used to access via Settings.data.xxx.yyy
-  readonly property int settingsVersion: 41
+  readonly property int settingsVersion: 42
   readonly property bool isDebug: Quickshell.env("NOCTALIA_DEBUG") === "1"
   readonly property string shellName: "noctalia"
   readonly property string configDir: Quickshell.env("NOCTALIA_CONFIG_DIR") || (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/" + shellName + "/"
@@ -49,7 +49,9 @@ Singleton {
     Quickshell.execDetached(["mkdir", "-p", cacheDir]);
 
     // Ensure PAM config file exists in configDir (create once, never override)
-    ensurePamConfig();
+    if (!Quickshell.env("NOCTALIA_PAM_CONFIG")) {
+      ensurePamConfig();
+    }
 
     // Mark directories as created and trigger file loading
     directoriesCreated = true;
@@ -275,6 +277,8 @@ Singleton {
       property bool allowPanelsOnScreenWithoutBar: true
       property bool showChangelogOnStartup: true
       property bool telemetryEnabled: false
+      property bool enableLockScreenCountdown: true
+      property int lockScreenCountdownDuration: 10000
     }
 
     // ui
@@ -344,7 +348,7 @@ Singleton {
       property color fillColor: "#000000"
       property bool useSolidColor: false
       property color solidColor: "#1a1a2e"
-      property bool randomEnabled: false // Deprecated: use wallpaperChangeMode instead
+      property bool automationEnabled: false
       property string wallpaperChangeMode: "random" // "random" or "alphabetical"
       property int randomIntervalSec: 300 // 5 min
       property int transitionDuration: 1500 // 1500 ms
@@ -405,6 +409,9 @@ Singleton {
           },
           {
             "id": "WallpaperSelector"
+          },
+          {
+            "id": "NoctaliaPerformance"
           }
         ]
         property list<var> right: [
@@ -610,7 +617,7 @@ Singleton {
       property string schedulingMode: "off"
       property string manualSunrise: "06:30"
       property string manualSunset: "18:30"
-      property string extractionMethod: "default"
+      property string generationMethod: "tonal-spot"
     }
 
     // templates toggles
@@ -1094,7 +1101,7 @@ Singleton {
     var pamConfigFile = pamConfigDir + "/password.conf";
 
     // Check if file already exists
-    fileCheckPamProcess.command = ["sh", "-c", `grep -q '^ID=nixos' /etc/os-release || test -f ${pamConfigFile}`];
+    fileCheckPamProcess.command = ["test", "-f", pamConfigFile];
     fileCheckPamProcess.running = true;
   }
 
@@ -1129,7 +1136,7 @@ Singleton {
     onExited: function (exitCode) {
       if (exitCode === 0) {
         // File exists, skip creation
-        Logger.d("Settings", "On NixOS or PAM config file already exists, skipping creation");
+        Logger.d("Settings", "PAM config file already exists, skipping creation");
       } else {
         // File doesn't exist, create it
         doCreatePamConfig();

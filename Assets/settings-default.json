@@ -84,7 +84,9 @@
     "language": "",
     "allowPanelsOnScreenWithoutBar": true,
     "showChangelogOnStartup": true,
-    "telemetryEnabled": false
+    "telemetryEnabled": false,
+    "enableLockScreenCountdown": true,
+    "lockScreenCountdownDuration": 10000
   },
   "ui": {
     "fontDefault": "",
@@ -143,7 +145,7 @@
     "fillColor": "#000000",
     "useSolidColor": false,
     "solidColor": "#1a1a2e",
-    "randomEnabled": false,
+    "automationEnabled": false,
     "wallpaperChangeMode": "random",
     "randomIntervalSec": 300,
     "transitionDuration": 1500,
@@ -195,6 +197,9 @@
         },
         {
           "id": "WallpaperSelector"
+        },
+        {
+          "id": "NoctaliaPerformance"
         }
       ],
       "right": [
@@ -386,7 +391,7 @@
     "schedulingMode": "off",
     "manualSunrise": "06:30",
     "manualSunset": "18:30",
-    "extractionMethod": "default"
+    "generationMethod": "tonal-spot"
   },
   "templates": {
     "activeTemplates": [],
