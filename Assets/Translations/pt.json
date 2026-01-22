@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Estado da bateria",
     "battery-level": "Nível da bateria",
+    "capacity-level": "Capacidade: {level}",
     "charging-rate": "Taxa de carregamento: {rate} W",
     "discharging-rate": "Taxa de descarregamento: {rate} W",
     "health": "Saúde: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Desconectando...",
     "download": "Baixar",
     "duration": "Duração",
+    "edit": "Editar",
     "enabled": "Ativado",
     "events": "Eventos",
     "execute": "Executar",
@@ -775,7 +778,9 @@
       "templates-write-path": "Escreve: {filepath}",
       "title": "Esquema de cores",
       "wallpaper-method-description": "Escolha o seu método de geração de paleta favorito.",
-      "wallpaper-method-label": "Método de geração de paleta"
+      "wallpaper-method-label": "Método de geração de paleta",
+      "wallpaper-monitor-source-description": "Selecione qual monitor usar para extrair as cores do papel de parede.",
+      "wallpaper-monitor-source-label": "Fonte de geração de cores"
     },
     "control-center": {
       "cards-desc": "Personalize quais controles aparecem na central de controle e em que ordem.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Comandos são executados via shell (sh -lc)<br>• Comandos rodam em segundo plano (desanexados)<br>• Botões de teste executam com os valores atuais",
-      "info-command-info-label": "Informações de comando do hook",
       "info-parameters-description": "• Hook de papel de parede: $1 = caminho do papel de parede, $2 = nome da tela<br>• Hook de alternância de tema: $1 = verdadeiro/falso (estado do modo escuro)<br>• Hooks de bloqueio/desbloqueio de tela: Sem parâmetros<br>• Hooks de modo de desempenho: Sem parâmetros<br>• Hook de sessão: $1 = ação (desligamento/reinicialização)",
       "info-parameters-label": "Parâmetros disponíveis",
+      "noctalia-started-description": "Comando para executar quando o Noctalia terminar de carregar.",
+      "noctalia-started-label": "Noctalia Iniciado",
+      "noctalia-started-placeholder": "p. ex. notify-send 'Noctalia Carregado'",
       "performance-mode-disabled-description": "Comando a ser executado quando o modo de desempenho Noctalia é desabilitado.",
       "performance-mode-disabled-label": "Modo de desempenho desabilitado",
       "performance-mode-disabled-placeholder": "ex., notify-send \"Desempenho\" \"Modo desabilitado\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Selecionar pasta de papéis de parede do monitor",
       "settings-selector-description": "Escolha o seu papel de parede.",
       "settings-selector-position-description": "Escolha onde o painel do seletor de papel de parede aparece.",
-      "settings-title": "Configurações de papel de parede"
+      "settings-show-hidden-files-tooltip-hide": "Ocultar arquivos ocultos",
+      "settings-show-hidden-files-tooltip-show": "Mostrar ficheiros ocultos",
+      "settings-title": "Configurações de papel de parede",
+      "settings-view-mode-description": "Escolha como os papéis de parede são exibidos a partir do seu diretório.",
+      "settings-view-mode-label": "Modo de visualização",
+      "view-mode-browse": "Navegar em diretórios",
+      "view-mode-cycle-tooltip": "Modo de visualização: {mode} (clique para alterar)",
+      "view-mode-recursive": "Subdiretórios achatados",
+      "view-mode-single": "Diretório raiz"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Número máximo de widgets atingido",
     "microphone-volume-at": "Volume do microfone: {volume}%",
-    "move-to-center-section": "Seção central",
-    "move-to-left-section": "Seção esquerda",
-    "move-to-right-section": "Seção direita",
     "move-to-section": "Mover para {section}",
     "mute": "Silenciar",
     "next-media": "Próxima faixa",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Seletor de papel de parede"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Este diretório está vazio.",
+      "go-root": "Ir para a raiz do papel de parede",
+      "go-up": "Ir para a pasta pai",
+      "go-up-hint": "Use o botão voltar para navegar para cima."
+    },
     "configure-directory": "Configure seu diretório de papéis de parede com imagens.",
     "fill-modes": {
       "crop": "Cortar (Preencher)",

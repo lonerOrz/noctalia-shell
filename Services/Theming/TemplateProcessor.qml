@@ -12,22 +12,21 @@ import qs.Services.UI
 Singleton {
   id: root
 
+  // Signal emitted when color generation completes successfully (for wallpaper-based theming)
+  signal colorsGenerated
+
   readonly property string dynamicConfigPath: Settings.cacheDir + "theming.dynamic.toml"
   readonly property string templateProcessorScript: Quickshell.shellDir + "/Scripts/python/src/theming/template-processor.py"
+
+  // Debounce state for wallpaper processing
+  property var pendingWallpaperRequest: null
+  property var pendingPredefinedRequest: null
 
   readonly property var schemeNameMap: ({
                                           "Noctalia (default)": "Noctalia-default",
                                           "Noctalia (legacy)": "Noctalia-legacy",
                                           "Tokyo Night": "Tokyo-Night",
                                           "Rose Pine": "Rosepine"
-                                        })
-
-  readonly property var terminalPaths: ({
-                                          "foot": "~/.config/foot/themes/noctalia",
-                                          "ghostty": "~/.config/ghostty/themes/noctalia",
-                                          "kitty": "~/.config/kitty/themes/noctalia.conf",
-                                          "alacritty": "~/.config/alacritty/themes/noctalia.toml",
-                                          "wezterm": "~/.config/wezterm/colors/Noctalia.toml"
                                         })
 
   // Check if a template is enabled in the activeTemplates array
@@ -52,11 +51,25 @@ Singleton {
   /**
   * Process wallpaper colors using internal themer
   * Dual-path architecture (wallpaper generation)
+  * Uses debouncing to prevent spawning multiple processes when spamming wallpaper changes
   */
   function processWallpaperColors(wallpaperPath, mode) {
+    Logger.d("TemplateProcessor", `processWallpaperColors called: path=${wallpaperPath}, mode=${mode}`);
+    pendingWallpaperRequest = {
+      wallpaperPath: wallpaperPath,
+      mode: mode
+    };
+    pendingPredefinedRequest = null;
+    debounceTimer.restart();
+  }
+
+  function executeWallpaperColors(wallpaperPath, mode) {
+    Logger.d("TemplateProcessor", `executeWallpaperColors: path=${wallpaperPath}, mode=${mode}`);
     const content = buildThemeConfig();
-    if (!content)
+    if (!content) {
+      Logger.d("TemplateProcessor", "executeWallpaperColors: no config content, aborting");
       return;
+    }
     const wp = wallpaperPath.replace(/'/g, "'\\''");
 
     const script = buildGenerationScript(content, wp, mode);
@@ -71,10 +84,20 @@ Singleton {
   /**
   * Process predefined color scheme using Python template processor
   * Uses --scheme flag to expand 14-color scheme to full 48-color palette
+  * Uses debouncing to prevent spawning multiple processes when spamming scheme changes
   */
   function processPredefinedScheme(schemeData, mode) {
-    // 1. Handle terminal themes (pre-rendered file copy)
-    handleTerminalThemes(mode);
+    pendingPredefinedRequest = {
+      schemeData: schemeData,
+      mode: mode
+    };
+    pendingWallpaperRequest = null;
+    debounceTimer.restart();
+  }
+
+  function executePredefinedScheme(schemeData, mode) {
+    // 1. Handle terminal themes (runtime generation or pre-rendered file copy)
+    handleTerminalThemes(schemeData, mode);
 
     // 2. Build TOML config for application templates
     const tomlContent = buildPredefinedTemplateConfig(mode);
@@ -104,7 +127,9 @@ Singleton {
     script += `${tomlDelimiter}\n`;
 
     // Run Python template processor with --scheme flag
-    script += `python3 "${templateProcessorScript}" --scheme '${schemeJsonPathEsc}' --config '${configPathEsc}' --mode ${mode}\n`;
+    // Don't pass --mode so templates get both dark and light colors (e.g., zed.json needs both)
+    // Pass --default-mode so "default" in templates resolves to the current theme mode
+    script += `python3 "${templateProcessorScript}" --scheme '${schemeJsonPathEsc}' --config '${configPathEsc}' --default-mode ${mode}\n`;
 
     // Add user templates if enabled
     script += buildUserTemplateCommandForPredefined(schemeData, mode);
@@ -159,8 +184,7 @@ Singleton {
                                            lines.push(`input_path = "${Quickshell.shellDir}/Assets/Templates/${terminal.templatePath}"`);
                                            const outputPath = terminal.outputPath.replace("~", homeDir);
                                            lines.push(`output_path = "${outputPath}"`);
-                                           const postHook = terminal.postHook || `${TemplateRegistry.templateApplyScript} ${terminal.id}`;
-                                           const postHookEsc = escapeTomlString(postHook);
+                                           const postHookEsc = escapeTomlString(terminal.postHook);
                                            lines.push(`post_hook = "${postHookEsc}"`);
                                          }
                                        });
@@ -255,7 +279,7 @@ Singleton {
   // Get scheme type, defaulting to tonal-spot if not a recognized value
   function getSchemeType() {
     const method = Settings.data.colorSchemes.generationMethod;
-    const validTypes = ["tonal-spot", "fruit-salad", "rainbow", "vibrant", "faithful"];
+    const validTypes = ["tonal-spot", "content", "fruit-salad", "rainbow", "vibrant", "faithful"];
     return validTypes.includes(method) ? method : "tonal-spot";
   }
 
@@ -269,8 +293,10 @@ Singleton {
     script += `NOCTALIA_WP_PATH=$(cat << '${wpDelimiter}'\n${wallpaper}\n${wpDelimiter}\n)\n`;
 
     // Use template-processor.py (Python implementation)
+    // Don't pass --mode so templates get both dark and light colors (e.g., zed.json needs both)
+    // Pass --default-mode so "default" in templates resolves to the current theme mode
     const schemeType = getSchemeType();
-    script += `python3 "${templateProcessorScript}" "$NOCTALIA_WP_PATH" --scheme-type ${schemeType} --config '${pathEsc}' --mode ${mode} `;
+    script += `python3 "${templateProcessorScript}" "$NOCTALIA_WP_PATH" --scheme-type ${schemeType} --config '${pathEsc}' --default-mode ${mode} `;
 
     script += buildUserTemplateCommand("$NOCTALIA_WP_PATH", mode);
 
@@ -278,29 +304,100 @@ Singleton {
   }
 
   // ================================================================================
-  // TERMINAL THEMES (predefined schemes use pre-rendered files)
+  // PREDEFINED COLOR SCHEMES
+  // TERMINAL THEMES (dual-path: runtime generation or legacy pre-rendered file copy)
   // ================================================================================
   function escapeShellPath(path) {
     // Escape single quotes by ending the quoted string, adding an escaped quote, and starting a new quoted string
     return "'" + path.replace(/'/g, "'\\''") + "'";
   }
 
-  function handleTerminalThemes(mode) {
-    const commands = [];
+  function handleTerminalThemes(schemeData, mode) {
     const homeDir = Quickshell.env("HOME");
 
-    Object.keys(terminalPaths).forEach(terminal => {
-                                         if (isTemplateEnabled(terminal)) {
-                                           const outputPath = terminalPaths[terminal].replace("~", homeDir);
+    // Check if scheme has terminal section (new format)
+    const modeData = schemeData[mode] || schemeData;
+    const hasTerminalSection = modeData && modeData.terminal;
+
+    if (hasTerminalSection) {
+      // New path: runtime generation from JSON terminal colors
+      handleTerminalThemesGenerate(schemeData, mode, homeDir);
+    } else {
+      // Old path: copy pre-rendered files (backward compatibility for DLC schemes)
+      handleTerminalThemesCopy(mode, homeDir);
+    }
+  }
+
+  /**
+  * New path: Generate terminal themes at runtime from scheme's terminal section
+  */
+  function handleTerminalThemesGenerate(schemeData, mode, homeDir) {
+    // Build terminal output mapping for enabled terminals
+    const terminalOutputs = {};
+    TemplateRegistry.terminals.forEach(terminal => {
+                                         if (isTemplateEnabled(terminal.id)) {
+                                           const outputPath = terminal.outputPath.replace("~", homeDir);
+                                           terminalOutputs[terminal.id] = outputPath;
+                                         }
+                                       });
+
+    if (Object.keys(terminalOutputs).length === 0) {
+      Logger.d("TemplateProcessor", "No terminal templates enabled for generation");
+      return;
+    }
+
+    // Write scheme JSON to temp file and call Python with --terminal-output
+    const schemeJsonPathEsc = schemeJsonPath.replace(/'/g, "'\\''");
+    const schemeDelimiter = "SCHEME_JSON_EOF_" + Math.random().toString(36).substr(2, 9);
+
+    let script = "";
+
+    // Write scheme JSON
+    script += `cat > '${schemeJsonPathEsc}' << '${schemeDelimiter}'\n`;
+    script += JSON.stringify(schemeData, null, 2) + "\n";
+    script += `${schemeDelimiter}\n`;
+
+    // Create output directories
+    Object.values(terminalOutputs).forEach(path => {
+                                             const dir = path.substring(0, path.lastIndexOf('/'));
+                                             script += `mkdir -p ${escapeShellPath(dir)}; `;
+                                           });
+
+    // Run Python with terminal generation
+    const terminalOutputsJson = JSON.stringify(terminalOutputs).replace(/'/g, "'\\''");
+    script += `python3 "${templateProcessorScript}" --scheme '${schemeJsonPathEsc}' --default-mode ${mode} --terminal-output '${terminalOutputsJson}'; `;
+
+    // Run post-hooks for enabled terminals
+    TemplateRegistry.terminals.forEach(terminal => {
+                                         if (isTemplateEnabled(terminal.id)) {
+                                           script += `${terminal.postHook}; `;
+                                         }
+                                       });
+
+    copyProcess.command = ["sh", "-lc", script];
+    copyProcess.running = true;
+  }
+
+  /**
+  * Old path: Copy pre-rendered terminal files (backward compatibility)
+  */
+  function handleTerminalThemesCopy(mode, homeDir) {
+    const commands = [];
+
+    TemplateRegistry.terminals.forEach(terminal => {
+                                         if (isTemplateEnabled(terminal.id)) {
+                                           const outputPath = terminal.outputPath.replace("~", homeDir);
                                            const outputDir = outputPath.substring(0, outputPath.lastIndexOf('/'));
-                                           const templatePaths = getTerminalColorsTemplate(terminal, mode);
+                                           const templatePaths = getTerminalColorsTemplate(terminal.id, mode);
 
                                            commands.push(`mkdir -p ${escapeShellPath(outputDir)}`);
                                            // Try hyphen first (most common), then space (for schemes like "Rosey AMOLED")
                                            const hyphenPath = escapeShellPath(templatePaths.hyphen);
                                            const spacePath = escapeShellPath(templatePaths.space);
-                                           commands.push(`if [ -f ${hyphenPath} ]; then cp -f ${hyphenPath} ${escapeShellPath(outputPath)}; elif [ -f ${spacePath} ]; then cp -f ${spacePath} ${escapeShellPath(outputPath)}; else echo "ERROR: Template file not found for ${terminal} (tried both hyphen and space patterns)"; fi`);
-                                           commands.push(`${TemplateRegistry.templateApplyScript} ${terminal}`);
+                                           commands.push(`if [ -f ${hyphenPath} ]; then cp -f ${hyphenPath} ${escapeShellPath(outputPath)}; elif [ -f ${spacePath} ]; then cp -f ${spacePath} ${escapeShellPath(outputPath)}; else echo "ERROR: Template file not found for ${terminal.id} (tried both hyphen and space patterns)"; fi`);
+
+                                           // Always use the apply script to set the theme and attempt hot reloading
+                                           commands.push(terminal.postHook);
                                          }
                                        });
 
@@ -370,7 +467,9 @@ Singleton {
     const inputQuoted = input.startsWith("$") ? `"${input}"` : `'${input.replace(/'/g, "'\\''")}'`;
 
     const schemeType = getSchemeType();
-    script += `  python3 "${templateProcessorScript}" ${inputQuoted} --scheme-type ${schemeType} --config '${userConfigPath}' --mode ${mode}\n`;
+    // Don't pass --mode so user templates get both dark and light colors
+    // Pass --default-mode so "default" in templates resolves to the current theme mode
+    script += `  python3 "${templateProcessorScript}" ${inputQuoted} --scheme-type ${schemeType} --config '${userConfigPath}' --default-mode ${mode}\n`;
     script += "fi";
 
     return script;
@@ -388,7 +487,9 @@ Singleton {
     let script = "\n# Execute user templates with predefined scheme colors\n";
     script += `if [ -f '${userConfigPath}' ]; then\n`;
     // Use --scheme flag with the already-written scheme JSON
-    script += `  python3 "${templateProcessorScript}" --scheme '${schemeJsonPathEsc}' --config '${userConfigPath}' --mode ${mode}\n`;
+    // Don't pass --mode so user templates get both dark and light colors
+    // Pass --default-mode so "default" in templates resolves to the current theme mode
+    script += `  python3 "${templateProcessorScript}" --scheme '${schemeJsonPathEsc}' --config '${userConfigPath}' --default-mode ${mode}\n`;
     script += "fi";
 
     return script;
@@ -396,6 +497,41 @@ Singleton {
 
   function getUserConfigPath() {
     return (Settings.configDir + "user-templates.toml").replace(/'/g, "'\\''");
+  }
+
+  // ================================================================================
+  // DEBOUNCE TIMER
+  // ================================================================================
+  function executePendingRequest() {
+    Logger.d("TemplateProcessor", `executePendingRequest: hasWallpaper=${!!pendingWallpaperRequest}, hasPredefined=${!!pendingPredefinedRequest}`);
+    if (pendingWallpaperRequest) {
+      const req = pendingWallpaperRequest;
+      pendingWallpaperRequest = null;
+      executeWallpaperColors(req.wallpaperPath, req.mode);
+    } else if (pendingPredefinedRequest) {
+      const req = pendingPredefinedRequest;
+      pendingPredefinedRequest = null;
+      executePredefinedScheme(req.schemeData, req.mode);
+    } else {
+      Logger.d("TemplateProcessor", "executePendingRequest: no pending request");
+    }
+  }
+
+  Timer {
+    id: debounceTimer
+    interval: 150
+    repeat: false
+    onTriggered: {
+      Logger.d("TemplateProcessor", `debounceTimer fired: processRunning=${generateProcess.running}`);
+      // Kill any running process before starting new one
+      if (generateProcess.running) {
+        Logger.d("TemplateProcessor", "debounceTimer: stopping running process");
+        generateProcess.running = false;
+        // executePendingRequest will be called from onExited
+      } else {
+        executePendingRequest();
+      }
+    }
   }
 
   // ================================================================================
@@ -414,10 +550,20 @@ Singleton {
     }
 
     onExited: function (exitCode) {
-      if (exitCode !== 0) {
+      Logger.d("TemplateProcessor", `generateProcess exited: exitCode=${exitCode}`);
+      // Only log errors for non-killed processes (exitCode 0 = success, negative = signal/killed)
+      if (exitCode > 0) {
         const description = generateProcess.buildErrorMessage();
-        Logger.e("TemplateProcessor", `Process failed (generator: ${generator}) with exit code`, exitCode, description);
+        Logger.e("TemplateProcessor", `Process failed with exit code`, exitCode, description);
         Logger.d("TemplateProcessor", "Failed command:", command.join(" ").substring(0, 500));
+      }
+      // Execute any pending request (handles both kill case and 400ms interval case)
+      if (pendingWallpaperRequest || pendingPredefinedRequest) {
+        Logger.d("TemplateProcessor", "generateProcess onExited: has pending request, executing");
+        executePendingRequest();
+      } else if (exitCode === 0) {
+        // No pending request and successful completion - emit signal
+        root.colorsGenerated();
       }
     }
 

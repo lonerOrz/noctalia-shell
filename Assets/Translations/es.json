@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Estado de la batería",
     "battery-level": "Nivel de batería",
+    "capacity-level": "Capacidad: {level}",
     "charging-rate": "Tasa de carga: {rate} W",
     "discharging-rate": "Tasa de descarga: {rate} W",
     "health": "Salud: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Desconectando...",
     "download": "Descargar",
     "duration": "Duración",
+    "edit": "Editar",
     "enabled": "Activado",
     "events": "Eventos",
     "execute": "Ejecutar",
@@ -775,7 +778,9 @@
       "templates-write-path": "Escribe: {filepath}",
       "title": "Esquema de colores",
       "wallpaper-method-description": "Elige tu método de generación de paleta favorito.",
-      "wallpaper-method-label": "Método de generación de paleta"
+      "wallpaper-method-label": "Método de generación de paleta",
+      "wallpaper-monitor-source-description": "Selecciona qué monitor usar para extraer los colores del fondo de pantalla.",
+      "wallpaper-monitor-source-label": "Fuente de generación de color"
     },
     "control-center": {
       "cards-desc": "Personaliza qué controles aparecen en el centro de control y en qué orden.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Los comandos se ejecutan a través de shell (sh -lc)<br>• Los comandos se ejecutan en segundo plano (desvinculados)<br>• Los botones de prueba se ejecutan con los valores actuales",
-      "info-command-info-label": "Información de comandos de hook",
       "info-parameters-description": "• Hook de fondo de pantalla: $1 = ruta del fondo de pantalla, $2 = nombre de la pantalla<br>• Hook de alternancia de tema: $1 = verdadero/falso (estado del modo oscuro)<br>• Hooks de bloqueo/desbloqueo de pantalla: Sin parámetros<br>• Hooks de modo de rendimiento: Sin parámetros<br>• Hook de sesión: $1 = acción (apagado/reinicio)",
       "info-parameters-label": "Parámetros disponibles",
+      "noctalia-started-description": "Comando para ejecutar cuando Noctalia ha terminado de cargarse.",
+      "noctalia-started-label": "Noctalia Iniciado",
+      "noctalia-started-placeholder": "p. ej. notify-send 'Noctalia cargado'",
       "performance-mode-disabled-description": "Comando a ejecutar cuando se deshabilita el modo de rendimiento de Noctalia.",
       "performance-mode-disabled-label": "Modo de rendimiento deshabilitado",
       "performance-mode-disabled-placeholder": "ej., notify-send \"Rendimiento\" \"Modo deshabilitado\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Seleccionar carpeta de fondos de pantalla del monitor",
       "settings-selector-description": "Elige tu fondo de pantalla.",
       "settings-selector-position-description": "Elige dónde aparece el panel selector de fondo de pantalla.",
-      "settings-title": "Configuración del fondo de pantalla"
+      "settings-show-hidden-files-tooltip-hide": "Ocultar archivos ocultos",
+      "settings-show-hidden-files-tooltip-show": "Mostrar archivos ocultos",
+      "settings-title": "Configuración del fondo de pantalla",
+      "settings-view-mode-description": "Elige cómo se muestran los fondos de pantalla desde tu directorio.",
+      "settings-view-mode-label": "Modo de visualización",
+      "view-mode-browse": "Explorar directorios",
+      "view-mode-cycle-tooltip": "Modo de visualización: {mode} (clic para cambiar)",
+      "view-mode-recursive": "Subdirectorios aplanados",
+      "view-mode-single": "Directorio raíz"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Se ha alcanzado el número máximo de widgets",
     "microphone-volume-at": "Volumen del micrófono: {volume}%",
-    "move-to-center-section": "Sección central",
-    "move-to-left-section": "Sección izquierda",
-    "move-to-right-section": "Sección derecha",
     "move-to-section": "Mover a {section}",
     "mute": "Silenciar",
     "next-media": "Siguiente pista",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Selector de fondos de pantalla"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Este directorio está vacío.",
+      "go-root": "Ir a la raíz del fondo de pantalla",
+      "go-up": "Ir a la carpeta superior",
+      "go-up-hint": "Usa el botón de atrás para navegar hacia arriba."
+    },
     "configure-directory": "Configura tu directorio de fondos de pantalla con imágenes.",
     "fill-modes": {
       "crop": "Recortar (Rellenar)",

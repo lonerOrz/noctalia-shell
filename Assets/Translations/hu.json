@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Akkumulátor állapota",
     "battery-level": "Akkumulátor töltöttségi szintje",
+    "capacity-level": "Kapacitás: {level}",
     "charging-rate": "Töltési sebesség: {rate} W",
     "discharging-rate": "Merülési sebesség: {rate} W",
     "health": "Állapot: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Kapcsolat bontása...",
     "download": "Letöltés",
     "duration": "Időtartam",
+    "edit": "Szerkesztés",
     "enabled": "Engedélyezve",
     "events": "Események",
     "execute": "Végrehajt",
@@ -775,7 +778,9 @@
       "templates-write-path": "Írja: {filepath}",
       "title": "Színséma",
       "wallpaper-method-description": "Válassza ki a kedvenc palettagenerálási módszereit.",
-      "wallpaper-method-label": "Paletta generálási módszer"
+      "wallpaper-method-label": "Paletta generálási módszer",
+      "wallpaper-monitor-source-description": "Válaszd ki, melyik monitort használd a háttérkép színeinek kinyeréséhez.",
+      "wallpaper-monitor-source-label": "Színgenerálási forrás"
     },
     "control-center": {
       "cards-desc": "Személyre szabhatja, hogy mely vezérlők jelenjenek meg a vezérlőközpontban és milyen sorrendben.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• A parancsok shellen keresztül futnak (sh -lc)<br>• A parancsok a háttérben futnak (leválasztva)<br>• A tesztgombok az aktuális értékekkel futnak le",
-      "info-command-info-label": "Hook parancsinformációk",
       "info-parameters-description": "• Háttérkép horog: $1 = háttérkép útvonala, $2 = képernyő neve<br>• Téma váltó horog: $1 = igaz/hamis (Sötét mód állapota)<br>• Képernyő zárolás/feloldás horgok: Nincsenek paraméterek<br>• Teljesítmény mód horgok: Nincsenek paraméterek<br>• Munkamenet horog: $1 = művelet (leállítás/újraindítás)",
       "info-parameters-label": "Elérhető paraméterek",
+      "noctalia-started-description": "Parancs, ami akkor fut le, amikor a Noctalia betöltése befejeződött.",
+      "noctalia-started-label": "Noctalia elindult",
+      "noctalia-started-placeholder": "pl. notify-send 'Noctalia betöltve'",
       "performance-mode-disabled-description": "Parancs, amely akkor fut le, ha a Noctalia teljesítmény mód ki van kapcsolva.",
       "performance-mode-disabled-label": "Teljesítmény mód kikapcsolva",
       "performance-mode-disabled-placeholder": "pl. notify-send \"Teljesítmény\" \"Mód kikapcsolva\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Monitor háttérkép mappa kiválasztása",
       "settings-selector-description": "Válassza ki a háttérképét.",
       "settings-selector-position-description": "Válassza ki, hol jelenjen meg a háttérkép választó panel.",
-      "settings-title": "Háttérkép beállítások"
+      "settings-show-hidden-files-tooltip-hide": "Rejtett fájlok elrejtése",
+      "settings-show-hidden-files-tooltip-show": "Rejtett fájlok megjelenítése",
+      "settings-title": "Háttérkép beállítások",
+      "settings-view-mode-description": "Válaszd ki, hogyan jelenjenek meg a háttérképek a könyvtáradból.",
+      "settings-view-mode-label": "Megtekintési mód",
+      "view-mode-browse": "Könyvtárak böngészése",
+      "view-mode-cycle-tooltip": "Nézet mód: {mode} (kattintson a módosításhoz)",
+      "view-mode-recursive": "Egybesimított alkönyvtárak",
+      "view-mode-single": "Gyökérkönyvtár"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Elérte a maximális widgetszámot",
     "microphone-volume-at": "Mikrofon hangereje: {volume}%",
-    "move-to-center-section": "Középső szakasz",
-    "move-to-left-section": "Bal oldali szakasz",
-    "move-to-right-section": "Jobb oldali szakasz",
     "move-to-section": "Ugrás a(z) {section} szakaszhoz",
     "mute": "Némítás",
     "next-media": "Következő zene",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Háttérképválasztó"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Ez a könyvtár üres.",
+      "go-root": "Ugrás a háttérkép gyökerébe",
+      "go-up": "Ugrás a szülő mappába",
+      "go-up-hint": "A visszagombbal navigálhatsz felfelé."
+    },
     "configure-directory": "A háttérképkönyvtár képekkel való konfigurálása.",
     "fill-modes": {
       "crop": "Vágás (Kitöltés)",

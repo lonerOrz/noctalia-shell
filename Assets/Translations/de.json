@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Akkuzustand",
     "battery-level": "Akkustand",
+    "capacity-level": "Kapazität: {level}",
     "charging-rate": "Laderate: {rate} W",
     "discharging-rate": "Entladerate: {rate} W",
     "health": "Zustand: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Verbindung wird getrennt...",
     "download": "Herunterladen",
     "duration": "Dauer",
+    "edit": "Bearbeiten",
     "enabled": "Aktiviert",
     "events": "Ereignisse",
     "execute": "Ausführen",
@@ -775,7 +778,9 @@
       "templates-write-path": "Schreibt: {filepath}",
       "title": "Farbschema",
       "wallpaper-method-description": "Wählen Sie Ihre bevorzugte Methode zur Palettengenerierung.",
-      "wallpaper-method-label": "Methode zur Palettengenerierung"
+      "wallpaper-method-label": "Methode zur Palettengenerierung",
+      "wallpaper-monitor-source-description": "Wähle den Monitor aus, der für die Extraktion der Wallpaper-Farben verwendet werden soll.",
+      "wallpaper-monitor-source-label": "Quelle der Farberzeugung"
     },
     "control-center": {
       "cards-desc": "Passen Sie an, welche Steuerelemente im Kontrollzentrum angezeigt werden und in welcher Reihenfolge.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Befehle werden über Shell ausgeführt (sh -lc)<br>• Befehle laufen im Hintergrund (getrennt)<br>• Test-Buttons führen mit aktuellen Werten aus",
-      "info-command-info-label": "Hook-Befehl-Informationen",
       "info-parameters-description": "• Wallpaper-Hook: $1 = Wallpaper-Pfad, $2 = Bildschirmname<br>• Themenwechsel-Hook: $1 = true/false (Dunkelmodus-Status)<br>• Bildschirm-Sperr-/Entsperr-Hooks: Keine Parameter<br>• Leistungsmodus-Hooks: Keine Parameter<br>• Session-Hook: $1 = Aktion (Herunterfahren/Neustart)",
       "info-parameters-label": "Verfügbare Parameter",
+      "noctalia-started-description": "Befehl, der ausgeführt wird, wenn Noctalia vollständig geladen wurde.",
+      "noctalia-started-label": "Noctalia gestartet",
+      "noctalia-started-placeholder": "z.B. notify-send 'Noctalia geladen'",
       "performance-mode-disabled-description": "Befehl, der ausgeführt wird, wenn der Noctalia-Leistungsmodus deaktiviert wird.",
       "performance-mode-disabled-label": "Leistungsmodus deaktiviert",
       "performance-mode-disabled-placeholder": "z.B. notify-send \"Leistung\" \"Modus deaktiviert\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Monitor-Hintergrundbild-Ordner auswählen",
       "settings-selector-description": "Wählen Sie Ihr Hintergrundbild aus.",
       "settings-selector-position-description": "Wählen Sie aus, wo das Hintergrundbild-Auswahlfeld angezeigt wird.",
-      "settings-title": "Hintergrundbild-Einstellungen"
+      "settings-show-hidden-files-tooltip-hide": "Versteckte Dateien ausblenden",
+      "settings-show-hidden-files-tooltip-show": "Versteckte Dateien anzeigen",
+      "settings-title": "Hintergrundbild-Einstellungen",
+      "settings-view-mode-description": "Wählen Sie aus, wie Hintergrundbilder aus Ihrem Verzeichnis angezeigt werden.",
+      "settings-view-mode-label": "Ansichtsmodus",
+      "view-mode-browse": "Verzeichnisse durchsuchen",
+      "view-mode-cycle-tooltip": "Ansichtsmodus: {mode} (Klicken zum Ändern)",
+      "view-mode-recursive": "Vereinfachte Unterverzeichnisse",
+      "view-mode-single": "Stammverzeichnis"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "WLAN",
     "max-widgets-reached": "Maximale Anzahl an Widgets erreicht",
     "microphone-volume-at": "Mikrofonlautstärke: {volume}%",
-    "move-to-center-section": "Mittlere Sektion",
-    "move-to-left-section": "Linke Sektion",
-    "move-to-right-section": "Rechte Sektion",
     "move-to-section": "Gehe zu {section}",
     "mute": "Stummschalten",
     "next-media": "Nächster Titel",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Hintergrundbild-Auswahl"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Dieses Verzeichnis ist leer.",
+      "go-root": "Zum Wallpaper-Stammverzeichnis gehen",
+      "go-up": "Zum übergeordneten Ordner gehen",
+      "go-up-hint": "Verwende die Zurück-Taste, um nach oben zu navigieren."
+    },
     "configure-directory": "Konfigurieren Sie Ihr Hintergrundbild-Verzeichnis mit Bildern.",
     "fill-modes": {
       "crop": "Zuschneiden (Füllen)",

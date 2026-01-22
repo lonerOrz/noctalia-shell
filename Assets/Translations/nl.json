@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Batterijconditie",
     "battery-level": "Accuniveau",
+    "capacity-level": "Capaciteit: {level}",
     "charging-rate": "Laadsnelheid: {rate} W",
     "discharging-rate": "Ontlaadsnelheid: {rate} W",
     "health": "Gezondheid: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Verbinding verbroken...",
     "download": "Downloaden",
     "duration": "Duur",
+    "edit": "Bewerken",
     "enabled": "Ingeschakeld",
     "events": "Evenementen",
     "execute": "Uitvoeren",
@@ -775,7 +778,9 @@
       "templates-write-path": "Schrijft: {filepath}",
       "title": "Kleurschema",
       "wallpaper-method-description": "Kies je favoriete methode voor het genereren van paletten.",
-      "wallpaper-method-label": "Paletgeneratiemethode"
+      "wallpaper-method-label": "Paletgeneratiemethode",
+      "wallpaper-monitor-source-description": "Selecteer welke monitor te gebruiken voor het extraheren van wallpaperkleuren.",
+      "wallpaper-monitor-source-label": "Bron van kleurgeneratie"
     },
     "control-center": {
       "cards-desc": "Pas aan welke bedieningselementen in het bedieningscentrum verschijnen en in welke volgorde.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Commando's worden uitgevoerd via shell (sh -lc)<br>• Commando's draaien op de achtergrond (losgekoppeld)<br>• Testknoppen worden uitgevoerd met de huidige waarden",
-      "info-command-info-label": "Informatie over hook-commando's",
       "info-parameters-description": "• Achtergrond-hook: $1 = pad naar achtergrond, $2 = schermnaam<br>• Thema-schakel-hook: $1 = true/false (Dark Mode-status)<br>• Schermvergrendeling/ontgrendeling-hooks: Geen parameters<br>• Prestatiemodus-hooks: Geen parameters<br>• Sessie-hook: $1 = actie (afsluiten/opnieuw opstarten)",
       "info-parameters-label": "Beschikbare parameters",
+      "noctalia-started-description": "Opdracht die moet worden uitgevoerd wanneer Noctalia volledig is geladen.",
+      "noctalia-started-label": "Noctalia gestart",
+      "noctalia-started-placeholder": "bijv. notify-send 'Noctalia geladen'",
       "performance-mode-disabled-description": "Commando dat wordt uitgevoerd wanneer de Noctalia prestatiemodus wordt uitgeschakeld.",
       "performance-mode-disabled-label": "Prestatiemodus uitgeschakeld",
       "performance-mode-disabled-placeholder": "bijv. notify-send \"Prestatie\" \"Modus uitgeschakeld\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Achtergrondmap voor monitor selecteren",
       "settings-selector-description": "Kies je achtergrond.",
       "settings-selector-position-description": "Kies waar het achtergrondselectiepaneel verschijnt.",
-      "settings-title": "Achtergrondinstellingen"
+      "settings-show-hidden-files-tooltip-hide": "Verborgen bestanden verbergen",
+      "settings-show-hidden-files-tooltip-show": "Verborgen bestanden weergeven",
+      "settings-title": "Achtergrondinstellingen",
+      "settings-view-mode-description": "Kies hoe achtergronden uit uw map worden weergegeven.",
+      "settings-view-mode-label": "Weergavemodus",
+      "view-mode-browse": "Blader door mappen",
+      "view-mode-cycle-tooltip": "Weergavemodus: {mode} (klik om te wijzigen)",
+      "view-mode-recursive": "Afgevlakte submappen",
+      "view-mode-single": "Rootdirectory"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Maximum aantal widgets bereikt",
     "microphone-volume-at": "Microfoonvolume: {volume}%",
-    "move-to-center-section": "Middelste sectie",
-    "move-to-left-section": "Linker sectie",
-    "move-to-right-section": "Rechter sectie",
     "move-to-section": "Ga naar {section}",
     "mute": "Dempen",
     "next-media": "Volgende track",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Achtergrondkiezer"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Deze map is leeg.",
+      "go-root": "Ga naar de root van de achtergrond",
+      "go-up": "Ga naar de bovenliggende map",
+      "go-up-hint": "Gebruik de terugknop om omhoog te navigeren."
+    },
     "configure-directory": "Configureer je achtergrondmap met afbeeldingen.",
     "fill-modes": {
       "crop": "Bijsnijden (vullend)",

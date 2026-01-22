@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Battery health",
     "battery-level": "Battery level",
+    "capacity-level": "Capacity: {level}",
     "charging-rate": "Charging rate: {rate} W",
     "discharging-rate": "Discharging rate: {rate} W",
     "health": "Health: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Disconnecting...",
     "download": "Download",
     "duration": "Duration",
+    "edit": "Edit",
     "enabled": "Enabled",
     "events": "Events",
     "execute": "Execute",
@@ -775,7 +778,9 @@
       "templates-write-path": "Writes: {filepath}",
       "title": "Color Scheme",
       "wallpaper-method-description": "Choose your favorite palette generation method.",
-      "wallpaper-method-label": "Palette generation method"
+      "wallpaper-method-label": "Palette generation method",
+      "wallpaper-monitor-source-description": "Select which monitor to use for extracting wallpaper colors.",
+      "wallpaper-monitor-source-label": "Color generation source"
     },
     "control-center": {
       "cards-desc": "Customize which controls appear in the control center and in what order.",
@@ -959,9 +964,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Commands are executed via shell (sh -lc)<br>• Commands run in background (detached)<br>• Test buttons execute with current values",
-      "info-command-info-label": "Hook command information",
       "info-parameters-description": "• Wallpaper hook: $1 = wallpaper path, $2 = screen name<br>• Theme toggle hook: $1 = true/false (Dark Mode state)<br>• Screen lock/unlock hooks: No parameters<br>• Performance mode hooks: No parameters<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Available parameters",
+      "noctalia-started-description": "Command to execute when Noctalia has finished loading.",
+      "noctalia-started-label": "Noctalia Started",
+      "noctalia-started-placeholder": "e.g. notify-send 'Noctalia Loaded'",
       "performance-mode-disabled-description": "Command to be executed when Noctalia Performance Mode is disabled.",
       "performance-mode-disabled-label": "Performance mode disabled",
       "performance-mode-disabled-placeholder": "e.g., notify-send \"Performance\" \"Mode disabled\"",
@@ -1370,7 +1377,15 @@
       "settings-select-monitor-folder": "Select monitor wallpaper folder",
       "settings-selector-description": "Choose your wallpaper.",
       "settings-selector-position-description": "Choose where the wallpaper selector panel appears.",
-      "settings-title": "Wallpaper settings"
+      "settings-show-hidden-files-tooltip-hide": "Hide hidden files",
+      "settings-show-hidden-files-tooltip-show": "Show hidden files",
+      "settings-title": "Wallpaper settings",
+      "settings-view-mode-description": "Choose how wallpapers are displayed from your directory.",
+      "settings-view-mode-label": "Viewing mode",
+      "view-mode-browse": "Browse directories",
+      "view-mode-cycle-tooltip": "View mode: {mode} (click to change)",
+      "view-mode-recursive": "Flattened subdirectories",
+      "view-mode-single": "Root directory"
     }
   },
   "placeholders": {
@@ -1456,14 +1471,14 @@
     "widget-settings-title": "{widget} Settings"
   },
   "system-monitor": {
-    "cpu-temp": "CPU Temp",
-    "cpu-usage": "CPU Usage",
+    "cpu-temp": "CPU temp",
+    "cpu-usage": "CPU usage",
     "disk": "Disk",
-    "download-speed": "Download Speed",
-    "gpu-temp": "GPU Temp",
-    "load-average": "Load Avg",
+    "download-speed": "Download speed",
+    "gpu-temp": "GPU temp",
+    "load-average": "Load avg",
     "title": "System Monitor",
-    "upload-speed": "Upload Speed"
+    "upload-speed": "Upload speed"
   },
   "toast": {
     "airplane-mode": {
@@ -1569,9 +1584,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Maximum widgets reached",
     "microphone-volume-at": "Microphone volume: {volume}%",
-    "move-to-center-section": "Center section",
-    "move-to-left-section": "Left section",
-    "move-to-right-section": "Right section",
     "move-to-section": "Move to {section}",
     "mute": "Mute",
     "next-media": "Next track",
@@ -1602,6 +1614,12 @@
     "wallpaper-selector": "Wallpaper selector"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "This directory is empty.",
+      "go-root": "Go to wallpaper root",
+      "go-up": "Go to parent folder",
+      "go-up-hint": "Use the back button to navigate up."
+    },
     "configure-directory": "Configure your wallpaper directory with images.",
     "fill-modes": {
       "crop": "Crop (Fill)",

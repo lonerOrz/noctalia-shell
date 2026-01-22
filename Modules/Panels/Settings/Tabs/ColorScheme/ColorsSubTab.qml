@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Quickshell
 import Quickshell.Io
 import "."
 import qs.Commons
@@ -17,6 +18,7 @@ ColumnLayout {
   property var timeOptions
   property var schemeColorsCache: ({})
   property int cacheVersion: 0
+  property var screen
 
   signal openDownloadPopup
 
@@ -214,21 +216,53 @@ ColumnLayout {
 
   NComboBox {
     Layout.fillWidth: true
+    label: I18n.tr("panels.color-scheme.wallpaper-monitor-source-label")
+    description: I18n.tr("panels.color-scheme.wallpaper-monitor-source-description")
+    enabled: Settings.data.colorSchemes.useWallpaperColors
+    model: {
+      var m = [];
+      if (Quickshell.screens) {
+        for (var i = 0; i < Quickshell.screens.length; i++) {
+          var screen = Quickshell.screens[i];
+          var name = screen.name;
+          var displayName = name + " (" + screen.width + "x" + screen.height + ")";
+          m.push({
+                   "key": name,
+                   "name": displayName
+                 });
+        }
+      }
+      return m;
+    }
+    currentKey: Settings.data.colorSchemes.monitorForColors || (screen ? screen.name : "")
+    onSelected: key => {
+                  Settings.data.colorSchemes.monitorForColors = key;
+                  AppThemeService.generate();
+                }
+    defaultValue: ""
+  }
+
+  NComboBox {
+    Layout.fillWidth: true
     label: I18n.tr("panels.color-scheme.wallpaper-method-label")
     description: I18n.tr("panels.color-scheme.wallpaper-method-description")
     enabled: Settings.data.colorSchemes.useWallpaperColors
     model: [
       {
         "key": "tonal-spot",
-        "name": "M3-Tonal Spot"
+        "name": "M3-Tonal Spot" // Do not translate
+      },
+      {
+        "key": "content",
+        "name": "M3-Content" // Do not translate
       },
       {
         "key": "fruit-salad",
-        "name": "M3-Fruit Salad"
+        "name": "M3-Fruit Salad" // Do not translate
       },
       {
         "key": "rainbow",
-        "name": "M3-Rainbow"
+        "name": "M3-Rainbow" // Do not translate
       },
       {
         "key": "vibrant",

@@ -11,6 +11,7 @@ import qs.Modules.Panels.Settings.Tabs.ColorScheme
 import qs.Modules.Panels.Settings.Tabs.ControlCenter
 import qs.Modules.Panels.Settings.Tabs.Display
 import qs.Modules.Panels.Settings.Tabs.Dock
+import qs.Modules.Panels.Settings.Tabs.Hooks
 import qs.Modules.Panels.Settings.Tabs.Launcher
 import qs.Modules.Panels.Settings.Tabs.Notifications
 import qs.Modules.Panels.Settings.Tabs.Osd
@@ -387,6 +388,7 @@ Item {
               color: toggleMouseArea.containsMouse ? Color.mHover : "transparent"
 
               Behavior on color {
+                enabled: !Color.isTransitioning
                 ColorAnimation {
                   duration: Style.animationFast
                   easing.type: Easing.InOutQuad
@@ -450,6 +452,7 @@ Item {
                 property color tabTextColor: selected ? Color.mOnPrimary : (tabItem.hovering ? Color.mOnHover : Color.mOnSurface)
 
                 Behavior on color {
+                  enabled: !Color.isTransitioning
                   ColorAnimation {
                     duration: Style.animationFast
                     easing.type: Easing.InOutQuad
@@ -457,6 +460,7 @@ Item {
                 }
 
                 Behavior on tabTextColor {
+                  enabled: !Color.isTransitioning
                   ColorAnimation {
                     duration: Style.animationFast
                     easing.type: Easing.InOutQuad

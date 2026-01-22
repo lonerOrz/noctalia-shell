@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Stan baterii",
     "battery-level": "Poziom baterii",
+    "capacity-level": "Pojemność: {level}",
     "charging-rate": "Prędkość ładowania: {rate} W",
     "discharging-rate": "Prędkość rozładowywania: {rate} W",
     "health": "Kondycja: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Rozłączanie...",
     "download": "Pobierz",
     "duration": "Czas trwania",
+    "edit": "Edytuj",
     "enabled": "Włączone",
     "events": "Wydarzenia",
     "execute": "Wykonaj",
@@ -775,7 +778,9 @@
       "templates-write-path": "Zapisuje: {filepath}",
       "title": "Schemat kolorów",
       "wallpaper-method-description": "Wybierz swoją ulubioną metodę generowania palety.",
-      "wallpaper-method-label": "Metoda generowania palety"
+      "wallpaper-method-label": "Metoda generowania palety",
+      "wallpaper-monitor-source-description": "Wybierz monitor, który ma być używany do wydobywania kolorów tapety.",
+      "wallpaper-monitor-source-label": "Źródło generowania kolorów"
     },
     "control-center": {
       "cards-desc": "Dostosuj, które kontrolki pojawiają się w centrum sterowania i w jakiej kolejności.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Polecenia są wykonywane przez powłokę (sh -lc)<br>• Polecenia działają w tle (detached)<br>• Przyciski testowe wykonują się z aktualnymi wartościami",
-      "info-command-info-label": "Informacje o poleceniach hook",
       "info-parameters-description": "• Hak do tapety: $1 = ścieżka do tapety, $2 = nazwa ekranu<br>• Hak przełączania motywu: $1 = prawda/fałsz (stan trybu ciemnego)<br>• Haki blokowania/odblokowywania ekranu: Brak parametrów<br>• Haki trybu wydajności: Brak parametrów<br>• Hak sesji: $1 = akcja (zamknięcie/ponowne uruchomienie))",
       "info-parameters-label": "Dostępne parametry",
+      "noctalia-started-description": "Polecenie do wykonania po zakończeniu ładowania Noctalii.",
+      "noctalia-started-label": "Noctalia uruchomiona",
+      "noctalia-started-placeholder": "np. notify-send 'Noctalia załadowany'",
       "performance-mode-disabled-description": "Komenda do wykonania, gdy tryb wydajności Noctalia zostanie wyłączony.",
       "performance-mode-disabled-label": "Tryb wydajności wyłączony",
       "performance-mode-disabled-placeholder": "notify-send \"Wydajność\" \"Tryb wyłączony\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Wybierz folder tapet monitora",
       "settings-selector-description": "Wybierz swoją tapetę.",
       "settings-selector-position-description": "Wybierz, gdzie pojawia się panel wyboru tapety.",
-      "settings-title": "Ustawienia tapet"
+      "settings-show-hidden-files-tooltip-hide": "Ukryj ukryte pliki",
+      "settings-show-hidden-files-tooltip-show": "Pokaż ukryte pliki",
+      "settings-title": "Ustawienia tapet",
+      "settings-view-mode-description": "Wybierz sposób wyświetlania tapet z Twojego katalogu.",
+      "settings-view-mode-label": "Tryb wyświetlania",
+      "view-mode-browse": "Przeglądaj katalogi",
+      "view-mode-cycle-tooltip": "Tryb widoku: {mode} (kliknij, aby zmienić)",
+      "view-mode-recursive": "Spłaszczone podkatalogi",
+      "view-mode-single": "Katalog główny"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Osiągnięto maksymalną liczbę widżetów",
     "microphone-volume-at": "Głośność mikrofonu: {volume}%",
-    "move-to-center-section": "Sekcja środkowa",
-    "move-to-left-section": "Sekcja lewa",
-    "move-to-right-section": "Sekcja prawa",
     "move-to-section": "Przejdź do {sekcja}",
     "mute": "Wycisz",
     "next-media": "Następny utwór",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Wybór tapety"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Ten katalog jest pusty.",
+      "go-root": "Przejdź do katalogu głównego tapety",
+      "go-up": "Przejdź do folderu nadrzędnego",
+      "go-up-hint": "Użyj przycisku wstecz, aby przejść w górę."
+    },
     "configure-directory": "Skonfiguruj swój katalog z obrazami tapet.",
     "fill-modes": {
       "crop": "Przytnij (Wypełnij)",

@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "电池健康度",
     "battery-level": "电池电量",
+    "capacity-level": "容量：{level}",
     "charging-rate": "充电速率：{rate} W",
     "discharging-rate": "放电速率：{rate} W",
     "health": "健康状况：{percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "正在断开连接...",
     "download": "下载",
     "duration": "时长",
+    "edit": "编辑",
     "enabled": "已启用",
     "events": "事件",
     "execute": "执行",
@@ -775,7 +778,9 @@
       "templates-write-path": "写入：{filepath}",
       "title": "配色方案",
       "wallpaper-method-description": "选择您喜欢的调色板生成方法。",
-      "wallpaper-method-label": "调色板生成方法"
+      "wallpaper-method-label": "调色板生成方法",
+      "wallpaper-monitor-source-description": "选择用于提取壁纸颜色的显示器。",
+      "wallpaper-monitor-source-label": "颜色生成源"
     },
     "control-center": {
       "cards-desc": "自定义在控制中心显示的控制项及其顺序。",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• 命令通过 shell 执行（sh -lc）<br>• 命令在后台运行（分离）<br>• 测试按钮使用当前值执行",
-      "info-command-info-label": "钩子命令信息",
       "info-parameters-description": "• 壁纸钩子：$1 = 壁纸路径，$2 = 屏幕名称<br>• 主题切换钩子：$1 = true/false（深色模式状态）<br>• 屏幕锁定/解锁钩子：无参数<br>• 性能模式钩子：无参数<br>• 会话钩子：$1 = 操作（关机/重启）",
       "info-parameters-label": "可用参数",
+      "noctalia-started-description": "Noctalia 加载完成后要执行的命令。",
+      "noctalia-started-label": "Noctalia 已启动",
+      "noctalia-started-placeholder": "例如 notify-send 'Noctalia 已加载'",
       "performance-mode-disabled-description": "禁用 Noctalia 性能模式时执行的命令。",
       "performance-mode-disabled-label": "性能模式已禁用",
       "performance-mode-disabled-placeholder": "例如：notify-send \"性能\" \"模式已禁用\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "选择显示器壁纸文件夹",
       "settings-selector-description": "选择你的壁纸。",
       "settings-selector-position-description": "选择壁纸选择面板的显示位置。",
-      "settings-title": "壁纸设置"
+      "settings-show-hidden-files-tooltip-hide": "隐藏隐藏文件",
+      "settings-show-hidden-files-tooltip-show": "显示隐藏文件",
+      "settings-title": "壁纸设置",
+      "settings-view-mode-description": "选择从您的目录显示壁纸的方式。",
+      "settings-view-mode-label": "查看模式",
+      "view-mode-browse": "浏览目录",
+      "view-mode-cycle-tooltip": "查看模式：{mode}（点击更改）",
+      "view-mode-recursive": "扁平化子目录",
+      "view-mode-single": "根目录"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "已达到最大小部件数量",
     "microphone-volume-at": "麦克风音量：{volume}%",
-    "move-to-center-section": "中央部分",
-    "move-to-left-section": "左侧部分",
-    "move-to-right-section": "右侧部分",
     "move-to-section": "移至{section}",
     "mute": "静音",
     "next-media": "下一首",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "壁纸选择器"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "此目录为空。",
+      "go-root": "转到壁纸根目录",
+      "go-up": "转到父文件夹",
+      "go-up-hint": "使用后退按钮向上导航。"
+    },
     "configure-directory": "配置您的壁纸图片目录。",
     "fill-modes": {
       "crop": "裁剪（填充）",

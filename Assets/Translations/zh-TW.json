@@ -269,7 +269,9 @@
     }
   },
   "battery": {
+    "battery-health": "電池健康度",
     "battery-level": "電池電量",
+    "capacity-level": "容量：{level}",
     "charging-rate": "充電速率: {rate} W",
     "discharging-rate": "放電速率: {rate} W",
     "health": "健康度: {percent}%",
@@ -366,6 +368,7 @@
     "disconnected": "已斷線",
     "disconnecting": "正在斷線...",
     "download": "下載",
+    "edit": "編輯",
     "enabled": "已啟用",
     "events": "事件",
     "execute": "執行",
@@ -767,7 +770,9 @@
       "templates-write-path": "寫入: {filepath}",
       "title": "主題配色",
       "wallpaper-method-description": "選擇你喜歡的配色生成方法",
-      "wallpaper-method-label": "調色盤產生方法"
+      "wallpaper-method-label": "調色盤產生方法",
+      "wallpaper-monitor-source-description": "選取要用於擷取桌布顏色的螢幕。",
+      "wallpaper-monitor-source-label": "色彩產生來源"
     },
     "control-center": {
       "cards-desc": "自訂控制中心出現的控制項目及排序",
@@ -937,9 +942,11 @@
     },
     "hooks": {
       "info-command-info-description": "• 指令將透過 shell (sh -lc) 執行<br>• 指令會在背景 (detached 狀態) 執行<br>• 測試按鈕會以當下填寫的內容執行",
-      "info-command-info-label": "hook 指令的說明",
       "info-parameters-description": "• 桌布的 hook: $1 = 桌布路徑, $2 = 螢幕名稱<br>• 主題切換的 hook: $1 = true/false (深色模式啟用或否)<br>• 畫面鎖定/解鎖的 hook: 沒有參數<br>• 效能模式的 hook: 沒有參數<br>• 工作階段的 hook: $1 = 執行動作 (shutdown/reboot)",
       "info-parameters-label": "可用參數",
+      "noctalia-started-description": "Noctalia 完成載入時要執行的指令。",
+      "noctalia-started-label": "Noctalia 已啟動",
+      "noctalia-started-placeholder": "例如 notify-send 'Noctalia 已載入'",
       "performance-mode-disabled-description": "Noctalia 效能模式停用時要執行的指令",
       "performance-mode-disabled-label": "效能模式停用時",
       "performance-mode-disabled-placeholder": "例如: notify-send \"Performance\" \"Mode disabled\"",
@@ -1330,7 +1337,15 @@
       "settings-select-monitor-folder": "選擇顯示器所使用的桌布文件夾",
       "settings-selector-description": "選擇你的桌布",
       "settings-selector-position-description": "選擇挑選桌布面板要在哪裡出現",
-      "settings-title": "桌布設定"
+      "settings-show-hidden-files-tooltip-hide": "隱藏隱藏檔案",
+      "settings-show-hidden-files-tooltip-show": "顯示隱藏檔案",
+      "settings-title": "桌布設定",
+      "settings-view-mode-description": "選擇如何從您的目錄顯示桌布。",
+      "settings-view-mode-label": "檢視模式",
+      "view-mode-browse": "瀏覽目錄",
+      "view-mode-cycle-tooltip": "檢視模式：{mode} (點擊以變更)",
+      "view-mode-recursive": "扁平化的子目錄",
+      "view-mode-single": "根目錄"
     }
   },
   "placeholders": {
@@ -1529,9 +1544,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "已達到小工具數量上限",
     "microphone-volume-at": "麥克風音量: {volume}%",
-    "move-to-center-section": "正中間",
-    "move-to-left-section": "左半部",
-    "move-to-right-section": "右半部",
     "move-to-section": "移至{section}",
     "mute": "靜音",
     "next-media": "下一首",
@@ -1561,6 +1573,12 @@
     "wallpaper-selector": "挑選桌布"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "這個目錄是空的。",
+      "go-root": "前往桌布根目錄",
+      "go-up": "前往上層資料夾",
+      "go-up-hint": "使用返回按鈕向上導航。"
+    },
     "configure-directory": "設定你的桌布目錄",
     "fill-modes": {
       "crop": "裁切 (填滿)",

@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Pil sağlığı",
     "battery-level": "Pil seviyesi",
+    "capacity-level": "Kapasite: {level}",
     "charging-rate": "Şarj oranı: {rate} W",
     "discharging-rate": "Deşarj oranı: {rate} W",
     "health": "Sağlık: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Bağlantı kesiliyor...",
     "download": "İndir",
     "duration": "Süre",
+    "edit": "Düzenle",
     "enabled": "Etkinleştirildi",
     "events": "Etkinlikler",
     "execute": "Yürüt",
@@ -775,7 +778,9 @@
       "templates-write-path": "Yazıyor: {filepath}",
       "title": "Renk şeması",
       "wallpaper-method-description": "Favori palet oluşturma yönteminizi seçin.",
-      "wallpaper-method-label": "Palet oluşturma yöntemi"
+      "wallpaper-method-label": "Palet oluşturma yöntemi",
+      "wallpaper-monitor-source-description": "Duvar kağıdı renklerini çıkarmak için hangi monitörün kullanılacağını seçin.",
+      "wallpaper-monitor-source-label": "Renk oluşturma kaynağı"
     },
     "control-center": {
       "cards-desc": "Kontrol merkezinde hangi kontrollerin ve hangi sırada görüneceğini özelleştirin.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Komutlar kabuk (sh -lc) ile yürütülür<br>• Komutlar arka planda yürütülür (ayrık)<br>• Test düğmeleri mevcut değerlerle yürütülür",
-      "info-command-info-label": "Hook komut bilgisi",
       "info-parameters-description": "• Duvar kağıdı kancası: $1 = duvar kağıdı yolu, $2 = ekran adı<br>• Tema değiştirme kancası: $1 = doğru/yanlış (Karanlık Mod durumu)<br>• Ekran kilitleme/kilidi açma kancaları: Parametre yok<br>• Performans modu kancaları: Parametre yok<br>• Oturum kancası: $1 = eylem (kapatma/yeniden başlatma)",
       "info-parameters-label": "Kullanılabilir parametreler",
+      "noctalia-started-description": "Noctalia yüklendiğinde çalıştırılacak komut.",
+      "noctalia-started-label": "Noctalia Başladı",
+      "noctalia-started-placeholder": "örn. notify-send 'Noctalia Yüklendi'",
       "performance-mode-disabled-description": "Noctalia performans modu devre dışı bırakıldığında çalıştırılacak komut.",
       "performance-mode-disabled-label": "Performans modu devre dışı bırakıldı",
       "performance-mode-disabled-placeholder": "örn., notify-send \"Performans\" \"Mod devre dışı\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Ekran duvar kâğıdı klasörünü seç",
       "settings-selector-description": "Duvar kâğıdınızı seçin.",
       "settings-selector-position-description": "Duvar kâğıdı seçici panelinin nerede görüneceğini seçin.",
-      "settings-title": "Duvar kâğıdı ayarları"
+      "settings-show-hidden-files-tooltip-hide": "Gizli dosyaları gizle",
+      "settings-show-hidden-files-tooltip-show": "Gizli dosyaları göster",
+      "settings-title": "Duvar kâğıdı ayarları",
+      "settings-view-mode-description": "Duvar kağıtlarının dizininizden nasıl görüntüleneceğini seçin.",
+      "settings-view-mode-label": "Görüntüleme modu",
+      "view-mode-browse": "Dizinlere göz at",
+      "view-mode-cycle-tooltip": "Görünüm modu: {mode} (değiştirmek için tıklayın)",
+      "view-mode-recursive": "Düzleştirilmiş alt dizinler",
+      "view-mode-single": "Kök dizin"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Kablosuz bağlantı",
     "max-widgets-reached": "Maksimum araç sayısına ulaşıldı",
     "microphone-volume-at": "Mikrofon sesi: %{volume}",
-    "move-to-center-section": "Orta bölüm",
-    "move-to-left-section": "Sol bölüm",
-    "move-to-right-section": "Sağ bölüm",
     "move-to-section": "{section} bölümüne git",
     "mute": "Sessiz",
     "next-media": "Sonraki parça",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Duvar kâğıdı seçici"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Bu dizin boş.",
+      "go-root": "Duvar kağıdı köküne git",
+      "go-up": "Üst klasöre git",
+      "go-up-hint": "Yukarı gitmek için geri düğmesini kullanın."
+    },
     "configure-directory": "Resimler içeren duvar kâğıdı dizininizi yapılandırın.",
     "fill-modes": {
       "crop": "Kırp (Doldur)",

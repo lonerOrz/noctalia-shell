@@ -273,7 +273,9 @@
     }
   },
   "battery": {
+    "battery-health": "Состояние батареи",
     "battery-level": "Уровень заряда батареи",
+    "capacity-level": "Ёмкость: {level}",
     "charging-rate": "Скорость зарядки: {rate} Вт",
     "discharging-rate": "Скорость разрядки: {rate} Вт",
     "health": "Здоровье: {percent}%",
@@ -371,6 +373,7 @@
     "disconnecting": "Отключение...",
     "download": "Скачать",
     "duration": "Продолжительность",
+    "edit": "Редактировать",
     "enabled": "Включено",
     "events": "События",
     "execute": "Выполнить",
@@ -775,7 +778,9 @@
       "templates-write-path": "Записывает: {filepath}",
       "title": "Цветовая схема",
       "wallpaper-method-description": "Выберите ваш любимый метод генерации палитры.",
-      "wallpaper-method-label": "Метод генерации палитры"
+      "wallpaper-method-label": "Метод генерации палитры",
+      "wallpaper-monitor-source-description": "Выберите монитор, который будет использоваться для извлечения цветов обоев.",
+      "wallpaper-monitor-source-label": "Источник генерации цвета"
     },
     "control-center": {
       "cards-desc": "Настройте, какие элементы управления появляются в центре управления и в каком порядке.",
@@ -957,9 +962,11 @@
     },
     "hooks": {
       "info-command-info-description": "• Команды выполняются через shell (sh -lc)<br>• Команды выполняются в фоновом режиме (отдельно)<br>• Кнопки 'Тест' выполняются с текущими значениями",
-      "info-command-info-label": "Информация о команде хука",
       "info-parameters-description": "• Хук обоев: $1 = путь к обоям, $2 = имя экрана<br>• Хук переключения темы: $1 = true/false (состояние темного режима)<br>• Хуки блокировки/разблокировки экрана: Без параметров<br>• Хуки режима производительности: Без параметров<br>• Хук сеанса: $1 = действие (выключением/перезагрузкой)",
       "info-parameters-label": "Доступные параметры",
+      "noctalia-started-description": "Команда для выполнения после завершения загрузки Noctalia.",
+      "noctalia-started-label": "Noctalia запущена",
+      "noctalia-started-placeholder": "например, notify-send 'Noctalia загружена'",
       "performance-mode-disabled-description": "Команда для выполнения при выключении режима производительности Noctalia.",
       "performance-mode-disabled-label": "Режим производительности выключен",
       "performance-mode-disabled-placeholder": "например, notify-send \"Производительность\" \"Режим выключен\"",
@@ -1368,7 +1375,15 @@
       "settings-select-monitor-folder": "Выбрать папку с обоями для монитора",
       "settings-selector-description": "Выберите обои.",
       "settings-selector-position-description": "Выберите, где появляется панель выбора обоев.",
-      "settings-title": "Настройки обоев"
+      "settings-show-hidden-files-tooltip-hide": "Скрыть скрытые файлы",
+      "settings-show-hidden-files-tooltip-show": "Показать скрытые файлы",
+      "settings-title": "Настройки обоев",
+      "settings-view-mode-description": "Выберите способ отображения обоев из вашей директории.",
+      "settings-view-mode-label": "Режим просмотра",
+      "view-mode-browse": "Просмотр каталогов",
+      "view-mode-cycle-tooltip": "Режим просмотра: {mode} (нажмите, чтобы изменить)",
+      "view-mode-recursive": "Сглаженные подкаталоги",
+      "view-mode-single": "Корневой каталог"
     }
   },
   "placeholders": {
@@ -1567,9 +1582,6 @@
     "manage-wifi": "Wi-Fi",
     "max-widgets-reached": "Достигнуто максимальное количество виджетов",
     "microphone-volume-at": "Громкость микрофона: {volume}%",
-    "move-to-center-section": "Центральная секция",
-    "move-to-left-section": "Левая секция",
-    "move-to-right-section": "Правая секция",
     "move-to-section": "Перейти к {section}",
     "mute": "Отключить звук",
     "next-media": "Следующий трек",
@@ -1600,6 +1612,12 @@
     "wallpaper-selector": "Выбор обоев"
   },
   "wallpaper": {
+    "browse": {
+      "empty-directory": "Этот каталог пуст.",
+      "go-root": "Перейти в корневую папку обоев",
+      "go-up": "Перейти в родительскую папку",
+      "go-up-hint": "Используйте кнопку «Назад» для навигации вверх."
+    },
     "configure-directory": "Настройте свой каталог обоев с изображениями.",
     "fill-modes": {
       "crop": "Обрезать (Заполнить)",
