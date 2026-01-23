@@ -5,6 +5,7 @@ import Quickshell
 import qs.Commons
 import qs.Modules.MainScreen
 import qs.Modules.Panels.Settings
+import qs.Services.Theming
 import qs.Services.UI
 import qs.Widgets
 
@@ -774,6 +775,20 @@ SmartPanel {
         }
 
         // Right side: actions (view mode, hide filenames, refresh)
+        NComboBox {
+          visible: Settings.data.colorSchemes.useWallpaperColors
+          baseSize: 0.8
+          Layout.minimumWidth: 200
+          minimumWidth: 200
+          tooltip: I18n.tr("panels.color-scheme.wallpaper-method-label")
+          model: TemplateProcessor.schemeTypes
+          currentKey: Settings.data.colorSchemes.generationMethod
+          onSelected: key => {
+                        Settings.data.colorSchemes.generationMethod = key;
+                        AppThemeService.generate();
+                      }
+        }
+
         NIconButton {
           icon: getViewModeIcon()
           tooltipText: getViewModeTooltip()
@@ -990,7 +1005,7 @@ SmartPanel {
 
                   NIcon {
                     icon: "folder"
-                    pointSize: Style.fontSizeXXL
+                    pointSize: Style.fontSizeXXXL
                     color: Color.mPrimary
                     Layout.alignment: Qt.AlignHCenter
                   }
