@@ -75,7 +75,7 @@
       "use-custom-font-label": "Использовать пользовательский шрифт",
       "use-monospaced-font-description": "Если включено, часы будут использовать моноширинный шрифт.",
       "use-monospaced-font-label": "Использовать моноширинный шрифт",
-      "use-primary-color-description": "Если включено, это применит основной цвет для выделения.",
+      "use-primary-color-description": "Если включено, будет использован основной цвет для отображения часов.",
       "use-primary-color-label": "Использовать основной цвет",
       "vertical-bar-description": "Используйте пробел, чтобы разделить каждую часть на новую строку.",
       "vertical-bar-label": "Вертикальная панель"
@@ -430,6 +430,8 @@
     "refresh": "Обновить",
     "required": "(обязательно)",
     "reset": "Сброс",
+    "result-count": "{count} результат",
+    "result-count-plural": "{count} результаты",
     "resume": "Продолжить",
     "save": "Сохранить",
     "scanning": "Сканирование...",
@@ -539,9 +541,7 @@
       "emoji-loading-description": "Пожалуйста, подождите",
       "emoji-no-recent": "Недавних эмодзи пока нет",
       "emoji-search-description": "Поиск и копирование эмодзи"
-    },
-    "result": "результат",
-    "results": "результаты"
+    }
   },
   "lock-screen": {
     "authenticating": "Аутентификация...",
@@ -1019,6 +1019,8 @@
       "settings-custom-launch-prefix-enabled-label": "Включить пользовательский префикс запуска",
       "settings-custom-launch-prefix-label": "Пользовательский префикс запуска",
       "settings-desc": "Настройка поведения и внешнего вида запуска.",
+      "settings-enable-settings-search-description": "Показывать результаты настроек при поиске в Launcher.",
+      "settings-enable-settings-search-label": "Включить поиск в настройках",
       "settings-grid-view-description": "Показывать элементы в виде сетки вместо списка.",
       "settings-icon-mode-description": "Использовать нативные системные иконки вместо иконок Tabler.",
       "settings-icon-mode-label": "Использовать нативные иконки",

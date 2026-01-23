@@ -20,8 +20,7 @@ SmartPanel {
     var provider = activeProvider;
     if (!provider || !provider.hasPreview)
       return false;
-    if (!Settings.data.appLauncher.enableClipPreview)
-      return false;
+
     return selectedIndex >= 0 && results && !!results[selectedIndex];
   }
 
@@ -443,7 +442,6 @@ SmartPanel {
             // Use fuzzy search to filter commands
             const fuzzyResults = FuzzySort.go(query, allCommands, {
                                                 "keys": ["name"],
-                                                "threshold": -1000,
                                                 "limit": 50
                                               });
 
@@ -461,12 +459,23 @@ SmartPanel {
       }
     } else {
       // Regular search - let providers contribute results
+      let allResults = [];
       for (let provider of providers) {
         if (provider.handleSearch) {
           const providerResults = provider.getResults(searchText);
-          results = results.concat(providerResults);
+          allResults = allResults.concat(providerResults);
         }
       }
+
+      // Sort by _score (higher = better match), items without _score go first
+      if (searchText.trim() !== "") {
+        allResults.sort((a, b) => {
+                          const sa = a._score !== undefined ? a._score : 0;
+                          const sb = b._score !== undefined ? b._score : 0;
+                          return sb - sa;
+                        });
+      }
+      results = allResults;
     }
 
     // Update activeProvider only after computing new state to avoid UI flicker
@@ -711,6 +720,14 @@ SmartPanel {
     Component.onCompleted: {
       registerProvider(this);
       Logger.d("Launcher", "Registered: CalculatorProvider");
+    }
+  }
+
+  SettingsProvider {
+    id: settingsProvider
+    Component.onCompleted: {
+      registerProvider(this);
+      Logger.d("Launcher", "Registered: SettingsProvider");
     }
   }
 
@@ -1468,7 +1485,7 @@ SmartPanel {
                           icon: modelData.icon
                           pointSize: Style.fontSizeXXXL
                           visible: modelData.icon && !modelData.displayString
-                          color: (entry.isSelected && !Settings.data.appLauncher.showIconBackground) ? Color.mOnHover : Color.mOnSurface
+                          color: (gridEntryContainer.isSelected && !Settings.data.appLauncher.showIconBackground) ? Color.mOnHover : Color.mOnSurface
                         }
                       }
 
@@ -1621,7 +1638,7 @@ SmartPanel {
               return "";
             }
             var prefix = activeProvider && activeProvider.name ? activeProvider.name + ": " : "";
-            return prefix + results.length + " " + (results.length === 1 ? I18n.tr("launcher.result") : I18n.tr("launcher.results"));
+            return prefix + I18n.trp("common.result-count", results.length);
           }
           pointSize: Style.fontSizeXS
           color: Color.mOnSurfaceVariant

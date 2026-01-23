@@ -430,6 +430,8 @@
     "refresh": "Atualizar",
     "required": "(obrigatório)",
     "reset": "Reiniciar",
+    "result-count": "{count} resultado",
+    "result-count-plural": "{count} resultados",
     "resume": "Retomar",
     "save": "Salvar",
     "scanning": "A digitalização está em andamento...",
@@ -539,9 +541,7 @@
       "emoji-loading-description": "Por favor, aguarde",
       "emoji-no-recent": "Ainda não há emojis recentes",
       "emoji-search-description": "Buscar e copiar emojis"
-    },
-    "result": "resultado",
-    "results": "resultados"
+    }
   },
   "lock-screen": {
     "authenticating": "Autenticando...",
@@ -1019,6 +1019,8 @@
       "settings-custom-launch-prefix-enabled-label": "Habilitar prefixo de inicialização personalizado",
       "settings-custom-launch-prefix-label": "Prefixo de inicialização personalizado",
       "settings-desc": "Personalize o comportamento e a aparência do lançador.",
+      "settings-enable-settings-search-description": "Mostrar os resultados das configurações ao pesquisar no Launcher.",
+      "settings-enable-settings-search-label": "Ativar pesquisa nas configurações",
       "settings-grid-view-description": "Exibir itens em uma grade em vez de uma lista.",
       "settings-icon-mode-description": "Use ícones nativos do sistema em vez de ícones Tabler.",
       "settings-icon-mode-label": "Usar ícones nativos",

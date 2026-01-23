@@ -430,6 +430,8 @@
     "refresh": "Actualiser",
     "required": "(requis)",
     "reset": "Réinitialiser",
+    "result-count": "{count} résultat",
+    "result-count-plural": "{count} résultats",
     "resume": "Reprendrer",
     "save": "Enregistrer",
     "scanning": "Analyse en cours...",
@@ -539,9 +541,7 @@
       "emoji-loading-description": "Veuillez patienter",
       "emoji-no-recent": "Aucun emoji récent pour le moment",
       "emoji-search-description": "Rechercher et copier des émojis"
-    },
-    "result": "résultat",
-    "results": "résultats"
+    }
   },
   "lock-screen": {
     "authenticating": "Authentification...",
@@ -1019,6 +1019,8 @@
       "settings-custom-launch-prefix-enabled-label": "Activer le préfixe de lancement personnalisé",
       "settings-custom-launch-prefix-label": "Préfixe de lancement personnalisé",
       "settings-desc": "Personnalisez le comportement et l'apparence du lanceur.",
+      "settings-enable-settings-search-description": "Afficher les résultats des paramètres lors de la recherche dans le lanceur.",
+      "settings-enable-settings-search-label": "Activer la recherche dans les paramètres",
       "settings-grid-view-description": "Afficher les éléments dans une grille au lieu d'une liste.",
       "settings-icon-mode-description": "Utiliser les icônes natives du système au lieu des icônes Tabler.",
       "settings-icon-mode-label": "Utiliser les icônes natives",

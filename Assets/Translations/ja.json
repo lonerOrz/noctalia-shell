@@ -430,6 +430,8 @@
     "refresh": "更新",
     "required": "(必須)",
     "reset": "リセット",
+    "result-count": "{count} 結果",
+    "result-count-plural": "{count} 結果",
     "resume": "再開",
     "save": "保存",
     "scanning": "スキャン中...",
@@ -539,9 +541,7 @@
       "emoji-loading-description": "お待ちください",
       "emoji-no-recent": "まだ最近使った絵文字はありません",
       "emoji-search-description": "絵文字を検索してコピー"
-    },
-    "result": "結果",
-    "results": "結果"
+    }
   },
   "lock-screen": {
     "authenticating": "認証中...",
@@ -1019,6 +1019,8 @@
       "settings-custom-launch-prefix-enabled-label": "カスタム起動プレフィックスを有効化",
       "settings-custom-launch-prefix-label": "カスタム起動プレフィックス",
       "settings-desc": "ランチャーの挙動と外観をカスタマイズします。",
+      "settings-enable-settings-search-description": "ランチャーで検索する際に設定結果を表示する。",
+      "settings-enable-settings-search-label": "設定検索を有効にする",
       "settings-grid-view-description": "リスト形式の代わりに、グリッド（格子状）レイアウトで項目を表示します。",
       "settings-icon-mode-description": "Tablerアイコンではなく、ネイティブのシステムアイコンを使用します。",
       "settings-icon-mode-label": "ネイティブアイコンを使用",
