@@ -147,7 +147,7 @@ Singleton {
       "id": "discord",
       "name": "Discord",
       "category": "misc",
-      "input": "discord.css",
+      "input": ["discord-midnight.css", "discord-material.css"],
       "clients": [
         {
           "name": "vesktop",
@@ -287,7 +287,8 @@ Singleton {
         {
           "path": "~/.config/yazi/flavors/noctalia.yazi/flavor.toml"
         }
-      ]
+      ],
+      "postProcess": () => `${templateApplyScript} yazi`
     },
     {
       "id": "emacs",
@@ -362,6 +363,18 @@ Singleton {
         }
       ],
       "postProcess": () => `${templateApplyScript} btop`
+    },
+    {
+      "id": "zathura",
+      "name": "Zathura",
+      "category": "misc",
+      "input": "zathurarc",
+      "outputs": [
+        {
+          "path": "~/.config/zathura/noctaliarc"
+        }
+      ],
+      "postProcess": () => `${templateApplyScript} zathura`
     }
   ]
 

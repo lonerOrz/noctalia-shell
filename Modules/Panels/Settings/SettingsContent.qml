@@ -250,7 +250,7 @@ Item {
 
   Timer {
     id: highlightScrollTimer
-    interval: 200
+    interval: 333
     property string targetKey: ""
     onTriggered: {
       if (root.activeTabContent && targetKey) {
@@ -719,6 +719,10 @@ Item {
             }
 
             onTextChanged: root.searchText = text
+            onEditingFinished: {
+              if (root.searchText.trim() !== "")
+                root.searchActivate();
+            }
           }
 
           // Search button for collapsed sidebar
@@ -799,6 +803,8 @@ Item {
               spacing: Style.marginXS
               visible: root.searchText.trim() !== ""
               verticalPolicy: ScrollBar.AsNeeded
+              gradientColor: Color.mSurface
+              reserveScrollbarSpace: false
 
               HoverHandler {
                 onPointChanged: {
@@ -897,6 +903,8 @@ Item {
               spacing: Style.marginXS
               currentIndex: root.currentTabIndex
               verticalPolicy: ScrollBar.AsNeeded
+              gradientColor: Color.mSurface
+              reserveScrollbarSpace: false
 
               delegate: Rectangle {
                 id: tabItem
@@ -1010,38 +1018,6 @@ Item {
             }
           }
         }
-
-        // Overlay gradient for sidebar scrolling
-        Rectangle {
-          anchors.fill: parent
-          anchors.margins: Style.borderS
-          radius: Style.radiusM
-          color: "transparent"
-          visible: sidebarList.verticalScrollBarActive
-          opacity: (sidebarList.contentY + sidebarList.height >= sidebarList.contentHeight - 10) ? 0 : 1
-
-          Behavior on opacity {
-            NumberAnimation {
-              duration: Style.animationFast
-              easing.type: Easing.InOutQuad
-            }
-          }
-
-          gradient: Gradient {
-            GradientStop {
-              position: 0.0
-              color: "transparent"
-            }
-            GradientStop {
-              position: 0.95
-              color: "transparent"
-            }
-            GradientStop {
-              position: 1.0
-              color: Color.mSurfaceVariant
-            }
-          }
-        }
       }
 
       // Content pane
@@ -1103,9 +1079,20 @@ Item {
               delegate: Loader {
                 anchors.fill: parent
                 active: index === root.currentTabIndex
+                opacity: 0
+
+                NumberAnimation on opacity {
+                  id: fadeInAnim
+                  from: 0
+                  to: 1
+                  duration: Style.animationSlowest
+                  easing.type: Easing.OutCubic
+                  running: false
+                }
 
                 onStatusChanged: {
                   if (status === Loader.Ready && item) {
+                    fadeInAnim.start();
                     const scrollView = item.children[0];
                     if (scrollView && scrollView.toString().includes("ScrollView")) {
                       root.activeScrollView = scrollView;
@@ -1113,77 +1100,41 @@ Item {
                   }
                 }
 
-                sourceComponent: Flickable {
-                  id: flickable
+                sourceComponent: NScrollView {
+                  id: scrollView
                   anchors.fill: parent
-                  pressDelay: 200
+                  horizontalPolicy: ScrollBar.AlwaysOff
+                  verticalPolicy: ScrollBar.AsNeeded
+                  leftPadding: Style.marginL
+                  topPadding: Style.marginL
+                  bottomPadding: Style.marginL
+                  userRightPadding: Style.marginL
+                  reserveScrollbarSpace: false
 
-                  NScrollView {
-                    id: scrollView
-                    anchors.fill: parent
-                    horizontalPolicy: ScrollBar.AlwaysOff
-                    verticalPolicy: ScrollBar.AsNeeded
-                    padding: Style.marginL
-                    Component.onCompleted: {
-                      root.activeScrollView = scrollView;
-                    }
+                  Component.onCompleted: {
+                    root.activeScrollView = scrollView;
+                  }
 
-                    Loader {
-                      active: true
-                      sourceComponent: root.tabsModel[index]?.source
-                      width: scrollView.availableWidth
-                      onLoaded: {
-                        if (item && item.hasOwnProperty("screen")) {
-                          item.screen = root.screen;
+                  Loader {
+                    active: true
+                    sourceComponent: root.tabsModel[index]?.source
+                    width: scrollView.availableWidth
+                    onLoaded: {
+                      if (item && item.hasOwnProperty("screen")) {
+                        item.screen = root.screen;
+                      }
+                      root.activeTabContent = item;
+                      // Handle pending subtab + highlight from search navigation
+                      if (root.highlightLabelKey) {
+                        if (root._pendingSubTab >= 0) {
+                          root.setSubTabIndex(root._pendingSubTab);
+                          root._pendingSubTab = -1;
                         }
-                        root.activeTabContent = item;
-                        // Handle pending subtab + highlight from search navigation
-                        if (root.highlightLabelKey) {
-                          if (root._pendingSubTab >= 0) {
-                            root.setSubTabIndex(root._pendingSubTab);
-                            root._pendingSubTab = -1;
-                          }
-                          highlightScrollTimer.targetKey = root.highlightLabelKey;
-                          highlightScrollTimer.restart();
-                        }
+                        highlightScrollTimer.targetKey = root.highlightLabelKey;
+                        highlightScrollTimer.restart();
                       }
                     }
                   }
-                }
-              }
-            }
-
-            // Overlay gradient for content scrolling
-            Rectangle {
-              anchors.fill: parent
-              color: "transparent"
-              visible: root.activeScrollView && root.activeScrollView.ScrollBar.vertical && root.activeScrollView.ScrollBar.vertical.size < 1.0
-              opacity: {
-                if (!root.activeScrollView)
-                  return 1;
-                const scrollBar = root.activeScrollView.ScrollBar.vertical;
-                return (scrollBar.position + scrollBar.size >= 0.99) ? 0 : 1;
-              }
-
-              Behavior on opacity {
-                NumberAnimation {
-                  duration: Style.animationFast
-                  easing.type: Easing.InOutQuad
-                }
-              }
-
-              gradient: Gradient {
-                GradientStop {
-                  position: 0.0
-                  color: "transparent"
-                }
-                GradientStop {
-                  position: 0.95
-                  color: "transparent"
-                }
-                GradientStop {
-                  position: 1.0
-                  color: Qt.alpha(Color.mSurfaceVariant, 0.95)
                 }
               }
             }
@@ -1193,8 +1144,8 @@ Item {
               id: highlightOverlay
               visible: opacity > 0
               opacity: 0
-              color: Qt.alpha(Color.mSecondary, 0.12)
-              border.color: Qt.alpha(Color.mSecondary, 0.4)
+              color: Qt.alpha(Color.mSecondary, 0.2)
+              border.color: Qt.alpha(Color.mSecondary, 0.6)
               border.width: Style.borderM
               radius: Style.radiusS
               z: 100
@@ -1206,7 +1157,7 @@ Item {
                   target: highlightOverlay
                   property: "opacity"
                   to: 1.0
-                  duration: Style.animationFast
+                  duration: Style.animationSlow
                   easing.type: Easing.OutQuad
                 }
 

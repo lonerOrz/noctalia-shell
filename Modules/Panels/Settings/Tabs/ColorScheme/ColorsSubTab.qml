@@ -254,6 +254,48 @@ ColumnLayout {
                 }
   }
 
+  NBox {
+    visible: Settings.data.colorSchemes.useWallpaperColors
+    Layout.fillWidth: true
+    implicitHeight: descriptionColumn.implicitHeight + Style.marginL * 2
+    color: Color.mSurface
+
+    Column {
+      id: descriptionColumn
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.top: parent.top
+      anchors.margins: Style.marginL
+      spacing: Style.marginM
+
+      NText {
+        width: parent.width
+        wrapMode: Text.WordWrap
+        text: I18n.tr("panels.color-scheme.method-description." + Settings.data.colorSchemes.generationMethod)
+        pointSize: Style.fontSizeS
+        color: Color.mOnSurfaceVariant
+      }
+
+      Row {
+        id: colorPreviewRow
+        spacing: Style.marginS
+
+        property int diameter: 16 * Style.uiScaleRatio
+
+        Repeater {
+          model: [Color.mPrimary, Color.mSecondary, Color.mTertiary, Color.mError]
+
+          Rectangle {
+            width: colorPreviewRow.diameter
+            height: colorPreviewRow.diameter
+            radius: width * 0.5
+            color: modelData
+          }
+        }
+      }
+    }
+  }
+
   NDivider {
     Layout.fillWidth: true
   }
