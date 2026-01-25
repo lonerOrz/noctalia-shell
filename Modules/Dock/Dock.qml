@@ -120,6 +120,15 @@ Loader {
       property int dragSourceIndex: -1
       property int dragTargetIndex: -1
 
+      // when dragging ended but the cursor is outside the dock area, restart the timer
+      onDragSourceIndexChanged: {
+        if (dragSourceIndex === -1) {
+          if (autoHide && !dockHovered && !anyAppHovered && !peekHovered && !menuHovered) {
+            hideTimer.restart();
+          }
+        }
+      }
+
       // Revision counter to force icon re-evaluation
       property int iconRevision: 0
 
@@ -133,10 +142,17 @@ Loader {
       function getAppKey(appData) {
         if (!appData)
           return null;
+
+        // Use stable appId for pinned apps to maintain their slot regardless of running state
+        if (appData.type === "pinned" || appData.type === "pinned-running") {
+          return appData.appId;
+        }
+
         // prefer window object identity for running apps to distinguish instances
         if (appData.window)
           return appData.window;
-        // fallback to appId for pinned-only apps
+
+        // fallback to appId
         return appData.appId;
       }
 
@@ -148,17 +164,23 @@ Loader {
         const sorted = [];
         const remaining = [...apps];
 
-        // 1. Pick apps that are in the session order
+        // Pick apps that are in the session order
         for (let i = 0; i < sessionAppOrder.length; i++) {
           const key = sessionAppOrder[i];
-          const idx = remaining.findIndex(app => getAppKey(app) === key);
-          if (idx !== -1) {
-            sorted.push(remaining[idx]);
-            remaining.splice(idx, 1);
+
+          // Pick ALL matching apps (e.g. all instances of a pinned app)
+          while (true) {
+            const idx = remaining.findIndex(app => getAppKey(app) === key);
+            if (idx !== -1) {
+              sorted.push(remaining[idx]);
+              remaining.splice(idx, 1);
+            } else {
+              break;
+            }
           }
         }
 
-        // 2. Append any new/remaining apps
+        // Append any new/remaining apps
         remaining.forEach(app => sorted.push(app));
 
         return sorted;
@@ -211,7 +233,10 @@ Loader {
       function normalizeAppId(appId) {
         if (!appId || typeof appId !== 'string')
           return "";
-        return appId.toLowerCase().trim();
+        let id = appId.toLowerCase().trim();
+        if (id.endsWith(".desktop"))
+          id = id.substring(0, id.length - 8);
+        return id;
       }
 
       // Helper function to check if an app ID matches a pinned app (case-insensitive)
@@ -349,9 +374,36 @@ Loader {
         }
 
         dockApps = sortDockApps(combined);
-        // Sync session order if needed (e.g. first run or new apps added)
-        if (!sessionAppOrder || sessionAppOrder.length === 0 || sessionAppOrder.length !== dockApps.length) {
+
+        // Sync session order if needed
+        // Instead of resetting everything when length changes, we reconcile the keys
+        if (!sessionAppOrder || sessionAppOrder.length === 0) {
           sessionAppOrder = dockApps.map(getAppKey);
+        } else {
+          const currentKeys = new Set(dockApps.map(getAppKey));
+          const existingKeys = new Set();
+          const newOrder = [];
+
+          // Keep existing keys that are still present
+          sessionAppOrder.forEach(key => {
+                                    if (currentKeys.has(key)) {
+                                      newOrder.push(key);
+                                      existingKeys.add(key);
+                                    }
+                                  });
+
+          // Add new keys at the end
+          dockApps.forEach(app => {
+                             const key = getAppKey(app);
+                             if (!existingKeys.has(key)) {
+                               newOrder.push(key);
+                               existingKeys.add(key);
+                             }
+                           });
+
+          if (JSON.stringify(newOrder) !== JSON.stringify(sessionAppOrder)) {
+            sessionAppOrder = newOrder;
+          }
         }
       }
 
@@ -371,6 +423,11 @@ Loader {
         id: hideTimer
         interval: hideDelay
         onTriggered: {
+          // do not hide if dragging
+          if (root.dragSourceIndex !== -1) {
+            return;
+          }
+
           // Force menuHovered to false if no menu is current or visible
           if (!root.currentContextMenu || !root.currentContextMenu.visible) {
             menuHovered = false;
@@ -594,12 +651,13 @@ Loader {
                     showTimer.stop();
                     hideTimer.stop();
                     unloadTimer.stop(); // Cancel unload if hovering
+                    hidden = false; // Make sure dock is visible
                   }
                 }
 
                 onExited: {
                   dockHovered = false;
-                  if (autoHide && !anyAppHovered && !peekHovered && !menuHovered) {
+                  if (autoHide && !anyAppHovered && !peekHovered && !menuHovered && root.dragSourceIndex === -1) {
                     hideTimer.restart();
                   }
                 }
@@ -845,12 +903,10 @@ Loader {
                         onVisibleChanged: {
                           if (visible) {
                             root.currentContextMenu = contextMenu;
-                            anyAppHovered = false;
                           } else if (root.currentContextMenu === contextMenu) {
                             root.currentContextMenu = null;
                             hideTimer.stop();
                             menuHovered = false;
-                            anyAppHovered = false;
                             // Restart hide timer after menu closes
                             if (autoHide && !dockHovered && !anyAppHovered && !peekHovered && !menuHovered) {
                               hideTimer.restart();
@@ -898,6 +954,7 @@ Loader {
                             showTimer.stop();
                             hideTimer.stop();
                             unloadTimer.stop(); // Cancel unload if hovering app
+                            hidden = false; // Make sure dock is visible
                           }
                         }
 
@@ -908,7 +965,7 @@ Loader {
                           if (!root.currentContextMenu || !root.currentContextMenu.visible) {
                             menuHovered = false;
                           }
-                          if (autoHide && !dockHovered && !peekHovered && !menuHovered) {
+                          if (autoHide && !dockHovered && !peekHovered && !menuHovered && root.dragSourceIndex === -1) {
                             hideTimer.restart();
                           }
                         }
