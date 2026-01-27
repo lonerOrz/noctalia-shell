@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import Quickshell.Wayland
 import qs.Commons
 import qs.Services.Keyboard
 
@@ -485,5 +486,13 @@ Item {
     } catch (e) {
       Logger.e("NiriService", "Failed to cycle keyboard layout:", e);
     }
+  }
+
+  function getFocusedScreen() {
+    const activeToplevel = ToplevelManager.activeToplevel;
+    if (activeToplevel && activeToplevel.screens && activeToplevel.screens.length > 0) {
+      return activeToplevel.screens[0];
+    }
+    return null;
   }
 }
