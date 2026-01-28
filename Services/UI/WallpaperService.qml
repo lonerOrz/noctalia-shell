@@ -752,7 +752,14 @@ Singleton {
           wallpaperListChanged(screenName, files.length);
         }
       } else {
-        Logger.w("Wallpaper", "Scan failed for", screenName, "exit code:", exitCode, "(directory might not exist)");
+        // Only log the warning if the exit code is not 1 due to directory not existing
+        // Exit code 1 from find command often means directory doesn't exist or isn't accessible
+        if (exitCode === 1) {
+          Logger.d("Wallpaper", "Directory might not exist for", screenName, ":", directory);
+        } else {
+          Logger.w("Wallpaper", "Scan failed for", screenName, "exit code:", exitCode);
+        }
+
         if (updateList) {
           wallpaperLists[screenName] = [];
           if (alphabeticalIndices[screenName] !== undefined) {
