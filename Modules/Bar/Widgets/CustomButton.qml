@@ -8,7 +8,6 @@ import qs.Modules.Panels.Settings
 import qs.Services.Control
 import qs.Services.UI
 import qs.Widgets
-import qs.Services.Control
 
 Item {
   id: root
@@ -234,10 +233,10 @@ Item {
       }
     }
 
-    onClicked: root.onClicked()
-    onRightClicked: root.onRightClicked()
-    onMiddleClicked: root.onMiddleClicked()
-    onWheel: delta => root.onWheel(delta)
+    onClicked: root.clicked()
+    onRightClicked: root.rightClicked()
+    onMiddleClicked: root.middleClicked()
+    onWheel: delta => root.wheeled(delta)
   }
 
   // Internal state for dynamic text
@@ -459,89 +458,20 @@ Item {
     }
   }
 
-  Timer {
-    id: subTabSwitchTimer
-    interval: 200
-    repeat: true
-    running: false
-    property int attempts: 0
-    property int maxAttempts: 3
-
-    function getAllChildren(item) {
-      var children = [item];
-      if (item.children) {
-        for (var i = 0; i < item.children.length; i++) {
-          children = children.concat(getAllChildren(item.children[i]));
-        }
-      }
-      return children;
-    }
-
-    onTriggered: {
-      attempts++;
-      var panel = PanelService.getPanel("settingsPanel", root.screen);
-
-      if (!panel?._settingsContent) {
-        if (attempts >= maxAttempts) {
-          Logger.w("CustomButton", "Timeout: settings panel not available");
-          stop();
-        }
-        return;
-      }
-
-      var allChildren = getAllChildren(panel._settingsContent);
-      for (var i = 0; i < allChildren.length; i++) {
-        var child = allChildren[i];
-
-        if (child && child.hasOwnProperty('currentIndex') &&
-            child.toString && child.toString().toLowerCase().indexOf('tabview') !== -1) {
-          var siblings = child.parent ? child.parent.children : [];
-          for (var j = 0; j < siblings.length; j++) {
-            var sibling = siblings[j];
-            if (sibling !== child &&
-                (sibling.objectName === "subTabBar" ||
-                 (sibling.toString && sibling.toString().toLowerCase().indexOf('tabbar') !== -1))) {
-              child.currentIndex = 1;
-              sibling.currentIndex = 1;
-              Logger.i("CustomButton", "Successfully switched to widgets tab");
-              stop();
-              return;
-            }
-          }
-        }
-      }
-
-      if (attempts >= maxAttempts) {
-        Logger.w("CustomButton", "Timeout: could not find tabView");
-        stop();
-      }
-    }
-  }
-
-  function onClicked() {
+  function clicked() {
     if (leftClickExec) {
       Quickshell.execDetached(["sh", "-lc", leftClickExec]);
       Logger.i("CustomButton", `Executing command: ${leftClickExec}`);
     } else if (!leftClickUpdateText) {
-      openBarSettings();
+      BarService.openWidgetSettings(screen, section, sectionWidgetIndex, widgetId, widgetSettings);
+      //SettingsPanelService.openToTab(SettingsPanel.Tab.Bar, 1, screen);
     }
     if (!textStream && leftClickUpdateText) {
       runTextCommand();
     }
   }
 
-  function openBarSettings() {
-    var settingsPanel = PanelService.getPanel("settingsPanel", screen);
-    settingsPanel.requestedTab = SettingsPanel.Tab.Bar;
-    settingsPanel.open();
-    subTabSwitchTimer.start();
-  }
-
-  function openWidgetSettings() {
-    BarService.openWidgetSettings(screen, section, sectionWidgetIndex, widgetId, widgetSettings);
-  }
-
-  function onRightClicked() {
+  function rightClicked() {
     if (rightClickExec) {
       Quickshell.execDetached(["sh", "-lc", rightClickExec]);
       Logger.i("CustomButton", `Executing command: ${rightClickExec}`);
@@ -551,7 +481,7 @@ Item {
     }
   }
 
-  function onMiddleClicked() {
+  function middleClicked() {
     if (middleClickExec) {
       Quickshell.execDetached(["sh", "-lc", middleClickExec]);
       Logger.i("CustomButton", `Executing command: ${middleClickExec}`);
@@ -586,7 +516,7 @@ Item {
     textProc.running = true;
   }
 
-  function onWheel(delta) {
+  function wheeled(delta) {
     if (wheelMode === "unified" && wheelExec) {
       let normalizedDelta = delta > 0 ? 1 : -1;
 
