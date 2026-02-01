@@ -182,7 +182,9 @@
       "hide-widget-when-zero-unread-description": "Ocultar el icono de notificaciones cuando no haya notificaciones pendientes de leer.",
       "hide-widget-when-zero-unread-label": "Ocultar icono sin notificaciones pendientes",
       "show-unread-badge-description": "Mostrar una insignia con el número de notificaciones no leídas.",
-      "show-unread-badge-label": "Mostrar insignia de no leídos"
+      "show-unread-badge-label": "Mostrar insignia de no leídos",
+      "unread-badge-color-description": "Selecciona el color para la insignia de notificación no leída.",
+      "unread-badge-color-label": "Color de la insignia de no leídos"
     },
     "section-editor": {
       "placeholder": "Selecciona un widget para añadir...",
@@ -487,6 +489,7 @@
     "week": "Semana",
     "widgets": "Widgets",
     "width": "Ancho",
+    "windows": "Ventanas",
     "yes": "Sí"
   },
   "control-center": {
@@ -506,6 +509,7 @@
     "on-hover": "Al pasar por encima"
   },
   "hide-modes": {
+    "auto-hide": "Ocultación Automática",
     "hidden": "Ocultar cuando esté vacío",
     "idle": "Ocultar cuando esté inactivo",
     "transparent": "Transparente cuando esté vacío",
@@ -557,7 +561,9 @@
       "emoji-loading": "Cargando emojis...",
       "emoji-loading-description": "Por favor espera",
       "emoji-no-recent": "No hay emojis recientes",
-      "emoji-search-description": "Buscar y copiar emojis"
+      "emoji-search-description": "Buscar y copiar emojis",
+      "settings-search-description": "Buscar en los ajustes",
+      "windows-search-description": "Buscar y enfocar ventanas abiertas"
     }
   },
   "lock-screen": {
@@ -594,6 +600,7 @@
       "density-default": "Predeterminada",
       "density-mini": "Mini",
       "density-spacious": "Espaciosa",
+      "display-mode-always-visible": "Siempre visible",
       "type-floating": "Flotante",
       "type-framed": "Con marco",
       "type-simple": "Simple"
@@ -605,7 +612,7 @@
     "frame-rates-fps": "{fps} FPS",
     "scrolling-modes": {
       "always": "Desplazar siempre",
-      "hover": "Desplazar al pasar",
+      "hover": "Desplazar al posar el puntero",
       "never": "No desplazar nunca"
     },
     "session-menu-grid-layout": {
@@ -648,9 +655,9 @@
       "system-cpu": "CPU:",
       "system-disk": "Disco:",
       "system-gpu": "GPU:",
-      "system-host": "Anfitrión:",
+      "system-host": "Host:",
       "system-install-hint": "Instala fastfetch para ver la información del sistema",
-      "system-kernel": "Núcleo:",
+      "system-kernel": "Kernel:",
       "system-loading": "Cargando información del sistema...",
       "system-memory": "Memoria:",
       "system-monitor": "Monitor:",
@@ -715,6 +722,11 @@
       "volumes-volume-overdrive-label": "Permitir sobreamplificación de volumen"
     },
     "bar": {
+      "appearance-auto-hide-delay-description": "Tiempo que tarda la barra en ocultarse cuando se aparta el ratón",
+      "appearance-auto-hide-delay-label": "Demora de Ocultación",
+      "appearance-auto-hide-exclusive-note": "Nota: La zona exclusiva se desactiva automáticamente cuando la ocultación automática está activa",
+      "appearance-auto-show-delay-description": "Tiempo que tarda la barra en mostrarse cuando el ratón llega al borde",
+      "appearance-auto-show-delay-label": "Demora de Despliegue",
       "appearance-background-opacity-description": "Establece la opacidad del fondo específicamente para la barra.",
       "appearance-background-opacity-label": "Opacidad del fondo de la barra",
       "appearance-capsule-opacity-description": "Establecer el nivel de opacidad para los fondos de los widgets cuando se muestra la cápsula.",
@@ -722,6 +734,8 @@
       "appearance-density-description": "Ajusta el relleno de la barra para un aspecto compacto o espacioso.",
       "appearance-density-label": "Densidad de la barra",
       "appearance-desc": "Personaliza la apariencia y posición de la barra.",
+      "appearance-display-mode-description": "Elige cuando será visible la barra",
+      "appearance-display-mode-label": "Modo de Visualización",
       "appearance-floating-description": "Muestra la barra como una 'píldora' flotante.",
       "appearance-floating-label": "Barra flotante",
       "appearance-frame-radius": "Radio interno",
@@ -771,7 +785,7 @@
       "dark-mode-mode-label": "Programación del modo oscuro",
       "dark-mode-mode-manual": "Manual",
       "dark-mode-mode-off": "Apagado",
-      "dark-mode-switch-description": "Cambia a un tema más oscuro para una visualización más fácil por la noche.",
+      "dark-mode-switch-description": "Cambia a un tema más oscuro para una visualización más cómoda por la noche.",
       "delete-error-description": "Error al eliminar {scheme}",
       "delete-error-title": "Error al eliminar",
       "delete-success-description": "{scheme} eliminado correctamente",
@@ -790,7 +804,7 @@
       "download-fetching": "Obteniendo esquemas de colores disponibles...",
       "download-success-description": "{scheme} descargado correctamente",
       "download-success-title": "Esquema de colores descargado",
-      "download-title": "Descargar esquemas de colores",
+      "download-title": "Descargar Esquemas de Color",
       "method-description": {
         "content": "Esquema de Material Design con extracción de color de alta fidelidad que coincide estrechamente con los colores reales del contenido de origen.",
         "faithful": "Intenta mantenerse cerca del color original mientras genera una paleta armoniosa.",
@@ -889,6 +903,12 @@
       "media-player-show-buttons-label": "Mostrar botones",
       "media-player-show-visualizer-description": "Mostrar la superposición del visualizador de audio.",
       "media-player-visualizer-type-description": "Elige un tipo de visualización para el fondo del reproductor multimedia de escritorio.",
+      "system-stat-rounded-corners-description": "Usar esquinas redondeadas para el fondo del widget.",
+      "system-stat-rounded-corners-label": "Esquinas Redondeadas",
+      "system-stat-show-background-description": "Mostrar el contenedor de fondo para el widget de estadísticas del sistema.",
+      "system-stat-show-background-label": "Mostrar fondo",
+      "system-stat-stat-type-description": "Elige qué estadística del sistema mostrar.",
+      "system-stat-stat-type-label": "Tipo de Estadística",
       "title": "Widgets de escritorio",
       "weather-enabled-description": "Mostrar un widget del clima en el escritorio.",
       "weather-enabled-label": "Activar widget del clima",
@@ -917,7 +937,7 @@
       "night-light-manual-schedule-select-start": "Seleccionar hora de inicio",
       "night-light-manual-schedule-select-stop": "Seleccionar hora de finalización",
       "night-light-manual-schedule-sunrise": "Hora del amanecer",
-      "night-light-manual-schedule-sunset": "Hora del atardecer",
+      "night-light-manual-schedule-sunset": "Hora del anochecer",
       "night-light-temperature-day": "Día",
       "night-light-temperature-day-description": "Controla la temperatura durante el día.",
       "night-light-temperature-description": "Establece la calidez del color para la noche y el día.",
@@ -1020,9 +1040,9 @@
       "session-label": "Fin de la sesión",
       "session-placeholder": "p. ej., notify-send \"Session\" \"$1\"",
       "system-hooks-desc": "Configura comandos para que se ejecuten cuando ocurran eventos del sistema.",
-      "system-hooks-enable-description": "Activa o desactiva todos los comandos de hooks.",
+      "system-hooks-enable-description": "Activa o desactiva todos los comandos hook.",
       "system-hooks-enable-label": "Activar hooks",
-      "system-hooks-title": "Ganchos del sistema",
+      "system-hooks-title": "Hooks del sistema",
       "theme-changed-description": "Comando a ejecutar cuando el tema cambia entre modo oscuro y claro.",
       "theme-changed-label": "Tema cambiado",
       "theme-changed-placeholder": "ej., notify-send \"Tema\" \"Cambiado\"",
@@ -1051,7 +1071,7 @@
       "settings-clipboard-history-description": "Accede a los elementos copiados anteriormente desde el lanzador.",
       "settings-clipboard-history-label": "Activar historial del portapapeles",
       "settings-clipboard-watch-image-description": "Cadena de comando completa pasada a wl-paste para cambios de imagen. (requiere reinicio)",
-      "settings-clipboard-watch-image-label": "Comando de Vigilancia de Imágenes",
+      "settings-clipboard-watch-image-label": "Comando de vigilancia de imágenes",
       "settings-clipboard-watch-text-description": "Cadena de comando completa pasada a wl-paste para cambios de texto. (requiere reinicio)",
       "settings-clipboard-watch-text-label": "Comando de vigilancia de texto",
       "settings-custom-launch-prefix-description": "Prefijar comandos con un lanzador personalizado (ej. 'runapp' para integración con systemd).",
@@ -1061,6 +1081,8 @@
       "settings-desc": "Personaliza el comportamiento y la apariencia del lanzador.",
       "settings-enable-settings-search-description": "Mostrar los resultados de configuración al buscar en el Launcher.",
       "settings-enable-settings-search-label": "Activar la búsqueda en la configuración",
+      "settings-enable-windows-search-description": "Buscar y enfocar ventanas activas.",
+      "settings-enable-windows-search-label": "Habilitar búsqueda de ventanas",
       "settings-grid-view-description": "Mostrar elementos en una cuadrícula en lugar de una lista.",
       "settings-icon-mode-description": "Usa iconos nativos del sistema en lugar de iconos Tabler.",
       "settings-icon-mode-label": "Usar iconos nativos",
@@ -1073,7 +1095,7 @@
       "settings-show-icon-background-label": "Mostrar fondo del icono",
       "settings-sort-by-usage-description": "Cuando está activado, las aplicaciones más utilizadas aparecen primero en la lista.",
       "settings-sort-by-usage-label": "Ordenar por más usados",
-      "settings-terminal-command-description": "Comando para iniciar un terminal. Por ejemplo, 'kitty -e' o 'gnome-terminal --'.",
+      "settings-terminal-command-description": "Comando para iniciar el terminal. Por ejemplo, 'kitty -e' o 'gnome-terminal --'.",
       "settings-terminal-command-label": "Comando de terminal",
       "settings-use-app2unit-description": "Usa un método de lanzamiento alternativo para gestionar mejor los procesos de las aplicaciones y prevenir problemas.",
       "settings-use-app2unit-label": "Usar App2Unit para lanzar aplicaciones",
@@ -1085,7 +1107,7 @@
       "calendar-header-label": "Encabezado del calendario",
       "calendar-month-label": "Mes del calendario",
       "date-time-12hour-format-description": "Muestra la hora en formato de 12 horas en la pantalla de bloqueo y el calendario. El reloj de la barra tiene su propia configuración.",
-      "date-time-12hour-format-label": "Utilice el formato de hora de 12 horas",
+      "date-time-12hour-format-label": "Utiliza el formato de 12 horas",
       "date-time-desc": "Personaliza cómo aparecen la fecha y la hora.",
       "date-time-first-day-of-week-automatic": "Automático (usar la configuración regional del sistema)",
       "date-time-first-day-of-week-description": "Elige qué día empieza la semana en el calendario.",
@@ -1127,8 +1149,8 @@
       "lock-on-suspend-label": "Bloquear al suspender",
       "show-hibernate-description": "Mostrar la opción 'hibernar' en los controles de energía.",
       "show-hibernate-label": "Mostrar hibernar",
-      "show-session-buttons-description": "Permitir el acceso a la configuración de energía desde la pantalla de bloqueo.",
-      "show-session-buttons-label": "Controles de energía",
+      "show-session-buttons-description": "Permitir el acceso a las opciones de sesión desde la pantalla de bloqueo.",
+      "show-session-buttons-label": "Opciones de sesión",
       "title": "Pantalla de bloqueo"
     },
     "network": {
@@ -1302,7 +1324,7 @@
       "entries-desc": "Personalizar qué acciones de energía aparecen en el menú de sesión y en qué orden.",
       "entries-title": "Acciones de energía",
       "entry-settings-command-description": "Comando personalizado para ejecutar para esta acción. Dejar vacío para usar el comando del sistema predeterminado.",
-      "entry-settings-command-placeholder": "systemctl poweroff",
+      "entry-settings-command-placeholder": "p.ej., systemctl poweroff",
       "entry-settings-default-command-lock": "Pantalla de bloqueo interna (sin comando)",
       "entry-settings-default-command-logout": "Cierre de sesión interno (sin comando)",
       "entry-settings-default-info-description": "Si no se especifica un comando personalizado, se utilizará el comando predeterminado del sistema.",
@@ -1361,13 +1383,13 @@
       "control-border-radius-reset": "Restablecer el radio de entrada",
       "desc": "Personaliza la apariencia, el ambiente y el comportamiento de la interfaz.",
       "dim-desktop-description": "Atenuar el escritorio cuando los paneles o menús estén abiertos.",
-      "dim-desktop-label": "Dim escritorio",
+      "dim-desktop-label": "Atenuar escritorio",
       "dimmer-opacity-description": "Define el nivel de opacidad para el atenuado del escritorio.",
       "dimmer-opacity-label": "Opacidad del escritorio atenuado",
       "dimmer-opacity-reset": "Restablecer la opacidad del escritorio atenuado",
       "panel-background-opacity-description": "Establecer la opacidad del fondo para todos los paneles (barra, lanzador, ajustes, etc...).",
       "panel-background-opacity-label": "Opacidad de fondo del panel",
-      "panels-attached-to-bar-description": "Los paneles se fijan a la barra y a los bordes de la pantalla, creando una apariencia impecable con elegantes esquinas invertidas.",
+      "panels-attached-to-bar-description": "Los paneles se fijan a la barra y a los bordes de la pantalla, creando una apariencia integrada con elegantes esquinas invertidas.",
       "panels-attached-to-bar-label": "Ajustar paneles a los bordes",
       "panels-overlay-description": "Garantiza que los paneles y la barra permanezcan visibles, incluso sobre aplicaciones en pantalla completa.",
       "panels-overlay-label": "Mantener paneles y barra en la parte superior",
@@ -1388,11 +1410,11 @@
       "automation-change-mode-alphabetical": "Alfabético",
       "automation-change-mode-description": "Elija cómo se seleccionan los fondos de pantalla al cambiar automáticamente.",
       "automation-change-mode-label": "Modo de cambio",
-      "automation-custom-interval-description": "Ingresa el tiempo como HH:MM (ej., 01:30).",
+      "automation-custom-interval-description": "Introduce el tiempo en formato HH:MM (p.ej., 01:30).",
       "automation-custom-interval-label": "Intervalo personalizado",
       "automation-interval-description": "Con qué frecuencia cambiar los fondos de pantalla automáticamente.",
       "automation-interval-label": "Intervalo del fondo de pantalla",
-      "automation-random-wallpaper-description": "Programa cambios aleatorios de fondo de pantalla a intervalos regulares.",
+      "automation-random-wallpaper-description": "Programa cambios aleatorios del fondo de pantalla a intervalos regulares.",
       "automation-scheduled-change-description": "Cambiar automáticamente los fondos de pantalla a intervalos regulares.",
       "automation-scheduled-change-label": "Cambio programado",
       "look-feel-edge-smoothness-description": "Aplica un efecto suave y difuminado al borde de las transiciones.",
@@ -1435,12 +1457,12 @@
   },
   "placeholders": {
     "command-example": "echo \"Hola, mundo\"",
-    "enter-command": "Ingresa el comando a ejecutar (aplicación o script personalizado)",
-    "enter-ipc-identifier": "Introduzca un identificador único para los comandos IPC",
-    "enter-path": "Ingrese la ruta...",
-    "enter-text-to-collapse": "por ejemplo, 'no se está reproduciendo nada'. Usa /regex/ para patrones.",
-    "enter-tooltip": "Introducir información sobre herramientas",
-    "enter-width-pixels": "Ingresa el ancho en píxeles",
+    "enter-command": "Introduce el comando a ejecutar (aplicación o script personalizado)",
+    "enter-ipc-identifier": "Introduce un identificador único para los comandos IPC",
+    "enter-path": "Introduce la ruta...",
+    "enter-text-to-collapse": "p.ej., 'no se está reproduciendo nada'. Usa /regex/ para patrones.",
+    "enter-tooltip": "Introduce tooltip",
+    "enter-width-pixels": "Introduce el ancho en píxeles",
     "search": "Buscar...",
     "search-icons": "ej., noctalia, niri, battery, cloud",
     "search-launcher": "Buscar entradas... o usa > para comandos",
@@ -1472,7 +1494,7 @@
   "setup": {
     "all-done": "¡Listo!",
     "appearance": {
-      "subheader": "Elige el Dark Mode y las fuentes de color (Wallpaper o predefinidas)."
+      "subheader": "Elige el Modo Oscuro y las fuentes de color (Wallpaper o predefinidas)."
     },
     "customize": {
       "header": "Personaliza tu experiencia",
@@ -1480,14 +1502,14 @@
     },
     "skip-setup": "Omitir la configuración",
     "telemetry-wizard-done": "¡Entendido!",
-    "telemetry-wizard-note": "Tienes el control: activa o desactiva esto cuando quieras en los Ajustes",
+    "telemetry-wizard-note": "Tienes el control — activa o desactiva esto cuando quieras en los Ajustes",
     "telemetry-wizard-subtitle": "Hemos añadido analíticas anónimas para ayudar a mejorar Noctalia",
     "telemetry-wizard-title": "Actualización de privacidad",
     "wallpaper": {
-      "choose-dir": "Elige un directorio que contenga tus fondos",
+      "choose-dir": "Elige un directorio que contenga tus fondos de pantalla",
       "dir-browse": "Seleccionar carpeta",
-      "dir-description": "Elige la carpeta que contiene tus fondos.",
-      "dir-label": "Directorio de fondos",
+      "dir-description": "Elige la carpeta que contiene tus fondos de pantalla.",
+      "dir-label": "Directorio de fondos de pantalla",
       "dir-select-title": "Seleccionar carpeta de fondos",
       "header": "Elige tu fondo",
       "no-dir": "No se seleccionó un directorio de fondos",
@@ -1497,7 +1519,7 @@
       "select-prompt": "Selecciona un fondo abajo",
       "subheader": "Define el ambiente con un bonito fondo."
     },
-    "welcome-note": "Solo algunos conceptos básicos para empezar: todas las opciones están en configuración",
+    "welcome-note": "Solo algunos ajustes básicos para empezar — las opciones al completo están en configuración",
     "welcome-subtitle": "Hagamos que tu escritorio sea único",
     "welcome-title": "¡Bienvenido a Noctalia!"
   },
@@ -1521,7 +1543,7 @@
     "disk": "Disco",
     "download-speed": "Velocidad de descarga",
     "gpu-temp": "Temperatura de GPU",
-    "load-average": "Carga prom.",
+    "load-average": "Carga media",
     "title": "Monitor del sistema",
     "upload-speed": "Velocidad de subida"
   },
@@ -1544,8 +1566,8 @@
       "display-code": "Introduce el código {value} en el otro dispositivo.",
       "forget-failed": "Error al olvidar el dispositivo",
       "pair-failed": "Error al emparejar el dispositivo",
-      "passkey-required": "Se requiere una clave de acceso del dispositivo.",
-      "pincode-required": "Se requiere el código PIN del dispositivo.",
+      "passkey-required": "El dispositivo requiere una clave de acceso.",
+      "pincode-required": "El dispositivo requiere código PIN.",
       "state-change-failed": "Error al cambiar el estado de Bluetooth"
     },
     "clipboard": {
@@ -1581,7 +1603,7 @@
     },
     "power-profile": {
       "changed": "Perfil de energía cambiado",
-      "profile-name": "{profile"
+      "profile-name": "{profile}"
     },
     "theming-processor-failed": {
       "desc-generic": "Se encontró un error al procesar las plantillas",
@@ -1641,7 +1663,7 @@
     "open-settings": "Configuración",
     "open-tray-dropdown": "Bandeja del sistema",
     "output-muted": "Alternar silencio de salida",
-    "power-profile": "{profile} perfil de energía",
+    "power-profile": "Perfil de energía {profile}",
     "previous-media": "Pista anterior",
     "previous-month": "Mes anterior",
     "refresh-devices": "Actualizar dispositivos",
@@ -1651,8 +1673,8 @@
     "search-close": "Cerrar búsqueda",
     "session-menu": "Menú de sesión",
     "show-all-devices": "Mostrar todos los dispositivos",
-    "switch-to-dark-mode": "Modo oscuro",
-    "switch-to-light-mode": "Modo claro",
+    "switch-to-dark-mode": "Modo Oscuro",
+    "switch-to-light-mode": "Modo Claro",
     "unmute": "Activar el audio",
     "up": "Directorio superior",
     "volume-at": "Volumen de salida: {volume}%",
@@ -1661,7 +1683,7 @@
   "wallpaper": {
     "browse": {
       "empty-directory": "Este directorio está vacío.",
-      "go-root": "Ir a la raíz del fondo de pantalla",
+      "go-root": "Ir a la carpeta raíz de fondos de pantalla",
       "go-up": "Ir a la carpeta superior",
       "go-up-hint": "Usa el botón de atrás para navegar hacia arriba."
     },
@@ -1704,7 +1726,7 @@
       "sorting-favorites": "Favoritos",
       "sorting-label": "Ordenar por",
       "sorting-relevance": "Relevancia",
-      "sorting-toplist": "Lista superior",
+      "sorting-toplist": "Mejores",
       "sorting-views": "Visualizaciones",
       "source-label": "Fuente",
       "source-wallhaven": "Wallhaven",
@@ -1762,7 +1784,7 @@
       "minute-leading-zero": "Minuto con cero inicial (00-59)",
       "minute-no-leading-zero": "Minuto sin cero inicial (0-59)",
       "month-abbreviated": "Nombre del mes abreviado",
-      "month-full": "Nombre completo del mes",
+      "month-full": "Nombre del mes completo",
       "month-number-leading-zero": "Mes como número con cero inicial (01-12)",
       "month-number-no-zero": "Mes como número sin cero inicial (1-12)",
       "second-leading-zero": "Segundo con cero inicial (00-59)",
@@ -1775,15 +1797,15 @@
       "item": "elemento",
       "items": "elementos",
       "search-placeholder": "Buscar archivos y carpetas...",
-      "select-current": "Seleccionar actual",
-      "select-file": "Seleccionar archivo",
-      "select-folder": "Seleccionar carpeta",
+      "select-current": "Seleccionar Actual",
+      "select-file": "Seleccionar Archivo",
+      "select-folder": "Seleccionar Carpeta",
       "selected": "Seleccionado:",
-      "title": "Selector de archivos"
+      "title": "Selector de Archivos"
     },
     "file-picker-title": "Seleccionar un archivo",
     "icon-picker": {
-      "title": "Selector de iconos"
+      "title": "Selector de Iconos"
     },
     "tooltip-placeholder": "Marcador de posición"
   },
@@ -1808,7 +1830,7 @@
       "known-networks": "Redes conocidas",
       "link-speed": "Velocidad de enlace",
       "no-ethernet-devices": "No se detectaron dispositivos Ethernet",
-      "no-networks": "No se encontraron redes",
+      "no-networks": "No se encontraron redes Wi-Fi",
       "saved": "Guardado",
       "scan-again": "Escanear de nuevo",
       "searching": "Buscando redes cercanas...",
@@ -1816,9 +1838,9 @@
     },
     "signal": {
       "excellent": "Excelente",
-      "fair": "Regular",
+      "fair": "Razonable",
       "good": "Bueno",
-      "poor": "Débil"
+      "poor": "Pobre"
     }
   }
 }

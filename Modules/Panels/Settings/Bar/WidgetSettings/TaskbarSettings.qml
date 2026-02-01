@@ -155,6 +155,7 @@ ColumnLayout {
     description: I18n.tr("bar.taskbar.title-width-description")
     text: widgetData.titleWidth || widgetMetadata.titleWidth
     placeholderText: I18n.tr("placeholders.enter-width-pixels")
+    onEditingFinished: settingsChanged(saveSettings())
   }
 
   NToggle {
@@ -183,16 +184,5 @@ ColumnLayout {
                settingsChanged(saveSettings());
              }
     text: Math.round(root.valueMaxTaskbarWidth) + "%"
-  }
-
-  NTextInput {
-    id: titleWidthInput
-    visible: root.valueShowTitle && !isVerticalBar && !root.valueSmartWidth
-    Layout.fillWidth: true
-    label: I18n.tr("bar.taskbar.title-width-label")
-    description: I18n.tr("bar.taskbar.title-width-description")
-    text: widgetData.titleWidth || widgetMetadata.titleWidth
-    placeholderText: I18n.tr("placeholders.enter-width-pixels")
-    onEditingFinished: settingsChanged(saveSettings())
   }
 }

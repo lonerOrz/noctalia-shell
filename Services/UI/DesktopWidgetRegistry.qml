@@ -27,6 +27,8 @@ Singleton {
   }
   property Component countdownComponent: Component {
     DesktopCountdown {}
+  property Component systemStatComponent: Component {
+    DesktopSystemStat {}
   }
 
   // Widget registry object mapping widget names to components
@@ -40,6 +42,7 @@ Singleton {
     widgetsObj["MediaPlayer"] = mediaPlayerComponent;
     widgetsObj["Weather"] = weatherComponent;
     widgetsObj["Countdown"] = countdownComponent;
+    widgetsObj["SystemStat"] = systemStatComponent;
     widgets = widgetsObj;
 
     Logger.i("DesktopWidgetRegistry", "Service started");
@@ -56,6 +59,7 @@ Singleton {
                                      "MediaPlayer": "WidgetSettings/MediaPlayerSettings.qml",
                                      "Weather": "WidgetSettings/WeatherSettings.qml",
                                      "Countdown": "WidgetSettings/CountdownSettings.qml"
+                                     "SystemStat": "WidgetSettings/SystemStatSettings.qml"
                                    })
 
   property var widgetMetadata: ({
@@ -81,6 +85,11 @@ Singleton {
                                   "Countdown": {
                                     "allowUserSettings": true,
                                     "showBackground": false
+                                  "SystemStat": {
+                                    "showBackground": true,
+                                    "statType": "CPU",
+                                    "diskPath": "/",
+                                    "roundedCorners": true
                                   }
                                 })
 
@@ -131,7 +140,7 @@ Singleton {
       var manifest = PluginRegistry.getPluginManifest(pluginId);
       return manifest ? manifest.name : pluginId;
     }
-    // Core widgets - return as-is (Clock, MediaPlayer, Weather)
+    // Core widgets - return as-is (Clock, MediaPlayer, Weather, SystemStat)
     return widgetId;
   }
 

@@ -182,7 +182,9 @@
       "hide-widget-when-zero-unread-description": "Скрывать значок уведомлений, если нет непрочитанных.",
       "hide-widget-when-zero-unread-label": "Скрывать значок без непрочитанных",
       "show-unread-badge-description": "Отображать значок, показывающий количество непрочитанных уведомлений.",
-      "show-unread-badge-label": "Показывать значок непрочитанных"
+      "show-unread-badge-label": "Показывать значок непрочитанных",
+      "unread-badge-color-description": "Выберите цвет для значка непрочитанных уведомлений.",
+      "unread-badge-color-label": "Цвет значка непрочитанных"
     },
     "section-editor": {
       "placeholder": "Выберите виджет для добавления...",
@@ -254,12 +256,12 @@
     "workspace": {
       "character-count-description": "Количество символов для отображения из имён рабочих пространств (1-10).",
       "character-count-label": "Количество символов",
-      "empty-color-description": "Установить цвет фона для пустых Workspace.",
+      "empty-color-description": "Установить цвет фона для пустых рабочих пространств.",
       "empty-color-label": "Цвет пустого рабочего пространства",
       "enable-scrollwheel-description": "Переключайтесь между рабочими пространствами с помощью колеса прокрутки мыши.",
-      "enable-scrollwheel-label": "Прокрутите, чтобы переключить рабочие столы",
-      "focused-color-description": "Установить цвет фона для активного Workspace.",
-      "focused-color-label": "Цвет активного рабочего стола",
+      "enable-scrollwheel-label": "Прокрутите, чтобы переключить рабочие пространства",
+      "focused-color-description": "Установить цвет фона для активного рабочего пространства.",
+      "focused-color-label": "Цвет активного рабочего пространства",
       "follow-focused-screen-description": "Отображать рабочие пространства с текущего активного экрана, а не с экрана, на котором расположена панель.",
       "follow-focused-screen-label": "Следовать за активным экраном",
       "grouped-border-opacity-description": "Установить уровень прозрачности для границ контейнера рабочей области.",
@@ -268,13 +270,13 @@
       "hide-unoccupied-label": "Скрыть незанятые",
       "label-mode-description": "Выберите, как отображаются метки рабочих пространств.",
       "label-mode-label": "Режим метки",
-      "occupied-color-description": "Установить цвет фона для занятых Workspace.",
-      "occupied-color-label": "Цвет занятого рабочего стола",
+      "occupied-color-description": "Установить цвет фона для занятых рабочих пространств.",
+      "occupied-color-label": "Цвет занятого рабочего пространства",
       "reverse-scrolling-description": "Изменить направление переключения рабочих пространств при прокрутке.",
       "reverse-scrolling-label": "Обратная прокрутка",
       "show-applications-description": "Отображать значки приложений внутри каждого рабочего пространства.",
       "show-applications-label": "Показать приложения",
-      "show-badge-description": "Показывать значок номера рабочего стола в сгруппированном режиме.",
+      "show-badge-description": "Показывать значок номера рабочего пространства в сгруппированном режиме.",
       "show-badge-label": "Показывать значок рабочего стола",
       "show-labels-only-when-occupied-description": "Показывать метки рабочих пространств только тогда, когда они содержат окна.",
       "show-labels-only-when-occupied-label": "Показывать метки только при наличии содержимого",
@@ -487,6 +489,7 @@
     "week": "Неделя",
     "widgets": "Виджеты",
     "width": "Ширина",
+    "windows": "Окна ",
     "yes": "Да"
   },
   "control-center": {
@@ -506,6 +509,7 @@
     "on-hover": "При наведении"
   },
   "hide-modes": {
+    "auto-hide": "Автоматическое скрытие",
     "hidden": "Скрывать, когда пусто",
     "idle": "Скрывать в режиме простоя",
     "transparent": "Прозрачный, когда пустой",
@@ -557,7 +561,9 @@
       "emoji-loading": "Загрузка эмодзи...",
       "emoji-loading-description": "Пожалуйста, подождите",
       "emoji-no-recent": "Недавних эмодзи пока нет",
-      "emoji-search-description": "Поиск и копирование эмодзи"
+      "emoji-search-description": "Поиск и копирование эмодзи",
+      "settings-search-description": "Поиск и переход к настройкам",
+      "windows-search-description": "Поиск и фокусировка открытых окон"
     }
   },
   "lock-screen": {
@@ -594,6 +600,7 @@
       "density-default": "По умолчанию",
       "density-mini": "Мини",
       "density-spacious": "Просторный",
+      "display-mode-always-visible": "Всегда видны",
       "type-floating": "Плавающий",
       "type-framed": "В рамке",
       "type-simple": "Простой"
@@ -715,6 +722,11 @@
       "volumes-volume-overdrive-label": "Разрешить перегрузку громкости"
     },
     "bar": {
+      "appearance-auto-hide-delay-description": "Время, через которое Bar скроется после того, как курсор мыши покинет его.",
+      "appearance-auto-hide-delay-label": "Задержка скрытия",
+      "appearance-auto-hide-exclusive-note": "Примечание: Эксклюзивная зона автоматически отключается, когда автоскрытие активно.",
+      "appearance-auto-show-delay-description": "Время до появления панели, когда мышь входит в край.",
+      "appearance-auto-show-delay-label": "Задержка отображения",
       "appearance-background-opacity-description": "Установите прозрачность фона специально для панели.",
       "appearance-background-opacity-label": "Прозрачность фона бара",
       "appearance-capsule-opacity-description": "Установить уровень непрозрачности для фона виджетов, когда капсула отображается.",
@@ -722,6 +734,8 @@
       "appearance-density-description": "Настройка отступов панели для компактного или просторного вида.",
       "appearance-density-label": "Плотность панели",
       "appearance-desc": "Настройка внешнего вида и положения панели.",
+      "appearance-display-mode-description": "Выберите, когда панель видна",
+      "appearance-display-mode-label": "Режим Отображение",
       "appearance-floating-description": "Отображает панель как плавающую 'таблетку'.",
       "appearance-floating-label": "Плавающая панель",
       "appearance-frame-radius": "Внутренний радиус",
@@ -889,6 +903,12 @@
       "media-player-show-buttons-label": "Показать кнопки",
       "media-player-show-visualizer-description": "Показать наложение аудиовизуализатора.",
       "media-player-visualizer-type-description": "Выберите тип визуализации для фона медиаплеера.",
+      "system-stat-rounded-corners-description": "Использовать скругленные углы для фона виджета.",
+      "system-stat-rounded-corners-label": "Скругленные Углы",
+      "system-stat-show-background-description": "Показать фоновый контейнер для виджета системной статистики.",
+      "system-stat-show-background-label": "Показать фон",
+      "system-stat-stat-type-description": "Выберите, какую системную статистику отображать.",
+      "system-stat-stat-type-label": "Тип Статистики",
       "title": "Настольные виджеты",
       "weather-enabled-description": "Показать погодный виджет на рабочем столе.",
       "weather-enabled-label": "Включить виджет погоды",
@@ -1036,7 +1056,7 @@
       "system-default": "По умолчанию"
     },
     "launcher": {
-      "clipboard-desc": "Получайте доступ к истории буфера обмена и управляйте ею из панели запуска.",
+      "clipboard-desc": "Получайте доступ к истории буфера обмена и управляйте ею из лаунчера.",
       "execute-desc": "Настройте способ запуска приложений.",
       "execute-title": "Исполнение",
       "settings-annotation-tool-description": "Команда для запуска при нажатии кнопки аннотирования в истории буфера обмена. Изображение будет передано в эту команду.",
@@ -1059,14 +1079,16 @@
       "settings-custom-launch-prefix-enabled-label": "Включить пользовательский префикс запуска",
       "settings-custom-launch-prefix-label": "Пользовательский префикс запуска",
       "settings-desc": "Настройка поведения и внешнего вида запуска.",
-      "settings-enable-settings-search-description": "Показывать результаты настроек при поиске в Launcher.",
+      "settings-enable-settings-search-description": "Показывать результаты настроек при поиске в лаунчере.",
       "settings-enable-settings-search-label": "Включить поиск в настройках",
+      "settings-enable-windows-search-description": "Поиск и фокусировка активных окон.",
+      "settings-enable-windows-search-label": "Включить поиск окон",
       "settings-grid-view-description": "Показывать элементы в виде сетки вместо списка.",
       "settings-icon-mode-description": "Использовать нативные системные иконки вместо иконок Tabler.",
       "settings-icon-mode-label": "Использовать нативные иконки",
       "settings-ignore-mouse-input-description": "Отключить взаимодействие с мышью и колесом прокрутки в лаунчере.",
       "settings-ignore-mouse-input-label": "Игнорировать ввод мыши",
-      "settings-position-description": "Выберите, где появляется панель запуска.",
+      "settings-position-description": "Выберите, где появляется панель лаунчера.",
       "settings-show-categories-description": "Показывать вкладки категорий для фильтрации приложений.",
       "settings-show-categories-label": "Показывать категории",
       "settings-show-icon-background-description": "Показывать закруглённый прямоугольник в качестве фона для иконок.",
@@ -1077,7 +1099,7 @@
       "settings-terminal-command-label": "Команда терминала",
       "settings-use-app2unit-description": "Использует альтернативный метод запуска для лучшего управления процессами приложений и предотвращения проблем.",
       "settings-use-app2unit-label": "Использовать App2Unit для запуска приложений",
-      "title": "Запуск"
+      "title": "Лаунчер"
     },
     "location": {
       "calendar-cards-desc": "Организуйте и включайте/выключайте карточки в панели календаря.",
@@ -1356,7 +1378,7 @@
       "box-border-radius-description": "Настраивает скругление углов основных разделов макета, таких как боковые панели, карточки и панели контента.",
       "box-border-radius-label": "Радиус контейнера",
       "box-border-radius-reset": "Сбросить радиус контейнера",
-      "control-border-radius-description": "Управляет кривизной интерактивных элементов, включая кнопки, переключатели и текстовые поля.",
+      "control-border-radius-description": "Управляет скруглением интерактивных элементов, включая кнопки, переключатели и текстовые поля.",
       "control-border-radius-label": "Ввести радиус",
       "control-border-radius-reset": "Сбросить радиус ввода",
       "desc": "Настройка внешнего вида, ощущений и поведения интерфейса.",

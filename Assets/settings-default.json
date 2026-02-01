@@ -18,6 +18,9 @@
     "outerCorners": true,
     "exclusive": true,
     "hideOnOverview": false,
+    "displayMode": "always_visible",
+    "autoHideDelay": 500,
+    "autoShowDelay": 150,
     "widgets": {
       "left": [
         {
@@ -190,6 +193,7 @@
     "iconMode": "tabler",
     "showIconBackground": false,
     "enableSettingsSearch": true,
+    "enableWindowsSearch": true,
     "ignoreMouseInput": false,
     "screenshotAnnotationTool": ""
   },

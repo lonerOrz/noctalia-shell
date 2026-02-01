@@ -35,6 +35,22 @@ NIconButton {
   readonly property bool showUnreadBadge: (widgetSettings.showUnreadBadge !== undefined) ? widgetSettings.showUnreadBadge : widgetMetadata.showUnreadBadge
   readonly property bool hideWhenZero: (widgetSettings.hideWhenZero !== undefined) ? widgetSettings.hideWhenZero : widgetMetadata.hideWhenZero
   readonly property bool hideWhenZeroUnread: (widgetSettings.hideWhenZeroUnread !== undefined) ? widgetSettings.hideWhenZeroUnread : widgetMetadata.hideWhenZeroUnread
+  readonly property string unreadBadgeColor: (widgetSettings.unreadBadgeColor !== undefined) ? widgetSettings.unreadBadgeColor : (widgetMetadata.unreadBadgeColor || "primary")
+
+  function getColor(colorKey) {
+    switch (colorKey) {
+    case "primary":
+      return Color.mPrimary;
+    case "secondary":
+      return Color.mSecondary;
+    case "tertiary":
+      return Color.mTertiary;
+    case "onSurface":
+      return Color.mOnSurface;
+    default:
+      return Color.mPrimary;
+    }
+  }
 
   function computeUnreadCount() {
     var since = NotificationService.lastSeenTs;
@@ -122,7 +138,7 @@ NIconButton {
       height: 7
       width: height
       radius: Style.radiusXS
-      color: Color.mError
+      color: root.hovering ? Color.mOnHover : (root.getColor(root.unreadBadgeColor) || Color.mError)
       border.color: Color.mSurface
       border.width: Style.borderS
       visible: count > 0

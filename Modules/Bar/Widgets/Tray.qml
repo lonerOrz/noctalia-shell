@@ -68,6 +68,7 @@ Item {
   property bool hidePassive: widgetSettings.hidePassive !== undefined ? widgetSettings.hidePassive : true // Hide passive status items
   property var filteredItems: [] // Items to show inline (pinned)
   property var dropdownItems: [] // Items to show in drawer (unpinned)
+  property int hoveredItemIndex: -1 // Track hovered item for dot indicator
 
   Timer {
     id: updateDebounceTimer
@@ -288,11 +289,13 @@ Item {
   }
 
   // Content dimensions for implicit sizing
-  readonly property real capsuleWidth: isVertical ? capsuleHeight : Math.round(trayFlow.implicitWidth)
-  readonly property real capsuleContentHeight: isVertical ? Math.round(trayFlow.implicitHeight) : capsuleHeight
+  readonly property int visibleItemCount: (root.drawerEnabled && dropdownItems.length > 0 ? 1 : 0) + filteredItems.length
+  readonly property real capsulePadding: 0
+  readonly property real capsuleWidth: isVertical ? capsuleHeight : Math.round(trayFlow.implicitWidth + capsulePadding * 2)
+  readonly property real capsuleContentHeight: isVertical ? Math.round(trayFlow.implicitHeight + capsulePadding * 2) : capsuleHeight
 
-  implicitWidth: isVertical ? barHeight : Math.round(trayFlow.implicitWidth)
-  implicitHeight: isVertical ? Math.round(trayFlow.implicitHeight) : barHeight
+  implicitWidth: isVertical ? barHeight : Math.round(trayFlow.implicitWidth + capsulePadding * 2)
+  implicitHeight: isVertical ? Math.round(trayFlow.implicitHeight + capsulePadding * 2) : barHeight
   visible: filteredItems.length > 0 || dropdownItems.length > 0
   opacity: (filteredItems.length > 0 || dropdownItems.length > 0) ? 1.0 : 0.0
 
@@ -311,12 +314,11 @@ Item {
 
   Flow {
     id: trayFlow
-    spacing: Style.marginXS
+    spacing: 0
     flow: isVertical ? Flow.TopToBottom : Flow.LeftToRight
 
-    // Position at edge for full click area
-    x: isVertical ? 0 : 0
-    y: isVertical ? 0 : 0
+    // Position centered in capsule
+    anchors.centerIn: visualCapsule
 
     // Drawer opener (before items if opposite direction)
     NIconButton {
@@ -357,9 +359,12 @@ Item {
 
       delegate: Item {
         id: trayDelegate
+        required property var modelData
+        required property int index
         width: isVertical ? barHeight : capsuleHeight
         height: isVertical ? capsuleHeight : barHeight
         visible: modelData
+        readonly property bool isHovered: root.hoveredItemIndex === index
 
         // Tooltip anchor representing the visual area (for proper tooltip positioning)
         Item {
@@ -406,11 +411,42 @@ Item {
           }
         }
 
+        Rectangle {
+          id: hoverIndicator
+          anchors.bottom: trayIcon.bottom
+          anchors.bottomMargin: -2
+          anchors.horizontalCenter: trayIcon.horizontalCenter
+          width: Style.toOdd(iconSize * 0.25)
+          height: 4
+          color: trayDelegate.isHovered ? Color.mHover : "transparent"
+          radius: Math.min(Style.radiusXXS, width / 2)
+
+          Behavior on color {
+            ColorAnimation {
+              duration: Style.animationFast
+              easing.type: Easing.OutCubic
+            }
+          }
+        }
+
         MouseArea {
+          id: itemMouseArea
           anchors.fill: parent
           hoverEnabled: true
           cursorShape: Qt.PointingHandCursor
           acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+          onContainsMouseChanged: {
+            if (containsMouse) {
+              if (popupMenuWindow) {
+                popupMenuWindow.close();
+              }
+              root.hoveredItemIndex = trayDelegate.index;
+              TooltipService.show(tooltipAnchor, modelData.tooltipTitle || modelData.name || modelData.id || "Tray Item", BarService.getTooltipDirection(root.screen?.name));
+            } else if (root.hoveredItemIndex === trayDelegate.index) {
+              root.hoveredItemIndex = -1;
+              TooltipService.hide(tooltipAnchor);
+            }
+          }
           onClicked: mouse => {
                        if (!modelData) {
                          return;
@@ -463,7 +499,7 @@ Item {
                              } else {
                                // For horizontal bars: center horizontally and position below visual area
                                menuX = (tooltipAnchor.width / 2) - (trayMenu.item.implicitWidth / 2);
-                               menuY = tooltipAnchor.height + Style.marginL;
+                               menuY = tooltipAnchor.height + Style.marginS;
                              }
 
                              PanelService.showTrayMenu(root.screen, modelData, trayMenu.item, tooltipAnchor, menuX, menuY, root.section, root.sectionWidgetIndex);
@@ -476,13 +512,6 @@ Item {
                          }
                        }
                      }
-          onEntered: {
-            if (popupMenuWindow) {
-              popupMenuWindow.close();
-            }
-            TooltipService.show(tooltipAnchor, modelData.tooltipTitle || modelData.name || modelData.id || "Tray Item", BarService.getTooltipDirection(root.screen?.name));
-          }
-          onExited: TooltipService.hide()
         }
       }
     }

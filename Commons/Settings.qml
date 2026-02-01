@@ -200,6 +200,11 @@ Singleton {
       // Hide bar/panels when compositor overview is active
       property bool hideOnOverview: false
 
+      // Auto-hide settings
+      property string displayMode: "always_visible" // "always_visible", "auto_hide"
+      property int autoHideDelay: 500 // ms before hiding after mouse leaves
+      property int autoShowDelay: 150 // ms before showing when mouse enters
+
       // Widget configuration for modular bar system
       property JsonObject widgets
       widgets: JsonObject {
@@ -395,6 +400,7 @@ Singleton {
       property string iconMode: "tabler"
       property bool showIconBackground: false
       property bool enableSettingsSearch: true
+      property bool enableWindowsSearch: true
       property bool ignoreMouseInput: false
       property string screenshotAnnotationTool: ""
     }
@@ -1113,7 +1119,7 @@ Singleton {
 
     // Delete deprecated user settings from the wiget
     for (const k of Object.keys(widget)) {
-      if (k === "id" || k === "allowUserSettings") {
+      if (k === "id") {
         continue;
       }
       if (!keys.includes(k)) {
@@ -1124,7 +1130,7 @@ Singleton {
     // Inject missing default setting (metaData) from BarWidgetRegistry
     for (var i = 0; i < keys.length; i++) {
       const k = keys[i];
-      if (k === "id" || k === "allowUserSettings") {
+      if (k === "id") {
         continue;
       }
 
