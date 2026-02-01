@@ -27,6 +27,7 @@ Singleton {
   }
   property Component countdownComponent: Component {
     DesktopCountdown {}
+  }
   property Component systemStatComponent: Component {
     DesktopSystemStat {}
   }
@@ -58,7 +59,7 @@ Singleton {
                                      "Clock": "WidgetSettings/ClockSettings.qml",
                                      "MediaPlayer": "WidgetSettings/MediaPlayerSettings.qml",
                                      "Weather": "WidgetSettings/WeatherSettings.qml",
-                                     "Countdown": "WidgetSettings/CountdownSettings.qml"
+                                     "Countdown": "WidgetSettings/CountdownSettings.qml",
                                      "SystemStat": "WidgetSettings/SystemStatSettings.qml"
                                    })
 
@@ -85,6 +86,7 @@ Singleton {
                                   "Countdown": {
                                     "allowUserSettings": true,
                                     "showBackground": false
+                                  },
                                   "SystemStat": {
                                     "showBackground": true,
                                     "statType": "CPU",
