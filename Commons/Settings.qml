@@ -194,9 +194,6 @@ Singleton {
       // Bar outer corners (inverted/concave corners at bar edges when not floating)
       property bool outerCorners: true
 
-      // Reserves space with compositor
-      property bool exclusive: true
-
       // Hide bar/panels when compositor overview is active
       property bool hideOnOverview: false
 
@@ -375,7 +372,9 @@ Singleton {
       property string wallhavenApiKey: ""
       property string wallhavenResolutionMode: "atleast" // "atleast" or "exact"
       property string wallhavenResolutionWidth: ""
+
       property string wallhavenResolutionHeight: ""
+      property string sortOrder: "name" // "name", "name_desc", "date", "date_desc"
     }
 
     // applauncher
@@ -483,13 +482,12 @@ Singleton {
       property int swapCriticalThreshold: 90
       property int diskWarningThreshold: 80
       property int diskCriticalThreshold: 90
-      property int cpuPollingInterval: 3000
-      property int tempPollingInterval: 3000
+      property int cpuPollingInterval: 1000
       property int gpuPollingInterval: 3000
       property bool enableDgpuMonitoring: false // Opt-in: reading dGPU sysfs/nvidia-smi wakes it from D3cold, draining battery
-      property int memPollingInterval: 3000
+      property int memPollingInterval: 1000
       property int diskPollingInterval: 30000
-      property int networkPollingInterval: 3000
+      property int networkPollingInterval: 1000
       property int loadAvgPollingInterval: 3000
       property bool useCustomColors: false
       property string warningColor: ""
@@ -533,8 +531,8 @@ Singleton {
       property int countdownDuration: 10000
       property string position: "center"
       property bool showHeader: true
-      property bool largeButtonsStyle: false
-      property string largeButtonsLayout: "grid"
+      property bool largeButtonsStyle: true
+      property string largeButtonsLayout: "single-row"
       property bool showNumberLabels: true
       property list<var> powerOptions: [
         {

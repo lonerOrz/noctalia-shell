@@ -226,6 +226,13 @@
     "Countdown": {
       "allowUserSettings": true,
       "showBackground": false
+    },
+    "SystemStat": {
+      "showBackground": true,
+      "statType": "CPU",
+      "diskPath": "/",
+      "roundedCorners": true,
+      "layout": "bottom"
     }
   }
 }
