@@ -25,7 +25,7 @@ Singleton {
   - Default cache directory: ~/.cache/noctalia
   */
   readonly property alias data: adapter  // Used to access via Settings.data.xxx.yyy
-  readonly property int settingsVersion: 47
+  readonly property int settingsVersion: 48
   readonly property bool isDebug: Quickshell.env("NOCTALIA_DEBUG") === "1"
   readonly property string shellName: "noctalia"
   readonly property string configDir: Quickshell.env("NOCTALIA_CONFIG_DIR") || (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/" + shellName + "/"
@@ -177,6 +177,7 @@ Singleton {
       property bool showOutline: false
       property bool showCapsule: true
       property real capsuleOpacity: 1.0
+      property string capsuleColorKey: "none"
 
       // Bar background opacity settings
       property real backgroundOpacity: 0.93
@@ -283,6 +284,8 @@ Singleton {
       property int lockScreenCountdownDuration: 10000
       property bool autoStartAuth: false
       property bool allowPasswordWithFprintd: false
+      property string clockStyle: "custom"
+      property string clockFormat: "hh\\nmm"
     }
 
     // ui
@@ -374,7 +377,7 @@ Singleton {
       property string wallhavenResolutionWidth: ""
 
       property string wallhavenResolutionHeight: ""
-      property string sortOrder: "name" // "name", "name_desc", "date", "date_desc"
+      property string sortOrder: "name" // "name", "name_desc", "date", "date_desc", "random"
     }
 
     // applauncher
@@ -484,6 +487,8 @@ Singleton {
       property int diskCriticalThreshold: 90
       property int diskAvailWarningThreshold: 20
       property int diskAvailCriticalThreshold: 10
+      property int batteryWarningThreshold: 20
+      property int batteryCriticalThreshold: 5
       property int cpuPollingInterval: 1000
       property int gpuPollingInterval: 3000
       property bool enableDgpuMonitoring: false // Opt-in: reading dGPU sysfs/nvidia-smi wakes it from D3cold, draining battery
@@ -575,7 +580,6 @@ Singleton {
       property int lowUrgencyDuration: 3
       property int normalUrgencyDuration: 8
       property int criticalUrgencyDuration: 15
-      property bool enableKeyboardLayoutToast: true
       property JsonObject saveToHistory: JsonObject {
         property bool low: true
         property bool normal: true
@@ -591,6 +595,8 @@ Singleton {
         property string excludedApps: "discord,firefox,chrome,chromium,edge"
       }
       property bool enableMediaToast: false
+      property bool enableKeyboardLayoutToast: true
+      property bool enableBatteryToast: true
     }
 
     // on-screen display

@@ -48,8 +48,11 @@ Item {
   readonly property bool followFocusedScreen: (widgetSettings.followFocusedScreen !== undefined) ? widgetSettings.followFocusedScreen : widgetMetadata.followFocusedScreen
   readonly property int characterCount: isVertical ? 2 : ((widgetSettings.characterCount !== undefined) ? widgetSettings.characterCount : widgetMetadata.characterCount)
 
+  // Pill size setting (0.5-1.0 range)
+  readonly property real pillSize: (widgetSettings.pillSize !== undefined) ? widgetSettings.pillSize : widgetMetadata.pillSize
+
   // When no label the pills are smaller
-  readonly property real baseDimensionRatio: 0.65 * (widgetSettings.labelMode === "none" ? 0.75 : 1)
+  readonly property real baseDimensionRatio: pillSize
 
   // Grouped mode (show applications) settings
   readonly property bool showApplications: (widgetSettings.showApplications !== undefined) ? widgetSettings.showApplications : widgetMetadata.showApplications
@@ -75,10 +78,8 @@ Item {
       return [Color.mSecondary, Color.mOnSecondary];
     case "tertiary":
       return [Color.mTertiary, Color.mOnTertiary];
-    case "onSurface":
-      return [Color.mOnSurface, Color.mSurface];
     default:
-      return [Color.mPrimary, Color.mOnPrimary];
+      return [Color.mOnSurface, Color.mSurface];
     }
   }
 

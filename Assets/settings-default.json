@@ -8,6 +8,7 @@
     "showOutline": false,
     "showCapsule": true,
     "capsuleOpacity": 1,
+    "capsuleColorKey": "none",
     "backgroundOpacity": 0.93,
     "useSeparateOpacity": false,
     "floating": false,
@@ -93,7 +94,9 @@
     "enableLockScreenCountdown": true,
     "lockScreenCountdownDuration": 10000,
     "autoStartAuth": false,
-    "allowPasswordWithFprintd": false
+    "allowPasswordWithFprintd": false,
+    "clockStyle": "custom",
+    "clockFormat": "hh\\nmm"
   },
   "ui": {
     "fontDefault": "",
@@ -272,6 +275,8 @@
     "diskCriticalThreshold": 90,
     "diskAvailWarningThreshold": 20,
     "diskAvailCriticalThreshold": 10,
+    "batteryWarningThreshold": 20,
+    "batteryCriticalThreshold": 5,
     "cpuPollingInterval": 1000,
     "gpuPollingInterval": 3000,
     "enableDgpuMonitoring": false,
@@ -354,7 +359,6 @@
     "lowUrgencyDuration": 3,
     "normalUrgencyDuration": 8,
     "criticalUrgencyDuration": 15,
-    "enableKeyboardLayoutToast": true,
     "saveToHistory": {
       "low": true,
       "normal": true,
@@ -369,7 +373,9 @@
       "lowSoundFile": "",
       "excludedApps": "discord,firefox,chrome,chromium,edge"
     },
-    "enableMediaToast": false
+    "enableMediaToast": false,
+    "enableKeyboardLayoutToast": true,
+    "enableBatteryToast": true
   },
   "osd": {
     "enabled": true,

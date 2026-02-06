@@ -50,6 +50,7 @@ Item {
   property var searchResults: []
   property int searchSelectedIndex: 0
   property string highlightLabelKey: ""
+  property bool navigatingFromSearch: false
 
   // Mouse hover suppression during keyboard navigation
   property bool ignoreMouseHover: false
@@ -155,15 +156,16 @@ Item {
     highlightLabelKey = entry.labelKey;
     _pendingSubTab = (entry.subTab !== null && entry.subTab !== undefined) ? entry.subTab : -1;
 
-    // Check if we're already on this tab
     const alreadyOnTab = (currentTabIndex === entry.tab);
-
+    navigatingFromSearch = true;
     currentTabIndex = entry.tab;
+    navigatingFromSearch = false;
 
     if (alreadyOnTab && activeTabContent) {
-      // Tab is already loaded, apply subtab + highlight directly
       if (_pendingSubTab >= 0) {
+        navigatingFromSearch = true;
         setSubTabIndex(_pendingSubTab);
+        navigatingFromSearch = false;
         _pendingSubTab = -1;
       }
       highlightScrollTimer.targetKey = highlightLabelKey;
@@ -250,6 +252,62 @@ Item {
         return true;
     }
     return false;
+  }
+
+  onCurrentTabIndexChanged: {
+    if (!navigatingFromSearch) {
+      clearHighlightImmediately();
+    }
+  }
+
+  property var currentSubTabBar: null
+
+  onActiveTabContentChanged: {
+    if (currentSubTabBar) {
+      try {
+        currentSubTabBar.currentIndexChanged.disconnect(onSubTabChanged);
+      } catch (e) {}
+      currentSubTabBar = null;
+    }
+
+    if (activeTabContent) {
+      const tabBar = findNTabBar(activeTabContent);
+      if (tabBar) {
+        currentSubTabBar = tabBar;
+        currentSubTabBar.currentIndexChanged.connect(onSubTabChanged);
+      }
+    }
+  }
+
+  function onSubTabChanged() {
+    if (!navigatingFromSearch) {
+      clearHighlightImmediately();
+    }
+  }
+
+  function findNTabBar(item) {
+    if (!item)
+      return null;
+
+    if (item.objectName === "NTabBar") {
+      return item;
+    }
+
+    const childCount = item.children ? item.children.length : 0;
+    for (let i = 0; i < childCount; i++) {
+      const found = findNTabBar(item.children[i]);
+      if (found)
+        return found;
+    }
+    return null;
+  }
+
+  function clearHighlightImmediately() {
+    highlightClearTimer.stop();
+    highlightScrollTimer.stop();
+    highlightAnimation.stop();
+    highlightLabelKey = "";
+    highlightOverlay.opacity = 0;
   }
 
   // Find and highlight a widget by its label key
@@ -733,89 +791,100 @@ Item {
             }
           }
 
-          // Search input
-          NTextInput {
-            id: searchInput
-            Layout.fillWidth: true
-            placeholderText: I18n.tr("common.search")
-            inputIconName: "search"
-            visible: opacity > 0
-            opacity: root.sidebarExpanded ? 1.0 : 0.0
-
-            Behavior on opacity {
-              NumberAnimation {
-                duration: Style.animationFast
-                easing.type: Easing.InOutQuad
-              }
-            }
-
-            onTextChanged: root.searchText = text
-            onEditingFinished: {
-              if (root.searchText.trim() !== "")
-                root.searchActivate();
-            }
-          }
-
-          // Search button for collapsed sidebar
+          // Search container wrapper to prevent layout jumps
           Item {
-            id: searchCollapsedContainer
+            id: searchContainerWrapper
             Layout.fillWidth: true
-            Layout.preferredHeight: Math.round(searchCollapsedRow.implicitHeight + Style.marginS * 2)
-            visible: opacity > 0
-            opacity: !root.sidebarExpanded ? 1.0 : 0.0
+            Layout.preferredHeight: searchInput.implicitHeight > 0 ? searchInput.implicitHeight : (Style.fontSizeXL + Style.marginM * 2)
 
-            Behavior on opacity {
-              NumberAnimation {
-                duration: Style.animationFast
-                easing.type: Easing.InOutQuad
-              }
-            }
-
-            Rectangle {
-              id: searchCollapsedButton
-              width: Math.round(searchCollapsedRow.implicitWidth + Style.marginS * 2)
-              height: parent.height
+            // Search input
+            NTextInput {
+              id: searchInput
               anchors.left: parent.left
-              radius: Style.radiusS
-              color: searchCollapsedMouseArea.containsMouse ? Color.mHover : "transparent"
+              anchors.right: parent.right
+              anchors.verticalCenter: parent.verticalCenter
+              placeholderText: I18n.tr("common.search")
+              inputIconName: "search"
+              visible: opacity > 0
+              opacity: root.sidebarExpanded ? 1.0 : 0.0
 
-              Behavior on color {
-                enabled: !Color.isTransitioning
-                ColorAnimation {
+              Behavior on opacity {
+                NumberAnimation {
                   duration: Style.animationFast
                   easing.type: Easing.InOutQuad
                 }
               }
 
-              RowLayout {
-                id: searchCollapsedRow
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                anchors.leftMargin: Style.marginS
-                spacing: 0
+              onTextChanged: root.searchText = text
+              onEditingFinished: {
+                if (root.searchText.trim() !== "")
+                  root.searchActivate();
+              }
+            }
 
-                NIcon {
-                  icon: "search"
-                  color: searchCollapsedMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
-                  pointSize: Style.fontSizeXL
+            // Search button for collapsed sidebar
+            Item {
+              id: searchCollapsedContainer
+              anchors.left: parent.left
+              anchors.right: parent.right
+              anchors.verticalCenter: parent.verticalCenter
+              height: Math.round(searchCollapsedRow.implicitHeight + Style.marginS * 2)
+              visible: opacity > 0
+              opacity: !root.sidebarExpanded ? 1.0 : 0.0
+
+              Behavior on opacity {
+                NumberAnimation {
+                  duration: Style.animationFast
+                  easing.type: Easing.InOutQuad
                 }
               }
 
-              MouseArea {
-                id: searchCollapsedMouseArea
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: {
-                  root.sidebarExpanded = true;
-                  root.wasCollapsedBeforeSearch = false; // Expanding manually resets this
-                  Qt.callLater(() => searchInput.inputItem.forceActiveFocus());
+              Rectangle {
+                id: searchCollapsedButton
+                width: Math.round(searchCollapsedRow.implicitWidth + Style.marginS * 2)
+                height: parent.height
+                anchors.left: parent.left
+                radius: Style.radiusS
+                color: searchCollapsedMouseArea.containsMouse ? Color.mHover : "transparent"
+
+                Behavior on color {
+                  enabled: !Color.isTransitioning
+                  ColorAnimation {
+                    duration: Style.animationFast
+                    easing.type: Easing.InOutQuad
+                  }
                 }
-                onEntered: {
-                  TooltipService.show(searchCollapsedButton, I18n.tr("common.search"));
+
+                RowLayout {
+                  id: searchCollapsedRow
+                  anchors.verticalCenter: parent.verticalCenter
+                  anchors.left: parent.left
+                  anchors.leftMargin: Style.marginS
+                  spacing: 0
+
+                  NIcon {
+                    icon: "search"
+                    color: searchCollapsedMouseArea.containsMouse ? Color.mOnHover : Color.mOnSurface
+                    pointSize: Style.fontSizeXL
+                  }
                 }
-                onExited: {
-                  TooltipService.hide();
+
+                MouseArea {
+                  id: searchCollapsedMouseArea
+                  anchors.fill: parent
+                  hoverEnabled: true
+                  cursorShape: Qt.PointingHandCursor
+                  onClicked: {
+                    root.sidebarExpanded = true;
+                    root.wasCollapsedBeforeSearch = false; // Expanding manually resets this
+                    Qt.callLater(() => searchInput.inputItem.forceActiveFocus());
+                  }
+                  onEntered: {
+                    TooltipService.show(searchCollapsedButton, I18n.tr("common.search"));
+                  }
+                  onExited: {
+                    TooltipService.hide();
+                  }
                 }
               }
             }
@@ -939,7 +1008,7 @@ Item {
 
               delegate: Rectangle {
                 id: tabItem
-                width: sidebarList.width - (sidebarList.verticalScrollBarActive ? Style.marginM : 0)
+                width: sidebarList.width
                 height: tabEntryRow.implicitHeight + Style.marginS * 2
                 radius: Style.iRadiusS
                 color: selected ? Color.mPrimary : (tabItem.hovering ? Color.mHover : "transparent")
@@ -1155,10 +1224,11 @@ Item {
                         item.screen = root.screen;
                       }
                       root.activeTabContent = item;
-                      // Handle pending subtab + highlight from search navigation
                       if (root.highlightLabelKey) {
                         if (root._pendingSubTab >= 0) {
+                          root.navigatingFromSearch = true;
                           root.setSubTabIndex(root._pendingSubTab);
+                          root.navigatingFromSearch = false;
                           root._pendingSubTab = -1;
                         }
                         highlightScrollTimer.targetKey = root.highlightLabelKey;
