@@ -251,6 +251,8 @@
       "title-width-reset-tooltip": "Restablecer ancho del título"
     },
     "tray": {
+      "chevron-color-description": "Aplicar los colores del tema al icono de flecha del cajón.",
+      "chevron-color-label": "Color de la flecha",
       "colorize-icons-description": "Aplicar colores del tema a los iconos de la bandeja del sistema.",
       "colorize-icons-label": "Colorear iconos",
       "drawer-enabled-description": "Cuando está habilitado, los elementos de la bandeja no anclados se muestran en un panel cajón.<br>Cuando está deshabilitado, todos los elementos de la bandeja se muestran en línea.",
@@ -475,7 +477,7 @@
     "sources": "Fuentes",
     "start": "Comienzo",
     "stop": "Parar",
-    "supporters": "Apoyadores",
+    "supporters": "Patrocinadores",
     "suspend": "Suspender",
     "templates": "Plantillas",
     "tertiary": "Terciario",
@@ -1178,6 +1180,8 @@
       "compact-lockscreen-label": "Pantalla de bloqueo compacta",
       "lock-on-suspend-description": "Bloquear la pantalla automáticamente al suspender el sistema.",
       "lock-on-suspend-label": "Bloquear al suspender",
+      "lock-screen-animations-description": "Activar o desactivar las animaciones de la pantalla de bloqueo.",
+      "lock-screen-animations-label": "Animaciones de la Pantalla de Bloqueo",
       "show-hibernate-description": "Mostrar la opción 'hibernar' en los controles de energía.",
       "show-hibernate-label": "Mostrar hibernar",
       "show-session-buttons-description": "Permitir el acceso a las opciones de sesión desde la pantalla de bloqueo.",
@@ -1288,10 +1292,14 @@
       "types-volume-label": "Volumen de salida"
     },
     "plugins": {
+      "auto-update": "Actualizar plugins automáticamente",
+      "auto-update-description": "Actualizar automáticamente todos los plugins cuando se inicie la shell.",
       "available-description": "Navegar e instalar plugins desde fuentes configuradas.",
       "available-label": "Plugins disponibles",
       "available-no-plugins-description": "Comprueba las fuentes de tu plugin o actualiza la lista.",
       "available-no-plugins-label": "No hay plugins disponibles",
+      "check-for-updates": "Buscar actualizaciones",
+      "checking-for-updates": "Buscando actualizaciones...",
       "collision-already-installed": "Este plugin ya está instalado",
       "collision-custom-version-exists": "Ya hay instalada una versión personalizada de \"{source}\"",
       "collision-official-version-exists": "La versión oficial de este plugin ya está instalada",
@@ -1532,7 +1540,7 @@
   "setup": {
     "all-done": "¡Listo!",
     "appearance": {
-      "subheader": "Elige el Modo Oscuro y las fuentes de color (Wallpaper o predefinidas)."
+      "subheader": "Elige el modo oscuro y las fuentes de color (fondo de pantalla o predefinidas)."
     },
     "customize": {
       "header": "Personaliza tu experiencia",
@@ -1713,8 +1721,8 @@
     "search-close": "Cerrar búsqueda",
     "session-menu": "Menú de sesión",
     "show-all-devices": "Mostrar todos los dispositivos",
-    "switch-to-dark-mode": "Modo Oscuro",
-    "switch-to-light-mode": "Modo Claro",
+    "switch-to-dark-mode": "Modo oscuro",
+    "switch-to-light-mode": "Modo claro",
     "unmute": "Activar el audio",
     "up": "Directorio superior",
     "volume-at": "Volumen de salida: {volume}%",
@@ -1785,7 +1793,9 @@
     "wallhaven": {
       "loading": "Cargando fondos de pantalla...",
       "no-results": "No se encontraron fondos de pantalla. Intenta con una búsqueda diferente.",
-      "page": "{current} de {total}"
+      "page": "{current} de {total}",
+      "page-prefix": "Página",
+      "page-suffix": "de {total}"
     }
   },
   "weather": {

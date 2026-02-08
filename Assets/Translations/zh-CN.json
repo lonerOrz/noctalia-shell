@@ -251,6 +251,8 @@
       "title-width-reset-tooltip": "重置标题宽度"
     },
     "tray": {
+      "chevron-color-description": "将主题颜色应用于抽屉的箭头图标。",
+      "chevron-color-label": "箭头颜色",
       "colorize-icons-description": "将主题颜色应用到系统托盘图标。",
       "colorize-icons-label": "着色图标",
       "drawer-enabled-description": "启用时，未固定的托盘项显示在抽屉面板中。<br>禁用时，所有托盘项都内联显示。",
@@ -1178,6 +1180,8 @@
       "compact-lockscreen-label": "紧凑型锁屏",
       "lock-on-suspend-description": "系统挂起时自动锁定屏幕。",
       "lock-on-suspend-label": "挂起时锁定",
+      "lock-screen-animations-description": "启用或禁用锁屏动画。",
+      "lock-screen-animations-label": "锁屏动画",
       "show-hibernate-description": "在电源控制中显示'休眠'选项。",
       "show-hibernate-label": "显示休眠",
       "show-session-buttons-description": "允许从锁屏访问电源设置。",
@@ -1288,10 +1292,14 @@
       "types-volume-label": "输出音量"
     },
     "plugins": {
+      "auto-update": "自动更新插件",
+      "auto-update-description": "在 shell 启动时自动更新所有插件。",
       "available-description": "浏览并安装来自已配置源的插件。",
       "available-label": "可用插件",
       "available-no-plugins-description": "检查你的插件源或刷新列表。",
       "available-no-plugins-label": "没有可用的插件",
+      "check-for-updates": "检查更新",
+      "checking-for-updates": "正在检查更新...",
       "collision-already-installed": "此插件已安装",
       "collision-custom-version-exists": "来自“{source}”的自定义版本已安装",
       "collision-official-version-exists": "此插件的官方版本已安装",
@@ -1532,7 +1540,7 @@
   "setup": {
     "all-done": "完成！",
     "appearance": {
-      "subheader": "选择 Dark Mode 和颜色来源（壁纸或预定义）。"
+      "subheader": "选择深色模式和颜色来源（壁纸或预设）。"
     },
     "customize": {
       "header": "自定义体验",
@@ -1639,7 +1647,7 @@
     "noctalia-performance": {
       "disabled": "性能模式已禁用",
       "enabled": "已启用性能模式",
-      "label": "Noctalia 性能"
+      "label": "Noctalia 性能模式"
     },
     "power-profile": {
       "changed": "电源模式已更改",
@@ -1785,7 +1793,9 @@
     "wallhaven": {
       "loading": "正在加载壁纸...",
       "no-results": "未找到壁纸。请尝试不同的搜索查询。",
-      "page": "{current} / {total}"
+      "page": "{current} / {total}",
+      "page-prefix": "页面",
+      "page-suffix": "共 {total} 个"
     }
   },
   "weather": {

@@ -289,6 +289,16 @@ Singleton {
     }
   }
 
+  // Reset differential state after suspend so the first reading is treated as fresh
+  Connections {
+    target: Time
+    function onResumed() {
+      Logger.i("SystemStat", "System resumed - resetting differential state");
+      root.prevCpuStats = null;
+      root.prevTime = 0;
+    }
+  }
+
   function restartGpuDetection() {
     // Reset GPU state
     root.gpuAvailable = false;
@@ -693,8 +703,8 @@ Singleton {
         root.cpuThermalZonePaths = cpuZones.map(z => z.path);
         const types = cpuZones.map(z => z.type).join(", ");
         Logger.i("SystemStat", `Found ${cpuZones.length} CPU thermal zone(s): ${types}`);
-      } else {
-        Logger.w("No supported temperature sensor found");
+      } else if (root.cpuTempHwmonPath === "") {
+        Logger.w("SystemStat", "No supported temperature sensor found");
       }
 
       // GPU thermal zones
@@ -1083,8 +1093,23 @@ Singleton {
   }
 
   // -------------------------------------------------------
+  // Check whether a network interface is virtual/tunnel/bridge.
+  // Only physical interfaces (eth*, en*, wl*, ww*) are kept so
+  // that traffic routed through VPNs, Docker bridges, etc. is
+  // not double-counted.
+  readonly property var _virtualPrefixes: ["lo", "docker", "veth", "br-", "virbr", "vnet", "tun", "tap", "wg", "tailscale", "nordlynx", "proton", "mullvad", "flannel", "cni", "cali", "vxlan", "genev", "gre", "sit", "ip6tnl", "dummy", "ifb", "nlmon", "bond"]
+
+  function isVirtualInterface(name) {
+    for (let i = 0; i < _virtualPrefixes.length; ++i) {
+      if (name.startsWith(_virtualPrefixes[i]))
+        return true;
+    }
+    return false;
+  }
+
+  // -------------------------------------------------------
   // Calculate RX and TX speed from /proc/net/dev
-  // Average speed of all interfaces excepted 'lo'
+  // Sums speeds of all physical interfaces
   function calculateNetworkSpeed(text) {
     if (!text) {
       return;
@@ -1108,7 +1133,7 @@ Singleton {
       }
 
       const iface = line.substring(0, colonIndex).trim();
-      if (iface === 'lo') {
+      if (isVirtualInterface(iface)) {
         continue;
       }
 
@@ -1294,16 +1319,17 @@ Singleton {
   // Priority (when dGPU monitoring enabled): NVIDIA > AMD dGPU > Intel Arc > AMD iGPU
   // Priority (when dGPU monitoring disabled): AMD iGPU only (discrete GPUs skipped to preserve D3cold)
   function selectBestGpu() {
+    const dgpuEnabled = Settings.data.systemMonitor.enableDgpuMonitoring;
+
     if (root.foundGpuSensors.length === 0) {
       // No hwmon GPU sensors found, try thermal_zone fallback
-      if (root.gpuThermalZonePath === "" && root.gpuThermalZonePaths.length === 0) {
+      if (dgpuEnabled && root.gpuThermalZonePath === "" && root.gpuThermalZonePaths.length === 0) {
         // Thermal zone scanner hasn't found GPU zones yet; start a scan
         thermalZoneScanner.startScan();
       }
       return;
     }
 
-    const dgpuEnabled = Settings.data.systemMonitor.enableDgpuMonitoring;
     let best = null;
 
     for (var i = 0; i < root.foundGpuSensors.length; i++) {

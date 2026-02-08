@@ -251,6 +251,8 @@
       "title-width-reset-tooltip": "Скинути ширину заголовка"
     },
     "tray": {
+      "chevron-color-description": "Застосувати кольори теми до іконки шеврона шухляди.",
+      "chevron-color-label": "Колір стрілки",
       "colorize-icons-description": "Застосувати кольори теми до значків трея.",
       "colorize-icons-label": "Розфарбувати значки",
       "drawer-enabled-description": "Коли увімкнено, не закріплені елементи трея відображаються на панелі ящика.<br>Коли вимкнено, всі елементи трея відображаються в рядку.",
@@ -673,7 +675,7 @@
       "system-cpu": "ЦП:",
       "system-disk": "Диск:",
       "system-gpu": "GPU:",
-      "system-host": "Ведучий:",
+      "system-host": "хост:",
       "system-install-hint": "Встановіть fastfetch для перегляду інформації про систему",
       "system-kernel": "Ядро:",
       "system-loading": "Завантаження системної інформації...",
@@ -1178,6 +1180,8 @@
       "compact-lockscreen-label": "Компактний екран блокування",
       "lock-on-suspend-description": "Автоматично блокувати екран при призупиненні системи.",
       "lock-on-suspend-label": "Блокувати при призупиненні",
+      "lock-screen-animations-description": "Увімкнути або вимкнути анімації екрана блокування.",
+      "lock-screen-animations-label": "Анімації Екрана Блокування",
       "show-hibernate-description": "Показувати опцію 'сплячий режим' в елементах керування живленням.",
       "show-hibernate-label": "Показувати сплячий режим",
       "show-session-buttons-description": "Дозволити доступ до налаштувань живлення з екрана блокування.",
@@ -1288,10 +1292,14 @@
       "types-volume-label": "Вихідна гучність"
     },
     "plugins": {
+      "auto-update": "Автоматичне оновлення плагінів",
+      "auto-update-description": "Автоматично оновлювати всі плагіни при запуску оболонки.",
       "available-description": "Переглядайте та встановлюйте плагіни з налаштованих джерел.",
       "available-label": "Доступні плагіни",
       "available-no-plugins-description": "Перевірте вихідні коди вашого плагіна або оновіть список.",
       "available-no-plugins-label": "Немає доступних плагінів",
+      "check-for-updates": "Перевірити оновлення",
+      "checking-for-updates": "Перевірка оновлень...",
       "collision-already-installed": "Цей плагін вже встановлено",
       "collision-custom-version-exists": "Вже встановлено власну версію з \"{source}\"",
       "collision-official-version-exists": "Офіційна версія цього плагіна вже встановлена",
@@ -1532,7 +1540,7 @@
   "setup": {
     "all-done": "Готово!",
     "appearance": {
-      "subheader": "Виберіть Dark Mode та джерела кольору (Шпалери або попередньо визначені)."
+      "subheader": "Виберіть темний режим і джерела кольорів (шпалери або попередньо визначені)."
     },
     "customize": {
       "header": "Налаштуйте ваш досвід",
@@ -1785,7 +1793,9 @@
     "wallhaven": {
       "loading": "Завантаження шпалер...",
       "no-results": "Шпалери не знайдено. Спробуйте інший пошуковий запит.",
-      "page": "{current} з {total}"
+      "page": "{current} з {total}",
+      "page-prefix": "Сторінка",
+      "page-suffix": "з {total}"
     }
   },
   "weather": {

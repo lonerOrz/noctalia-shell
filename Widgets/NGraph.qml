@@ -179,7 +179,6 @@ Item {
   Canvas {
     id: canvas
     anchors.fill: parent
-    renderStrategy: Canvas.Cooperative
 
     onPaint: {
       var ctx = getContext("2d");

@@ -251,6 +251,8 @@
       "title-width-reset-tooltip": "Réinitialiser la largeur du titre"
     },
     "tray": {
+      "chevron-color-description": "Appliquer les couleurs du thème à l'icône chevron du tiroir.",
+      "chevron-color-label": "Couleur du chevron",
       "colorize-icons-description": "Appliquer les couleurs du thème aux icônes de la barre système.",
       "colorize-icons-label": "Coloriser les icônes",
       "drawer-enabled-description": "Lorsqu'elle est activée, les éléments de la barre système non épinglés sont affichés dans un panneau tiroir.<br>Lorsqu'elle est désactivée, tous les éléments de la barre système sont affichés en ligne.",
@@ -1178,6 +1180,8 @@
       "compact-lockscreen-label": "Écran de verrouillage compact",
       "lock-on-suspend-description": "Verrouiller automatiquement l'écran lors de la mise en veille du système.",
       "lock-on-suspend-label": "Verrouiller à la suspension",
+      "lock-screen-animations-description": "Activer ou désactiver les animations de l'écran de verrouillage.",
+      "lock-screen-animations-label": "Animations de l'Écran de Verrouillage",
       "show-hibernate-description": "Afficher l’option 'hiberner' dans les commandes d'alimentation.",
       "show-hibernate-label": "Afficher l’hibernation",
       "show-session-buttons-description": "Autoriser l'accès aux paramètres d'alimentation depuis l'écran de verrouillage.",
@@ -1288,10 +1292,14 @@
       "types-volume-label": "Volume de sortie"
     },
     "plugins": {
+      "auto-update": "Mettre à jour les plugins automatiquement",
+      "auto-update-description": "Mettre à jour automatiquement tous les plugins au démarrage de la shell.",
       "available-description": "Parcourir et installer des plugins à partir des sources configurées.",
       "available-label": "Plugins disponibles",
       "available-no-plugins-description": "Vérifiez les sources de vos plugins ou actualisez la liste.",
       "available-no-plugins-label": "Aucun plugin disponible",
+      "check-for-updates": "Rechercher des mises à jour",
+      "checking-for-updates": "Vérification des mises à jour...",
       "collision-already-installed": "Ce plugin est déjà installé",
       "collision-custom-version-exists": "Une version personnalisée de \"{source}\" est déjà installée",
       "collision-official-version-exists": "La version officielle de cette extension est déjà installée",
@@ -1532,7 +1540,7 @@
   "setup": {
     "all-done": "Terminé !",
     "appearance": {
-      "subheader": "Choisissez le Dark Mode et les sources de couleurs (Fond d'écran ou prédéfinies)."
+      "subheader": "Choisissez le mode sombre et les sources de couleur (fond d'écran ou prédéfinies)."
     },
     "customize": {
       "header": "Personnaliser votre expérience",
@@ -1785,7 +1793,9 @@
     "wallhaven": {
       "loading": "Chargement des fonds d'écran...",
       "no-results": "Aucun fond d'écran trouvé. Essayez une autre requête de recherche.",
-      "page": "{current} sur {total}"
+      "page": "{current} sur {total}",
+      "page-prefix": "Page",
+      "page-suffix": "de {total}"
     }
   },
   "weather": {

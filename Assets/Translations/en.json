@@ -251,6 +251,8 @@
       "title-width-reset-tooltip": "Reset title width"
     },
     "tray": {
+      "chevron-color-description": "Apply theme colors to the drawer chevron icon.",
+      "chevron-color-label": "Chevron color",
       "colorize-icons-description": "Apply theme colors to tray icons.",
       "colorize-icons-label": "Colorize icons",
       "drawer-enabled-description": "When enabled, unpinned tray items are shown in a drawer panel.<br>When disabled, all tray items are shown inline.",
@@ -1114,6 +1116,8 @@
       "settings-icon-mode-label": "Use native icons",
       "settings-ignore-mouse-input-description": "Disable mouse interaction and scrollwheel in the launcher.",
       "settings-ignore-mouse-input-label": "Ignore mouse input",
+      "settings-overlay-layer-description": "Display the launcher on the overlay layer, above fullscreen windows. When enabled, the launcher will not attach to the bar.",
+      "settings-overlay-layer-label": "Show above fullscreen",
       "settings-position-description": "Choose where the launcher panel appears.",
       "settings-show-categories-description": "Show category tabs for filtering applications.",
       "settings-show-categories-label": "Show categories",
@@ -1180,6 +1184,8 @@
       "compact-lockscreen-label": "Compact lock screen",
       "lock-on-suspend-description": "Automatically lock the screen when suspending the system.",
       "lock-on-suspend-label": "Lock on suspend",
+      "lock-screen-animations-description": "Enable or disable lockscreen animations",
+      "lock-screen-animations-label": "Lockscreen animations",
       "show-hibernate-description": "Show the option 'hibernate' in the power controls.",
       "show-hibernate-label": "Show hibernate",
       "show-session-buttons-description": "Allow access to power settings from the lock screen.",
@@ -1290,10 +1296,14 @@
       "types-volume-label": "Output volume"
     },
     "plugins": {
+      "auto-update": "Auto-update plugins",
+      "auto-update-description": "Automatically update all plugins when the shell starts.",
       "available-description": "Browse and install plugins from configured sources.",
       "available-label": "Available plugins",
       "available-no-plugins-description": "Check your plugin sources or refresh the list.",
       "available-no-plugins-label": "No plugins available",
+      "check-for-updates": "Check for updates",
+      "checking-for-updates": "Checking for updates...",
       "collision-already-installed": "This plugin is already installed",
       "collision-custom-version-exists": "A custom version from \"{source}\" is already installed",
       "collision-official-version-exists": "The official version of this plugin is already installed",
@@ -1534,7 +1544,7 @@
   "setup": {
     "all-done": "All Done!",
     "appearance": {
-      "subheader": "Choose Dark Mode and color sources (Wallpaper or predefined)."
+      "subheader": "Choose Dark Mode and color sources (wallpaper or predefined)."
     },
     "customize": {
       "header": "Customize your experience",
@@ -1787,7 +1797,9 @@
     "wallhaven": {
       "loading": "Loading wallpapers...",
       "no-results": "No wallpapers found. Try a different search query.",
-      "page": "{current} of {total}"
+      "page": "{current} of {total}",
+      "page-prefix": "Page",
+      "page-suffix": "of {total}"
     }
   },
   "weather": {

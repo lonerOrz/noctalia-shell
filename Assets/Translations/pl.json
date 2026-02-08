@@ -251,6 +251,8 @@
       "title-width-reset-tooltip": "Resetuj szerokość tytułu"
     },
     "tray": {
+      "chevron-color-description": "Zastosuj kolory motywu do ikony strzałki szuflady.",
+      "chevron-color-label": "Kolor strzałki",
       "colorize-icons-description": "Zastosuj kolory motywu do ikon zasobnika.",
       "colorize-icons-label": "Koloryzuj ikony",
       "drawer-enabled-description": "Gdy włączone, nieprzypięte elementy zasobnika są pokazywane w panelu szuflady.<br>Gdy wyłączone, wszystkie elementy są pokazywane w linii.",
@@ -1178,6 +1180,8 @@
       "compact-lockscreen-label": "Kompaktowy ekran blokady",
       "lock-on-suspend-description": "Automatycznie blokuj ekran podczas uśpienia systemu.",
       "lock-on-suspend-label": "Blokuj przy uśpieniu",
+      "lock-screen-animations-description": "Włącz lub wyłącz animacje ekranu blokady.",
+      "lock-screen-animations-label": "Animacje Ekranu Blokady",
       "show-hibernate-description": "Pokaż opcję 'hibernacja' w kontrolkach zasilania.",
       "show-hibernate-label": "Pokaż hibernację",
       "show-session-buttons-description": "Zezwalaj na dostęp do ustawień zasilania z poziomu ekranu blokady.",
@@ -1288,10 +1292,14 @@
       "types-volume-label": "Głośność wyjściowa"
     },
     "plugins": {
+      "auto-update": "Automatyczna aktualizacja wtyczek",
+      "auto-update-description": "Automatycznie aktualizuj wszystkie wtyczki po uruchomieniu shella.",
       "available-description": "Przeglądaj i instaluj wtyczki ze skonfigurowanych źródeł.",
       "available-label": "Dostępne wtyczki",
       "available-no-plugins-description": "Sprawdź źródła wtyczek lub odśwież listę.",
       "available-no-plugins-label": "Brak dostępnych wtyczek",
+      "check-for-updates": "Sprawdź aktualizacje",
+      "checking-for-updates": "Sprawdzanie aktualizacji...",
       "collision-already-installed": "Ta wtyczka jest już zainstalowana",
       "collision-custom-version-exists": "Niestandardowa wersja z \"{source}\" jest już zainstalowana",
       "collision-official-version-exists": "Oficjalna wersja tej wtyczki jest już zainstalowana",
@@ -1532,7 +1540,7 @@
   "setup": {
     "all-done": "Gotowe!",
     "appearance": {
-      "subheader": "Wybierz Dark Mode i źródła kolorów (Tapeta lub predefiniowane)."
+      "subheader": "Wybierz tryb ciemny i źródła kolorów (tapeta lub predefiniowane)."
     },
     "customize": {
       "header": "Dostosuj swoje doświadczenie",
@@ -1785,7 +1793,9 @@
     "wallhaven": {
       "loading": "Ładowanie tapet...",
       "no-results": "Nie znaleziono tapet. Spróbuj innego zapytania.",
-      "page": "{current} z {total}"
+      "page": "{current} z {total}",
+      "page-prefix": "Strona",
+      "page-suffix": "z {total}"
     }
   },
   "weather": {
