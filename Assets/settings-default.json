@@ -122,9 +122,9 @@
       ],
       "keyRemove": [
         "Del"
-      ]
+      ],
+      "reverseScroll": false
     }
-    "reverseScroll": false,
   },
   "ui": {
     "fontDefault": "",
