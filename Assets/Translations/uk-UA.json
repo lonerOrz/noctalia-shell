@@ -224,7 +224,11 @@
       "swap-usage-description": "Показати використання swap-пам'яті.",
       "swap-usage-label": "Використання swap",
       "use-monospace-font-description": "Використовуйте моноширинний шрифт для забезпечення сталої ширини символів.",
-      "use-monospace-font-label": "Моноширинний шрифт"
+      "use-monospace-font-label": "Моноширинний шрифт",
+      "use-padding-description": "Додає до текстових значень початкові пробіли, щоб запобігти зсуву макета.",
+      "use-padding-description-disabled-monospace-font": "Для цієї функції потрібен моноширинний шрифт.",
+      "use-padding-description-disabled-vertical": "Вертикальна панель завдань не підтримує текстові відступи.",
+      "use-padding-label": "Відступ Тексту"
     },
     "taskbar": {
       "colorize-icons-description": "Застосувати кольори теми до значків панелі завдань.",
@@ -373,6 +377,7 @@
     "color-muted": "Вимкнено звук",
     "colors": "Кольори",
     "command": "Команда",
+    "confirm": "Підтвердити",
     "connect": "Підключити",
     "connected": "Підключено",
     "connecting": "Підключення...",
@@ -396,6 +401,7 @@
     "edit": "Редагувати",
     "enabled": "Увімкнено",
     "error": "Помилка",
+    "ethernet": "Ethernet",
     "events": "Події",
     "execute": "Виконати",
     "faithful": "Вірний",
@@ -452,6 +458,7 @@
     "primary": "Основний",
     "random": "Випадковий",
     "reboot": "Перезапустити",
+    "reboot-to-uefi": "Перезавантажити в прошивку UEFI",
     "record": "Почати запис",
     "refresh": "Оновити",
     "required": "(обов'язково)",
@@ -470,6 +477,7 @@
     "select-color": "Вибрати колір",
     "select-color-description": "Застосувати кольори теми для виділення.",
     "select-icon-color": "Вибрати колір значка",
+    "settings": "Налаштування",
     "shortcuts": "Ярлики",
     "shutdown": "Вимкнути",
     "signal": "Сигнал",
@@ -503,6 +511,7 @@
     "week": "Тиждень",
     "widgets": "Віджети",
     "width": "Ширина",
+    "wifi": "Wi-Fi",
     "windows": "Вікна",
     "yes": "Так"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Натисніть, щоб згорнути",
       "click-to-expand": "Клацніть для розгортання",
       "description": "Ваші сповіщення з'являтимуться тут по мірі надходження.",
       "no-notifications": "Немає сповіщень"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Виберіть монітор, який використовувати для вилучення кольорів шпалер.",
       "wallpaper-monitor-source-label": "Джерело генерації кольору"
     },
+    "connections": {
+      "authentication-required": "Потрібна автентифікація",
+      "bluetooth-devices-unnamed": "Безіменні пристрої не відображаються.",
+      "bluetooth-discoverable": "Цей пристрій можна виявити як <b>{hostName}</b>, поки ця вкладка налаштувань відкрита.",
+      "bluetooth-rssi-polling-description": "Періодично вимірює RSSI для підключених пристроїв через bluetoothctl. Може бути недоступно для всіх пристроїв; використовує мінімальні ресурси, якщо увімкнено.",
+      "bluetooth-rssi-polling-interval-description": "Налаштуйте, як часто оновлювати рівень сигналу для підключених пристроїв.",
+      "bluetooth-rssi-polling-interval-label": "Інтервал опитування",
+      "bluetooth-rssi-polling-label": "Опитування сигналу Bluetooth",
+      "disable-discoverability-description": "Приховати ваш пристрій від найближчих пристроїв Bluetooth.",
+      "disable-discoverability-label": "Вимкнути видимість пристрою",
+      "hide-unnamed-devices-description": "Приховати пристрої, які відображаються лише як Bluetooth-адреси.",
+      "hide-unnamed-devices-label": "Приховати безіменні пристрої",
+      "pin-instructions": "Будь ласка, введіть PIN-код, що відображається на вашому пристрої.",
+      "title": "Підключення"
+    },
     "control-center": {
       "cards-desc": "Налаштуйте, які елементи керування з'являються в центрі керування та в якому порядку.",
       "desc": "Налаштуйте положення та поведінку панелі центру керування.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Автоприховування",
       "appearance-display-description": "Виберіть, як поводиться док.",
       "appearance-display-exclusive": "Винятковий",
+      "appearance-type-label": "Стиль доку",
+      "appearance-type-description": "Виберіть між плаваючою пігулкою або статичною панеллю, прикріпленою до краю.",
+      "appearance-type-floating": "Плаваюча",
+      "appearance-type-static": "Статична",
       "appearance-floating-distance-description": "Встановіть відстань між доком і краєм екрана.",
       "appearance-floating-distance-label": "Відстань плавання дока",
       "appearance-hide-show-speed-description": "Налаштуйте швидкість анімації приховування/відображення дока.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Розмір дока",
       "appearance-inactive-indicators-description": "Відображати індикатори-пігулки для всіх програм, а не лише для поточної активної.",
       "appearance-inactive-indicators-label": "Індикатори бігу",
+      "appearance-sit-on-frame-description": "Вирівняти док всередині межі рамки замість того, щоб розміщувати його зверху.",
+      "appearance-sit-on-frame-label": "Док на рамці",
+      "appearance-frame-indicator-description": "Показувати невеликий індикатор на рамці, коли док прихований.",
+      "appearance-frame-indicator-label": "Індикатор доку на рамці",
       "appearance-pinned-static-description": "Завжди закріплюйте значки програм ліворуч у статичному порядку.",
       "appearance-pinned-static-label": "Статично закріплені програми",
       "appearance-position-description": "Виберіть, де док відображатиметься на екрані.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Підтвердити / Дія",
       "keybinds-escape": "Закрити / Назад",
       "keybinds-left": "Перемістити вліво",
+      "keybinds-modifier-description": "Комбінації клавіш повинні включати клавішу-модифікатор (Ctrl або Alt).",
+      "keybinds-modifier-title": "Потрібен модифікатор",
+      "keybinds-remove": "Видалити",
       "keybinds-right": "Перемістити вправо",
       "keybinds-title": "Прив'язки клавіш навігації",
       "keybinds-up": "Перемістити вгору",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Вибрати зображення аватара",
       "profile-title": "Профіль",
       "profile-tooltip": "Фото профілю",
+      "reverse-scrolling-description": "Обернути інтерпретований напрямок прокручування",
+      "reverse-scrolling-label": "Зворотне прокручування",
       "screen-corners-desc": "Налаштуйте заокруглення кутів екрана та візуальні ефекти.",
       "screen-corners-radius-description": "Налаштуйте заокруглення кутів екрана.",
       "screen-corners-radius-label": "Радіус кутів екрана",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Увімкнути або вимкнути демон сповіщень, вимагає перезапуску Noctalia shell.",
       "settings-enabled-label": "Увімкнути сповіщення",
       "settings-location-description": "Де з'являються сповіщення на екрані.",
+      "settings-markdown-description": "Відображати вміст сповіщень, використовуючи форматування Markdown.",
+      "settings-markdown-label": "Увімкнути Markdown",
       "sounds-desc": "Налаштуйте звукові ефекти та гучність сповіщень.",
       "sounds-enabled-description": "Увімкнути звукові ефекти для вхідних сповіщень.",
       "sounds-enabled-label": "Увімкнути звуки сповіщень",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Стиль великих кнопок",
       "position-description": "Виберіть, де з'являється панель меню сеансу при відкритті.",
       "show-header-description": "Відображати заголовок та кнопку закриття в верхній частині меню сеансу.",
-      "show-header-label": "Показувати заголовок"
+      "show-header-label": "Показувати заголовок",
+      "show-keybinds-description": "Показувати підказки щодо комбінацій клавіш у параметрах сеансу.",
+      "show-keybinds-label": "Показати комбінації клавіш"
     },
     "system-monitor": {
       "critical-color-label": "Критичний колір",

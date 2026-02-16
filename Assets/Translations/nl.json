@@ -224,7 +224,11 @@
       "swap-usage-description": "Toon swap geheugengebruik.",
       "swap-usage-label": "Swapgebruik",
       "use-monospace-font-description": "Gebruik een monospace lettertype voor een consistente tekenbreedte.",
-      "use-monospace-font-label": "Lettertype met vaste breedte"
+      "use-monospace-font-label": "Lettertype met vaste breedte",
+      "use-padding-description": "Vult de tekstwaarden aan met voorloopspaties om lay-outverschuiving te voorkomen.",
+      "use-padding-description-disabled-monospace-font": "Een monospace lettertype is nodig voor deze functie.",
+      "use-padding-description-disabled-vertical": "De verticale taakbalk ondersteunt geen tekstvulling.",
+      "use-padding-label": "Tekstopvulling"
     },
     "taskbar": {
       "colorize-icons-description": "Pas themakleuren toe op taakbalkpictogrammen.",
@@ -373,6 +377,7 @@
     "color-muted": "Gedempt",
     "colors": "Kleuren",
     "command": "Commando",
+    "confirm": "Bevestigen",
     "connect": "Verbinden",
     "connected": "Verbonden",
     "connecting": "Verbinden...",
@@ -396,6 +401,7 @@
     "edit": "Bewerken",
     "enabled": "Ingeschakeld",
     "error": "Fout",
+    "ethernet": "Ethernet",
     "events": "Evenementen",
     "execute": "Uitvoeren",
     "faithful": "Getrouw",
@@ -452,6 +458,7 @@
     "primary": "Primair",
     "random": "Willekeurig",
     "reboot": "Herstarten",
+    "reboot-to-uefi": "Opnieuw opstarten naar UEFI-firmware",
     "record": "Opname starten",
     "refresh": "Vernieuwen",
     "required": "(vereist)",
@@ -470,6 +477,7 @@
     "select-color": "Kleur selecteren",
     "select-color-description": "Themakleuren toepassen voor nadruk.",
     "select-icon-color": "Icoonkleur selecteren",
+    "settings": "Instellingen",
     "shortcuts": "Snelkoppelingen",
     "shutdown": "Afsluiten",
     "signal": "Signaal",
@@ -503,6 +511,7 @@
     "week": "Week",
     "widgets": "Widgets",
     "width": "Breedte",
+    "wifi": "Wi-Fi",
     "windows": "Vensters",
     "yes": "Ja"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Klikken om in te klappen",
       "click-to-expand": "Klik om uit te vouwen",
       "description": "Je meldingen verschijnen hier zodra ze binnenkomen.",
       "no-notifications": "Geen meldingen"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Selecteer welke monitor te gebruiken voor het extraheren van wallpaperkleuren.",
       "wallpaper-monitor-source-label": "Bron van kleurgeneratie"
     },
+    "connections": {
+      "authentication-required": "Authenticatie vereist",
+      "bluetooth-devices-unnamed": "Naamloze apparaten worden niet getoond.",
+      "bluetooth-discoverable": "Dit apparaat is vindbaar als <b>{hostName}</b> zolang dit instellingen-tabblad geopend is.",
+      "bluetooth-rssi-polling-description": "Periodiek RSSI van verbonden apparaten via bluetoothctl samplen. Mogelijk niet beschikbaar voor alle apparaten; gebruikt minimale middelen wanneer ingeschakeld.",
+      "bluetooth-rssi-polling-interval-description": "Configureer hoe vaak de signaalsterkte voor verbonden apparaten moet worden bijgewerkt.",
+      "bluetooth-rssi-polling-interval-label": "Polling-interval",
+      "bluetooth-rssi-polling-label": "Bluetooth-signaalpeiling",
+      "disable-discoverability-description": "Verberg je apparaat voor Bluetooth-apparaten in de buurt.",
+      "disable-discoverability-label": "Zichtbaarheid van apparaat uitschakelen",
+      "hide-unnamed-devices-description": "Verberg apparaten die alleen als Bluetooth-adressen verschijnen.",
+      "hide-unnamed-devices-label": "Onbenoemde apparaten verbergen",
+      "pin-instructions": "Voer de PIN-code in die op uw apparaat wordt weergegeven.",
+      "title": "Verbindingen"
+    },
     "control-center": {
       "cards-desc": "Pas aan welke bedieningselementen in het bedieningscentrum verschijnen en in welke volgorde.",
       "desc": "Configureer de positie en het gedrag van het bedieningscentrumpaneel.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Automatisch verbergen",
       "appearance-display-description": "Kies hoe de dock zich gedraagt.",
       "appearance-display-exclusive": "Exclusief",
+      "appearance-type-label": "Dockstijl",
+      "appearance-type-description": "Kies tussen een zwevende pil of een statische balk aan de rand.",
+      "appearance-type-floating": "Zwevend",
+      "appearance-type-static": "Statisch",
       "appearance-floating-distance-description": "Stel de afstand in tussen de dock en de rand van het scherm.",
       "appearance-floating-distance-label": "Afstand zwevende dock",
       "appearance-hide-show-speed-description": "Pas de snelheid van de verberg/weergeef animatie van de dock aan.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Grootte van de dock",
       "appearance-inactive-indicators-description": "Toon indicatorpillen voor alle apps, niet alleen de actieve.",
       "appearance-inactive-indicators-label": "Lopende indicatoren",
+      "appearance-sit-on-frame-description": "Lijn het dock uit binnen de kaderrand in plaats van er bovenop.",
+      "appearance-sit-on-frame-label": "Dock zit op kader",
+      "appearance-frame-indicator-description": "Toon een kleine indicator op het kader wanneer het dock verborgen is.",
+      "appearance-frame-indicator-label": "Kader-dockindicator",
       "appearance-pinned-static-description": "Zet vastgemaakte app-pictogrammen altijd in statische volgorde aan de linkerkant.",
       "appearance-pinned-static-label": "Statische vastgezette apps",
       "appearance-position-description": "Kies waar het dock op het scherm verschijnt.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Bevestigen / Actie",
       "keybinds-escape": "Sluiten / Terug",
       "keybinds-left": "Naar links",
+      "keybinds-modifier-description": "Sneltoetsen moeten een modificatietoets (Ctrl of Alt) bevatten.",
+      "keybinds-modifier-title": "Modificator vereist",
+      "keybinds-remove": "Verwijderen",
       "keybinds-right": "Naar rechts",
       "keybinds-title": "Navigatietoetsencombinaties",
       "keybinds-up": "Omhoog",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Avatarafbeelding selecteren",
       "profile-title": "Profiel",
       "profile-tooltip": "Profielfoto",
+      "reverse-scrolling-description": "Geïnterpreteerde schuifrichting omkeren",
+      "reverse-scrolling-label": "Scrollen omkeren",
       "screen-corners-desc": "Pas afronding en visuele effecten van schermhoeken aan.",
       "screen-corners-radius-description": "Pas de afronding van de schermhoeken aan.",
       "screen-corners-radius-label": "Straal schermhoeken",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Schakel de meldingsdaemon in of uit, vereist een herstart van Noctalia shell.",
       "settings-enabled-label": "Meldingen inschakelen",
       "settings-location-description": "Waar meldingen op het scherm verschijnen.",
+      "settings-markdown-description": "Meldingsinhoud weergeven met Markdown-opmaak.",
+      "settings-markdown-label": "Markdown inschakelen",
       "sounds-desc": "Configureer meldingsgeluidseffecten en volume.",
       "sounds-enabled-description": "Schakel geluidseffecten in voor inkomende meldingen.",
       "sounds-enabled-label": "Meldingsgeluiden inschakelen",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Stijl met grote knoppen",
       "position-description": "Kies waar het sessiemenupaneel verschijnt wanneer het wordt geopend.",
       "show-header-description": "Toon de titel en sluitknop bovenaan het sessiemenu.",
-      "show-header-label": "Koptekst tonen"
+      "show-header-label": "Koptekst tonen",
+      "show-keybinds-description": "Toon toetscombinatiehints bij sessie-opties.",
+      "show-keybinds-label": "Toetsencombinaties weergeven"
     },
     "system-monitor": {
       "critical-color-label": "Kritische kleur",

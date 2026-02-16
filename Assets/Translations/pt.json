@@ -224,7 +224,11 @@
       "swap-usage-description": "Mostrar o uso da memória swap.",
       "swap-usage-label": "Utilização de swap",
       "use-monospace-font-description": "Use fonte monoespaçada para largura de caractere consistente.",
-      "use-monospace-font-label": "Fonte monoespaçada"
+      "use-monospace-font-label": "Fonte monoespaçada",
+      "use-padding-description": "Preenche os valores de texto com espaços iniciais para evitar o deslocamento do layout.",
+      "use-padding-description-disabled-monospace-font": "É necessária uma fonte monoespaçada para esta funcionalidade.",
+      "use-padding-description-disabled-vertical": "A barra de tarefas vertical não suporta preenchimento de texto.",
+      "use-padding-label": "Preenchimento do Texto"
     },
     "taskbar": {
       "colorize-icons-description": "Aplicar cores do tema aos ícones da barra de tarefas.",
@@ -373,6 +377,7 @@
     "color-muted": "Silenciado",
     "colors": "Cores",
     "command": "Comando",
+    "confirm": "Confirmar",
     "connect": "Conectar",
     "connected": "Conectado(a)",
     "connecting": "Conectando...",
@@ -396,6 +401,7 @@
     "edit": "Editar",
     "enabled": "Ativado",
     "error": "Erro",
+    "ethernet": "Ethernet",
     "events": "Eventos",
     "execute": "Executar",
     "faithful": "Fiel",
@@ -452,6 +458,7 @@
     "primary": "Primário",
     "random": "Aleatório",
     "reboot": "Reiniciar",
+    "reboot-to-uefi": "Reiniciar para o firmware UEFI",
     "record": "Iniciar gravação",
     "refresh": "Atualizar",
     "required": "(obrigatório)",
@@ -470,6 +477,7 @@
     "select-color": "Selecionar cor",
     "select-color-description": "Aplicar cores do tema para enfatizar.",
     "select-icon-color": "Selecionar cor do ícone",
+    "settings": "Definições",
     "shortcuts": "Atalhos",
     "shutdown": "Desligar",
     "signal": "Sinal",
@@ -503,6 +511,7 @@
     "week": "Semana",
     "widgets": "Widgets",
     "width": "Largura",
+    "wifi": "Wi-Fi",
     "windows": "Janelas",
     "yes": "Sim"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Clique para recolher",
       "click-to-expand": "Clique para expandir",
       "description": "Suas notificações aparecerão aqui assim que chegarem.",
       "no-notifications": "Nenhuma notificação"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Selecione qual monitor usar para extrair as cores do papel de parede.",
       "wallpaper-monitor-source-label": "Fonte de geração de cores"
     },
+    "connections": {
+      "authentication-required": "Autenticação necessária",
+      "bluetooth-devices-unnamed": "Dispositivos sem nome não são exibidos.",
+      "bluetooth-discoverable": "Este dispositivo é detectável como <b>{hostName}</b> enquanto esta aba de configurações estiver aberta.",
+      "bluetooth-rssi-polling-description": "Amostra periodicamente o RSSI de dispositivos conectados via bluetoothctl. Pode não estar disponível para todos os dispositivos; usa recursos mínimos quando ativado.",
+      "bluetooth-rssi-polling-interval-description": "Configurar com que frequência atualizar a intensidade do sinal para dispositivos conectados.",
+      "bluetooth-rssi-polling-interval-label": "Intervalo de sondagem",
+      "bluetooth-rssi-polling-label": "Sondagem de sinal Bluetooth",
+      "disable-discoverability-description": "Ocultar o seu dispositivo de dispositivos Bluetooth próximos.",
+      "disable-discoverability-label": "Desativar visibilidade do dispositivo",
+      "hide-unnamed-devices-description": "Ocultar dispositivos que aparecem apenas como endereços Bluetooth.",
+      "hide-unnamed-devices-label": "Ocultar dispositivos sem nome",
+      "pin-instructions": "Por favor, insira o código PIN exibido no seu dispositivo.",
+      "title": "Conexões"
+    },
     "control-center": {
       "cards-desc": "Personalize quais controles aparecem na central de controle e em que ordem.",
       "desc": "Configurar o posicionamento e o comportamento do painel da central de controle.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Ocultar automaticamente",
       "appearance-display-description": "Escolha como a dock se comporta.",
       "appearance-display-exclusive": "Exclusivo",
+      "appearance-type-label": "Estilo do dock",
+      "appearance-type-description": "Escolha entre uma pílula flutuante ou uma barra estática presa à borda.",
+      "appearance-type-floating": "Flutuante",
+      "appearance-type-static": "Estático",
       "appearance-floating-distance-description": "Ajuste a distância de flutuação da borda da tela.",
       "appearance-floating-distance-label": "Distância de flutuação da dock",
       "appearance-hide-show-speed-description": "Ajuste a velocidade da animação de ocultar/mostrar da dock.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Tamanho do dock",
       "appearance-inactive-indicators-description": "Exibir indicadores de pílula para todos os aplicativos, não apenas para o aplicativo ativo no momento.",
       "appearance-inactive-indicators-label": "Indicadores de execução",
+      "appearance-sit-on-frame-description": "Alinhar o dock dentro da borda do quadro em vez de ficar por cima.",
+      "appearance-sit-on-frame-label": "Dock no quadro",
+      "appearance-frame-indicator-description": "Mostrar um pequeno indicador no quadro quando o dock estiver oculto.",
+      "appearance-frame-indicator-label": "Indicador de dock no quadro",
       "appearance-pinned-static-description": "Sempre posicione os ícones de aplicativos fixados à esquerda em ordem estática.",
       "appearance-pinned-static-label": "Aplicativos fixados estaticamente",
       "appearance-position-description": "Escolha onde o dock aparece na tela.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Confirmar / Ação",
       "keybinds-escape": "Fechar / Voltar",
       "keybinds-left": "Mover para a esquerda",
+      "keybinds-modifier-description": "Atalhos devem incluir uma tecla modificadora (Ctrl ou Alt).",
+      "keybinds-modifier-title": "Modificador necessário",
+      "keybinds-remove": "Remover",
       "keybinds-right": "Mover para a direita",
       "keybinds-title": "Atalhos de teclado de navegação",
       "keybinds-up": "Mover para cima",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Selecionar imagem de avatar",
       "profile-title": "Perfil",
       "profile-tooltip": "Foto de perfil",
+      "reverse-scrolling-description": "Inverter a direção de rolagem interpretada",
+      "reverse-scrolling-label": "Rolagem invertida",
       "screen-corners-desc": "Personalize o arredondamento dos cantos da tela e os efeitos visuais.",
       "screen-corners-radius-description": "Ajuste os cantos arredondados da tela.",
       "screen-corners-radius-label": "Raio dos cantos da tela",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Ativar ou desativar o daemon de notificações, requer reiniciar o Noctalia shell.",
       "settings-enabled-label": "Ativar notificações",
       "settings-location-description": "Onde as notificações aparecem na tela.",
+      "settings-markdown-description": "Renderizar o conteúdo da notificação usando formatação Markdown.",
+      "settings-markdown-label": "Ativar Markdown",
       "sounds-desc": "Configurar efeitos sonoros e volume de notificações.",
       "sounds-enabled-description": "Ativar efeitos sonoros para notificações recebidas.",
       "sounds-enabled-label": "Ativar sons de notificação",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Estilo de botões grandes",
       "position-description": "Escolha onde o painel do Menu de sessão aparece quando aberto.",
       "show-header-description": "Exibir o título e o botão de fechar na parte superior do menu de sessão.",
-      "show-header-label": "Mostrar cabeçalho"
+      "show-header-label": "Mostrar cabeçalho",
+      "show-keybinds-description": "Exibir dicas de atalhos de teclado nas opções de sessão.",
+      "show-keybinds-label": "Mostrar atalhos de teclado"
     },
     "system-monitor": {
       "critical-color-label": "Cor crítica",

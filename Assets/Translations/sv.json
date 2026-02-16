@@ -224,7 +224,11 @@
       "swap-usage-description": "Visa användning av växlingsminne.",
       "swap-usage-label": "Växlingsanvändning",
       "use-monospace-font-description": "Använd monospace-teckensnitt för enhetlig teckenbredd. ",
-      "use-monospace-font-label": "Teckensnitt för fast bredd"
+      "use-monospace-font-label": "Teckensnitt för fast bredd",
+      "use-padding-description": "Fyller ut textvärdena med inledande mellanslag för att förhindra layoutförskjutning.",
+      "use-padding-description-disabled-monospace-font": "Ett monospace-typsnitt behövs för den här funktionen.",
+      "use-padding-description-disabled-vertical": "Vertikal aktivitetsfält stöder inte textutfyllnad.",
+      "use-padding-label": "Textutfyllnad"
     },
     "taskbar": {
       "colorize-icons-description": "Tillämpa temafärger på ikoner i aktivitetsfältet.",
@@ -373,6 +377,7 @@
     "color-muted": "Dämpad",
     "colors": "Färger",
     "command": "Kommando",
+    "confirm": "Bekräfta",
     "connect": "Anslut",
     "connected": "Ansluten",
     "connecting": "Ansluter...",
@@ -396,6 +401,7 @@
     "edit": "Redigera",
     "enabled": "Aktiverad",
     "error": "Fel",
+    "ethernet": "Ethernet",
     "events": "Händelser",
     "execute": "Exekvera",
     "faithful": "Trogen",
@@ -452,6 +458,7 @@
     "primary": "Primär",
     "random": "Slumpmässig",
     "reboot": "Starta om",
+    "reboot-to-uefi": "Starta om till UEFI-firmware",
     "record": "Starta inspelning",
     "refresh": "Uppdatera",
     "required": "(krävs)",
@@ -470,6 +477,7 @@
     "select-color": "Välj färg",
     "select-color-description": "Tillämpa temafärger för betoning.",
     "select-icon-color": "Välj ikonfärg",
+    "settings": "Inställningar",
     "shortcuts": "Genvägar",
     "shutdown": "Stäng av",
     "signal": "Signal",
@@ -503,6 +511,7 @@
     "week": "Vecka",
     "widgets": "Widgetar",
     "width": "Bredd",
+    "wifi": "Wi-Fi",
     "windows": "Fönster",
     "yes": "Ja"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Klicka för att fälla ihop",
       "click-to-expand": "Klicka för att expandera",
       "description": "Dina aviseringar visas här när de kommer in. ",
       "no-notifications": "Inga meddelanden"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Välj vilken bildskärm som ska användas för att extrahera bakgrundsbildernas färger.",
       "wallpaper-monitor-source-label": "Källa för färggenerering"
     },
+    "connections": {
+      "authentication-required": "Autentisering krävs",
+      "bluetooth-devices-unnamed": "Namnlösa enheter visas inte.",
+      "bluetooth-discoverable": "Denna enhet är upptäckbar som <b>{hostName}</b> medan denna inställningsflik är öppen.",
+      "bluetooth-rssi-polling-description": "Samplar periodiskt RSSI för anslutna enheter via bluetoothctl. Kanske inte tillgängligt för alla enheter; använder minimala resurser när det är aktiverat.",
+      "bluetooth-rssi-polling-interval-description": "Konfigurera hur ofta signalstyrkan för anslutna enheter ska uppdateras.",
+      "bluetooth-rssi-polling-interval-label": "Avsökningsintervall",
+      "bluetooth-rssi-polling-label": "Bluetooth-signalavsökning",
+      "disable-discoverability-description": "Dölj din enhet från närliggande Bluetooth-enheter.",
+      "disable-discoverability-label": "Inaktivera enhetssynlighet",
+      "hide-unnamed-devices-description": "Dölj enheter som endast visas som Bluetooth-adresser.",
+      "hide-unnamed-devices-label": "Dölj namnlösa enheter",
+      "pin-instructions": "Ange PIN-koden som visas på din enhet.",
+      "title": "Anslutningar"
+    },
     "control-center": {
       "cards-desc": "Anpassa vilka kontroller som ska visas i kontrollcentret och i vilken ordning.",
       "desc": "Konfigurera kontrollpanelens placering och beteende.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Dölj automatiskt",
       "appearance-display-description": "Välj hur dockan ska fungera.",
       "appearance-display-exclusive": "Exklusiv",
+      "appearance-type-label": "Dockstil",
+      "appearance-type-description": "Välj mellan en flytande pillerform eller en statisk list fäst vid kanten.",
+      "appearance-type-floating": "Flytande",
+      "appearance-type-static": "Statisk",
       "appearance-floating-distance-description": "Ställ in avståndet mellan dockan och skärmens kant.",
       "appearance-floating-distance-label": "Dockens flytande avstånd",
       "appearance-hide-show-speed-description": "Justera hastigheten för dockens döljnings-/visningsanimation.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Dockstorlek",
       "appearance-inactive-indicators-description": "Visa indikatorer för alla appar, inte bara den som är aktiv för tillfället.",
       "appearance-inactive-indicators-label": "Indikatorer som körs",
+      "appearance-sit-on-frame-description": "Justera dockan innanför ramens kant istället för ovanpå.",
+      "appearance-sit-on-frame-label": "Dockan sitter på ramen",
+      "appearance-frame-indicator-description": "Visa en liten indikator på ramen när dockan är dold.",
+      "appearance-frame-indicator-label": "Ramdockindikator",
       "appearance-pinned-static-description": "Flytta alltid fastnålade appikoner till vänster i statisk ordning. ",
       "appearance-pinned-static-label": "Statiska fästa appar",
       "appearance-position-description": "Välj var dockan ska visas på skärmen.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Bekräfta / Åtgärd",
       "keybinds-escape": "Stäng / Tillbaka",
       "keybinds-left": "Flytta vänster",
+      "keybinds-modifier-description": "Genvägar måste inkludera en modifieringstangent (Ctrl eller Alt).",
+      "keybinds-modifier-title": "Modifierare krävs",
+      "keybinds-remove": "Ta bort",
       "keybinds-right": "Flytta höger",
       "keybinds-title": "Navigeringstangentbindningar",
       "keybinds-up": "Flytta upp",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Välj avatarbild",
       "profile-title": "Profil",
       "profile-tooltip": "Profilbild",
+      "reverse-scrolling-description": "Vänd den tolkade rullningsriktningen",
+      "reverse-scrolling-label": "Omvänd rullning",
       "screen-corners-desc": "Anpassa rundningen av skärmens hörn och visuella effekter.",
       "screen-corners-radius-description": "Justera skärmens rundade hörn.",
       "screen-corners-radius-label": "Skärmens hörnradie",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Aktivera eller inaktivera meddelandedemonen, kräver omstart av Noctalia-skalet.",
       "settings-enabled-label": "Aktivera meddelanden",
       "settings-location-description": "Var meddelanden visas på skärmen.",
+      "settings-markdown-description": "Rendera meddelandeinnehåll med Markdown-formatering.",
+      "settings-markdown-label": "Aktivera Markdown",
       "sounds-desc": "Konfigurera ljud effekter och volym för meddelanden.",
       "sounds-enabled-description": "Aktivera ljudeffekter för inkommande meddelanden.",
       "sounds-enabled-label": "Aktivera meddelandeljud",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Stor knappstil",
       "position-description": "Välj var sessionsmenypanelen ska visas när den öppnas.",
       "show-header-description": "Visa titeln och stängningsknappen högst upp i sessionsmenyn.",
-      "show-header-label": "Visa rubrik"
+      "show-header-label": "Visa rubrik",
+      "show-keybinds-description": "Visa kortkommando-tips på sessionsalternativ.",
+      "show-keybinds-label": "Visa kortkommandon"
     },
     "system-monitor": {
       "critical-color-label": "Kritisk färg",

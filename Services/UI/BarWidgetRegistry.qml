@@ -222,7 +222,7 @@ Singleton {
                                     "iconColor": "none",
                                     "textColor": "none",
                                     "useMonospaceFont": true,
-                                    "usePadding": true,
+                                    "usePadding": false,
                                     "showCpuUsage": true,
                                     "showCpuFreq": false,
                                     "showCpuTemp": true,
@@ -292,7 +292,6 @@ Singleton {
                                     "occupiedColor": "secondary",
                                     "emptyColor": "secondary",
                                     "showBadge": true,
-                                    "reverseScroll": false,
                                     "pillSize": 0.6
                                   },
                                   "Volume": {

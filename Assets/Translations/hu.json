@@ -224,7 +224,11 @@
       "swap-usage-description": "Cserehely memória használatának megjelenítése.",
       "swap-usage-label": "Cserehely használat",
       "use-monospace-font-description": "Használjon monospace betűtípust az egységes karakter-szélességhez.",
-      "use-monospace-font-label": "Monospace betűtípus"
+      "use-monospace-font-label": "Monospace betűtípus",
+      "use-padding-description": "Kitölti a szövegértékeket vezető szóközökkel, hogy megakadályozza az elrendezés eltolódását.",
+      "use-padding-description-disabled-monospace-font": "Ehhez a funkcióhoz monospace betűtípus szükséges.",
+      "use-padding-description-disabled-vertical": "A függőleges tálca nem támogatja a szöveges kitöltést.",
+      "use-padding-label": "Szövegkitöltés"
     },
     "taskbar": {
       "colorize-icons-description": "Témaszínek alkalmazása a tálca ikonjaira.",
@@ -373,6 +377,7 @@
     "color-muted": "Némítva",
     "colors": "Színek",
     "command": "Parancs",
+    "confirm": "Megerősítés",
     "connect": "Csatlakozás",
     "connected": "Csatlakoztatva",
     "connecting": "Csatlakozás...",
@@ -396,6 +401,7 @@
     "edit": "Szerkesztés",
     "enabled": "Engedélyezve",
     "error": "Hiba",
+    "ethernet": "Ethernet",
     "events": "Események",
     "execute": "Végrehajt",
     "faithful": "Hű",
@@ -452,6 +458,7 @@
     "primary": "Elsődleges",
     "random": "Véletlen",
     "reboot": "Újraindítás",
+    "reboot-to-uefi": "Újraindítás UEFI firmware-be",
     "record": "Felvétel indítása",
     "refresh": "Frissítés",
     "required": "(kötelező)",
@@ -470,6 +477,7 @@
     "select-color": "Szín kiválasztása",
     "select-color-description": "Alkalmazza a témaszíneket a kiemeléshez.",
     "select-icon-color": "Ikon színének kiválasztása",
+    "settings": "Beállítások",
     "shortcuts": "Gyorsbillentyűk",
     "shutdown": "Leállítás",
     "signal": "Jelzés",
@@ -503,6 +511,7 @@
     "week": "Hét",
     "widgets": "Widgetek",
     "width": "Szélesség",
+    "wifi": "Wi-Fi",
     "windows": "Ablakok",
     "yes": "Igen"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Kattintson az összecsukáshoz",
       "click-to-expand": "Kattintson a kibontáshoz",
       "description": "Az értesítések itt jelennek meg, amint megérkeznek.",
       "no-notifications": "Nincs értesítés"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Válassza ki, melyik monitor legyen használva a háttérkép színeinek kinyeréséhez.",
       "wallpaper-monitor-source-label": "Színgenerálási forrás"
     },
+    "connections": {
+      "authentication-required": "Hitelesítés szükséges",
+      "bluetooth-devices-unnamed": "A névtelen eszközök nem jelennek meg.",
+      "bluetooth-discoverable": "Ez az eszköz <b>{hostName}</b> néven fedezhető fel, amíg ez a beállítási fül nyitva van.",
+      "bluetooth-rssi-polling-description": "Rendszeresen mintavételezi a csatlakoztatott eszközök RSSI-jét bluetoothctl-en keresztül. Lehet, hogy nem minden eszközhöz érhető el; engedélyezve minimális erőforrásokat használ.",
+      "bluetooth-rssi-polling-interval-description": "Konfigurálja, milyen gyakran frissüljön a jelerősség a csatlakoztatott eszközök számára.",
+      "bluetooth-rssi-polling-interval-label": "Lekérdezési intervallum",
+      "bluetooth-rssi-polling-label": "Bluetooth jelszint lekérdezés",
+      "disable-discoverability-description": "Eszköz elrejtése a közeli Bluetooth eszközök elől.",
+      "disable-discoverability-label": "Eszköz láthatóságának kikapcsolása",
+      "hide-unnamed-devices-description": "Rejtse el azokat az eszközöket, amelyek csak Bluetooth-címként jelennek meg.",
+      "hide-unnamed-devices-label": "Névtelen eszközök elrejtése",
+      "pin-instructions": "Kérjük, írja be az eszközén megjelenő PIN-kódot.",
+      "title": "Kapcsolatok"
+    },
     "control-center": {
       "cards-desc": "Személyre szabhatja, hogy mely vezérlők jelenjenek meg a vezérlőközpontban és milyen sorrendben.",
       "desc": "A vezérlőközpont panel pozicionálásának és viselkedésének konfigurálása.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Automatikus elrejtés",
       "appearance-display-description": "Válassza ki a dokk viselkedését.",
       "appearance-display-exclusive": "Exkluzív",
+      "appearance-type-label": "Dock stílus",
+      "appearance-type-description": "Válasszon a lebegő kapszula vagy a szélhez rögzített statikus sáv között.",
+      "appearance-type-floating": "Lebegő",
+      "appearance-type-static": "Statikus",
       "appearance-floating-distance-description": "Állítsa be a dokk és a képernyő széle közötti távolságot.",
       "appearance-floating-distance-label": "Dokk lebegési távolság",
       "appearance-hide-show-speed-description": "Állítsa be a dokk elrejtési/megjelenítési animációjának sebességét.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Dokk mérete",
       "appearance-inactive-indicators-description": "Jelenjenek meg jelzőpöttyök minden alkalmazásnál, ne csak az aktuálisan aktívnál.",
       "appearance-inactive-indicators-label": "Futásjelzők",
+      "appearance-sit-on-frame-description": "A dock igazítása a kereten belülre, ahelyett, hogy rajta ülne.",
+      "appearance-sit-on-frame-label": "Dock a kereten",
+      "appearance-frame-indicator-description": "Kis jelző megjelenítése a kereten, ha a dock rejtve van.",
+      "appearance-frame-indicator-label": "Keret dock jelző",
       "appearance-pinned-static-description": "A rögzített alkalmazásikonok mindig statikus sorrendben kerüljenek balra.",
       "appearance-pinned-static-label": "Statikus rögzített alkalmazások",
       "appearance-position-description": "Válassza ki, hogy hol jelenjen meg a dokk a képernyőn.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Megerősítés / Művelet",
       "keybinds-escape": "Bezárás / Vissza",
       "keybinds-left": "Balra mozgat",
+      "keybinds-modifier-description": "A gyorsbillentyűknek tartalmazniuk kell egy módosító billentyűt (Ctrl vagy Alt).",
+      "keybinds-modifier-title": "Módosító szükséges",
+      "keybinds-remove": "Törlés",
       "keybinds-right": "Jobbra mozgat",
       "keybinds-title": "Navigációs billentyűparancsok",
       "keybinds-up": "Felfelé mozgat",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Avatárkép kiválasztása",
       "profile-title": "Profil",
       "profile-tooltip": "Profilkép",
+      "reverse-scrolling-description": "Az értelmezett görgetési irány megfordítása",
+      "reverse-scrolling-label": "Görgetés megfordítása",
       "screen-corners-desc": "A képernyősarkok lekerekítésének és vizuális effektjeinek testreszabása.",
       "screen-corners-radius-description": "Állítsa be a képernyő lekerekített sarkait.",
       "screen-corners-radius-label": "Képernyősarkok lekerekítési sugara",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Az értesítési daemon be- vagy kikapcsolása a Noctalia shell újraindítását igényli.",
       "settings-enabled-label": "Értesítések engedélyezése",
       "settings-location-description": "Ahol az értesítések megjelennek a képernyőn.",
+      "settings-markdown-description": "Értesítés tartalmának megjelenítése Markdown formázással.",
+      "settings-markdown-label": "Markdown engedélyezése",
       "sounds-desc": "Értesítési hangeffektusok és hangerő beállítása.",
       "sounds-enabled-description": "Hanghatások engedélyezése a bejövő értesítésekhez.",
       "sounds-enabled-label": "Értesítési hangok engedélyezése",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Nagyméretű gombok stílusa",
       "position-description": "Válassza ki, hol jelenjen meg a munkamenet menüpanel megnyitáskor.",
       "show-header-description": "A cím és a bezárás gomb megjelenítése a munkamenet menü tetején.",
-      "show-header-label": "Fejléc megjelenítése"
+      "show-header-label": "Fejléc megjelenítése",
+      "show-keybinds-description": "Billentyűkombináció-tippek megjelenítése a munkamenet-opcióknál.",
+      "show-keybinds-label": "Billentyűparancsok megjelenítése"
     },
     "system-monitor": {
       "critical-color-label": "Kritikus szín",

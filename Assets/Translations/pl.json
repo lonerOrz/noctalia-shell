@@ -224,7 +224,11 @@
       "swap-usage-description": "Pokaż użycie pamięci wymiany.",
       "swap-usage-label": "Użycie pamięci wymiany",
       "use-monospace-font-description": "Użyj czcionki o stałej szerokości znaków dla zachowania spójnej szerokości znaków.",
-      "use-monospace-font-label": "Czcionka o stałej szerokości znaków"
+      "use-monospace-font-label": "Czcionka o stałej szerokości znaków",
+      "use-padding-description": "Wypełnia wartości tekstowe spacjami wiodącymi, aby zapobiec przesunięciom układu.",
+      "use-padding-description-disabled-monospace-font": "Do tej funkcji potrzebna jest czcionka monospace.",
+      "use-padding-description-disabled-vertical": "Pionowy pasek zadań nie obsługuje wypełnienia tekstowego.",
+      "use-padding-label": "Wypełnienie Tekstu"
     },
     "taskbar": {
       "colorize-icons-description": "Zastosuj kolory motywu do ikon paska zadań.",
@@ -373,6 +377,7 @@
     "color-muted": "Wyciszony",
     "colors": "Kolory",
     "command": "Komenda",
+    "confirm": "Potwierdź",
     "connect": "Połącz",
     "connected": "Połączone",
     "connecting": "Łączenie...",
@@ -396,6 +401,7 @@
     "edit": "Edytuj",
     "enabled": "Włączone",
     "error": "Błąd",
+    "ethernet": "Ethernet",
     "events": "Wydarzenia",
     "execute": "Wykonaj",
     "faithful": "Wierny",
@@ -452,6 +458,7 @@
     "primary": "Podstawowy",
     "random": "Losowy",
     "reboot": "Restart",
+    "reboot-to-uefi": "Uruchom ponownie do oprogramowania układowego UEFI",
     "record": "Rozpocznij nagrywanie",
     "refresh": "Odśwież",
     "required": "(wymagane)",
@@ -470,6 +477,7 @@
     "select-color": "Wybierz kolor",
     "select-color-description": "Zastosuj kolory motywu dla podkreślenia.",
     "select-icon-color": "Wybierz kolor ikony",
+    "settings": "Ustawienia",
     "shortcuts": "Skróty",
     "shutdown": "Wyłącz",
     "signal": "Sygnał",
@@ -503,6 +511,7 @@
     "week": "Tydzień",
     "widgets": "Widżety",
     "width": "Szerokość",
+    "wifi": "Wi-Fi",
     "windows": "Okna",
     "yes": "Tak"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Kliknij, aby zwinąć",
       "click-to-expand": "Kliknij, aby rozwinąć",
       "description": "Twoje powiadomienia pojawią się tutaj, gdy nadejdą.",
       "no-notifications": "Brak powiadomień"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Wybierz monitor, który ma być używany do wydobywania kolorów tapety.",
       "wallpaper-monitor-source-label": "Źródło generowania kolorów"
     },
+    "connections": {
+      "authentication-required": "Wymagana autentykacja",
+      "bluetooth-devices-unnamed": "Nienazwane urządzenia nie są wyświetlane.",
+      "bluetooth-discoverable": "To urządzenie jest wykrywalne jako <b>{hostName}</b>, dopóki ta zakładka ustawień jest otwarta.",
+      "bluetooth-rssi-polling-description": "Okresowo próbkuje RSSI dla podłączonych urządzeń za pośrednictwem bluetoothctl. Może nie być dostępne dla wszystkich urządzeń; zużywa minimalne zasoby po włączeniu.",
+      "bluetooth-rssi-polling-interval-description": "Skonfiguruj, jak często aktualizować siłę sygnału dla podłączonych urządzeń.",
+      "bluetooth-rssi-polling-interval-label": "Interwał odpytywania",
+      "bluetooth-rssi-polling-label": "Odpytywanie sygnału Bluetooth",
+      "disable-discoverability-description": "Ukryj swoje urządzenie przed pobliskimi urządzeniami Bluetooth.",
+      "disable-discoverability-label": "Wyłącz widoczność urządzenia",
+      "hide-unnamed-devices-description": "Ukryj urządzenia, które pojawiają się tylko jako adresy Bluetooth.",
+      "hide-unnamed-devices-label": "Ukryj nienazwane urządzenia",
+      "pin-instructions": "Wprowadź kod PIN wyświetlony na Twoim urządzeniu.",
+      "title": "Połączenia"
+    },
     "control-center": {
       "cards-desc": "Dostosuj, które kontrolki pojawiają się w centrum sterowania i w jakiej kolejności.",
       "desc": "Konfiguruj pozycjonowanie i zachowanie panelu centrum sterowania.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Auto-ukrywanie",
       "appearance-display-description": "Wybierz, jak ma zachowywać się dok.",
       "appearance-display-exclusive": "Ekskluzywny",
+      "appearance-type-label": "Styl docka",
+      "appearance-type-description": "Wybierz pomiędzy pływającą pigułką a statycznym paskiem przy krawędzi.",
+      "appearance-type-floating": "Pływający",
+      "appearance-type-static": "Statyczny",
       "appearance-floating-distance-description": "Ustaw odległość między dokiem a krawędzią ekranu.",
       "appearance-floating-distance-label": "Odległość pływania doku",
       "appearance-hide-show-speed-description": "Dostosuj prędkość animacji ukrywania/pokazywania doku.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Rozmiar doku",
       "appearance-inactive-indicators-description": "Wyświetlaj wskaźniki dla wszystkich uruchomionych aplikacji, nie tylko dla aktywnej.",
       "appearance-inactive-indicators-label": "Wskaźniki uruchomionych",
+      "appearance-sit-on-frame-description": "Wyrównaj dock wewnątrz obramowania zamiast na wierzchu.",
+      "appearance-sit-on-frame-label": "Dock na ramie",
+      "appearance-frame-indicator-description": "Pokaż mały wskaźnik na ramie, gdy dock jest ukryty.",
+      "appearance-frame-indicator-label": "Wskaźnik docka na ramie",
       "appearance-pinned-static-description": "Zawsze spychaj przypięte aplikacje na lewo w stałej kolejności.",
       "appearance-pinned-static-label": "Statyczne przypięte aplikacje",
       "appearance-position-description": "Wybierz, gdzie dok ma się pojawiać na ekranie.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Potwierdź / Akcja",
       "keybinds-escape": "Zamknij / Wstecz",
       "keybinds-left": "Przesuń w lewo",
+      "keybinds-modifier-description": "Skróty muszą zawierać klawisz modyfikujący (Ctrl lub Alt).",
+      "keybinds-modifier-title": "Wymagany modyfikator",
+      "keybinds-remove": "Usuń / Skasuj",
       "keybinds-right": "Przesuń w prawo",
       "keybinds-title": "Skróty klawiszowe nawigacji",
       "keybinds-up": "Przenieś w górę",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Wybierz obraz awatara",
       "profile-title": "Profil",
       "profile-tooltip": "Zdjęcie profilowe",
+      "reverse-scrolling-description": "Odwróć zinterpretowany kierunek przewijania",
+      "reverse-scrolling-label": "Odwróć przewijanie",
       "screen-corners-desc": "Dostosuj zaokrąglenia krawędzi ekranu i efekty wizualne.",
       "screen-corners-radius-description": "Dostosuj zaokrąglenie narożników ekranu.",
       "screen-corners-radius-label": "Promień narożników ekranu",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Włącz lub wyłącz demona powiadomień (wymaga restartu Noctalia).",
       "settings-enabled-label": "Włącz powiadomienia",
       "settings-location-description": "Miejsce na ekranie, w którym pojawiają się powiadomienia.",
+      "settings-markdown-description": "Renderuj treść powiadomień, używając formatowania Markdown.",
+      "settings-markdown-label": "Włącz Markdown",
       "sounds-desc": "Konfiguruj efekty dźwiękowe i głośność powiadomień.",
       "sounds-enabled-description": "Włącz efekty dźwiękowe dla przychodzących powiadomień.",
       "sounds-enabled-label": "Włącz dźwięki powiadomień",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Styl dużych przycisków",
       "position-description": "Wybierz, gdzie pojawia się panel menu sesji po otwarciu.",
       "show-header-description": "Wyświetlaj tytuł i przycisk zamknięcia na górze menu sesji.",
-      "show-header-label": "Pokaż nagłówek"
+      "show-header-label": "Pokaż nagłówek",
+      "show-keybinds-description": "Wyświetl podpowiedzi skrótów klawiszowych w opcjach sesji.",
+      "show-keybinds-label": "Pokaż skróty klawiszowe"
     },
     "system-monitor": {
       "critical-color-label": "Kolor krytyczny",

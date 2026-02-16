@@ -374,6 +374,9 @@ Variants {
               onReleased: mouse => {
                             if (mouse.button === Qt.RightButton) {
                               card.animateOut();
+                              if (Settings.data.notifications.clearDismissed) {
+                                NotificationService.removeFromHistory(notificationId);
+                              }
                               return;
                             }
 
@@ -385,6 +388,9 @@ Variants {
                               const threshold = card.useVerticalSwipe ? card.verticalSwipeDismissThreshold : card.swipeDismissThreshold;
                               if (dismissDistance >= threshold) {
                                 card.dismissBySwipe();
+                                if (Settings.data.notifications.clearDismissed) {
+                                  NotificationService.removeFromHistory(notificationId);
+                                }
                               } else {
                                 card.swipeOffset = 0;
                                 card.swipeOffsetY = 0;
@@ -402,9 +408,7 @@ Variants {
                               return a.identifier === "default";
                             });
                             if (hasDefault) {
-                              card.animateOut();
-                              deferredActionTimer.actionId = "default";
-                              deferredActionTimer.start();
+                              card.runDeferredTimer("default", false);
                             }
                           }
               onCanceled: {
@@ -493,6 +497,25 @@ Variants {
               }
             }
 
+            function runDeferredTimer(actionId, isDismissed) {
+              if (Style.animationSlow <= 0) {
+                if (!isDismissed) {
+                  NotificationService.invokeAction(notificationId, actionId);
+                } else if (Settings.data.notifications.clearDismissed) {
+                  NotificationService.removeFromHistory(notificationId);
+                }
+                card.animateOut();
+                return;
+              }
+
+              deferredActionTimer.stop();
+              deferredActionTimer.actionId = actionId || "";
+              deferredActionTimer.isDismissed = isDismissed;
+              deferredActionTimer.interval = Math.min(50, Math.max(1, Style.animationSlow - 1));
+              card.animateOut();
+              deferredActionTimer.start();
+            }
+
             Timer {
               id: removalTimer
               interval: Style.animationSlow
@@ -506,12 +529,12 @@ Variants {
               id: deferredActionTimer
               interval: 50
               property string actionId: ""
-              property bool isHistoryRemoval: false
+              property bool isDismissed: false
               onTriggered: {
-                if (isHistoryRemoval) {
-                  NotificationService.removeFromHistory(notificationId);
-                } else {
+                if (!isDismissed) {
                   NotificationService.invokeAction(notificationId, actionId);
+                } else if (Settings.data.notifications.clearDismissed) {
+                  NotificationService.removeFromHistory(notificationId);
                 }
               }
             }
@@ -636,7 +659,7 @@ Variants {
                     pointSize: Style.fontSizeM
                     font.weight: Style.fontWeightMedium
                     color: Color.mOnSurface
-                    textFormat: Text.PlainText
+                    textFormat: Text.StyledText
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
                     maximumLineCount: 3
                     elide: Text.ElideRight
@@ -649,7 +672,7 @@ Variants {
                     text: model.body || ""
                     pointSize: Style.fontSizeM
                     color: Color.mOnSurface
-                    textFormat: Text.PlainText
+                    textFormat: Text.StyledText
                     wrapMode: Text.WrapAtWordBoundaryOrAnywhere
 
                     maximumLineCount: 5
@@ -699,10 +722,7 @@ Variants {
                         outlined: false
                         implicitHeight: 24
                         onClicked: {
-                          card.animateOut();
-                          deferredActionTimer.actionId = actionData.identifier;
-                          deferredActionTimer.isHistoryRemoval = false;
-                          deferredActionTimer.start();
+                          card.runDeferredTimer(actionData.identifier, false);
                         }
                       }
                     }
@@ -715,7 +735,7 @@ Variants {
             NIconButton {
               visible: !notifWindow.isCompact
               icon: "close"
-              tooltipText: I18n.tr("common.close")
+              tooltipText: I18n.tr("tooltips.dismiss-notification")
               baseSize: Style.baseWidgetSize * 0.6
               anchors.top: cardBackground.top
               anchors.topMargin: Style.marginM
@@ -723,9 +743,7 @@ Variants {
               anchors.rightMargin: Style.marginM
 
               onClicked: {
-                card.animateOut();
-                deferredActionTimer.isHistoryRemoval = true;
-                deferredActionTimer.start();
+                card.runDeferredTimer("", true);
               }
             }
 
@@ -758,7 +776,7 @@ Variants {
                   pointSize: Style.fontSizeM
                   font.weight: Style.fontWeightMedium
                   color: Color.mOnSurface
-                  textFormat: Text.PlainText
+                  textFormat: Text.StyledText
                   maximumLineCount: 1
                   elide: Text.ElideRight
                   Layout.fillWidth: true
@@ -770,7 +788,7 @@ Variants {
                   text: model.body || ""
                   pointSize: Style.fontSizeS
                   color: Color.mOnSurfaceVariant
-                  textFormat: Text.PlainText
+                  textFormat: Text.StyledText
                   wrapMode: Text.Wrap
                   maximumLineCount: 2
                   elide: Text.ElideRight

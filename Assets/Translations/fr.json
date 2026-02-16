@@ -224,7 +224,11 @@
       "swap-usage-description": "Afficher l'utilisation de la mémoire swap.",
       "swap-usage-label": "Utilisation du swap",
       "use-monospace-font-description": "Utilisez une police de caractères à chasse fixe pour une largeur de caractère uniforme.",
-      "use-monospace-font-label": "Police à chasse fixe"
+      "use-monospace-font-label": "Police à chasse fixe",
+      "use-padding-description": "Remplit les valeurs de texte avec des espaces en début de ligne pour éviter le décalage de la mise en page.",
+      "use-padding-description-disabled-monospace-font": "Une police à chasse fixe est nécessaire pour cette fonctionnalité.",
+      "use-padding-description-disabled-vertical": "La barre des tâches verticale ne prend pas en charge le remplissage de texte.",
+      "use-padding-label": "Rembourrage du Texte"
     },
     "taskbar": {
       "colorize-icons-description": "Appliquer les couleurs du thème aux icônes de la barre des tâches.",
@@ -373,6 +377,7 @@
     "color-muted": "Muet",
     "colors": "Couleurs",
     "command": "Commande",
+    "confirm": "Confirmer",
     "connect": "Connecter",
     "connected": "Connecté",
     "connecting": "Connexion en cours...",
@@ -396,6 +401,7 @@
     "edit": "Modifier",
     "enabled": "Activé",
     "error": "Erreur",
+    "ethernet": "Ethernet",
     "events": "Événements",
     "execute": "Exécuter",
     "faithful": "Fidèle",
@@ -452,6 +458,7 @@
     "primary": "Primaire",
     "random": "Aléatoire",
     "reboot": "Redémarrer",
+    "reboot-to-uefi": "Redémarrer vers le firmware UEFI",
     "record": "Démarrer l'enregistrement",
     "refresh": "Actualiser",
     "required": "(requis)",
@@ -470,6 +477,7 @@
     "select-color": "Sélectionner une couleur",
     "select-color-description": "Appliquer les couleurs du thème pour mettre en valeur.",
     "select-icon-color": "Sélectionner la couleur de l'icône",
+    "settings": "Paramètres",
     "shortcuts": "Raccourcis",
     "shutdown": "Éteindre",
     "signal": "Signal",
@@ -503,6 +511,7 @@
     "week": "Semaine",
     "widgets": "Widgets",
     "width": "Largeur",
+    "wifi": "Wi-Fi",
     "windows": "Fenêtres",
     "yes": "Oui"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Cliquer pour réduire",
       "click-to-expand": "Cliquez pour développer",
       "description": "Vos notifications apparaîtront ici à mesure qu'elles arriveront.",
       "no-notifications": "Aucune notification"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Sélectionnez le moniteur à utiliser pour extraire les couleurs du fond d'écran.",
       "wallpaper-monitor-source-label": "Source de génération des couleurs"
     },
+    "connections": {
+      "authentication-required": "Authentification requise",
+      "bluetooth-devices-unnamed": "Les appareils sans nom ne sont pas affichés.",
+      "bluetooth-discoverable": "Cet appareil est détectable en tant que <b>{hostName}</b> tant que cet onglet de paramètres est ouvert.",
+      "bluetooth-rssi-polling-description": "Échantillonne périodiquement le RSSI des appareils connectés via bluetoothctl. Peut ne pas être disponible pour tous les appareils ; utilise des ressources minimales lorsqu'il est activé.",
+      "bluetooth-rssi-polling-interval-description": "Configurer la fréquence de mise à jour de la force du signal pour les appareils connectés.",
+      "bluetooth-rssi-polling-interval-label": "Intervalle d'interrogation",
+      "bluetooth-rssi-polling-label": "Interrogation du signal Bluetooth",
+      "disable-discoverability-description": "Masquer votre appareil des appareils Bluetooth à proximité.",
+      "disable-discoverability-label": "Désactiver la visibilité de l'appareil",
+      "hide-unnamed-devices-description": "Masquer les appareils qui n'apparaissent que sous forme d'adresses Bluetooth.",
+      "hide-unnamed-devices-label": "Masquer les appareils sans nom",
+      "pin-instructions": "Veuillez saisir le code PIN affiché sur votre appareil.",
+      "title": "Connexions"
+    },
     "control-center": {
       "cards-desc": "Personnalisez les commandes qui apparaissent dans le centre de contrôle et leur ordre d'affichage.",
       "desc": "Configurer le positionnement et le comportement du panneau du centre de contrôle.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Masquer automatiquement",
       "appearance-display-description": "Choisissez comment le dock se comporte.",
       "appearance-display-exclusive": "Exclusif",
+      "appearance-type-label": "Style du dock",
+      "appearance-type-description": "Choisissez entre une pilule flottante ou une barre statique attachée au bord.",
+      "appearance-type-floating": "Flottant",
+      "appearance-type-static": "Statique",
       "appearance-floating-distance-description": "Ajustez la distance de flottaison par rapport au bord de l'écran.",
       "appearance-floating-distance-label": "Distance de flottaison du dock",
       "appearance-hide-show-speed-description": "Ajustez la vitesse de l'animation d'affichage/masquage du dock.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Taille du dock",
       "appearance-inactive-indicators-description": "Afficher les pastilles d'indicateur pour toutes les applications, pas seulement celle qui est active.",
       "appearance-inactive-indicators-label": "Indicateurs de fonctionnement",
+      "appearance-sit-on-frame-description": "Aligner le dock à l'intérieur de la bordure du cadre au lieu de le poser dessus.",
+      "appearance-sit-on-frame-label": "Le dock repose sur le cadre",
+      "appearance-frame-indicator-description": "Afficher un petit indicateur sur le cadre lorsque le dock est masqué.",
+      "appearance-frame-indicator-label": "Indicateur de dock sur cadre",
       "appearance-pinned-static-description": "Toujours pousser les icônes d'applications épinglées vers la gauche dans un ordre statique.",
       "appearance-pinned-static-label": "Applications épinglées statiques",
       "appearance-position-description": "Choisissez l'emplacement du Dock à l'écran.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Confirmer / Action",
       "keybinds-escape": "Fermer / Retour",
       "keybinds-left": "Déplacer à gauche",
+      "keybinds-modifier-description": "Les raccourcis doivent inclure une touche de modification (Ctrl ou Alt).",
+      "keybinds-modifier-title": "Modificateur requis",
+      "keybinds-remove": "Supprimer",
       "keybinds-right": "Déplacer à droite",
       "keybinds-title": "Raccourcis clavier de navigation",
       "keybinds-up": "Déplacer vers le haut",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Sélectionner une image d'avatar",
       "profile-title": "Profil",
       "profile-tooltip": "Photo de profil",
+      "reverse-scrolling-description": "Inverser le sens de défilement interprété",
+      "reverse-scrolling-label": "Défilement inversé",
       "screen-corners-desc": "Personnalisez l'arrondi des coins de l'écran et les effets visuels.",
       "screen-corners-radius-description": "Ajustez l'arrondi des coins de l'écran.",
       "screen-corners-radius-label": "Rayon des coins de l'écran",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Activer ou désactiver le démon de notifications, nécessite un redémarrage de Noctalia shell.",
       "settings-enabled-label": "Activer les notifications",
       "settings-location-description": "Où les notifications apparaissent à l'écran.",
+      "settings-markdown-description": "Afficher le contenu des notifications en utilisant le formatage Markdown.",
+      "settings-markdown-label": "Activer Markdown",
       "sounds-desc": "Configurer les effets sonores et le volume des notifications.",
       "sounds-enabled-description": "Activer les effets sonores pour les notifications entrantes.",
       "sounds-enabled-label": "Activer les sons de notification",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Style boutons larges",
       "position-description": "Choisissez où le panneau du menu de session apparaît lorsqu'il est ouvert.",
       "show-header-description": "Afficher le titre et le bouton de fermeture en haut du menu de session.",
-      "show-header-label": "Afficher l'en-tête"
+      "show-header-label": "Afficher l'en-tête",
+      "show-keybinds-description": "Afficher les indices de raccourcis clavier sur les options de session.",
+      "show-keybinds-label": "Afficher les raccourcis clavier"
     },
     "system-monitor": {
       "critical-color-label": "Couleur critique",

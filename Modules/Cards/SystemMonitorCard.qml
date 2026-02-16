@@ -29,6 +29,9 @@ NBox {
     onExited: root.scaleFactor = 1.0
   }
 
+  Component.onCompleted: SystemStatService.registerComponent("card-sysmonitor")
+  Component.onDestruction: SystemStatService.unregisterComponent("card-sysmonitor")
+
   readonly property string diskPath: Settings.data.controlCenter.diskPath || "/"
 
   // Data values normalized to 0-1 range - moved to root level to be accessible in Shape

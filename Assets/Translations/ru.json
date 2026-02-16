@@ -224,7 +224,11 @@
       "swap-usage-description": "Показать использование swap-памяти.",
       "swap-usage-label": "Использование swap",
       "use-monospace-font-description": "Используйте моноширинный шрифт для единообразной ширины символов.",
-      "use-monospace-font-label": "Моноширинный шрифт"
+      "use-monospace-font-label": "Моноширинный шрифт",
+      "use-padding-description": "Добавляет к текстовым значениям начальные пробелы, чтобы предотвратить смещение макета.",
+      "use-padding-description-disabled-monospace-font": "Для этой функции необходим моноширинный шрифт.",
+      "use-padding-description-disabled-vertical": "Вертикальная панель задач не поддерживает текстовые отступы.",
+      "use-padding-label": "Отступ Текста"
     },
     "taskbar": {
       "colorize-icons-description": "Применить цвета темы к иконкам панели задач.",
@@ -373,6 +377,7 @@
     "color-muted": "Выключено",
     "colors": "Цвета",
     "command": "Команда",
+    "confirm": "Подтвердить",
     "connect": "Соединить",
     "connected": "Подключено",
     "connecting": "Соединение...",
@@ -396,6 +401,7 @@
     "edit": "Редактировать",
     "enabled": "Включено",
     "error": "Ошибка",
+    "ethernet": "Ethernet",
     "events": "События",
     "execute": "Выполнить",
     "faithful": "Верный",
@@ -452,6 +458,7 @@
     "primary": "Основной",
     "random": "Случайный",
     "reboot": "Перезагрузить",
+    "reboot-to-uefi": "Перезагрузить в прошивку UEFI",
     "record": "Начать запись",
     "refresh": "Обновить",
     "required": "(обязательно)",
@@ -470,6 +477,7 @@
     "select-color": "Выбрать цвет",
     "select-color-description": "Применить цвета темы для выделения.",
     "select-icon-color": "Выбрать цвет значка",
+    "settings": "Настройки",
     "shortcuts": "Ярлыки",
     "shutdown": "Выключить",
     "signal": "Сигнал",
@@ -503,6 +511,7 @@
     "week": "Неделя",
     "widgets": "Виджеты",
     "width": "Ширина",
+    "wifi": "Wi-Fi",
     "windows": "Окна ",
     "yes": "Да"
   },
@@ -589,6 +598,7 @@
   },
   "notifications": {
     "panel": {
+      "click-to-collapse": "Нажмите, чтобы свернуть",
       "click-to-expand": "Нажмите, чтобы развернуть",
       "description": "Ваши уведомления будут появляться здесь по мере их поступления.",
       "no-notifications": "Нет уведомлений"
@@ -870,6 +880,21 @@
       "wallpaper-monitor-source-description": "Выберите монитор, который будет использоваться для извлечения цветов обоев.",
       "wallpaper-monitor-source-label": "Источник генерации цвета"
     },
+    "connections": {
+      "authentication-required": "Требуется аутентификация",
+      "bluetooth-devices-unnamed": "Безымянные устройства не отображаются.",
+      "bluetooth-discoverable": "Это устройство обнаруживаемо как <b>{hostName}</b>, пока открыта эта вкладка настроек.",
+      "bluetooth-rssi-polling-description": "Периодически опрашивает RSSI для подключенных устройств через bluetoothctl. Может быть недоступно для всех устройств; при включении использует минимальные ресурсы.",
+      "bluetooth-rssi-polling-interval-description": "Настройте, как часто обновлять уровень сигнала для подключенных устройств.",
+      "bluetooth-rssi-polling-interval-label": "Интервал опроса",
+      "bluetooth-rssi-polling-label": "Опрос сигнала Bluetooth",
+      "disable-discoverability-description": "Скрыть ваше устройство от ближайших Bluetooth-устройств.",
+      "disable-discoverability-label": "Отключить видимость устройства",
+      "hide-unnamed-devices-description": "Скрыть устройства, которые отображаются только как Bluetooth-адреса.",
+      "hide-unnamed-devices-label": "Скрывать безымянные устройства",
+      "pin-instructions": "Пожалуйста, введите PIN-код, отображаемый на вашем устройстве.",
+      "title": "Подключения"
+    },
     "control-center": {
       "cards-desc": "Настройте, какие элементы управления появляются в центре управления и в каком порядке.",
       "desc": "Настройка позиционирования и поведения панели центра управления.",
@@ -999,6 +1024,10 @@
       "appearance-display-auto-hide": "Автоматически скрывать",
       "appearance-display-description": "Выберите поведение дока.",
       "appearance-display-exclusive": "Исключительно",
+      "appearance-type-label": "Стиль дока",
+      "appearance-type-description": "Выберите между плавающей пилюлей или статической панелью, прикрепленной к краю.",
+      "appearance-type-floating": "Плавающий",
+      "appearance-type-static": "Статический",
       "appearance-floating-distance-description": "Установите расстояние между доком и краем экрана.",
       "appearance-floating-distance-label": "Расстояние плавающего дока",
       "appearance-hide-show-speed-description": "Настройка скорости анимации скрытия/открытия дока.",
@@ -1007,6 +1036,10 @@
       "appearance-icon-size-label": "Размер дока",
       "appearance-inactive-indicators-description": "Отображать индикаторы для всех приложений, а не только для активного.",
       "appearance-inactive-indicators-label": "Бегущие индикаторы",
+      "appearance-sit-on-frame-description": "Выровнять док внутри границы рамки вместо того, чтобы размещать его поверх.",
+      "appearance-sit-on-frame-label": "Док на рамке",
+      "appearance-frame-indicator-description": "Показывать небольшой индикатор на рамке, когда док скрыт.",
+      "appearance-frame-indicator-label": "Индикатор дока на рамке",
       "appearance-pinned-static-description": "Всегда перемещайте закреплённые значки приложений влево в статичном порядке.",
       "appearance-pinned-static-label": "Закреплённые статические приложения",
       "appearance-position-description": "Выберите, где док будет отображаться на экране.",
@@ -1043,6 +1076,9 @@
       "keybinds-enter": "Подтвердить / Действие",
       "keybinds-escape": "Закрыть / Назад",
       "keybinds-left": "Переместить влево",
+      "keybinds-modifier-description": "Сочетания клавиш должны включать клавишу-модификатор (Ctrl или Alt).",
+      "keybinds-modifier-title": "Требуется модификатор",
+      "keybinds-remove": "Удалить",
       "keybinds-right": "Переместить вправо",
       "keybinds-title": "Навигационные привязки клавиш",
       "keybinds-up": "Переместить вверх",
@@ -1057,6 +1093,8 @@
       "profile-select-avatar": "Выбрать изображение аватара",
       "profile-title": "Профиль",
       "profile-tooltip": "Фотография профиля",
+      "reverse-scrolling-description": "Инвертировать интерпретированное направление прокрутки",
+      "reverse-scrolling-label": "Обратная прокрутка",
       "screen-corners-desc": "Настройка скругления углов экрана и визуальных эффектов.",
       "screen-corners-radius-description": "Настройка скругления углов экрана.",
       "screen-corners-radius-label": "Радиус углов экрана",
@@ -1264,6 +1302,8 @@
       "settings-enabled-description": "Включить или отключить демон уведомлений, требуется перезапуск Noctalia shell.",
       "settings-enabled-label": "Включить уведомления",
       "settings-location-description": "Где уведомления появляются на экране.",
+      "settings-markdown-description": "Отображать содержимое уведомлений, используя форматирование Markdown.",
+      "settings-markdown-label": "Включить Markdown",
       "sounds-desc": "Настроить звуковые эффекты и громкость уведомлений.",
       "sounds-enabled-description": "Включить звуковые эффекты для входящих уведомлений.",
       "sounds-enabled-label": "Включить звуки уведомлений",
@@ -1427,7 +1467,9 @@
       "large-buttons-style-label": "Стиль крупные кнопки",
       "position-description": "Выберите, где появляется панель меню сеанса при открытии.",
       "show-header-description": "Отображать заголовок и кнопку закрытия в верхней части меню сеанса.",
-      "show-header-label": "Показывать заголовок"
+      "show-header-label": "Показывать заголовок",
+      "show-keybinds-description": "Отображать подсказки по горячим клавишам в параметрах сеанса.",
+      "show-keybinds-label": "Показать сочетания клавиш"
     },
     "system-monitor": {
       "critical-color-label": "Критический цвет",
