@@ -121,6 +121,7 @@ ColumnLayout {
       from: 0
       to: 1
       stepSize: 0.01
+      showReset: true
       value: Settings.data.dock.backgroundOpacity
       defaultValue: Settings.getDefaultValue("dock.backgroundOpacity")
       onMoved: value => Settings.data.dock.backgroundOpacity = value
@@ -134,6 +135,7 @@ ColumnLayout {
       from: 0
       to: 1
       stepSize: 0.01
+      showReset: true
       value: Settings.data.dock.deadOpacity
       defaultValue: Settings.getDefaultValue("dock.deadOpacity")
       onMoved: value => Settings.data.dock.deadOpacity = value
@@ -148,6 +150,7 @@ ColumnLayout {
       from: 0
       to: 4
       stepSize: 0.01
+      showReset: true
       value: Settings.data.dock.floatingRatio
       defaultValue: Settings.getDefaultValue("dock.floatingRatio")
       onMoved: value => Settings.data.dock.floatingRatio = value
@@ -161,6 +164,7 @@ ColumnLayout {
       from: 0
       to: 2
       stepSize: 0.01
+      showReset: true
       value: Settings.data.dock.size
       defaultValue: Settings.getDefaultValue("dock.size")
       onMoved: value => Settings.data.dock.size = value
@@ -175,6 +179,7 @@ ColumnLayout {
       from: 0.1
       to: 2.0
       stepSize: 0.01
+      showReset: true
       value: Settings.data.dock.animationSpeed
       defaultValue: Settings.getDefaultValue("dock.animationSpeed")
       onMoved: value => Settings.data.dock.animationSpeed = value
@@ -195,6 +200,74 @@ ColumnLayout {
       checked: Settings.data.dock.pinnedStatic
       defaultValue: Settings.getDefaultValue("dock.pinnedStatic")
       onToggled: checked => Settings.data.dock.pinnedStatic = checked
+    }
+
+    NToggle {
+      label: I18n.tr("panels.dock.appearance-group-apps-label")
+      description: I18n.tr("panels.dock.appearance-group-apps-description")
+      checked: Settings.data.dock.groupApps
+      defaultValue: Settings.getDefaultValue("dock.groupApps")
+      onToggled: checked => Settings.data.dock.groupApps = checked
+    }
+
+    NComboBox {
+      Layout.fillWidth: true
+      visible: Settings.data.dock.groupApps
+      label: I18n.tr("panels.dock.appearance-group-click-action-label")
+      description: I18n.tr("panels.dock.appearance-group-click-action-description")
+      model: [
+        {
+          "key": "cycle",
+          "name": I18n.tr("panels.dock.appearance-group-click-action-cycle")
+        },
+        {
+          "key": "list",
+          "name": I18n.tr("panels.dock.appearance-group-click-action-list")
+        }
+      ]
+      currentKey: Settings.data.dock.groupClickAction
+      defaultValue: Settings.getDefaultValue("dock.groupClickAction")
+      onSelected: key => Settings.data.dock.groupClickAction = key
+    }
+
+    NComboBox {
+      Layout.fillWidth: true
+      visible: Settings.data.dock.groupApps
+      label: I18n.tr("panels.dock.appearance-group-context-menu-mode-label")
+      description: I18n.tr("panels.dock.appearance-group-context-menu-mode-description")
+      model: [
+        {
+          "key": "list",
+          "name": I18n.tr("panels.dock.appearance-group-context-menu-mode-list")
+        },
+        {
+          "key": "extended",
+          "name": I18n.tr("panels.dock.appearance-group-context-menu-mode-extended")
+        }
+      ]
+      currentKey: Settings.data.dock.groupContextMenuMode
+      defaultValue: Settings.getDefaultValue("dock.groupContextMenuMode")
+      onSelected: key => Settings.data.dock.groupContextMenuMode = key
+    }
+
+    NComboBox {
+      Layout.fillWidth: true
+      visible: Settings.data.dock.groupApps
+      label: I18n.tr("panels.dock.appearance-group-indicator-style-label")
+      description: I18n.tr("panels.dock.appearance-group-indicator-style-description")
+      model: [
+        {
+          "key": "number",
+          "name": I18n.tr("panels.dock.appearance-group-indicator-style-number")
+        },
+        {
+          "key": "dots",
+          "name": I18n.tr("panels.dock.appearance-group-indicator-style-dots")
+        }
+      ]
+      currentKey: Settings.data.dock.groupIndicatorStyle
+      defaultValue: Settings.getDefaultValue("dock.groupIndicatorStyle")
+      onSelected: key => Settings.data.dock.groupIndicatorStyle = key
     }
 
     NToggle {
@@ -220,6 +293,44 @@ ColumnLayout {
       checked: Settings.data.dock.colorizeIcons
       defaultValue: Settings.getDefaultValue("dock.colorizeIcons")
       onToggled: checked => Settings.data.dock.colorizeIcons = checked
+    }
+
+    NToggle {
+      Layout.fillWidth: true
+      label: I18n.tr("panels.dock.appearance-show-launcher-icon-label")
+      description: I18n.tr("panels.dock.appearance-show-launcher-icon-description")
+      checked: Settings.data.dock.showLauncherIcon
+      defaultValue: Settings.getDefaultValue("dock.showLauncherIcon")
+      onToggled: checked => Settings.data.dock.showLauncherIcon = checked
+    }
+
+    NComboBox {
+      Layout.fillWidth: true
+      visible: Settings.data.dock.showLauncherIcon
+      label: I18n.tr("panels.dock.appearance-launcher-position-label")
+      description: I18n.tr("panels.dock.appearance-launcher-position-description")
+      model: [
+        {
+          "key": "start",
+          "name": I18n.tr("panels.dock.appearance-launcher-position-start")
+        },
+        {
+          "key": "end",
+          "name": I18n.tr("panels.dock.appearance-launcher-position-end")
+        }
+      ]
+      currentKey: Settings.data.dock.launcherPosition
+      defaultValue: Settings.getDefaultValue("dock.launcherPosition")
+      onSelected: key => Settings.data.dock.launcherPosition = key
+    }
+
+    NColorChoice {
+      Layout.fillWidth: true
+      visible: Settings.data.dock.showLauncherIcon
+      label: I18n.tr("common.select-icon-color")
+      currentKey: Settings.data.dock.launcherIconColor
+      defaultValue: Settings.getDefaultValue("dock.launcherIconColor")
+      onSelected: key => Settings.data.dock.launcherIconColor = key
     }
   }
 }

@@ -292,12 +292,13 @@ Item {
                          }
                          // Click is on empty bar background - open control center
                          var controlCenterPanel = PanelService.getPanel("controlCenterPanel", screen);
-                         if (Settings.data.controlCenter.position === "close_to_bar_button") {
-                           // Will attempt to open the panel next to the bar button if any.
-                           controlCenterPanel?.toggle(null, "ControlCenter");
-                         } else {
-                           controlCenterPanel?.toggle();
-                         }
+
+                         // Map click position to screen-relative coordinates
+                         // We need to map from bar coordinates to screen coordinates
+                         var screenRelativePos = mapToItem(null, mouse.x, mouse.y);
+
+                         // Pass click position directly
+                         controlCenterPanel?.toggle(null, screenRelativePos);
                          mouse.accepted = true;
                        }
                      }
@@ -344,7 +345,7 @@ Item {
         x: Style.pixelAlignCenter(parent.width, width)
         anchors.top: parent.top
         anchors.topMargin: verticalBarMargin
-        spacing: Style.marginS
+        spacing: Settings.data.bar.widgetSpacing
 
         Repeater {
           model: root.leftWidgetsModel
@@ -369,7 +370,7 @@ Item {
       ColumnLayout {
         x: Style.pixelAlignCenter(parent.width, width)
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Style.marginS
+        spacing: Settings.data.bar.widgetSpacing
 
         Repeater {
           model: root.centerWidgetsModel
@@ -395,7 +396,7 @@ Item {
         x: Style.pixelAlignCenter(parent.width, width)
         anchors.bottom: parent.bottom
         anchors.bottomMargin: verticalBarMargin
-        spacing: Style.marginS
+        spacing: Settings.data.bar.widgetSpacing
 
         Repeater {
           model: root.rightWidgetsModel
@@ -453,7 +454,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: horizontalBarMargin
         y: Style.pixelAlignCenter(parent.height, height)
-        spacing: Style.marginS
+        spacing: Settings.data.bar.widgetSpacing
 
         Repeater {
           model: root.leftWidgetsModel
@@ -480,7 +481,7 @@ Item {
         objectName: "centerSection"
         anchors.horizontalCenter: parent.horizontalCenter
         y: Style.pixelAlignCenter(parent.height, height)
-        spacing: Style.marginS
+        spacing: Settings.data.bar.widgetSpacing
 
         Repeater {
           model: root.centerWidgetsModel
@@ -508,7 +509,7 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: horizontalBarMargin
         y: Style.pixelAlignCenter(parent.height, height)
-        spacing: Style.marginS
+        spacing: Settings.data.bar.widgetSpacing
 
         Repeater {
           model: root.rightWidgetsModel

@@ -178,6 +178,8 @@ Singleton {
       property bool showCapsule: true
       property real capsuleOpacity: 1.0
       property string capsuleColorKey: "none"
+      property int widgetSpacing: 6
+      property real fontScale: 1.0
 
       // Bar background opacity settings
       property real backgroundOpacity: 0.93
@@ -202,6 +204,7 @@ Singleton {
       property string displayMode: "always_visible"
       property int autoHideDelay: 500 // ms before hiding after mouse leaves
       property int autoShowDelay: 150 // ms before showing when mouse enters
+      property bool showOnWorkspaceSwitch: true // show bar briefly on workspace switch
 
       // Widget configuration for modular bar system
       property JsonObject widgets
@@ -287,6 +290,7 @@ Singleton {
       property bool allowPasswordWithFprintd: false
       property string clockStyle: "custom"
       property string clockFormat: "hh\\nmm"
+      property bool passwordChars: false
       property list<string> lockScreenMonitors: [] // holds lock screen visibility per monitor
       property real lockScreenBlur: 0.0
       property real lockScreenTint: 0.0
@@ -532,9 +536,15 @@ Singleton {
       property list<string> monitors: [] // holds dock visibility per monitor
       property list<string> pinnedApps: [] // Desktop entry IDs pinned to the dock (e.g., "org.kde.konsole", "firefox.desktop")
       property bool colorizeIcons: false
-
+      property bool showLauncherIcon: false
+      property string launcherPosition: "end" // "start", "end"
+      property string launcherIconColor: "none"
       property bool pinnedStatic: false
       property bool inactiveIndicators: false
+      property bool groupApps: false
+      property string groupContextMenuMode: "extended" // "list", "extended"
+      property string groupClickAction: "cycle" // "cycle", "list"
+      property string groupIndicatorStyle: "dots" // "number", "dots"
       property double deadOpacity: 0.6
       property real animationSpeed: 1.0 // Speed multiplier for hide/show animations (0.1 = slowest, 2.0 = fastest)
       property bool sitOnFrame: false
@@ -592,6 +602,11 @@ Singleton {
           "action": "shutdown",
           "enabled": true,
           "keybind": "6"
+        },
+        {
+          "action": "rebootToUefi",
+          "enabled": true,
+          "keybind": "7"
         }
       ]
     }
