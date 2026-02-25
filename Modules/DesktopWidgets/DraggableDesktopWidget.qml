@@ -13,6 +13,10 @@ Item {
   property var widgetData: null
   property int widgetIndex: -1
 
+  // Z-order based on widgetIndex: higher index = higher z (renders on top)
+  // This ensures the array order directly maps to visual stacking order
+  z: Math.max(0, root.widgetIndex)
+
   property real defaultX: 100
   property real defaultY: 100
 
