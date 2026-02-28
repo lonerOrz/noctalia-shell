@@ -182,7 +182,7 @@ Singleton {
       property real capsuleOpacity: 1.0
       property string capsuleColorKey: "none"
       property int widgetSpacing: 6
-      property int contentPadding: 0
+      property int contentPadding: 2
       property real fontScale: 1.0
 
       // Bar background opacity settings
@@ -720,6 +720,16 @@ Singleton {
     // plugins
     property JsonObject plugins: JsonObject {
       property bool autoUpdate: false
+    }
+
+    // idle management
+    property JsonObject idle: JsonObject {
+      property bool enabled: false
+      property int screenOffTimeout: 600    // seconds, 0 = disabled
+      property int lockTimeout: 660         // seconds, 0 = disabled
+      property int suspendTimeout: 1800     // seconds, 0 = disabled
+      property int fadeDuration: 5       // seconds of fade-to-black before action fires
+      property string customCommands: "[]" // JSON array of {timeout, command}
     }
 
     // desktop widgets

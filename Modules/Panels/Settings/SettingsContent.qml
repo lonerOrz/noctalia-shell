@@ -14,6 +14,7 @@ import qs.Modules.Panels.Settings.Tabs.ControlCenter
 import qs.Modules.Panels.Settings.Tabs.Display
 import qs.Modules.Panels.Settings.Tabs.Dock
 import qs.Modules.Panels.Settings.Tabs.Hooks
+import qs.Modules.Panels.Settings.Tabs.Idle
 import qs.Modules.Panels.Settings.Tabs.Launcher
 import qs.Modules.Panels.Settings.Tabs.LockScreen
 import qs.Modules.Panels.Settings.Tabs.Notifications
@@ -463,6 +464,10 @@ Item {
     HooksTab {}
   }
   Component {
+    id: idleTab
+    IdleTab {}
+  }
+  Component {
     id: dockTab
     DockTab {}
   }
@@ -578,6 +583,12 @@ Item {
             "label": "session-menu.title",
             "icon": "settings-session-menu",
             "source": sessionMenuTab
+          },
+          {
+            "id": SettingsPanel.Tab.Idle,
+            "label": "common.idle",
+            "icon": "settings-idle",
+            "source": idleTab
           },
           {
             "id": SettingsPanel.Tab.Audio,
@@ -1048,7 +1059,7 @@ Item {
               delegate: Rectangle {
                 id: tabItem
                 width: sidebarList.width
-                height: tabEntryRow.implicitHeight + Style.margin2S
+                height: tabEntryRow.implicitHeight + Style.margin2XS
                 radius: Style.iRadiusS
                 color: selected ? Color.mPrimary : (tabItem.hovering ? Color.mHover : "transparent")
                 readonly property bool selected: index === root.currentTabIndex
