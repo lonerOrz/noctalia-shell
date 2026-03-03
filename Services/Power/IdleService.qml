@@ -41,6 +41,8 @@ Singleton {
   property var _suspendMonitor: null
   property var _heartbeatMonitor: null
   property var _customMonitors: ({})
+  property real _suppressUntil: 0
+  property bool _screenOffActive: false
 
   // Signals for external listeners (plugins, modules)
   signal screenOffRequested
@@ -60,9 +62,16 @@ Singleton {
     repeat: false
     onTriggered: {
       const action = root.fadePending;
-      root.fadePending = "";
       root._executeAction(action);
+      overlayCleanupTimer.start();
     }
+  }
+
+  Timer {
+    id: overlayCleanupTimer
+    interval: 500
+    repeat: false
+    onTriggered: root.fadePending = ""
   }
 
   // Counts up idleSeconds while the heartbeat monitor reports idle
@@ -75,16 +84,34 @@ Singleton {
 
   // -------------------------------------------------------
   function cancelFade() {
-    if (fadePending === "")
+    if (fadePending === "") {
+      _restoreMonitors();
       return;
+    }
     Logger.i("IdleService", "Fade cancelled for:", fadePending);
     fadePending = "";
     graceTimer.stop();
+    overlayCleanupTimer.stop();
+    _restoreMonitors();
+  }
+
+  function _restoreMonitors() {
+    if (!_screenOffActive)
+      return;
+    _screenOffActive = false;
+    Logger.i("IdleService", "Restoring monitors (DPMS on)");
+    CompositorService.turnOnMonitors();
+
+    if (Settings.data.idle.resumeScreenOffCommand) {
+      Logger.i("IdleService", "Executing screen-off resume command");
+      Quickshell.execDetached(["sh", "-c", Settings.data.idle.resumeScreenOffCommand]);
+    }
   }
 
   function _onIdle(stage) {
-    // Don't re-trigger if already fading something
     if (fadePending !== "")
+      return;
+    if (Date.now() < _suppressUntil)
       return;
     Logger.i("IdleService", "Idle fired:", stage);
     fadePending = stage;
@@ -94,14 +121,22 @@ Singleton {
   function _executeAction(stage) {
     Logger.i("IdleService", "Executing action:", stage);
     if (stage === "screenOff") {
+      if (Settings.data.idle.screenOffCommand)
+        Quickshell.execDetached(["sh", "-c", Settings.data.idle.screenOffCommand]);
+      root._suppressUntil = Date.now() + (Settings.data.idle.screenOffTimeout * 1000);
       CompositorService.turnOffMonitors();
+      root._screenOffActive = true;
       root.screenOffRequested();
     } else if (stage === "lock") {
+      if (Settings.data.idle.lockCommand)
+        Quickshell.execDetached(["sh", "-c", Settings.data.idle.lockCommand]);
       if (PanelService.lockScreen && !PanelService.lockScreen.active) {
         PanelService.lockScreen.active = true;
       }
       root.lockRequested();
     } else if (stage === "suspend") {
+      if (Settings.data.idle.suspendCommand)
+        Quickshell.execDetached(["sh", "-c", Settings.data.idle.suspendCommand]);
       CompositorService.suspend();
       root.suspendRequested();
     }
@@ -172,7 +207,8 @@ Singleton {
       const entry = entries[i];
       const timeoutSec = parseInt(entry.timeout);
       const cmd = entry.command;
-      if (!cmd || timeoutSec <= 0)
+      const resumeCmd = entry.resumeCommand || "";
+      if (!cmd && !resumeCmd || timeoutSec <= 0)
         continue;
       try {
         const qml = `
@@ -182,9 +218,14 @@ Singleton {
 
         const monitor = Qt.createQmlObject(qml, root, "IdleMonitor_custom_" + i);
         const capturedCmd = cmd;
+        const capturedResumeCmd = resumeCmd;
         monitor.isIdleChanged.connect(function () {
           if (monitor.isIdle) {
-            root._executeCustomCommand(capturedCmd);
+            if (capturedCmd)
+              root._executeCustomCommand(capturedCmd);
+          } else {
+            if (capturedResumeCmd)
+              root._executeCustomCommand(capturedResumeCmd);
           }
         });
         newMonitors[i] = monitor;
@@ -263,7 +304,15 @@ Singleton {
         } else {
           idleCounter.stop();
           root.idleSeconds = 0;
+          if (root.fadePending === "lock" && Settings.data.idle.resumeLockCommand) {
+            Logger.i("IdleService", "Executing lock resume command");
+            Quickshell.execDetached(["sh", "-c", Settings.data.idle.resumeLockCommand]);
+          } else if (root.fadePending === "suspend" && Settings.data.idle.resumeSuspendCommand) {
+            Logger.i("IdleService", "Executing suspend resume command");
+            Quickshell.execDetached(["sh", "-c", Settings.data.idle.resumeSuspendCommand]);
+          }
           root.cancelFade();
+          overlayCleanupTimer.stop();
         }
       });
       _heartbeatMonitor = monitor;

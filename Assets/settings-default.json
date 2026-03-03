@@ -69,6 +69,9 @@
         }
       ]
     },
+    "mouseWheelAction": "none",
+    "reverseScroll": false,
+    "mouseWheelWrap": true,
     "screenOverrides": []
   },
   "general": {
@@ -88,6 +91,7 @@
     "lockOnSuspend": true,
     "showSessionButtonsOnLockScreen": true,
     "showHibernateOnLockScreen": false,
+    "enableLockScreenMediaControls": false,
     "enableShadows": true,
     "shadowDirection": "bottom_right",
     "shadowOffsetX": 2,
@@ -111,7 +115,7 @@
       "keyDown": ["Down"],
       "keyLeft": ["Left"],
       "keyRight": ["Right"],
-      "keyEnter": ["Return"],
+      "keyEnter": ["Return", "Enter"],
       "keyEscape": ["Esc"],
       "keyRemove": ["Del"]
     },
@@ -225,6 +229,7 @@
   },
   "controlCenter": {
     "position": "close_to_bar_button",
+    "openAtMouseOnBarRightClick": true,
     "diskPath": "/",
     "shortcuts": {
       "left": [
@@ -331,7 +336,10 @@
     "deadOpacity": 0.6,
     "animationSpeed": 1,
     "sitOnFrame": false,
-    "showFrameIndicator": true
+    "showDockIndicator": false,
+    "indicatorThickness": 3,
+    "indicatorColor": "primary",
+    "indicatorOpacity": 0.6
   },
   "network": {
     "wifiEnabled": true,
@@ -489,6 +497,12 @@
     "lockTimeout": 660,
     "suspendTimeout": 1800,
     "fadeDuration": 5,
+    "screenOffCommand": "",
+    "lockCommand": "",
+    "suspendCommand": "",
+    "resumeScreenOffCommand": "",
+    "resumeLockCommand": "",
+    "resumeSuspendCommand": "",
     "customCommands": "[]"
   },
   "desktopWidgets": {

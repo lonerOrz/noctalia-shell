@@ -404,6 +404,16 @@ Singleton {
   }
 
   IpcHandler {
+    target: "monitors"
+    function on() {
+      CompositorService.turnOnMonitors();
+    }
+    function off() {
+      CompositorService.turnOffMonitors();
+    }
+  }
+
+  IpcHandler {
     target: "darkMode"
     function toggle() {
       Settings.data.colorSchemes.darkMode = !Settings.data.colorSchemes.darkMode;
@@ -556,9 +566,32 @@ Singleton {
       }
     }
 
-    function random() {
+    function random(screen: string) {
       if (Settings.data.wallpaper.enabled) {
-        WallpaperService.setRandomWallpaper();
+        if (!screen || screen === "all" || screen.trim().length === 0) {
+          screen = undefined;
+        }
+        WallpaperService.setRandomWallpaper(screen);
+      }
+    }
+
+    function get(screen: string): string {
+      if (screen === "all" || screen === "") {
+        if (Quickshell.screens.length > 1) {
+          var map = {};
+          Quickshell.screens.forEach(s => {
+                                       map[s.name] = WallpaperService.currentWallpapers[s.name] ?? "";
+                                     });
+          return JSON.stringify(map);
+        }
+        return WallpaperService.currentWallpapers[Quickshell.screens[0].name] ?? "";
+      } else {
+        var found = Quickshell.screens.find(s => s.name === screen);
+        if (!found) {
+          Logger.w("IPC", "wallpaper get: unknown screen: " + screen);
+          return "";
+        }
+        return WallpaperService.currentWallpapers[screen] ?? "";
       }
     }
 

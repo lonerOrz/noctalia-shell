@@ -110,11 +110,11 @@ Item {
     }
 
     // Memory
-    rows.push([I18n.tr("common.memory"), `${Math.round(SystemStatService.memPercent)}% (${SystemStatService.formatGigabytes(SystemStatService.memGb).replace(/[^0-9.]/g, "") + " GB"})`]);
+    rows.push([I18n.tr("common.memory"), `${Math.round(SystemStatService.memPercent)}% (${(SystemStatService.memGb).toFixed(1)} GiB)`]);
 
     // Swap (if available)
     if (SystemStatService.swapTotalGb > 0) {
-      rows.push([I18n.tr("bar.system-monitor.swap-usage-label"), `${Math.round(SystemStatService.swapPercent)}% (${SystemStatService.formatGigabytes(SystemStatService.swapGb).replace(/[^0-9.]/g, "") + " GB"})`]);
+      rows.push([I18n.tr("bar.system-monitor.swap-usage-label"), `${Math.round(SystemStatService.swapPercent)}% (${(SystemStatService.swapGb).toFixed(1)} GiB)`]);
     }
 
     // Network
@@ -924,8 +924,10 @@ Item {
                  }
                }
     onEntered: {
-      TooltipService.show(root, buildTooltipContent(), BarService.getTooltipDirection(root.screen?.name));
-      tooltipRefreshTimer.start();
+      if (!PanelService.getPanel("systemStatsPanel", screen).isPanelOpen) {
+        TooltipService.show(root, buildTooltipContent(), BarService.getTooltipDirection(root.screen?.name));
+        tooltipRefreshTimer.start();
+      }
     }
     onExited: {
       tooltipRefreshTimer.stop();

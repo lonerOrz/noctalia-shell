@@ -25,8 +25,9 @@ Item {
   readonly property bool isDragging: internal.isDragging
   readonly property bool isScaling: internal.isScaling
 
-  property bool showBackground: (widgetData && widgetData.showBackground !== undefined) ? widgetData.showBackground : true
-  property bool roundedCorners: (widgetData && widgetData.roundedCorners !== undefined) ? widgetData.roundedCorners : true
+  // All Desktop widgets have these settings, but fallback just in case
+  property bool showBackground: widgetData.showBackground !== undefined ? widgetData.showBackground : (widgetMetadata?.showBackground ?? true)
+  property bool roundedCorners: widgetData.roundedCorners !== undefined ? widgetData.roundedCorners : (widgetMetadata?.roundedCorners ?? true)
 
   property real widgetScale: 1.0
   property real minScale: 0.5
@@ -262,14 +263,14 @@ Item {
     color: DesktopWidgetRegistry.editMode ? Qt.rgba(Color.mPrimary.r, Color.mPrimary.g, Color.mPrimary.b, 0.1) : "transparent"
     border.color: (DesktopWidgetRegistry.editMode || internal.isDragging) ? (internal.isDragging ? Color.mOutline : Color.mPrimary) : "transparent"
     border.width: DesktopWidgetRegistry.editMode ? 3 : 0
-    radius: Math.round(Style.radiusL * root.widgetScale)
+    radius: Math.min(Math.round(Style.radiusL * root.widgetScale), Style.radiusL, width / 2, height / 2)
     z: -1
   }
 
   Rectangle {
     id: container
     anchors.fill: parent
-    radius: root.roundedCorners ? Math.round(Style.radiusL * root.widgetScale) : 0
+    radius: root.roundedCorners ? Math.min(Math.round(Style.radiusL * root.widgetScale), Style.radiusL, width / 2, height / 2) : 0
     color: Qt.alpha(Color.mSurface, Settings.data.ui.panelBackgroundOpacity)
     border {
       width: 1

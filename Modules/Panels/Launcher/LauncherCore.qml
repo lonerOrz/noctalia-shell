@@ -1034,6 +1034,7 @@ Rectangle {
                     baseSize: Style.baseWidgetSize * 0.75
                     tooltipText: modelData.tooltip
                     z: 1
+                    allowScroll: true
                     onClicked: {
                       if (modelData.action) {
                         modelData.action();
@@ -1223,9 +1224,9 @@ Rectangle {
 
               // Icon badge or Image preview or Emoji
               Item {
-                // Use consistent 65% sizing for all items
+                // Size image at 65% of cell dimensions.
                 Layout.preferredWidth: Math.round(gridEntry.width * 0.65)
-                Layout.preferredHeight: Math.round(gridEntry.width * 0.65)
+                Layout.preferredHeight: Math.round(gridEntry.height * 0.65)
                 Layout.alignment: Qt.AlignHCenter
 
                 // Icon background
@@ -1366,9 +1367,9 @@ Rectangle {
                     return Style.fontSizeS * Style.uiScaleRatio;
                   }
                   // Scale font size relative to cell width for low res, but cap at maximum
-                  const cellBasedSize = gridEntry.width * 0.12;
-                  const baseSize = Style.fontSizeS * Style.uiScaleRatio;
-                  const maxSize = Style.fontSizeM * Style.uiScaleRatio;
+                  const cellBasedSize = gridEntry.width * 0.1;
+                  const baseSize = Style.fontSizeXS * Style.uiScaleRatio;
+                  const maxSize = Style.fontSizeS * Style.uiScaleRatio;
                   return Math.min(Math.max(cellBasedSize, baseSize), maxSize);
                 }
                 font.weight: Style.fontWeightSemiBold
@@ -1410,6 +1411,7 @@ Rectangle {
                   baseSize: Style.baseWidgetSize * 0.75
                   tooltipText: modelData.tooltip
                   z: 11
+                  allowScroll: true
                   onClicked: {
                     if (modelData.action) {
                       modelData.action();

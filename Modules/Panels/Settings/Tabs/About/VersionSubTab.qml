@@ -31,9 +31,11 @@ ColumnLayout {
   property string latestVersion: GitHubService.latestVersion
   property string currentVersion: UpdateService.currentVersion
   property string commitInfo: ""
+  property string qsVersion: ""
 
   readonly property bool isGitVersion: root.currentVersion.endsWith("-git")
-  readonly property int giga: (1024 * 1024 * 1024)
+  readonly property int gigaB: (1024 * 1024 * 1024)
+  readonly property int gigaD: (1000 * 1000 * 1000)
 
   // Update status: compare versions (strip -git suffix for comparison)
   readonly property string installedBase: root.currentVersion.replace("-git", "")
@@ -96,7 +98,7 @@ ColumnLayout {
       version: UpdateService.currentVersion,
       compositor: TelemetryService.getCompositorType(),
       os: HostService.osPretty || "Unknown",
-      ramGb: Math.round((root.getModule("Memory")?.result?.total || 0) / root.giga),
+      ramGb: Math.round((root.getModule("Memory")?.result?.total || 0) / root.gigaB),
       monitors: monitors,
       ui: {
         scaleRatio: Settings.data.general.scaleRatio,
@@ -120,6 +122,9 @@ ColumnLayout {
     if (root.isGitVersion && root.commitInfo) {
       info += "Git commit: " + root.commitInfo + "\n";
     }
+    if (root.qsVersion) {
+      info += "noctalia-qs version: " + root.qsVersion + "\n";
+    }
     info += "\nSystem Information\n";
     info += "==================\n";
     if (root.systemInfo) {
@@ -140,7 +145,7 @@ ColumnLayout {
         info += "GPU: " + gpu.result.map(g => g.name || "Unknown").join(", ") + "\n";
       }
       if (mem?.result) {
-        info += "Memory: " + SystemStatService.formatGigabytes(mem.result.total / root.giga) + "\n";
+        info += "Memory: " + (mem.result.total / root.gigaB).toFixed(1) + " GB \n";
       }
       if (wm?.result) {
         info += "WM: " + (wm.result.prettyName || wm.result.processName || "N/A") + "\n";
@@ -162,6 +167,7 @@ ColumnLayout {
   Component.onCompleted: {
     // Check if fastfetch is available before trying to run it
     checkFastfetchProcess.running = true;
+    qsVersionProcess.running = true;
 
     Logger.d("VersionSubTab", "Current version:", root.currentVersion);
     Logger.d("VersionSubTab", "Is git version:", root.isGitVersion);
@@ -296,6 +302,27 @@ ColumnLayout {
         }
       } else {
         Logger.d("VersionSubTab", "gitProcess - Git command failed. Exit code:", exitCode);
+      }
+    }
+
+    stdout: StdioCollector {}
+    stderr: StdioCollector {}
+  }
+
+  Process {
+    id: qsVersionProcess
+    command: ["qs", "--version"]
+    running: false
+
+    onExited: function (exitCode) {
+      if (exitCode === 0) {
+        var output = stdout.text.trim();
+        // Format: "noctalia-qs 0.3.0, revision abc12345, distributed by: ..."
+        // Only set if this is actually noctalia-qs; leave empty for upstream quickshell
+        var match = output.match(/noctalia-qs\s+(\S+),\s+revision\s+([0-9a-f]+)/i);
+        if (match) {
+          root.qsVersion = match[1] + " (" + match[2] + ")";
+        }
       }
     }
 
@@ -507,6 +534,21 @@ ColumnLayout {
               }
             }
           }
+        }
+
+        NText {
+          visible: root.qsVersion !== ""
+          text: I18n.tr("panels.about.noctalia-qs-version")
+          color: Color.mOnSurfaceVariant
+          Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+        }
+
+        NText {
+          visible: root.qsVersion !== ""
+          text: root.qsVersion
+          color: Color.mOnSurface
+          font.weight: Style.fontWeightBold
+          pointSize: Style.fontSizeXS
         }
       }
     }
@@ -734,9 +776,9 @@ ColumnLayout {
         const mem = root.getModule("Memory");
         if (!mem?.result)
           return "N/A";
-        const used = SystemStatService.formatGigabytes(mem.result.used / root.giga);
-        const total = SystemStatService.formatGigabytes(mem.result.total / root.giga);
-        return used + " / " + total;
+        const used = (mem.result.used / root.gigaB).toFixed(1);
+        const total = (mem.result.total / root.gigaB).toFixed(1);
+        return used + " GiB / " + total + " GiB";
       }
       color: Color.mOnSurface
       pointSize: sysInfo.textSize
@@ -758,9 +800,9 @@ ColumnLayout {
         const rootDisk = disk.result.find(d => d.mountpoint === "/");
         if (!rootDisk?.bytes)
           return "N/A";
-        const used = SystemStatService.formatGigabytes(rootDisk.bytes.used / root.giga);
-        const total = SystemStatService.formatGigabytes(rootDisk.bytes.total / root.giga);
-        return used + " / " + total + " (" + rootDisk.filesystem + ")";
+        const used = (rootDisk.bytes.used / root.gigaD).toFixed(1);
+        const total = (rootDisk.bytes.total / root.gigaD).toFixed(1);
+        return used + " GB / " + total + " GB" + " (" + rootDisk.filesystem + ")";
       }
       color: Color.mOnSurface
       pointSize: sysInfo.textSize

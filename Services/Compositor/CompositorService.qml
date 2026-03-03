@@ -375,6 +375,13 @@ Singleton {
     }
   }
 
+  // Scrollable workspace content (Niri)
+  function scrollWorkspaceContent(direction) {
+    if (backend && backend.scrollWorkspaceContent) {
+      backend.scrollWorkspaceContent(direction);
+    }
+  }
+
   // Get current workspace
   function getCurrentWorkspace() {
     for (var i = 0; i < workspaces.count; i++) {
@@ -504,6 +511,15 @@ Singleton {
       backend.turnOffMonitors();
     } else {
       Logger.w("Compositor", "No backend available for turnOffMonitors");
+    }
+  }
+
+  function turnOnMonitors() {
+    Logger.i("Compositor", "Turn on monitors requested");
+    if (backend && backend.turnOnMonitors) {
+      backend.turnOnMonitors();
+    } else {
+      Logger.w("Compositor", "No backend available for turnOnMonitors");
     }
   }
 

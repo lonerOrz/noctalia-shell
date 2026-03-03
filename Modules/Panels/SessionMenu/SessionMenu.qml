@@ -589,7 +589,7 @@ SmartPanel {
         id: timerText
         anchors.centerIn: parent
         text: I18n.tr("session-menu.action-in-seconds", {
-                        "action": I18n.tr("common." + pendingAction),
+                        "action": root.actionMetadata[pendingAction] ? root.actionMetadata[pendingAction].title : "",
                         "seconds": Math.ceil(timeRemaining / 1000)
                       })
         font.weight: Style.fontWeightBold
@@ -641,7 +641,7 @@ SmartPanel {
       visible: !largeButtonsStyle
       anchors.fill: parent
       anchors.margins: Style.marginL
-      color: Color.mSurface
+      color: Color.mSurfaceVariant
 
       ColumnLayout {
         anchors.fill: parent
@@ -656,7 +656,7 @@ SmartPanel {
 
           NText {
             text: timerActive ? I18n.tr("session-menu.action-in-seconds", {
-                                          "action": I18n.tr("common." + pendingAction),
+                                          "action": root.actionMetadata[pendingAction] ? root.actionMetadata[pendingAction].title : "",
                                           "seconds": Math.ceil(timeRemaining / 1000)
                                         }) : I18n.tr("session-menu.title")
             font.weight: Style.fontWeightBold
@@ -842,7 +842,7 @@ SmartPanel {
           width: labelText.implicitWidth + Style.margin2M
           height: labelText.height + Style.margin2XS
           radius: Math.min(Style.radiusM, height / 2)
-          color: (buttonRoot.isSelected || buttonRoot.effectiveHover) ? Color.mOnPrimary : Color.mSurfaceVariant
+          color: (buttonRoot.isSelected || buttonRoot.effectiveHover) ? Color.mOnPrimary : Color.mSurface
           border.width: Style.borderS
           border.color: (buttonRoot.isSelected || buttonRoot.effectiveHover) ? Color.mOnPrimary : Color.mOutline
           visible: Settings.data.sessionMenu.showKeybinds && (buttonRoot.keybind !== "") && !buttonRoot.pending
@@ -852,7 +852,7 @@ SmartPanel {
             anchors.centerIn: parent
             text: buttonRoot.keybind
             pointSize: Style.fontSizeXS
-            color: (buttonRoot.isSelected || buttonRoot.effectiveHover) ? Color.mPrimary : Color.mOnSurfaceVariant
+            color: (buttonRoot.isSelected || buttonRoot.effectiveHover) ? Color.mPrimary : Color.mOnSurface
 
             Behavior on color {
               ColorAnimation {
