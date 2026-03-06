@@ -154,6 +154,12 @@ Popup {
         saveTimer.start();
       }
     }
+
+    function onSettingsSaved(newSettings) {
+      if (newSettings) {
+        root.updateWidgetSettings(root.sectionId, root.widgetIndex, newSettings);
+      }
+    }
   }
 
   function saveAndClose() {
@@ -172,19 +178,34 @@ Popup {
       var pluginId = widgetId.replace("plugin:", "");
       var manifest = PluginRegistry.getPluginManifest(pluginId);
 
-      if (!manifest || !manifest.entryPoints || !manifest.entryPoints.settings) {
-        Logger.w("DesktopWidgetSettingsDialog", "Plugin does not have settings:", pluginId);
-        return;
-      }
-
       var pluginDir = PluginRegistry.getPluginDir(pluginId);
-      var settingsPath = "file://" + pluginDir + "/" + manifest.entryPoints.settings;
       var loadVersion = PluginRegistry.pluginLoadVersions[pluginId] || 0;
       var api = PluginService.getPluginAPI(pluginId);
 
-      settingsLoader.setSource(settingsPath + "?v=" + loadVersion, {
-                                 "pluginApi": api
-                               });
+      var settingsPath;
+      if (manifest && manifest.entryPoints && manifest.entryPoints.desktopWidgetSettings) {
+        settingsPath = "file://" + pluginDir + "/" + manifest.entryPoints.desktopWidgetSettings;
+
+        settingsLoader.setSource(settingsPath + "?v=" + loadVersion, {
+                                   "pluginApi": api,
+                                   "widgetData": widgetData || {},
+                                   "widgetMetadata": DesktopWidgetRegistry.widgetMetadata[widgetId]
+                                 });
+      } else {
+        Logger.w("DesktopWidgetSettingsDialog", "Plugin does not have desktop widget settings:", pluginId);
+
+        // Fallback to the plugin settings
+        if (manifest && manifest.entryPoints && manifest.entryPoints.settings) {
+          settingsPath = "file://" + pluginDir + "/" + manifest.entryPoints.settings;
+
+          settingsLoader.setSource(settingsPath + "?v=" + loadVersion, {
+                                     "pluginApi": api
+                                   });
+        } else {
+          Logger.w("DesktopWidgetSettingsDialog", "Plugin does not have settings:", pluginId);
+        }
+      }
+
       return;
     }
 

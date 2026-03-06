@@ -10,6 +10,7 @@ import qs.Commons
 import qs.Modules.Panels.Settings
 import qs.Services.Compositor
 import qs.Services.Hardware
+import qs.Services.Location
 import qs.Services.Media
 import qs.Services.Networking
 import qs.Services.Noctalia
@@ -653,6 +654,15 @@ Singleton {
                                               bluetoothPanel?.toggle(null, "Bluetooth");
                                             });
     }
+    function toggleAutoConnect() {
+      Settings.data.network.bluetoothAutoConnect = !Settings.data.network.bluetoothAutoConnect;
+    }
+    function enableAutoConnect() {
+      Settings.data.network.bluetoothAutoConnect = true;
+    }
+    function disableAutoConnect() {
+      Settings.data.network.bluetoothAutoConnect = false;
+    }
   }
 
   IpcHandler {
@@ -826,6 +836,7 @@ Singleton {
     }
     function set(name: string) {
       Settings.data.location.name = name;
+      LocationService.update();
     }
   }
 

@@ -72,6 +72,12 @@
     "mouseWheelAction": "none",
     "reverseScroll": false,
     "mouseWheelWrap": true,
+    "middleClickAction": "none",
+    "middleClickFollowMouse": false,
+    "middleClickCommand": "",
+    "rightClickAction": "controlCenter",
+    "rightClickFollowMouse": true,
+    "rightClickCommand": "",
     "screenOverrides": []
   },
   "general": {
@@ -229,7 +235,6 @@
   },
   "controlCenter": {
     "position": "close_to_bar_button",
-    "openAtMouseOnBarRightClick": true,
     "diskPath": "/",
     "shortcuts": {
       "left": [
@@ -350,7 +355,8 @@
     "wifiDetailsViewMode": "grid",
     "bluetoothDetailsViewMode": "grid",
     "bluetoothHideUnnamedDevices": false,
-    "disableDiscoverability": false
+    "disableDiscoverability": false,
+    "bluetoothAutoConnect": true
   },
   "sessionMenu": {
     "enableCountdown": true,
