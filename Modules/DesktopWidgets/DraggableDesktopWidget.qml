@@ -306,7 +306,7 @@ Item {
       if (DesktopWidgetRegistry.isPluginWidget(widgetId)) {
         var pluginId = widgetId.replace("plugin:", "");
         var manifest = PluginRegistry.getPluginManifest(pluginId);
-        hasSettings = manifest && manifest.entryPoints && manifest.entryPoints.settings;
+        hasSettings = manifest && manifest.entryPoints && (manifest.entryPoints.settings || manifest.entryPoints.desktopWidgetSettings);
       } else {
         hasSettings = DesktopWidgetRegistry.widgetSettingsMap[widgetId] !== undefined;
       }
