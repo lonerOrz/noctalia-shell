@@ -150,6 +150,7 @@ ColumnLayout {
       const kernel = root.getModule("Kernel");
       const title = root.getModule("Title");
       const product = root.getModule("Host");
+      const board = root.getModule("Board");
       const cpu = root.getModule("CPU");
       const gpu = root.getModule("GPU");
       const mem = root.getModule("Memory");
@@ -158,6 +159,7 @@ ColumnLayout {
       info += "Kernel: " + (kernel?.result?.release || "N/A") + "\n";
       info += "Host: " + (title?.result?.hostName || "N/A") + "\n";
       info += "Product: " + (product?.result?.name || "N/A") + "\n";
+      info += "Board: " + (board?.result?.name || "N/A") + "\n";
       info += "CPU: " + (cpu?.result?.cpu || "N/A") + "\n";
       if (gpu?.result && Array.isArray(gpu.result) && gpu.result.length > 0) {
         info += "GPU: " + gpu.result.map(g => g.name || "Unknown").join(", ") + "\n";
@@ -208,88 +210,9 @@ ColumnLayout {
             Logger.d("VersionSubTab", "Component.onCompleted - Could not extract commit from NixOS path, trying fallback");
           }
         }
-        fetchGitCommit();
-        return;
-      } else {
-        // On non-NixOS systems, check for pacman first.
-        whichPacmanProcess.running = true;
-        return;
       }
+      fetchGitCommit();
     }
-  }
-
-  Timer {
-    id: gitFallbackTimer
-    interval: 500
-    running: false
-    onTriggered: {
-      if (!root.commitInfo) {
-        fetchGitCommit();
-      }
-    }
-  }
-
-  Process {
-    id: whichPacmanProcess
-    command: ["sh", "-c", "command -v pacman"]
-    running: false
-    onExited: function (exitCode) {
-      if (exitCode === 0) {
-        Logger.d("VersionSubTab", "whichPacmanProcess - pacman found, starting query");
-        pacmanProcess.running = true;
-        gitFallbackTimer.start();
-      } else {
-        Logger.d("VersionSubTab", "whichPacmanProcess - pacman not found, falling back to git");
-        fetchGitCommit();
-      }
-    }
-  }
-
-  Process {
-    id: pacmanProcess
-    command: ["pacman", "-Q", "noctalia-shell-git"]
-    running: false
-
-    onStarted: {
-      gitFallbackTimer.stop();
-    }
-
-    onExited: function (exitCode) {
-      gitFallbackTimer.stop();
-      Logger.d("VersionSubTab", "pacmanProcess - Process exited with code:", exitCode);
-      if (exitCode === 0) {
-        var output = stdout.text.trim();
-        Logger.d("VersionSubTab", "pacmanProcess - Output:", output);
-        var match = output.match(/noctalia-shell-git\s+(.+)/);
-        if (match && match[1]) {
-          // For Arch packages, the version format might be like: 3.4.0.r112.g3f00bec8-1
-          // Extract just the commit hash part if it exists
-          var version = match[1];
-          var commitMatch = version.match(/\.g([0-9a-f]{7,})/i);
-          if (commitMatch && commitMatch[1]) {
-            // Show short hash (first 7 characters)
-            root.commitInfo = commitMatch[1].substring(0, 7);
-            Logger.d("VersionSubTab", "pacmanProcess - Set commitInfo from Arch package:", root.commitInfo);
-            return; // Successfully got commit hash from Arch package
-          } else {
-            // If no commit hash in version format, still try git repo
-            Logger.d("VersionSubTab", "pacmanProcess - No commit hash in version, trying git");
-            fetchGitCommit();
-          }
-        } else {
-          // Unexpected output format, try git
-          Logger.d("VersionSubTab", "pacmanProcess - Unexpected output format, trying git");
-          fetchGitCommit();
-        }
-      } else {
-        // If not on Arch, try to get git commit from repository
-        Logger.d("VersionSubTab", "pacmanProcess - Package not found, trying git");
-        fetchGitCommit();
-      }
-    }
-
-    stdout: StdioCollector {}
-    stderr: StdioCollector {}
   }
 
   function fetchGitCommit() {
@@ -337,7 +260,7 @@ ColumnLayout {
         var output = stdout.text.trim();
         // Format: "noctalia-qs 0.3.0, revision abc12345, distributed by: ..."
         // Only set if this is actually noctalia-qs; leave empty for upstream quickshell
-        var match = output.match(/noctalia-qs\s+(\S+),\s+revision\s+([0-9a-f]+)/i);
+        var match = output.match(/noctalia-qs\s+(\S+),\s+revision\s*([0-9a-f]*)/i);
         if (match) {
           root.qsVersion = match[1];
           root.qsRevision = match[2];
@@ -791,6 +714,23 @@ ColumnLayout {
     NText {
       text: {
         const title = root.getModule("Host");
+        return title?.result?.name || "N/A";
+      }
+      color: Color.mOnSurface
+      pointSize: sysInfo.textSize
+      Layout.fillWidth: true
+      wrapMode: Text.Wrap
+    }
+
+    // Board name
+    NText {
+      text: I18n.tr("panels.about.system-board")
+      color: Color.mOnSurfaceVariant
+      pointSize: sysInfo.textSize
+    }
+    NText {
+      text: {
+        const title = root.getModule("Board");
         return title?.result?.name || "N/A";
       }
       color: Color.mOnSurface

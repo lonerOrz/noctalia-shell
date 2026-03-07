@@ -31,6 +31,9 @@ Singleton {
   property Component systemStatComponent: Component {
     DesktopSystemStat {}
   }
+  property Component audioVisualizerComponent: Component {
+    DesktopAudioVisualizer {}
+  }
 
   // Widget registry object mapping widget names to components
   // Created in Component.onCompleted to ensure Components are ready
@@ -44,6 +47,7 @@ Singleton {
     widgetsObj["Weather"] = weatherComponent;
     widgetsObj["Countdown"] = countdownComponent;
     widgetsObj["SystemStat"] = systemStatComponent;
+    widgetsObj["AudioVisualizer"] = audioVisualizerComponent;
     widgets = widgetsObj;
 
     Logger.i("DesktopWidgetRegistry", "Service started");
@@ -54,7 +58,8 @@ Singleton {
                                      "MediaPlayer": "WidgetSettings/MediaPlayerSettings.qml",
                                      "Weather": "WidgetSettings/WeatherSettings.qml",
                                      "Countdown": "WidgetSettings/CountdownSettings.qml",
-                                     "SystemStat": "WidgetSettings/SystemStatSettings.qml"
+                                     "SystemStat": "WidgetSettings/SystemStatSettings.qml",
+                                     "AudioVisualizer": "WidgetSettings/AudioVisualizerSettings.qml"
                                    })
 
   property var widgetMetadata: ({
@@ -90,10 +95,19 @@ Singleton {
                                     "statType": "CPU",
                                     "diskPath": "/",
                                     "layout": "bottom"
+                                  },
+                                  "AudioVisualizer": {
+                                    "showBackground": true,
+                                    "roundedCorners": true,
+                                    "width": 320,
+                                    "height": 72,
+                                    "visualizerType": "linear",
+                                    "hideWhenIdle": false,
+                                    "colorName": "primary"
                                   }
                                 })
 
-  property var cpuIntensiveWidgets: ["SystemStat"]
+  property var cpuIntensiveWidgets: ["SystemStat", "AudioVisualizer"]
 
   // Plugin widget storage (mirroring BarWidgetRegistry pattern)
   property var pluginWidgets: ({})

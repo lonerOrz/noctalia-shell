@@ -99,6 +99,7 @@
     "showHibernateOnLockScreen": false,
     "enableLockScreenMediaControls": false,
     "enableShadows": true,
+    "enableBlurBehind": true,
     "shadowDirection": "bottom_right",
     "shadowOffsetX": 2,
     "shadowOffsetY": 3,
@@ -316,6 +317,10 @@
     "criticalColor": "",
     "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
   },
+  "noctaliaPerformance": {
+    "disableWallpaper": true,
+    "disableDesktopWidgets": true
+  },
   "dock": {
     "enabled": true,
     "position": "bottom",
@@ -447,7 +452,7 @@
   "audio": {
     "volumeStep": 5,
     "volumeOverdrive": false,
-    "cavaFrameRate": 30,
+    "spectrumFrameRate": 30,
     "visualizerType": "linear",
     "mprisBlacklist": [],
     "preferredPlayer": "",
