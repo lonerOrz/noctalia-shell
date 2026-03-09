@@ -24,7 +24,6 @@ Item {
         return root.color;
       }
 
-      // Reuse panel opacity, but limit it to 0.5
       let alpha = Math.max(Settings.data.ui.panelBackgroundOpacity, 0.4);
       alpha = Math.max(0, root.color.a - (1.0 - alpha));
       return Qt.alpha(root.color, alpha);
