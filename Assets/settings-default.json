@@ -134,8 +134,10 @@
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
+    "scrollbarAlwaysVisible": true,
     "boxBorderEnabled": false,
     "panelBackgroundOpacity": 0.93,
+    "translucentWidgets": false,
     "panelsAttachedToBar": true,
     "settingsPanelMode": "attached",
     "settingsPanelSideBarCardStyle": false
@@ -520,6 +522,7 @@
     "enabled": false,
     "overviewEnabled": true,
     "gridSnap": false,
+    "gridSnapScale": false,
     "monitorWidgets": [],
     "countdownPlans": []
   }

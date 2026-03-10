@@ -714,6 +714,8 @@
     "about": {
       "become-supporter": "Become a supporter",
       "changelog": "View changelog",
+      "changelog-on-startup": "Show changelog on update",
+      "changelog-on-startup-desc": "Automatically show the changelog when Noctalia is updated",
       "contributors-description": "Shout-out to our {count} <b>awesome</b> contributor!",
       "contributors-description-plural": "Shout-out to our {count} <b>awesome</b> contributors!",
       "copy-info": "Copy info",
@@ -1671,6 +1673,8 @@
       "panels-overlay-label": "Keep panels & bar on top",
       "scaling-description": "Changes the size of the general user interface, excluding the bar.",
       "scaling-label": "Interface scaling",
+      "scrollbar-always-visible-description": "Keep scrollbars visible whenever content is scrollable, instead of only showing them on hover.",
+      "scrollbar-always-visible-label": "Always show scrollbars",
       "settings-panel-header": "Settings panel",
       "settings-panel-mode-description": "Choose settings layout (may require reopening).",
       "settings-panel-mode-label": "Settings panel mode",
@@ -1682,7 +1686,9 @@
       "shadows-label": "Drop shadows",
       "title": "User Interface",
       "tooltips-description": "Enable or disable tooltips throughout the interface.",
-      "tooltips-label": "Show tooltips"
+      "tooltips-label": "Show tooltips",
+      "translucent-widgets-description": "Make buttons, tabs, and other widgets inside panels semi-transparent.",
+      "translucent-widgets-label": "Translucent widgets"
     },
     "wallpaper": {
       "automation-change-mode-alphabetical": "Alphabetical",

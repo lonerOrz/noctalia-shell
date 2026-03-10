@@ -533,7 +533,7 @@
     "unpin": "解除釘選",
     "update": "更新",
     "upload": "上傳",
-    "userspace-reboot": "使用者空間重新啟動",
+    "userspace-reboot": "重新啟動使用者空間",
     "version": "版本",
     "vibrant": "鮮明",
     "visualizer": "視覺效果",
@@ -714,6 +714,8 @@
     "about": {
       "become-supporter": "成為支持者",
       "changelog": "檢視更新日誌",
+      "changelog-on-startup": "更新時顯示變更日誌",
+      "changelog-on-startup-desc": "Noctalia 更新時自動顯示更新日誌。",
       "contributors-description": "特別感謝我們這{count}位<b>超讚</b>的貢獻者!!",
       "contributors-description-plural": "特別感謝我們這{count}位<b>超讚</b>的貢獻者!!",
       "copy-info": "複製資訊",
@@ -1671,6 +1673,8 @@
       "panels-overlay-label": "維持工具列及面板在最上層",
       "scaling-description": "調整除了工具列以外的整體介面大小",
       "scaling-label": "介面比例",
+      "scrollbar-always-visible-description": "當內容可捲動時，保持捲軸始終可見，而不是僅在懸停時顯示。",
+      "scrollbar-always-visible-label": "永遠顯示捲軸",
       "settings-panel-header": "設定面板",
       "settings-panel-mode-description": "選擇介面設定出現所用的佈局 (可能需要重新打開)",
       "settings-panel-mode-label": "設定面板顯示",
@@ -1682,7 +1686,9 @@
       "shadows-label": "陰影",
       "title": "使用者介面",
       "tooltips-description": "在整個介面啟用或停用提示框",
-      "tooltips-label": "顯示提示框"
+      "tooltips-label": "顯示提示框",
+      "translucent-widgets-description": "使面板內的按鈕、分頁和其他小部件半透明。",
+      "translucent-widgets-label": "半透明小工具"
     },
     "wallpaper": {
       "automation-change-mode-alphabetical": "照字母排序",

@@ -14,10 +14,10 @@ Item {
   property string tooltipText
   property string tooltipDirection: "auto"
   property bool allowClickWhenDisabled: false
-  property bool allowScroll: false
+  property bool handleWheel: false
   property bool hovering: false
 
-  property color colorBg: Color.mSurfaceVariant
+  property color colorBg: Color.smartAlpha(Color.mSurfaceVariant)
   property color colorFg: Color.mPrimary
   property color colorBgHover: Color.mHover
   property color colorFgHover: Color.mOnHover
@@ -124,12 +124,10 @@ Item {
                  }
                }
     onWheel: wheel => {
-               if (root.allowScroll) {
+               if (root.handleWheel) {
                  root.wheel(wheel.angleDelta.y);
-                 wheel.accepted = false;
-               } else {
-                 wheel.accepted = true;
                }
+               wheel.accepted = false;
              }
   }
 }

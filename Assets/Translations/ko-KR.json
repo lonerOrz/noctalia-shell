@@ -533,7 +533,7 @@
     "unpin": "고정 해제",
     "update": "업데이트",
     "upload": "업로드",
-    "userspace-reboot": "사용자 공간 재부팅",
+    "userspace-reboot": "사용자 공간 재시작",
     "version": "버전",
     "vibrant": "선명하게",
     "visualizer": "비주얼라이저",
@@ -714,6 +714,8 @@
     "about": {
       "become-supporter": "후원자 되기",
       "changelog": "변경 로그 보기",
+      "changelog-on-startup": "업데이트 시 변경 로그 표시",
+      "changelog-on-startup-desc": "Noctalia 업데이트 시 변경 로그를 자동으로 표시합니다.",
       "contributors-description": "{count}명의 <b>멋진</b> 기여자에게 감사를 전합니다!",
       "contributors-description-plural": "{count}명의 <b>멋진</b> 기여자들에게 감사를 전합니다!",
       "copy-info": "정보 복사",
@@ -1671,6 +1673,8 @@
       "panels-overlay-label": "패널과 바를 항상 위에 유지",
       "scaling-description": "바를 제외한 일반 사용자 인터페이스의 크기를 변경합니다.",
       "scaling-label": "인터페이스 배율",
+      "scrollbar-always-visible-description": "콘텐츠를 스크롤할 수 있을 때 스크롤바를 항상 표시하고, 마우스 오버 시에만 표시하지 않습니다.",
+      "scrollbar-always-visible-label": "항상 스크롤바 표시",
       "settings-panel-header": "설정 패널",
       "settings-panel-mode-description": "설정 레이아웃을 선택하세요 (다시 열어야 할 수 있음).",
       "settings-panel-mode-label": "설정 패널 모드",
@@ -1682,7 +1686,9 @@
       "shadows-label": "그림자",
       "title": "사용자 인터페이스",
       "tooltips-description": "인터페이스 전반에 툴팁을 활성화하거나 비활성화합니다.",
-      "tooltips-label": "툴팁 표시"
+      "tooltips-label": "툴팁 표시",
+      "translucent-widgets-description": "패널 내의 버튼, 탭 및 기타 위젯을 반투명하게 만듭니다.",
+      "translucent-widgets-label": "반투명 위젯"
     },
     "wallpaper": {
       "automation-change-mode-alphabetical": "알파벳순",

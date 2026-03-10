@@ -533,7 +533,7 @@
     "unpin": "Відкріпити",
     "update": "Оновлення",
     "upload": "Вивантажити",
-    "userspace-reboot": "Перезавантаження Простору Користувача",
+    "userspace-reboot": "Перезавантажити простір користувача",
     "version": "Версія",
     "vibrant": "Яскравий",
     "visualizer": "Візуалізатор",
@@ -714,6 +714,8 @@
     "about": {
       "become-supporter": "Стати прихильником",
       "changelog": "Переглянути журнал змін",
+      "changelog-on-startup": "Показувати журнал змін під час оновлення",
+      "changelog-on-startup-desc": "Автоматично показувати журнал змін при оновленні Noctalia.",
       "contributors-description": "Подяка нашому {count} <b>чудовому</b> учаснику!",
       "contributors-description-plural": "Подяка нашим {count} <b>чудовим</b> учасникам!",
       "copy-info": "Копіювати інформацію",
@@ -835,8 +837,8 @@
       "appearance-hide-on-overview-description": "Приховати панель і закрити панелі, коли активний огляд компонувальника.",
       "appearance-hide-on-overview-label": "Приховати панель на огляді",
       "appearance-margins-description": "Налаштуйте поля навколо плаваючої панелі.",
-      "appearance-margins-horizontal": "Горизонтальний Відступ",
-      "appearance-margins-vertical": "Вертикальний Відступ",
+      "appearance-margins-horizontal": "Горизонтальний відступ",
+      "appearance-margins-vertical": "Вертикальний відступ",
       "appearance-outer-corners-description": "Відображає назовні закруглені кути на панелі.",
       "appearance-outer-corners-label": "Зовнішні кути",
       "appearance-position-description": "Виберіть, де розмістити панель на екрані.",
@@ -1671,6 +1673,8 @@
       "panels-overlay-label": "Тримати панелі та панель зверху",
       "scaling-description": "Змінює розмір загального користувацького інтерфейсу, окрім панелі.",
       "scaling-label": "Масштабування інтерфейсу",
+      "scrollbar-always-visible-description": "Завжди показувати смуги прокрутки, коли вміст можна прокручувати, замість того, щоб відображати їх лише при наведенні.",
+      "scrollbar-always-visible-label": "Завжди показувати смуги прокрутки",
       "settings-panel-header": "Панель налаштувань",
       "settings-panel-mode-description": "Виберіть макет налаштувань (може знадобитися перезапуск).",
       "settings-panel-mode-label": "Режим панелі налаштувань",
@@ -1682,7 +1686,9 @@
       "shadows-label": "Тіні",
       "title": "Користувацький інтерфейс",
       "tooltips-description": "Увімкнути або вимкнути підказки в інтерфейсі.",
-      "tooltips-label": "Показувати підказки"
+      "tooltips-label": "Показувати підказки",
+      "translucent-widgets-description": "Зробіть кнопки, вкладки та інші віджети всередині панелей напівпрозорими.",
+      "translucent-widgets-label": "Напівпрозорі віджети"
     },
     "wallpaper": {
       "automation-change-mode-alphabetical": "Алфавітний",

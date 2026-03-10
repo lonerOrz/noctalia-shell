@@ -533,7 +533,7 @@
     "unpin": "ピン留め解除",
     "update": "アップデート",
     "upload": "アップロード",
-    "userspace-reboot": "ユーザースペースの再起動",
+    "userspace-reboot": "ユーザースペースを再起動",
     "version": "バージョン",
     "vibrant": "鮮やか",
     "visualizer": "ビジュアライザー",
@@ -714,6 +714,8 @@
     "about": {
       "become-supporter": "サポーターになる",
       "changelog": "変更履歴を見る",
+      "changelog-on-startup": "アップデート時に変更履歴を表示",
+      "changelog-on-startup-desc": "Noctaliaが更新されたときに、自動的に変更履歴を表示する。",
       "contributors-description": "{count}人の<b>素晴らしい</b>コントリビューターに感謝！",
       "contributors-description-plural": "{count}人の<b>素晴らしい</b>コントリビューターに感謝！",
       "copy-info": "情報をコピー",
@@ -1671,6 +1673,8 @@
       "panels-overlay-label": "パネルとバーを最前面に保持",
       "scaling-description": "バーを除く、ユーザーインターフェース全体のサイズを変更します。",
       "scaling-label": "インターフェースのスケール調整",
+      "scrollbar-always-visible-description": "コンテンツがスクロール可能な場合、スクロールバーを常に表示し、ホバー時のみ表示するのをやめる。",
+      "scrollbar-always-visible-label": "常にスクロールバーを表示",
       "settings-panel-header": "設定パネル",
       "settings-panel-mode-description": "設定画面の表示形式を選択します (再起動が必要な場合があります)。",
       "settings-panel-mode-label": "設定パネルの表示モード",
@@ -1682,7 +1686,9 @@
       "shadows-label": "ドロップシャドウ",
       "title": "ユーザーインターフェース",
       "tooltips-description": "インターフェース全体のツールチップの有効・無効を切り替えます。",
-      "tooltips-label": "ツールチップを表示"
+      "tooltips-label": "ツールチップを表示",
+      "translucent-widgets-description": "パネル内のボタン、タブ、その他のウィジェットを半透明にする。",
+      "translucent-widgets-label": "半透明のウィジェット"
     },
     "wallpaper": {
       "automation-change-mode-alphabetical": "アルファベット順",

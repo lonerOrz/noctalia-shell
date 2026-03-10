@@ -26,6 +26,14 @@ ColumnLayout {
   }
 
   NToggle {
+    label: I18n.tr("panels.user-interface.scrollbar-always-visible-label")
+    description: I18n.tr("panels.user-interface.scrollbar-always-visible-description")
+    checked: Settings.data.ui.scrollbarAlwaysVisible
+    defaultValue: Settings.getDefaultValue("ui.scrollbarAlwaysVisible")
+    onToggled: checked => Settings.data.ui.scrollbarAlwaysVisible = checked
+  }
+
+  NToggle {
     label: I18n.tr("panels.user-interface.shadows-label")
     description: I18n.tr("panels.user-interface.shadows-description")
     checked: Settings.data.general.enableShadows
@@ -39,6 +47,14 @@ ColumnLayout {
     checked: Settings.data.general.enableBlurBehind
     defaultValue: Settings.getDefaultValue("general.enableBlurBehind")
     onToggled: checked => Settings.data.general.enableBlurBehind = checked
+  }
+
+  NToggle {
+    label: I18n.tr("panels.user-interface.translucent-widgets-label")
+    description: I18n.tr("panels.user-interface.translucent-widgets-description")
+    checked: Settings.data.ui.translucentWidgets
+    defaultValue: Settings.getDefaultValue("ui.translucentWidgets")
+    onToggled: checked => Settings.data.ui.translucentWidgets = checked
   }
 
   NComboBox {

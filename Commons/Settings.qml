@@ -327,8 +327,10 @@ Singleton {
       property real fontDefaultScale: 1.0
       property real fontFixedScale: 1.0
       property bool tooltipsEnabled: true
+      property bool scrollbarAlwaysVisible: true
       property bool boxBorderEnabled: false
       property real panelBackgroundOpacity: 0.93
+      property bool translucentWidgets: false
       property bool panelsAttachedToBar: true
       property string settingsPanelMode: "attached" // "centered", "attached", "window"
       property bool settingsPanelSideBarCardStyle: false
@@ -763,6 +765,7 @@ Singleton {
       property bool enabled: false
       property bool overviewEnabled: true
       property bool gridSnap: false
+      property bool gridSnapScale: false
       property list<var> monitorWidgets: []
       // Format: [{ "name": "DP-1", "widgets": [...] }, { "name": "HDMI-1", "widgets": [...] }]
     }

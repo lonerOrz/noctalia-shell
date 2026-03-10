@@ -533,7 +533,7 @@
     "unpin": "Desanclar",
     "update": "Actualizar",
     "upload": "Subir",
-    "userspace-reboot": "Reinicio del Espacio de Usuario",
+    "userspace-reboot": "Reiniciar espacio de usuario",
     "version": "Versión",
     "vibrant": "Vibrante",
     "visualizer": "Visualizador",
@@ -714,6 +714,8 @@
     "about": {
       "become-supporter": "Hazte patrocinador",
       "changelog": "Ver registro de cambios",
+      "changelog-on-startup": "Mostrar registro de cambios al actualizar",
+      "changelog-on-startup-desc": "Mostrar automáticamente el registro de cambios cuando Noctalia se actualice.",
       "contributors-description": "¡Un saludo a nuestro <b>increíble</b> colaborador número {count}!",
       "contributors-description-plural": "¡Un saludo a nuestros {count} <b>increíbles</b> colaboradores!",
       "copy-info": "Copiar información",
@@ -835,8 +837,8 @@
       "appearance-hide-on-overview-description": "Ocultar la barra y cerrar los paneles cuando la vista general del compositor esté activa.",
       "appearance-hide-on-overview-label": "Ocultar barra en la vista general",
       "appearance-margins-description": "Ajusta los márgenes alrededor de la barra flotante.",
-      "appearance-margins-horizontal": "Margen Horizontal",
-      "appearance-margins-vertical": "Margen Vertical",
+      "appearance-margins-horizontal": "Margen horizontal",
+      "appearance-margins-vertical": "Margen vertical",
       "appearance-outer-corners-description": "Muestra esquinas curvadas hacia afuera en la barra.",
       "appearance-outer-corners-label": "Esquinas exteriores",
       "appearance-position-description": "Elige dónde colocar la barra en la pantalla.",
@@ -1671,6 +1673,8 @@
       "panels-overlay-label": "Mantener paneles y barra en la parte superior",
       "scaling-description": "Cambia el tamaño de la interfaz de usuario general, excluyendo la barra.",
       "scaling-label": "Escalado de la interfaz",
+      "scrollbar-always-visible-description": "Mantener las barras de desplazamiento visibles siempre que el contenido sea desplazable, en lugar de mostrarlas solo al pasar el ratón.",
+      "scrollbar-always-visible-label": "Mostrar siempre barras de desplazamiento",
       "settings-panel-header": "Panel de Configuración",
       "settings-panel-mode-description": "Elegir diseño de configuración (puede requerir reapertura).",
       "settings-panel-mode-label": "Modo del panel de configuración",
@@ -1682,7 +1686,9 @@
       "shadows-label": "Sombras paralelas",
       "title": "Interfaz de usuario",
       "tooltips-description": "Activar o desactivar los avisos emergentes en toda la interfaz.",
-      "tooltips-label": "Mostrar textos emergentes"
+      "tooltips-label": "Mostrar textos emergentes",
+      "translucent-widgets-description": "Haz que los botones, pestañas y otros widgets dentro de los paneles sean semitransparentes.",
+      "translucent-widgets-label": "Widgets translúcidos"
     },
     "wallpaper": {
       "automation-change-mode-alphabetical": "Alfabético",
