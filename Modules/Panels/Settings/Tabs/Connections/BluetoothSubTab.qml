@@ -389,7 +389,7 @@ Item {
       radius: Style.radiusM
       clip: true
 
-      color: (modelData.connected && modelData.state !== BluetoothDeviceState.Disconnecting) ? Qt.alpha(Color.mPrimary, Math.min(1.15 - Settings.data.ui.panelBackgroundOpacity, 0.75)) : Color.mSurface
+      color: (modelData.connected && modelData.state !== BluetoothDeviceState.Disconnecting) ? Qt.alpha(Color.mPrimary, Math.min(1.15 - Color.panelBackgroundOpacity, 0.75)) : Color.mSurface
 
       ColumnLayout {
         id: deviceColumn
@@ -671,24 +671,14 @@ Item {
                 icon: BluetoothService.getDeviceAutoConnect(modelData.address) ? "repeat" : "repeat-off"
                 pointSize: Style.fontSizeXS
                 color: BluetoothService.getDeviceAutoConnect(modelData.address) ? Color.mPrimary : Color.mOnSurface
-                Layout.alignment: Qt.AlignVCenter
               }
 
-              NText {
-                text: I18n.tr("common.auto-connect")
-                pointSize: Style.fontSizeXS
-                color: BluetoothService.getDeviceAutoConnect(modelData.address) ? Color.mOnSurface : Color.mOnSurfaceVariant
-                Layout.fillWidth: true
-                Layout.alignment: Qt.AlignVCenter
-
-                MouseArea {
-                  anchors.fill: parent
-                  hoverEnabled: true
-                  cursorShape: Qt.PointingHandCursor
-                  onEntered: TooltipService.show(parent, BluetoothService.getDeviceAutoConnect(modelData.address) ? I18n.tr("tooltips.bluetooth-auto-connect-on") : I18n.tr("tooltips.bluetooth-auto-connect-off"))
-                  onExited: TooltipService.hide()
-                  onClicked: BluetoothService.setDeviceAutoConnect(modelData, !BluetoothService.getDeviceAutoConnect(modelData.address))
-                }
+              NCheckbox {
+                label: I18n.tr("common.auto-connect")
+                labelSize: Style.fontSizeXS
+                baseSize: Style.baseWidgetSize * 0.6
+                checked: BluetoothService.getDeviceAutoConnect(modelData.address)
+                onToggled: checked => BluetoothService.setDeviceAutoConnect(modelData, checked)
               }
             }
           }

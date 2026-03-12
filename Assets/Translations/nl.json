@@ -309,6 +309,8 @@
       "reverse-scrolling-description": "Keer de richting van het wisselen van werkruimtes om bij het scrollen.",
       "reverse-scrolling-label": "Omgekeerd scrollen",
       "show-applications-description": "Toon applicatiepictogrammen in elke werkruimte.",
+      "show-applications-hover-description": "Toon applicatiepictogrammen in elke werkruimte wanneer de werkruimte wordt aangewezen.",
+      "show-applications-hover-label": "Toon applicaties bij hoveren",
       "show-applications-label": "Toon applicaties",
       "show-badge-description": "Toon de werkomgevingnummerbadge in gegroepeerde modus.",
       "show-badge-label": "Werkruimtebadge weergeven",
@@ -319,6 +321,7 @@
     }
   },
   "battery": {
+    "all-batteries": "Alle accu's (gecombineerd)",
     "battery-health": "Accuconditie",
     "battery-level": "Accuniveau",
     "capacity-level": "Capaciteit: {level}",
@@ -826,6 +829,8 @@
       "appearance-density-label": "Balkdichtheid",
       "appearance-desc": "Pas de uitstraling en positie van de balk aan.",
       "appearance-display-mode-description": "Kies wanneer de balk zichtbaar is.",
+      "appearance-enable-exclusion-zone-inset-description": "Verklein de uitsluitingszone met 1 fysieke pixel, zodat gelijkgelegen vensters perfect onder de rand van de Bar overlappen.",
+      "appearance-enable-exclusion-zone-inset-label": "Inspringende uitsluitingszone",
       "appearance-floating-description": "Toon de balk weer als een zwevende 'pil'.",
       "appearance-floating-label": "Zwevende balk",
       "appearance-font-scale-description": "De schaal van de lettergrootte aanpassen voor tekst die in de balk wordt weergegeven.",
@@ -1022,6 +1027,7 @@
       "edit-mode-description": "Schakel de bewerkingsmodus in om desktopwidgets te verplaatsen en te herpositioneren. In de ingeschakelde modus tonen widgets een sleepomtrek en kunnen ze worden verplaatst.",
       "edit-mode-exit-button": "Bewerkingsmodus verlaten",
       "edit-mode-grid-snap-label": "Raster uitlijnen",
+      "edit-mode-grid-snap-scale-label": "Rasteruitlijningsschaal",
       "edit-mode-label": "Bewerkingsmodus",
       "enabled-description": "Desktopwidgets volledig in- of uitschakelen.",
       "enabled-label": "Desktopwidgets inschakelen",
@@ -1214,7 +1220,7 @@
     },
     "hooks": {
       "info-command-info-description": "• Commando's worden uitgevoerd via shell (sh -lc)<br>• Commando's draaien op de achtergrond (losgekoppeld)<br>• Testknoppen worden uitgevoerd met de huidige waarden",
-      "info-parameters-description": "• Achtergrond-hook: $1 = pad naar achtergrond, $2 = schermnaam<br>• Thema-schakel-hook: $1 = true/false (Dark Mode-status)<br>• Schermvergrendeling/ontgrendeling-hooks: Geen parameters<br>• Prestatiemodus-hooks: Geen parameters<br>• Sessie-hook: $1 = actie (afsluiten/opnieuw opstarten)",
+      "info-parameters-description": "• Achtergrond-hook: $1 = achtergrondpad, $2 = schermnaam<br>• Themawissel-hook: $1 = true/false (Dark Mode-status)<br>• Schermvergrendeling/ontgrendeling-hooks: $1 = lock/unlock (schermvergrendelingsstatus)<br>• Prestatie-modus-hooks: Geen parameters<br>• Sessie-hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Beschikbare parameters",
       "noctalia-started-description": "Opdracht die moet worden uitgevoerd wanneer Noctalia volledig is geladen.",
       "noctalia-started-label": "Noctalia gestart",
