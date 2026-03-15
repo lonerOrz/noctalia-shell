@@ -669,7 +669,7 @@
     ]
   },
   {
-    "labelKey": "toast.airplane-mode.title",
+    "labelKey": "common.wifi",
     "descriptionKey": null,
     "widget": "NToggle",
     "tab": 16,
@@ -678,13 +678,64 @@
     "subTabLabel": "common.wifi"
   },
   {
-    "labelKey": "common.wifi",
+    "labelKey": "common.connected",
     "descriptionKey": null,
+    "widget": "NLabel",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi"
+  },
+  {
+    "labelKey": "wifi.panel.known-networks",
+    "descriptionKey": null,
+    "widget": "NLabel",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi"
+  },
+  {
+    "labelKey": "wifi.panel.available-networks",
+    "descriptionKey": null,
+    "widget": "NLabel",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi"
+  },
+  {
+    "labelKey": "toast.airplane-mode.title",
+    "descriptionKey": "toast.airplane-mode.description",
     "widget": "NToggle",
     "tab": 16,
     "tabLabel": "panels.connections.title",
     "subTab": 0,
     "subTabLabel": "common.wifi"
+  },
+  {
+    "labelKey": "wifi.panel.network-name-ssid",
+    "descriptionKey": null,
+    "widget": "NTextInput",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "common.password",
+    "descriptionKey": null,
+    "widget": "NTextInput",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
   },
   {
     "labelKey": "common.position",
@@ -849,7 +900,7 @@
     "subTab": 0,
     "subTabLabel": "common.appearance",
     "visibleWhen": [
-      "Settings.data.dock.dockType === \"static\" && Settings.data.bar.barType === \"framed\""
+      "Settings.data.dock.dockType === \"attached\" && Settings.data.bar.barType === \"framed\""
     ]
   },
   {
@@ -1285,6 +1336,24 @@
     "subTabLabel": "common.clipboard"
   },
   {
+    "labelKey": "panels.launcher.settings-clip-smart-icons-label",
+    "descriptionKey": "panels.launcher.settings-clip-smart-icons-description",
+    "widget": "NToggle",
+    "tab": 8,
+    "tabLabel": "panels.launcher.title",
+    "subTab": 1,
+    "subTabLabel": "common.clipboard"
+  },
+  {
+    "labelKey": "panels.launcher.settings-clip-chips-label",
+    "descriptionKey": "panels.launcher.settings-clip-chips-description",
+    "widget": "NToggle",
+    "tab": 8,
+    "tabLabel": "panels.launcher.title",
+    "subTab": 1,
+    "subTabLabel": "common.clipboard"
+  },
+  {
     "labelKey": "panels.launcher.settings-clipboard-watch-text-label",
     "descriptionKey": "panels.launcher.settings-clipboard-watch-text-description",
     "widget": "NTextInput",
@@ -1307,15 +1376,6 @@
     "visibleWhen": [
       "Settings.data.appLauncher.enableClipboardHistory"
     ]
-  },
-  {
-    "labelKey": "panels.launcher.settings-use-app2unit-label",
-    "descriptionKey": "panels.launcher.settings-use-app2unit-description",
-    "widget": "NToggle",
-    "tab": 8,
-    "tabLabel": "panels.launcher.title",
-    "subTab": 2,
-    "subTabLabel": "common.execute"
   },
   {
     "labelKey": "panels.launcher.settings-terminal-command-label",
@@ -2322,16 +2382,7 @@
   {
     "labelKey": "panels.wallpaper.automation-interval-label",
     "descriptionKey": "panels.wallpaper.automation-interval-description",
-    "widget": "NLabel",
-    "tab": 3,
-    "tabLabel": "common.wallpaper",
-    "subTab": 2,
-    "subTabLabel": "common.automation"
-  },
-  {
-    "labelKey": "panels.wallpaper.automation-custom-interval-label",
-    "descriptionKey": "panels.wallpaper.automation-custom-interval-description",
-    "widget": "NTextInput",
+    "widget": "NSpinBox",
     "tab": 3,
     "tabLabel": "common.wallpaper",
     "subTab": 2,
@@ -2439,7 +2490,7 @@
   {
     "labelKey": "panels.wallpaper.look-feel-transition-type-label",
     "descriptionKey": "panels.wallpaper.look-feel-transition-type-description",
-    "widget": "NComboBox",
+    "widget": "NLabel",
     "tab": 3,
     "tabLabel": "common.wallpaper",
     "subTab": 1,

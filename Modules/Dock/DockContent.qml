@@ -18,7 +18,7 @@ Item {
   required property int extraLeft
   required property int extraRight
   property alias dockContainer: dockContainer
-  readonly property bool isStaticMode: Settings.data.dock.dockType === "static"
+  readonly property bool isAttachedMode: Settings.data.dock.dockType === "attached"
   readonly property string tooltipDirection: dockRoot.dockPosition === "left" ? "right" : (dockRoot.dockPosition === "right" ? "left" : (dockRoot.dockPosition === "top" ? "bottom" : "top"))
 
   Rectangle {
@@ -26,7 +26,7 @@ Item {
     // For vertical dock, swap width and height logic
     width: dockRoot.isVertical ? Math.round(dockRoot.iconSize * 1.5) : Math.min(dockLayout.implicitWidth + Style.marginXL, dockRoot.maxWidth)
     height: dockRoot.isVertical ? Math.min(dockLayout.implicitHeight + Style.marginXL, dockRoot.maxHeight) : Math.round(dockRoot.iconSize * 1.5)
-    color: Qt.alpha(Color.mSurface, (isStaticMode ? 0 : Settings.data.dock.backgroundOpacity))
+    color: Qt.alpha(Color.mSurface, (isAttachedMode ? 0 : Settings.data.dock.backgroundOpacity))
 
     // Anchor based on padding to achieve centering shift
     anchors.horizontalCenter: extraLeft > 0 || extraRight > 0 ? undefined : parent.horizontalCenter
@@ -39,7 +39,7 @@ Item {
 
     radius: Style.radiusL
     border.width: Style.borderS
-    border.color: Qt.alpha(Color.mOutline, (isStaticMode ? 0 : Settings.data.dock.backgroundOpacity))
+    border.color: Qt.alpha(Color.mOutline, (isAttachedMode ? 0 : Settings.data.dock.backgroundOpacity))
 
     MouseArea {
       id: dockMouseArea
@@ -156,12 +156,6 @@ Item {
             const command = prefix.concat(app.command);
             Quickshell.execDetached(command);
           }
-        } else if (Settings.data.appLauncher.useApp2Unit && ProgramCheckerService.app2unitAvailable && app.id) {
-          Logger.d("Dock", `Using app2unit for: ${app.id}`);
-          if (app.runInTerminal)
-            Quickshell.execDetached(["app2unit", "--", app.id + ".desktop"]);
-          else
-            Quickshell.execDetached(["app2unit", "--"].concat(app.command));
         } else {
           if (app.runInTerminal) {
             Logger.d("Dock", "Executing terminal app manually: " + app.name);

@@ -662,22 +662,20 @@ Item {
             RowLayout {
               Layout.fillWidth: true
               Layout.preferredWidth: 1
+              Layout.topMargin: -Style.marginXXS
               Layout.row: detailsGrid ? 2 : 5
               Layout.column: detailsGrid ? 1 : 0
               spacing: Style.marginXS
               visible: Settings.data.network.bluetoothAutoConnect
-
               NIcon {
-                icon: BluetoothService.getDeviceAutoConnect(modelData.address) ? "repeat" : "repeat-off"
+                icon: BluetoothService.getDeviceAutoConnect(modelData) ? "repeat" : "repeat-off"
                 pointSize: Style.fontSizeXS
-                color: BluetoothService.getDeviceAutoConnect(modelData.address) ? Color.mPrimary : Color.mOnSurface
               }
-
               NCheckbox {
                 label: I18n.tr("common.auto-connect")
                 labelSize: Style.fontSizeXS
-                baseSize: Style.baseWidgetSize * 0.6
-                checked: BluetoothService.getDeviceAutoConnect(modelData.address)
+                baseSize: Style.baseWidgetSize * 0.5
+                checked: BluetoothService.getDeviceAutoConnect(modelData)
                 onToggled: checked => BluetoothService.setDeviceAutoConnect(modelData, checked)
               }
             }

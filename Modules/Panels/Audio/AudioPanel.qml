@@ -628,7 +628,10 @@ SmartPanel {
                         enabled: !!(appBox.nodeAudio && appBox.modelData && appBox.modelData.ready === true)
                         onMoved: function (value) {
                           if (appBox.nodeAudio && appBox.modelData && appBox.modelData.ready === true) {
-                            AudioService.setAppStreamVolume(appBox.modelData, value);
+                            appBox.nodeAudio.volume = value;
+                            var key = AudioService.getAppKey(appBox.modelData);
+                            if (key)
+                              AudioService.setAppStreamVolume(key, value);
                           }
                         }
                       }
@@ -653,7 +656,11 @@ SmartPanel {
                         enabled: !!(appBox.nodeAudio && appBox.modelData && appBox.modelData.ready === true)
                         onClicked: {
                           if (appBox.nodeAudio && appBox.modelData && appBox.modelData.ready === true) {
-                            appBox.nodeAudio.muted = !appBox.appMuted;
+                            var newMuted = !appBox.appMuted;
+                            appBox.nodeAudio.muted = newMuted;
+                            var key = AudioService.getAppKey(appBox.modelData);
+                            if (key)
+                              AudioService.setAppStreamMuted(key, newMuted);
                           }
                         }
                       }
