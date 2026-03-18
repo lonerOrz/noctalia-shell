@@ -556,6 +556,8 @@ Singleton {
       property bool colorizeIcons: false
       property bool showLauncherIcon: false
       property string launcherPosition: "end" // "start", "end"
+      property bool launcherUseDistroLogo: false
+      property string launcherIcon: ""
       property string launcherIconColor: "none"
       property bool pinnedStatic: false
       property bool inactiveIndicators: false
@@ -739,11 +741,13 @@ Singleton {
       property string performanceModeDisabled: ""
       property string startup: ""
       property string session: ""
+      property string colorGeneration: ""
     }
 
     // plugins
     property JsonObject plugins: JsonObject {
       property bool autoUpdate: false
+      property bool notifyUpdates: true
     }
 
     // idle management

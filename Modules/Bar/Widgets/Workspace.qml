@@ -271,40 +271,44 @@ Item {
     Settings.data.dock.pinnedApps = pinnedApps;
   }
 
-  // Deferred to next event-loop tick via Qt.callLater to avoid re-entrant incubation:
-  // Calling localWorkspaces.append() synchronously there causes the inner Repeater to
-  // create WorkspacePill delegates mid-finalization, corrupting the V4 heap
-  // (SIGSEGV in QV4::Object::insertMember).
-  Component.onCompleted: Qt.callLater(refreshWorkspaces)
+  // Deferred via Qt.callLater to avoid synchronous ListModel mutations during
+  // signal cascades. Qt.callLater deduplicates by function identity, so rapid
+  // calls from multiple signal handlers coalesce into a single refresh.
+  function scheduleRefresh() {
+    if (!root.isDestroying)
+      Qt.callLater(root.refreshWorkspaces);
+  }
+
+  Component.onCompleted: scheduleRefresh()
 
   Component.onDestruction: {
     root.isDestroying = true;
   }
 
-  onScreenChanged: Qt.callLater(refreshWorkspaces)
-  onScreenNameChanged: Qt.callLater(refreshWorkspaces)
-  onHideUnoccupiedChanged: Qt.callLater(refreshWorkspaces)
+  onScreenChanged: scheduleRefresh()
+  onScreenNameChanged: scheduleRefresh()
+  onHideUnoccupiedChanged: scheduleRefresh()
   onAppVisibleChanged: {
     if (appVisible) {
-      Qt.callLater(refreshWorkspaces);
+      scheduleRefresh();
     }
   }
 
   Connections {
     target: CompositorService
     function onWorkspacesChanged() {
-      Qt.callLater(refreshWorkspaces);
+      scheduleRefresh();
     }
     function onWindowListChanged() {
       if (appVisible || showLabelsOnlyWhenOccupied) {
         root.windowRevision++;
-        Qt.callLater(refreshWorkspaces);
+        scheduleRefresh();
       }
     }
     function onActiveWindowChanged() {
       if (appVisible) {
         root.windowRevision++;
-        Qt.callLater(refreshWorkspaces);
+        scheduleRefresh();
       }
     }
   }

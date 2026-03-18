@@ -465,6 +465,8 @@
     "media-player": "Médialejátszó",
     "memory": "Memória",
     "monitors": "Monitorok",
+    "move-down": "Lejjebb mozgatás",
+    "move-up": "Feljebb",
     "network": "Hálózat",
     "next": "Következő",
     "night-light": "Éjszakai fény",
@@ -536,6 +538,7 @@
     "unpin": "Rögzítés megszüntetése",
     "update": "Frissítés",
     "upload": "Feltöltés",
+    "username": "Felhasználónév",
     "userspace-reboot": "Felhasználói tér újraindítása",
     "version": "Verzió",
     "vibrant": "Élénk",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "Elrejti azokat az eszközöket, amelyek csak Bluetooth-címként jelennek meg.",
       "hide-unnamed-devices-label": "Névtelen eszközök elrejtése",
       "pin-instructions": "Írja be az eszközén megjelenő PIN-kódot.",
-      "title": "Kapcsolatok"
+      "title": "Kapcsolatok",
+      "wifi-header-text": "Használja a Wi-Fi-t az elérhető hálózatok megtekintéséhez és az internethez való csatlakozáshoz."
     },
     "control-center": {
       "cards-desc": "Mely vezérlők jelenjenek meg a vezérlőközpontban és milyen sorrendben.",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "Jelző átlátszósága",
       "appearance-indicator-thickness-description": "Vastagabb jelző használata a rejtett dokkhoz (3 px helyett 6 px).",
       "appearance-indicator-thickness-label": "Vastagabb jelző",
+      "appearance-launcher-icon-description": "Válaszd ki a Dock Launcherhez használt ikont.",
+      "appearance-launcher-icon-label": "Indító ikon",
       "appearance-launcher-position-description": "Hol jelenjen meg az indító ikonja a dokkban.",
       "appearance-launcher-position-end": "Vége",
       "appearance-launcher-position-label": "Indító pozíciója",
       "appearance-launcher-position-start": "Indítás",
+      "appearance-launcher-use-distro-logo-description": "Használd a disztribúciód logóját mint a Dock Launcher ikonját.",
+      "appearance-launcher-use-distro-logo-label": "Disztribúció logóját használja ikon helyett.",
       "appearance-pinned-static-description": "A rögzített alkalmazásikonok mindig statikus sorrendben kerüljenek balra.",
       "appearance-pinned-static-label": "Statikus rögzített alkalmazások",
       "appearance-position-description": "Hol jelenjen meg a dokk a képernyőn.",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "Gyorsbillentyűk"
     },
     "hooks": {
+      "color-generation-description": "Parancs, amely akkor fut le, amikor a színlétrehozás befejeződik (pl. háttérkép alapú téma alkalmazása után).",
+      "color-generation-label": "Színek generálva",
+      "color-generation-placeholder": "pl. notify-send \"Színek\" \"Generálva\"",
       "info-command-info-description": "• A parancsok shellen keresztül futnak (sh -lc)<br>• A parancsok a háttérben futnak (leválasztva)<br>• A tesztgombok az aktuális értékekkel futnak le",
       "info-parameters-description": "• Wallpaper hook: $1 = háttérkép útvonala, $2 = képernyő neve, $3 = téma (sötét/világos)<br>• Theme toggle hook: $1 = true/false (sötét mód állapot)<br>• Screen lock/unlock hooks: $1 = lock/unlock (képernyőzár állapot)<br>• Performance mode hooks: Nincs paraméter<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Elérhető paraméterek",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "pl. 'gradia', 'satty -f -'",
       "settings-auto-paste-description": "Automatikusan beilleszti a kiválasztott vágólap elemet. Wtype szükséges hozzá.",
       "settings-auto-paste-label": "Automatikus beillesztés",
+      "settings-clip-chips-description": "Fülmenü megjelenítése a vágólap előzmények típus szerinti szűréséhez (Képek, Linkek, Fájlok, Kód stb.).",
+      "settings-clip-chips-label": "Kategória chipek engedélyezése",
       "settings-clip-preview-description": "A vágólap tartalmának előnézetének megjelenítése a >clip parancs használatakor.",
       "settings-clip-preview-label": "Vágólap előnézet engedélyezése",
+      "settings-clip-smart-icons-description": "Mutasson specifikus ikonokat linkekhez, fájlokhoz, színekhez és kódhoz egy általános vágólap ikon helyett.",
+      "settings-clip-smart-icons-label": "Intelligens ikonok engedélyezése",
       "settings-clip-wrap-text-description": "A szöveg tördelése a vágólap listában a csonkítás helyett.",
       "settings-clip-wrap-text-label": "Clipboard szöveg becsomagolása",
       "settings-clipboard-history-description": "Hozzáférés a korábban másolt elemekhez az indítóból.",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "Normál prioritású értesítések mentése az előzményekbe.",
       "history-normal-urgency-label": "Normál sürgősség mentése az előzményekbe",
       "monitors-desc": "Értesítés megjelenítése meghatározott monitorokon. Alapértelmezetten mindegyiken, ha nincs kiválasztva.",
+      "rules-action-block": "Blokk",
+      "rules-action-block-desc": "Teljesen kihagyja.",
+      "rules-action-hide": "Elrejtés",
+      "rules-action-hide-desc": "Nincs felugró ablak, nincs hang, hozzáadja az előzményekhez.",
+      "rules-action-label": "Művelet",
+      "rules-action-mute": "Némítás",
+      "rules-action-mute-desc": "Nincs hang, mégis megjeleníti az előugró ablakot és az előzményekben.",
+      "rules-add": "Szabály hozzáadása",
+      "rules-delete": "Szabály törlése",
+      "rules-description": "Alkalmazásnév vagy tartalom egyeztetése. Az első találat nyer.",
+      "rules-edit": "Szabály szerkesztése",
+      "rules-label": "Szűrőszabályok",
+      "rules-pattern-label": "Minta",
+      "rules-pattern-placeholder": "firefox, discord, vagy /regex/",
+      "rules-tab": "Szabályok",
       "settings-always-on-top-description": "Értesítések megjelenítése teljes képernyős ablakok és más rétegek felett.",
       "settings-background-opacity-description": "Az értesítési hátterek átlátszóságának beállítása.",
       "settings-density-description": "Az értesítési kártya sűrűsége.",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "Bővítmények telepítése az \"Elérhető\" szakaszban lehetséges.",
       "installed-no-plugins-label": "Nincs telepített bővítmény",
       "installing": "{plugin} telepítése...",
+      "notify-updates": "Bővítményfrissítési értesítések",
+      "notify-updates-description": "Értesítési előugró ablak megjelenítése, ha új bővítményfrissítések érhetők el.",
       "open-plugin-page": "Bővítmény oldal megnyitása",
       "open-plugins-tab": "Bővítmények beállításainak megnyitása",
       "plugin-settings-title": "{plugin} beállításai",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "Az összes vezeték nélküli kommunikáció kikapcsolása.",
       "title": "Repülőgép üzemmód"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "Helyőrző"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "Anonim Identitás",
+      "ca-cert": "CA tanúsítvány",
+      "eap-method": "EAP-módszer",
+      "password": "Felhasználói jelszó",
+      "phase2-auth": "2. Fázisú Hitelesítés",
+      "username": "Identitás / Felhasználónév"
+    },
     "panel": {
       "action-required": "Szükseges akció",
+      "add-hidden-network": "Rejtett hálózat hozzáadása",
+      "add-network": "Hálózat hozzáadása",
       "available-interfaces": "Elérhető interfészek",
       "available-networks": "Elérhető hálózatok",
       "disabled": "A Wi‑Fi le van tiltva",
@@ -2146,25 +2189,38 @@
       "forget": "Elfelejtés",
       "forget-network": "Hálózat elfelejtése",
       "forgetting": "Elfelejtés...",
+      "hidden-network": "Rejtett hálózat",
       "interface": "Hálózati interfész",
       "internet-connected": "Internet csatlakoztatva",
       "internet-limited": "Nincs internet",
       "internet-status": "Internet állapota",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "Ismert hálózatok",
       "link-speed": "Kapcsolati sebesség",
+      "network-name-ssid": "Hálózat neve (SSID)",
       "no-ethernet-devices": "Nem található Ethernet eszköz",
       "no-networks": "Nem található Wi‑Fi-hálózat",
       "saved": "Mentve",
       "scan-again": "Keresés újra",
       "searching": "Hálózatok keresése...",
+      "security-open": "Megnyitás",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 Személyes",
+      "security-wpa-ent": "WPA Enterprise",
+      "security-wpa2-ent": "WPA2 Enterprise",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 Enterprise",
+      "show-password": "Jelszó megjelenítése",
       "title": "Wi‑Fi"
     },
     "signal": {
       "excellent": "Kiválóság",
       "fair": "Közepes",
       "good": "Jó",
-      "poor": "Gyenge"
+      "poor": "Gyenge",
+      "weak": "Gyenge"
     }
   }
 }

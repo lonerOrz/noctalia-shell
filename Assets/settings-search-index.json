@@ -726,9 +726,93 @@
     ]
   },
   {
+    "labelKey": "wifi.enterprise.eap-method",
+    "descriptionKey": null,
+    "widget": "NComboBox",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "wifi.enterprise.phase2-auth",
+    "descriptionKey": null,
+    "widget": "NComboBox",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "wifi.enterprise.anonymous-identity",
+    "descriptionKey": null,
+    "widget": "NTextInput",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "wifi.enterprise.ca-cert",
+    "descriptionKey": null,
+    "widget": "NTextInput",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "wifi.enterprise.username",
+    "descriptionKey": null,
+    "widget": "NTextInput",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
     "labelKey": "common.password",
     "descriptionKey": null,
     "widget": "NTextInput",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "wifi.panel.show-password",
+    "descriptionKey": null,
+    "widget": "NCheckbox",
+    "tab": 16,
+    "tabLabel": "panels.connections.title",
+    "subTab": 0,
+    "subTabLabel": "common.wifi",
+    "visibleWhen": [
+      "false"
+    ]
+  },
+  {
+    "labelKey": "wifi.panel.hidden-network",
+    "descriptionKey": null,
+    "widget": "NCheckbox",
     "tab": 16,
     "tabLabel": "panels.connections.title",
     "subTab": 0,
@@ -1102,6 +1186,30 @@
     ]
   },
   {
+    "labelKey": "panels.dock.appearance-launcher-use-distro-logo-label",
+    "descriptionKey": "panels.dock.appearance-launcher-use-distro-logo-description",
+    "widget": "NToggle",
+    "tab": 5,
+    "tabLabel": "panels.dock.title",
+    "subTab": 0,
+    "subTabLabel": "common.appearance",
+    "visibleWhen": [
+      "Settings.data.dock.showLauncherIcon"
+    ]
+  },
+  {
+    "labelKey": "panels.dock.appearance-launcher-icon-label",
+    "descriptionKey": "panels.dock.appearance-launcher-icon-description",
+    "widget": "NLabel",
+    "tab": 5,
+    "tabLabel": "panels.dock.title",
+    "subTab": 0,
+    "subTabLabel": "common.appearance",
+    "visibleWhen": [
+      "Settings.data.dock.showLauncherIcon"
+    ]
+  },
+  {
     "labelKey": "common.select-icon-color",
     "descriptionKey": null,
     "widget": "NColorChoice",
@@ -1191,6 +1299,15 @@
   {
     "labelKey": "panels.hooks.wallpaper-changed-label",
     "descriptionKey": "panels.hooks.wallpaper-changed-description",
+    "widget": "HookRow",
+    "tab": 20,
+    "tabLabel": "panels.hooks.title",
+    "subTab": 1,
+    "subTabLabel": "panels.hooks.title"
+  },
+  {
+    "labelKey": "panels.hooks.color-generation-label",
+    "descriptionKey": "panels.hooks.color-generation-description",
     "widget": "HookRow",
     "tab": 20,
     "tabLabel": "panels.hooks.title",
@@ -1935,6 +2052,15 @@
   {
     "labelKey": "panels.plugins.auto-update",
     "descriptionKey": "panels.plugins.auto-update-description",
+    "widget": "NToggle",
+    "tab": 19,
+    "tabLabel": "panels.plugins.title",
+    "subTab": 0,
+    "subTabLabel": "common.installed"
+  },
+  {
+    "labelKey": "panels.plugins.notify-updates",
+    "descriptionKey": "panels.plugins.notify-updates-description",
     "widget": "NToggle",
     "tab": 19,
     "tabLabel": "panels.plugins.title",

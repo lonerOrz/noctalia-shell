@@ -465,6 +465,8 @@
     "media-player": "미디어 재생기",
     "memory": "메모리",
     "monitors": "모니터",
+    "move-down": "아래로 이동",
+    "move-up": "위로 이동",
     "network": "네트워크",
     "next": "다음",
     "night-light": "야간 조명",
@@ -536,6 +538,7 @@
     "unpin": "고정 해제",
     "update": "업데이트",
     "upload": "업로드",
+    "username": "사용자 이름",
     "userspace-reboot": "사용자 공간 재시작",
     "version": "버전",
     "vibrant": "선명하게",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "블루투스 주소로만 표시되는 장치를 숨깁니다.",
       "hide-unnamed-devices-label": "이름 없는 장치 숨기기",
       "pin-instructions": "기기에 표시된 PIN 코드를 입력해주세요.",
-      "title": "연결"
+      "title": "연결",
+      "wifi-header-text": "사용 가능한 네트워크를 확인하고 인터넷에 연결하려면 Wi-Fi를 사용하세요."
     },
     "control-center": {
       "cards-desc": "제어 센터에 표시될 컨트롤과 순서를 사용자 지정합니다.",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "인디케이터 불투명도",
       "appearance-indicator-thickness-description": "숨겨진 독 인디케이터를 더 두껍게 표시합니다 (3px 대신 6px).",
       "appearance-indicator-thickness-label": "더 두꺼운 인디케이터",
+      "appearance-launcher-icon-description": "Dock Launcher에 사용될 아이콘을 선택하세요.",
+      "appearance-launcher-icon-label": "런처 아이콘",
       "appearance-launcher-position-description": "독에서 런처 아이콘이 나타날 위치를 선택하세요.",
       "appearance-launcher-position-end": "끝",
       "appearance-launcher-position-label": "런처 위치",
       "appearance-launcher-position-start": "시작",
+      "appearance-launcher-use-distro-logo-description": "배포판 로고를 Dock Launcher 아이콘으로 사용하세요.",
+      "appearance-launcher-use-distro-logo-label": "아이콘 대신 배포판 로고 사용.",
       "appearance-pinned-static-description": "고정된 앱 아이콘을 항상 왼쪽에 정적인 순서로 배치합니다.",
       "appearance-pinned-static-label": "정적 고정 앱",
       "appearance-position-description": "화면에서 독이 나타날 위치를 선택하세요.",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "키 바인딩"
     },
     "hooks": {
+      "color-generation-description": "색상 생성이 완료될 때 실행될 명령 (예: 배경화면 기반 테마 적용 후).",
+      "color-generation-label": "색상 생성됨",
+      "color-generation-placeholder": "예: notify-send \"색상\" \"생성됨\"",
       "info-command-info-description": "• 명령은 셸(sh -lc)을 통해 실행됩니다.<br>• 명령은 백그라운드(detached)에서 실행됩니다.<br>• 테스트 버튼은 현재 값으로 실행됩니다.",
       "info-parameters-description": "• Wallpaper hook: $1 = 배경화면 경로, $2 = 화면 이름, $3 = 테마 (어둡게/밝게)<br>• Theme toggle hook: $1 = true/false (다크 모드 상태)<br>• Screen lock/unlock hooks: $1 = lock/unlock (화면 잠금 상태)<br>• Performance mode hooks: 매개변수 없음<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "사용 가능한 매개변수",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "예: 'gradia', 'satty -f -'",
       "settings-auto-paste-description": "선택한 클립보드 항목을 자동으로 붙여넣습니다. wtype이 필요합니다.",
       "settings-auto-paste-label": "자동 붙여넣기",
+      "settings-clip-chips-description": "탭 바를 표시하여 클립보드 기록을 유형별(이미지, 링크, 파일, 코드 등)로 필터링합니다.",
+      "settings-clip-chips-label": "카테고리 칩 활성화",
       "settings-clip-preview-description": ">clip 명령 사용 시 클립보드 내용의 미리보기를 표시합니다.",
       "settings-clip-preview-label": "클립 미리보기 활성화",
+      "settings-clip-smart-icons-description": "일반적인 클립보드 아이콘 대신 링크, 파일, 색상, 코드에 대한 특정 아이콘을 표시합니다.",
+      "settings-clip-smart-icons-label": "스마트 아이콘 활성화",
       "settings-clip-wrap-text-description": "클립보드 목록에서 텍스트를 자르지 않고 줄바꿈합니다.",
       "settings-clip-wrap-text-label": "클립보드 텍스트 줄바꿈",
       "settings-clipboard-history-description": "이전에 복사한 항목에 런처에서 액세스합니다.",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "보통 레벨의 알림을 기록에 저장합니다.",
       "history-normal-urgency-label": "중요도 보통 기록 저장",
       "monitors-desc": "특정 모니터에 알림을 표시합니다. 선택하지 않으면 모든 모니터에 표시됩니다.",
+      "rules-action-block": "블록",
+      "rules-action-block-desc": "완전히 건너뜁니다.",
+      "rules-action-hide": "숨기기",
+      "rules-action-hide-desc": "팝업 없음, 소리 없음, 기록에 추가됩니다.",
+      "rules-action-label": "액션",
+      "rules-action-mute": "음소거",
+      "rules-action-mute-desc": "소리 없음, 팝업은 계속 표시되며 기록에 남음.",
+      "rules-add": "규칙 추가",
+      "rules-delete": "규칙 삭제",
+      "rules-description": "앱 이름 또는 콘텐츠와 일치. 첫 번째 일치가 우선합니다.",
+      "rules-edit": "규칙 편집",
+      "rules-label": "필터 규칙",
+      "rules-pattern-label": "패턴",
+      "rules-pattern-placeholder": "firefox, discord, 또는 /regex/",
+      "rules-tab": "규칙",
       "settings-always-on-top-description": "전체 화면 창 및 다른 레이어 위에 알림을 표시합니다.",
       "settings-background-opacity-description": "알림 배경의 불투명도를 조정합니다.",
       "settings-density-description": "알림 카드 밀도를 선택하세요.",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "\"사용 가능\" 섹션에서 플러그인을 설치하세요.",
       "installed-no-plugins-label": "설치된 플러그인 없음",
       "installing": "{plugin} 설치 중...",
+      "notify-updates": "플러그인 업데이트 알림",
+      "notify-updates-description": "새로운 플러그인 업데이트가 있을 때 알림 팝업을 표시합니다.",
       "open-plugin-page": "플러그인 페이지 열기",
       "open-plugins-tab": "플러그인 설정 열기",
       "plugin-settings-title": "{plugin} 설정",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "모든 무선 통신을 비활성화합니다.",
       "title": "비행기 모드"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "플레이스홀더"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "익명 ID",
+      "ca-cert": "CA 인증서",
+      "eap-method": "EAP 방식",
+      "password": "사용자 비밀번호",
+      "phase2-auth": "2단계 인증",
+      "username": "ID / 사용자 이름"
+    },
     "panel": {
       "action-required": "조치 필요",
+      "add-hidden-network": "숨겨진 네트워크 추가",
+      "add-network": "네트워크 추가",
       "available-interfaces": "사용 가능한 인터페이스",
       "available-networks": "사용 가능한 네트워크",
       "disabled": "Wi‑Fi가 비활성화됨",
@@ -2146,25 +2189,38 @@
       "forget": "지우기",
       "forget-network": "이 네트워크 지우기",
       "forgetting": "지우는 중...",
+      "hidden-network": "숨겨진 네트워크",
       "interface": "네트워크 인터페이스",
       "internet-connected": "인터넷 연결됨",
       "internet-limited": "인터넷 없음",
       "internet-status": "인터넷 상태",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "알려진 네트워크",
       "link-speed": "링크 속도",
+      "network-name-ssid": "네트워크 이름 (SSID)",
       "no-ethernet-devices": "이더넷 장치 감지되지 않음",
       "no-networks": "Wi‑Fi 네트워크를 찾을 수 없음",
       "saved": "저장됨",
       "scan-again": "다시 검색",
       "searching": "네트워크 검색 중...",
+      "security-open": "열기",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 개인",
+      "security-wpa-ent": "WPA 엔터프라이즈",
+      "security-wpa2-ent": "WPA2 엔터프라이즈",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 엔터프라이즈",
+      "show-password": "비밀번호 표시",
       "title": "Wi‑Fi"
     },
     "signal": {
       "excellent": "매우 좋음",
       "fair": "보통",
       "good": "좋음",
-      "poor": "나쁨"
+      "poor": "나쁨",
+      "weak": "약함"
     }
   }
 }

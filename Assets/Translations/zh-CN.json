@@ -465,6 +465,8 @@
     "media-player": "媒体播放器",
     "memory": "内存",
     "monitors": "显示器",
+    "move-down": "下移",
+    "move-up": "上移",
     "network": "网络",
     "next": "下一个",
     "night-light": "夜间模式",
@@ -536,6 +538,7 @@
     "unpin": "取消固定",
     "update": "更新",
     "upload": "上传",
+    "username": "用户名",
     "userspace-reboot": "重启用户空间",
     "version": "版本",
     "vibrant": "鲜艳",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "隐藏仅显示为 Bluetooth 地址的设备。",
       "hide-unnamed-devices-label": "隐藏未命名设备",
       "pin-instructions": "请输入您设备上显示的PIN码。",
-      "title": "连接"
+      "title": "连接",
+      "wifi-header-text": "使用 Wi-Fi 查看可用网络并连接到互联网。"
     },
     "control-center": {
       "cards-desc": "自定义在控制中心显示的控制项及其顺序。",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "指示器不透明度",
       "appearance-indicator-thickness-description": "启用较粗的隐藏停靠栏指示器（从 3px 增加到 6px）。",
       "appearance-indicator-thickness-label": "较粗的指示器",
+      "appearance-launcher-icon-description": "选择用于 Dock Launcher 的图标。",
+      "appearance-launcher-icon-label": "启动器图标",
       "appearance-launcher-position-description": "选择启动器图标在停靠栏中的显示位置。",
       "appearance-launcher-position-end": "结束",
       "appearance-launcher-position-label": "启动器位置",
       "appearance-launcher-position-start": "开始",
+      "appearance-launcher-use-distro-logo-description": "使用你的发行版标志作为 Dock Launcher 图标。",
+      "appearance-launcher-use-distro-logo-label": "使用发行版标志而非图标。",
       "appearance-pinned-static-description": "始终将固定的应用图标按静态顺序推到左侧。",
       "appearance-pinned-static-label": "静态固定应用",
       "appearance-position-description": "选择 Dock 栏在屏幕上显示的位置。",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "按键绑定"
     },
     "hooks": {
+      "color-generation-description": "颜色生成完成后执行的命令（例如，基于壁纸的主题设置后）。",
+      "color-generation-label": "颜色已生成",
+      "color-generation-placeholder": "例如：notify-send \"颜色\" \"已生成\"",
       "info-command-info-description": "• 命令通过 shell 执行（sh -lc）<br>• 命令在后台运行（分离）<br>• 测试按钮使用当前值执行",
       "info-parameters-description": "• Wallpaper hook: $1 = 壁纸路径, $2 = 屏幕名称, $3 = 主题 (深色/浅色)<br>• Theme toggle hook: $1 = true/false (深色模式状态)<br>• Screen lock/unlock hooks: $1 = lock/unlock (屏幕锁定状态)<br>• Performance mode hooks: 无参数<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "可用参数",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "例如：'gradia'，'satty -f -'",
       "settings-auto-paste-description": "自动粘贴选定的剪贴板项目。需要 wtype。",
       "settings-auto-paste-label": "自动粘贴",
+      "settings-clip-chips-description": "显示一个标签栏，以按类型（图片、链接、文件、代码等）过滤剪贴板历史记录。",
+      "settings-clip-chips-label": "启用类别标签",
       "settings-clip-preview-description": "在使用 >clip 命令时显示剪贴板内容的预览。",
       "settings-clip-preview-label": "启用剪贴板预览",
+      "settings-clip-smart-icons-description": "为链接、文件、颜色和代码显示特定图标，而不是通用的剪贴板图标。",
+      "settings-clip-smart-icons-label": "启用智能图标",
       "settings-clip-wrap-text-description": "将剪贴板列表中的文本换行显示，而不是截断。",
       "settings-clip-wrap-text-label": "环绕剪贴板文本",
       "settings-clipboard-history-description": "从启动器访问之前复制的项目。",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "将正常优先级通知保存到历史记录。",
       "history-normal-urgency-label": "将正常紧急度保存到历史记录",
       "monitors-desc": "在特定显示器上显示通知。如果未选择，则默认为全部。",
+      "rules-action-block": "块",
+      "rules-action-block-desc": "完全跳过。",
+      "rules-action-hide": "隐藏",
+      "rules-action-hide-desc": "无弹窗，无声音，添加到历史记录。",
+      "rules-action-label": "操作",
+      "rules-action-mute": "静音",
+      "rules-action-mute-desc": "无声音，仍显示弹窗并记录在历史中。",
+      "rules-add": "添加规则",
+      "rules-delete": "删除规则",
+      "rules-description": "匹配应用名称或内容。首个匹配项胜出。",
+      "rules-edit": "编辑规则",
+      "rules-label": "筛选规则",
+      "rules-pattern-label": "模式",
+      "rules-pattern-placeholder": "firefox, discord, 或 /regex/",
+      "rules-tab": "规则",
       "settings-always-on-top-description": "在全屏窗口和其他图层上方显示通知。",
       "settings-background-opacity-description": "调整通知背景的透明度。",
       "settings-density-description": "选择通知卡密度。",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "从“可用”部分安装插件。",
       "installed-no-plugins-label": "未安装插件",
       "installing": "正在安装 {plugin}...",
+      "notify-updates": "插件更新通知",
+      "notify-updates-description": "当有新的插件更新可用时，显示通知弹窗。",
       "open-plugin-page": "打开插件页面",
       "open-plugins-tab": "打开插件设置",
       "plugin-settings-title": "{plugin} 设置",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "禁用所有无线通信。",
       "title": "飞行模式"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "占位符"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "匿名身份",
+      "ca-cert": "CA 证书",
+      "eap-method": "EAP 方法",
+      "password": "用户密码",
+      "phase2-auth": "第二阶段认证",
+      "username": "身份 / 用户名"
+    },
     "panel": {
       "action-required": "需要动作",
+      "add-hidden-network": "添加隐藏网络",
+      "add-network": "添加网络",
       "available-interfaces": "可用接口",
       "available-networks": "可用网络",
       "disabled": "Wi-Fi 已禁用",
@@ -2146,25 +2189,38 @@
       "forget": "忘记",
       "forget-network": "忘记此网络？",
       "forgetting": "正在忘记...",
+      "hidden-network": "隐藏网络",
       "interface": "网络接口",
       "internet-connected": "已连接互联网",
       "internet-limited": "无网络",
       "internet-status": "互联网状态",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "已知网络",
       "link-speed": "链路速度",
+      "network-name-ssid": "网络名称 (SSID)",
       "no-ethernet-devices": "未检测到以太网设备",
       "no-networks": "未找到网络",
       "saved": "已保存",
       "scan-again": "重新扫描",
       "searching": "正在搜索附近网络...",
+      "security-open": "打开",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 个人",
+      "security-wpa-ent": "WPA 企业版",
+      "security-wpa2-ent": "WPA2 企业版",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 企业版",
+      "show-password": "显示密码",
       "title": "Wi-Fi"
     },
     "signal": {
       "excellent": "优秀",
       "fair": "一般",
       "good": "好",
-      "poor": "弱"
+      "poor": "弱",
+      "weak": "弱"
     }
   }
 }

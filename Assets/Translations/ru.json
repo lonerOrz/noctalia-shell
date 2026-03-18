@@ -465,6 +465,8 @@
     "media-player": "Медиаплеер",
     "memory": "Память",
     "monitors": "Мониторы",
+    "move-down": "Переместить вниз",
+    "move-up": "Переместить вверх",
     "network": "Сеть",
     "next": "Следующий",
     "night-light": "Ночной свет",
@@ -536,6 +538,7 @@
     "unpin": "Открепить",
     "update": "Обновление",
     "upload": "Загрузить",
+    "username": "Имя пользователя",
     "userspace-reboot": "Перезагрузить пользовательское пространство",
     "version": "Версия",
     "vibrant": "Яркий",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "Скрыть устройства, которые отображаются только как Bluetooth-адреса.",
       "hide-unnamed-devices-label": "Скрывать безымянные устройства",
       "pin-instructions": "Пожалуйста, введите PIN-код, отображаемый на вашем устройстве.",
-      "title": "Подключения"
+      "title": "Подключения",
+      "wifi-header-text": "Используйте Wi-Fi, чтобы просматривать доступные сети и подключаться к интернету."
     },
     "control-center": {
       "cards-desc": "Настройте, какие элементы управления появляются в центре управления и в каком порядке.",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "Непрозрачность индикатора",
       "appearance-indicator-thickness-description": "Использовать более толстый индикатор скрытого дока (6 пк вместо 3 пк).",
       "appearance-indicator-thickness-label": "Более толстый индикатор",
+      "appearance-launcher-icon-description": "Выберите значок, используемый для Dock Launcher.",
+      "appearance-launcher-icon-label": "Значок лаунчера",
       "appearance-launcher-position-description": "Выберите, где значок запуска приложений отображается в доке.",
       "appearance-launcher-position-end": "Конец",
       "appearance-launcher-position-label": "Позиция запускателя",
       "appearance-launcher-position-start": "Старт",
+      "appearance-launcher-use-distro-logo-description": "Используйте логотип вашего дистрибутива в качестве значка Dock Launcher.",
+      "appearance-launcher-use-distro-logo-label": "Использовать логотип дистрибутива вместо иконки.",
       "appearance-pinned-static-description": "Всегда перемещайте закреплённые значки приложений влево в статичном порядке.",
       "appearance-pinned-static-label": "Закреплённые статические приложения",
       "appearance-position-description": "Выберите, где док будет отображаться на экране.",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "Горячие клавиши"
     },
     "hooks": {
+      "color-generation-description": "Команда, которая будет выполнена после завершения генерации цвета (например, после применения темы на основе обоев).",
+      "color-generation-label": "Цвета сгенерированы",
+      "color-generation-placeholder": "напр. notify-send \"Цвета\" \"Сгенерировано\"",
       "info-command-info-description": "• Команды выполняются через shell (sh -lc)<br>• Команды выполняются в фоновом режиме (отдельно)<br>• Кнопки 'Тест' выполняются с текущими значениями",
       "info-parameters-description": "• Wallpaper hook: $1 = путь к обоям, $2 = имя экрана, $3 = тема (темная/светлая)<br>• Theme toggle hook: $1 = true/false (состояние тёмного режима)<br>• Screen lock/unlock hooks: $1 = lock/unlock (состояние блокировки экрана)<br>• Performance mode hooks: Без параметров<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Доступные параметры",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "напр. 'gradia', 'satty -f -'",
       "settings-auto-paste-description": "Автоматически вставить выбранный элемент из буфера обмена. Требуется wtype.",
       "settings-auto-paste-label": "Автоматическая вставка",
+      "settings-clip-chips-description": "Показать панель вкладок для фильтрации истории буфера обмена по типу (Изображения, Ссылки, Файлы, Код и т.д.).",
+      "settings-clip-chips-label": "Включить чипы категорий",
       "settings-clip-preview-description": "Показывать предварительный просмотр содержимого буфера обмена при использовании команды >clip.",
       "settings-clip-preview-label": "Включить предварительный просмотр буфера обмена",
+      "settings-clip-smart-icons-description": "Показывать специальные значки для ссылок, файлов, цветов и кода вместо общего значка буфера обмена.",
+      "settings-clip-smart-icons-label": "Включить умные значки",
       "settings-clip-wrap-text-description": "Переносить текст в списке буфера обмена вместо обрезания.",
       "settings-clip-wrap-text-label": "Обернуть текст из буфера обмена",
       "settings-clipboard-history-description": "Доступ к ранее скопированным элементам из запуска.",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "Сохранять уведомления с нормальным приоритетом в истории.",
       "history-normal-urgency-label": "Сохранять нормальную срочность в истории",
       "monitors-desc": "Показывать уведомления на определённых мониторах. По умолчанию на всех, если ни один не выбран.",
+      "rules-action-block": "Блок",
+      "rules-action-block-desc": "Пропускает полностью.",
+      "rules-action-hide": "Скрыть",
+      "rules-action-hide-desc": "Без всплывающих окон, без звука, добавляет в историю.",
+      "rules-action-label": "Действие",
+      "rules-action-mute": "Без звука",
+      "rules-action-mute-desc": "Нет звука, всплывающее окно всё равно отображается и в истории.",
+      "rules-add": "Добавить правило",
+      "rules-delete": "Удалить правило",
+      "rules-description": "Сопоставить имя приложения или содержимое. Первое совпадение выигрывает.",
+      "rules-edit": "Редактировать правило",
+      "rules-label": "Правила Фильтрации",
+      "rules-pattern-label": "Шаблон",
+      "rules-pattern-placeholder": "firefox, discord, или /regex/",
+      "rules-tab": "Правила",
       "settings-always-on-top-description": "Отображать уведомления поверх полноэкранных окон и других слоёв.",
       "settings-background-opacity-description": "Настройка непрозрачности фона уведомлений.",
       "settings-density-description": "Выберите плотность карточки уведомлений.",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "Установите плагины из раздела \"Доступно\".",
       "installed-no-plugins-label": "Нет установленных плагинов",
       "installing": "Установка {plugin}...",
+      "notify-updates": "Уведомления об обновлении плагинов",
+      "notify-updates-description": "Показывать всплывающее уведомление при наличии новых обновлений плагинов.",
       "open-plugin-page": "Открыть страницу плагина",
       "open-plugins-tab": "Открыть настройки плагинов",
       "plugin-settings-title": "Настройки {plugin}",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "Отключить все беспроводные коммуникации.",
       "title": "Режим полёта"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "Заполнитель"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "Анонимная Личность",
+      "ca-cert": "Сертификат CA",
+      "eap-method": "Метод EAP",
+      "password": "Пароль пользователя",
+      "phase2-auth": "Аутентификация Фазы 2",
+      "username": "Идентификатор / Имя Пользователя"
+    },
     "panel": {
       "action-required": "Требуется действие",
+      "add-hidden-network": "Добавить скрытую сеть",
+      "add-network": "Добавить сеть",
       "available-interfaces": "Доступные интерфейсы",
       "available-networks": "Доступные сети",
       "disabled": "Wi-Fi отключен",
@@ -2146,25 +2189,38 @@
       "forget": "Забыть",
       "forget-network": "Забыть эту сеть?",
       "forgetting": "Забывание...",
+      "hidden-network": "Скрытая сеть",
       "interface": "Сетевой интерфейс",
       "internet-connected": "Подключено к интернету",
       "internet-limited": "Нет интернета",
       "internet-status": "Статус подключения к интернету",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "Известные сети",
       "link-speed": "Скорость соединения",
+      "network-name-ssid": "Имя сети (SSID)",
       "no-ethernet-devices": "Ethernet-устройства не обнаружены",
       "no-networks": "Сети не найдены",
       "saved": "Сохранено",
       "scan-again": "Сканировать снова",
       "searching": "Поиск ближайших сетей...",
+      "security-open": "Открыть",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 Персональный",
+      "security-wpa-ent": "WPA Enterprise",
+      "security-wpa2-ent": "WPA2 Enterprise",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 Энтерпрайз",
+      "show-password": "Показать пароль",
       "title": "Wi-Fi"
     },
     "signal": {
       "excellent": "Отличный",
       "fair": "Средний",
       "good": "Хороший",
-      "poor": "Слабый"
+      "poor": "Слабый",
+      "weak": "Слабый"
     }
   }
 }

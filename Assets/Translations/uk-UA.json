@@ -465,6 +465,8 @@
     "media-player": "Медіапрогравач",
     "memory": "Пам'ять",
     "monitors": "Монітори",
+    "move-down": "Перемістити вниз",
+    "move-up": "Перемістити вгору",
     "network": "Мережа",
     "next": "Наступний",
     "night-light": "Нічне світло",
@@ -536,6 +538,7 @@
     "unpin": "Відкріпити",
     "update": "Оновлення",
     "upload": "Вивантажити",
+    "username": "Ім'я користувача",
     "userspace-reboot": "Перезавантажити простір користувача",
     "version": "Версія",
     "vibrant": "Яскравий",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "Приховати пристрої, які відображаються лише як Bluetooth-адреси.",
       "hide-unnamed-devices-label": "Приховати безіменні пристрої",
       "pin-instructions": "Будь ласка, введіть PIN-код, що відображається на вашому пристрої.",
-      "title": "Підключення"
+      "title": "Підключення",
+      "wifi-header-text": "Використовуйте Wi-Fi, щоб переглядати доступні мережі та підключатися до інтернету."
     },
     "control-center": {
       "cards-desc": "Налаштуйте, які елементи керування з'являються в центрі керування та в якому порядку.",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "Непрозорість індикатора",
       "appearance-indicator-thickness-description": "Увімкнути товстіший індикатор прихованого доку (6 пікселів замість 3 пікселів).",
       "appearance-indicator-thickness-label": "Товстіший індикатор",
+      "appearance-launcher-icon-description": "Виберіть піктограму, що використовується для Dock Launcher.",
+      "appearance-launcher-icon-label": "Піктограма лаунчера",
       "appearance-launcher-position-description": "Виберіть, де значок запуску програм з'являється в доці.",
       "appearance-launcher-position-end": "Кінець",
       "appearance-launcher-position-label": "Позиція запускача",
       "appearance-launcher-position-start": "Старт",
+      "appearance-launcher-use-distro-logo-description": "Використовуйте логотип вашого дистрибутива як значок Dock Launcher.",
+      "appearance-launcher-use-distro-logo-label": "Використовувати логотип дистрибутива замість іконки.",
       "appearance-pinned-static-description": "Завжди закріплюйте значки програм ліворуч у статичному порядку.",
       "appearance-pinned-static-label": "Статично закріплені програми",
       "appearance-position-description": "Виберіть, де док відображатиметься на екрані.",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "Гарячі клавіші"
     },
     "hooks": {
+      "color-generation-description": "Команда, яка буде виконана після завершення генерації кольору (наприклад, після застосування теми на основі шпалер).",
+      "color-generation-label": "Кольори згенеровано",
+      "color-generation-placeholder": "напр. notify-send \"Кольори\" \"Згенеровано\"",
       "info-command-info-description": "• Команди виконуються через оболонку (sh -lc)<br>• Команди запускаються у фоні (відокремлено)<br>• Кнопки тестування виконують команди з поточними значеннями",
       "info-parameters-description": "• Wallpaper hook: $1 = шлях до шпалер, $2 = назва екрана, $3 = тема (темна/світла)<br>• Theme toggle hook: $1 = true/false (стан темного режиму)<br>• Screen lock/unlock hooks: $1 = lock/unlock (стан блокування екрана)<br>• Performance mode hooks: Без параметрів<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Доступні параметри",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "напр. 'gradia', 'satty -f -'",
       "settings-auto-paste-description": "Автоматично вставити вибраний елемент з буфера обміну. Потребує wtype.",
       "settings-auto-paste-label": "Автоматична вставка",
+      "settings-clip-chips-description": "Показати панель вкладок для фільтрації історії буфера обміну за типом (Зображення, Посилання, Файли, Код тощо).",
+      "settings-clip-chips-label": "Увімкнути чіпи категорій",
       "settings-clip-preview-description": "Показувати попередній перегляд вмісту буфера обміну при використанні команди >clip.",
       "settings-clip-preview-label": "Попередній перегляд буфера обміну",
+      "settings-clip-smart-icons-description": "Показувати спеціальні іконки для посилань, файлів, кольорів та коду замість загальної іконки буфера обміну.",
+      "settings-clip-smart-icons-label": "Увімкнути розумні іконки",
       "settings-clip-wrap-text-description": "Переносити текст у списку буфера обміну замість обрізання.",
       "settings-clip-wrap-text-label": "Загорнути текст з буфера обміну",
       "settings-clipboard-history-description": "Отримати доступ до раніше скопійованих елементів із лаунчера.",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "Зберігати сповіщення з нормальним пріоритетом в історії.",
       "history-normal-urgency-label": "Зберігати нормальну терміновість в історії",
       "monitors-desc": "Показувати сповіщення на певних моніторах. За замовчуванням на всіх, якщо не вибрано.",
+      "rules-action-block": "Блок",
+      "rules-action-block-desc": "Пропускає повністю.",
+      "rules-action-hide": "Сховати",
+      "rules-action-hide-desc": "Без спливаючих вікон, без звуку, додається до історії.",
+      "rules-action-label": "Дія",
+      "rules-action-mute": "Без звуку",
+      "rules-action-mute-desc": "Немає звуку, все одно показує спливаюче вікно та в історії.",
+      "rules-add": "Додати правило",
+      "rules-delete": "Видалити правило",
+      "rules-description": "Зіставити назву програми або вміст. Перший збіг виграє.",
+      "rules-edit": "Редагувати правило",
+      "rules-label": "Правила Фільтрації",
+      "rules-pattern-label": "Шаблон",
+      "rules-pattern-placeholder": "firefox, discord, або /regex/",
+      "rules-tab": "Правила",
       "settings-always-on-top-description": "Відображати сповіщення поверх повноекранних вікон та інших шарів.",
       "settings-background-opacity-description": "Налаштуйте непрозорість фону сповіщень.",
       "settings-density-description": "Виберіть щільність картки сповіщень.",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "Встановіть плагіни з розділу \"Доступний\".",
       "installed-no-plugins-label": "Немає встановлених плагінів",
       "installing": "Встановлення {plugin}...",
+      "notify-updates": "Сповіщення про оновлення плагінів",
+      "notify-updates-description": "Показувати спливаюче сповіщення, коли доступні нові оновлення плагінів.",
       "open-plugin-page": "Відкрити сторінку плагіна",
       "open-plugins-tab": "Відкрити налаштування плагінів",
       "plugin-settings-title": "Налаштування {plugin}",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "Вимкнути всі бездротові комунікації.",
       "title": "Режим польоту"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "Заповнювач"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "Анонімна Ідентичність",
+      "ca-cert": "Сертифікат CA",
+      "eap-method": "Метод EAP",
+      "password": "Пароль користувача",
+      "phase2-auth": "Автентифікація Фази 2",
+      "username": "Ідентифікатор / Ім'я Користувача"
+    },
     "panel": {
       "action-required": "Вимагається дія",
+      "add-hidden-network": "Додати приховану мережу",
+      "add-network": "Додати мережу",
       "available-interfaces": "Доступні інтерфейси",
       "available-networks": "Доступні мережі",
       "disabled": "Wi-Fi вимкнено",
@@ -2146,25 +2189,38 @@
       "forget": "Забути",
       "forget-network": "Забути цю мережу?",
       "forgetting": "Забування...",
+      "hidden-network": "Прихована мережа",
       "interface": "Мережевий інтерфейс",
       "internet-connected": "Підключено до Інтернету",
       "internet-limited": "Немає інтернету",
       "internet-status": "Статус Інтернету",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "Відомі мережі",
       "link-speed": "Швидкість з'єднання",
+      "network-name-ssid": "Ім'я мережі (SSID)",
       "no-ethernet-devices": "Не виявлено Ethernet-пристроїв",
       "no-networks": "Мереж не знайдено",
       "saved": "Збережено",
       "scan-again": "Сканувати знову",
       "searching": "Пошук близьких мереж...",
+      "security-open": "Відкрити",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 Персональний",
+      "security-wpa-ent": "WPA Enterprise",
+      "security-wpa2-ent": "WPA2 Enterprise",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 Ентерпрайз",
+      "show-password": "Показати пароль",
       "title": "Wi-Fi"
     },
     "signal": {
       "excellent": "Відмінний",
       "fair": "Середній",
       "good": "Хороший",
-      "poor": "Слабкий"
+      "poor": "Слабкий",
+      "weak": "Слабкий"
     }
   }
 }

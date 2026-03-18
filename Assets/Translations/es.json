@@ -465,6 +465,8 @@
     "media-player": "Reproductor multimedia",
     "memory": "Memoria",
     "monitors": "Monitores",
+    "move-down": "Mover hacia abajo",
+    "move-up": "Mover arriba",
     "network": "Red",
     "next": "Siguiente",
     "night-light": "Luz nocturna",
@@ -536,6 +538,7 @@
     "unpin": "Desanclar",
     "update": "Actualizar",
     "upload": "Subir",
+    "username": "Nombre de usuario",
     "userspace-reboot": "Reiniciar espacio de usuario",
     "version": "Versión",
     "vibrant": "Vibrante",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "Ocultar dispositivos que aparecen solo como direcciones Bluetooth.",
       "hide-unnamed-devices-label": "Ocultar dispositivos sin nombre",
       "pin-instructions": "Por favor, introduce el código PIN que aparece en tu dispositivo.",
-      "title": "Conexiones"
+      "title": "Conexiones",
+      "wifi-header-text": "Usa Wi-Fi para ver las redes disponibles y conectarte a internet."
     },
     "control-center": {
       "cards-desc": "Personaliza qué controles aparecen en el centro de control y en qué orden.",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "Opacidad del indicador",
       "appearance-indicator-thickness-description": "Usa un indicador del dock oculto más grueso (6 px en lugar de 3 px).",
       "appearance-indicator-thickness-label": "Indicador más grueso",
+      "appearance-launcher-icon-description": "Elige el icono usado para el Dock Launcher.",
+      "appearance-launcher-icon-label": "Icono del Lanzador",
       "appearance-launcher-position-description": "Elige dónde aparece el icono del lanzador en el dock.",
       "appearance-launcher-position-end": "Fin",
       "appearance-launcher-position-label": "Posición del lanzador",
       "appearance-launcher-position-start": "Iniciar",
+      "appearance-launcher-use-distro-logo-description": "Usa el logo de tu distribución como icono del Dock Launcher.",
+      "appearance-launcher-use-distro-logo-label": "Usar el logo de la distro en lugar del icono.",
       "appearance-pinned-static-description": "Siempre empuja los iconos de las aplicaciones ancladas a la izquierda en orden estático.",
       "appearance-pinned-static-label": "Aplicaciones ancladas estáticas",
       "appearance-position-description": "Elige dónde aparece el dock en la pantalla.",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "Atajos de teclado"
     },
     "hooks": {
+      "color-generation-description": "Comando a ejecutar cuando la generación de color se complete (p. ej., después de la tematización basada en el fondo de pantalla).",
+      "color-generation-label": "Colores generados",
+      "color-generation-placeholder": "p. ej. notify-send \"Colores\" \"Generados\"",
       "info-command-info-description": "• Los comandos se ejecutan a través de shell (sh -lc)<br>• Los comandos se ejecutan en segundo plano (desvinculados)<br>• Los botones de prueba se ejecutan con los valores actuales",
       "info-parameters-description": "• Wallpaper hook: $1 = ruta del fondo de pantalla, $2 = nombre de la pantalla, $3 = tema (oscuro/claro)<br>• Theme toggle hook: $1 = true/false (estado del modo oscuro)<br>• Screen lock/unlock hooks: $1 = lock/unlock (estado de bloqueo de pantalla)<br>• Performance mode hooks: Sin parámetros<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Parámetros disponibles",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "p. ej. 'gradia', 'satty -f -'",
       "settings-auto-paste-description": "Pegar automáticamente el elemento seleccionado del portapapeles. Requiere wtype.",
       "settings-auto-paste-label": "Pegado automático",
+      "settings-clip-chips-description": "Mostrar una barra de pestañas para filtrar el historial del portapapeles por tipo (Imágenes, Enlaces, Archivos, Código, etc.).",
+      "settings-clip-chips-label": "Habilitar chips de categoría",
       "settings-clip-preview-description": "Muestra una vista previa del contenido del portapapeles al usar el comando >clip.",
       "settings-clip-preview-label": "Activar vista previa del portapapeles",
+      "settings-clip-smart-icons-description": "Mostrar iconos específicos para enlaces, archivos, colores y código en lugar de un icono de portapapeles genérico.",
+      "settings-clip-smart-icons-label": "Habilitar iconos inteligentes",
       "settings-clip-wrap-text-description": "Ajustar el texto en la lista del portapapeles en lugar de truncarlo.",
       "settings-clip-wrap-text-label": "Ajustar texto del portapapeles",
       "settings-clipboard-history-description": "Accede a los elementos copiados anteriormente desde el lanzador.",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "Guardar notificaciones de prioridad normal en el historial.",
       "history-normal-urgency-label": "Guardar urgencia normal en el historial",
       "monitors-desc": "Muestra notificaciones en monitores específicos. Por defecto, se muestra en todos si no se elige ninguno.",
+      "rules-action-block": "Bloque",
+      "rules-action-block-desc": "Salta completamente.",
+      "rules-action-hide": "Ocultar",
+      "rules-action-hide-desc": "Sin ventana emergente, sin sonido, se añade al historial.",
+      "rules-action-label": "Acción",
+      "rules-action-mute": "Silenciar",
+      "rules-action-mute-desc": "Sin sonido, aún muestra la ventana emergente y en el historial.",
+      "rules-add": "Añadir regla",
+      "rules-delete": "Eliminar regla",
+      "rules-description": "Coincidir con el nombre de la aplicación o el contenido. La primera coincidencia gana.",
+      "rules-edit": "Editar regla",
+      "rules-label": "Reglas de Filtrado",
+      "rules-pattern-label": "Patrón",
+      "rules-pattern-placeholder": "firefox, discord, o /regex/",
+      "rules-tab": "Reglas",
       "settings-always-on-top-description": "Muestra las notificaciones sobre ventanas a pantalla completa y otras capas.",
       "settings-background-opacity-description": "Ajustar la opacidad de los fondos de las notificaciones.",
       "settings-density-description": "Elige la densidad de la tarjeta de notificación.",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "Instale los plugins de la sección \"Disponible\".",
       "installed-no-plugins-label": "No hay plugins instalados",
       "installing": "Instalando {plugin}...",
+      "notify-updates": "Notificaciones de actualización de plugins",
+      "notify-updates-description": "Mostrar una notificación emergente cuando haya nuevas actualizaciones de plugins disponibles.",
       "open-plugin-page": "Abrir página del plugin",
       "open-plugins-tab": "Abrir la configuración de los plugins",
       "plugin-settings-title": "Ajustes de {plugin}",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "Desactivar todas las comunicaciones inalámbricas.",
       "title": "Modo avión"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "Marcador de posición"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "Identidad Anónima",
+      "ca-cert": "Certificado CA",
+      "eap-method": "Método EAP",
+      "password": "Contraseña de Usuario",
+      "phase2-auth": "Autenticación de Fase 2",
+      "username": "Identidad / Nombre de Usuario"
+    },
     "panel": {
       "action-required": "Acción requerida",
+      "add-hidden-network": "Añadir red oculta",
+      "add-network": "Añadir red",
       "available-interfaces": "Interfaces disponibles",
       "available-networks": "Redes disponibles",
       "disabled": "Wi-Fi está desactivado",
@@ -2146,25 +2189,38 @@
       "forget": "Olvidar",
       "forget-network": "¿Olvidar esta red?",
       "forgetting": "Olvidando...",
+      "hidden-network": "Red oculta",
       "interface": "Interfaz de red",
       "internet-connected": "Conectado a internet",
       "internet-limited": "Sin internet",
       "internet-status": "Estado de internet",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "Redes conocidas",
       "link-speed": "Velocidad de enlace",
+      "network-name-ssid": "Nombre de red (SSID)",
       "no-ethernet-devices": "No se detectaron dispositivos Ethernet",
       "no-networks": "No se encontraron redes Wi-Fi",
       "saved": "Guardado",
       "scan-again": "Escanear de nuevo",
       "searching": "Buscando redes cercanas...",
+      "security-open": "Abrir",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 Personal",
+      "security-wpa-ent": "WPA Enterprise",
+      "security-wpa2-ent": "WPA2 Enterprise",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 Enterprise",
+      "show-password": "Mostrar contraseña",
       "title": "Wi-Fi"
     },
     "signal": {
       "excellent": "Excelente",
       "fair": "Razonable",
       "good": "Bueno",
-      "poor": "Pobre"
+      "poor": "Pobre",
+      "weak": "Débil"
     }
   }
 }

@@ -24,12 +24,21 @@ Item {
   property var workspaceCache: ({})
   property var windowCache: ({})
 
-  // Debounce timer for updates
+  // Debounce timer for window updates
   Timer {
     id: updateTimer
     interval: 50
     repeat: false
     onTriggered: safeUpdate()
+  }
+
+  // Deferred via Qt.callLater to coalesce workspace updates: onRawEvent calls
+  // refreshWorkspaces() which triggers onValuesChanged synchronously in the
+  // same call stack — without deferral the ListModel gets cleared+repopulated
+  // twice per event. Qt.callLater deduplicates by function identity.
+  function _deferredWorkspaceUpdate() {
+    safeUpdateWorkspaces();
+    workspaceChanged();
   }
 
   // Initialization
@@ -246,7 +255,7 @@ Item {
       }
 
       const hlToplevels = Hyprland.toplevels.values;
-      let newFocusedIndex = -1;
+      let focusedWindowId = null;
 
       // Get active workspaces to filter focus
       const activeWorkspaceIds = {};
@@ -272,16 +281,39 @@ Item {
             }
           }
 
-          windowsList.push(windowData);
-          windowCache[windowData.id] = windowData;
+          // Normalize to a plain, backend-independent window object
+          const normalized = {
+            "id": windowData.id ? String(windowData.id) : "",
+            "title": windowData.title ? String(windowData.title) : "",
+            "appId": windowData.appId ? String(windowData.appId) : "",
+            "workspaceId": (typeof windowData.workspaceId === "number" && !isNaN(windowData.workspaceId)) ? windowData.workspaceId : -1,
+            "isFocused": windowData.isFocused === true,
+            "output": windowData.output ? String(windowData.output) : "",
+            "x": (typeof windowData.x === "number" && !isNaN(windowData.x)) ? windowData.x : 0,
+            "y": (typeof windowData.y === "number" && !isNaN(windowData.y)) ? windowData.y : 0
+          };
 
-          if (windowData.isFocused) {
-            newFocusedIndex = windowsList.length - 1;
+          windowsList.push(normalized);
+          windowCache[normalized.id] = normalized;
+
+          if (normalized.isFocused) {
+            focusedWindowId = normalized.id;
           }
         }
       }
 
       windows = toSortedWindowList(windowsList);
+
+      // Resolve focused index from sorted list (order changes after sort)
+      let newFocusedIndex = -1;
+      if (focusedWindowId) {
+        for (let k = 0; k < windows.length; k++) {
+          if (windows[k].id === focusedWindowId) {
+            newFocusedIndex = k;
+            break;
+          }
+        }
+      }
 
       if (newFocusedIndex !== focusedWindowIndex) {
         focusedWindowIndex = newFocusedIndex;
@@ -323,6 +355,10 @@ Item {
         }
       } catch (e) {}
 
+      // Normalize coordinates to safe numeric values
+      const safeX = (typeof x === "number" && !isNaN(x)) ? x : 0;
+      const safeY = (typeof y === "number" && !isNaN(y)) ? y : 0;
+
       return {
         "id": windowId,
         "title": title,
@@ -330,8 +366,8 @@ Item {
         "workspaceId": wsId || -1,
         "isFocused": focused,
         "output": output,
-        "x": x,
-        "y": y
+        "x": safeX,
+        "y": safeY
       };
     } catch (e) {
       return null;
@@ -452,8 +488,7 @@ Item {
     target: Hyprland.workspaces
     enabled: initialized
     function onValuesChanged() {
-      safeUpdateWorkspaces();
-      workspaceChanged();
+      Qt.callLater(_deferredWorkspaceUpdate);
     }
   }
 
@@ -471,8 +506,10 @@ Item {
     function onRawEvent(event) {
       Hyprland.refreshWorkspaces();
       Hyprland.refreshToplevels();
-      safeUpdateWorkspaces();
-      workspaceChanged();
+      // Workspace and window updates are deferred — refreshWorkspaces()/
+      // refreshToplevels() trigger onValuesChanged which also calls
+      // Qt.callLater, so the deduplication coalesces into one update.
+      Qt.callLater(_deferredWorkspaceUpdate);
       updateTimer.restart();
 
       const monitorsEvents = ["configreloaded", "monitoradded", "monitorremoved", "monitoraddedv2", "monitorremovedv2"];

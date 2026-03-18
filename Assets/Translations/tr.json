@@ -465,6 +465,8 @@
     "media-player": "Medya oynatıcı",
     "memory": "Hafıza",
     "monitors": "Monitörler",
+    "move-down": "Aşağı Taşı",
+    "move-up": "Yukarı taşı",
     "network": "Ağ",
     "next": "Sonraki",
     "night-light": "Gece ışığını",
@@ -536,6 +538,7 @@
     "unpin": "Sabitlemeyi kaldır",
     "update": "Güncelleme",
     "upload": "Yükle",
+    "username": "Kullanıcı Adı",
     "userspace-reboot": "Kullanıcı alanını yeniden başlat",
     "version": "Sürüm",
     "vibrant": "Canlı",
@@ -969,7 +972,8 @@
       "hide-unnamed-devices-description": "Yalnızca Bluetooth adresleri olarak görünen cihazları gizle.",
       "hide-unnamed-devices-label": "İsimsiz cihazları gizle",
       "pin-instructions": "Lütfen cihazınızda gösterilen PIN kodunu girin.",
-      "title": "Bağlantılar"
+      "title": "Bağlantılar",
+      "wifi-header-text": "Mevcut ağları görmek ve internete bağlanmak için Wi-Fi kullanın."
     },
     "control-center": {
       "cards-desc": "Kontrol merkezinde hangi kontrollerin ve hangi sırada görüneceğini özelleştirin.",
@@ -1139,10 +1143,14 @@
       "appearance-indicator-opacity-label": "Gösterge opaklığı",
       "appearance-indicator-thickness-description": "Daha kalın bir gizli dock göstergesi kullanın (3 px yerine 6 px).",
       "appearance-indicator-thickness-label": "Daha kalın gösterge",
+      "appearance-launcher-icon-description": "Dock Launcher için kullanılan simgeyi seçin.",
+      "appearance-launcher-icon-label": "Başlatıcı Simgesi",
       "appearance-launcher-position-description": "Başlatıcı simgesinin dock'ta nerede görüneceğini seçin.",
       "appearance-launcher-position-end": "Son",
       "appearance-launcher-position-label": "Başlatıcı konumu",
       "appearance-launcher-position-start": "Başlat",
+      "appearance-launcher-use-distro-logo-description": "Dağıtımınızın logosunu Dock Launcher simgesi olarak kullanın.",
+      "appearance-launcher-use-distro-logo-label": "Simge yerine dağıtım logosunu kullan.",
       "appearance-pinned-static-description": "Sabit sırada, sabitlenmiş uygulama simgelerini her zaman sola itin.",
       "appearance-pinned-static-label": "Sabitlenmiş statik uygulamalar",
       "appearance-position-description": "Dock’un ekranda nerede görüneceğini seçin.",
@@ -1219,6 +1227,9 @@
       "tab-keybinds": "Tuş atamaları"
     },
     "hooks": {
+      "color-generation-description": "Renk oluşturma tamamlandığında (örn. duvar kağıdı tabanlı tema uygulandıktan sonra) çalıştırılacak komut.",
+      "color-generation-label": "Renkler oluşturuldu",
+      "color-generation-placeholder": "örn. notify-send \"Renkler\" \"Oluşturuldu\"",
       "info-command-info-description": "• Komutlar kabuk (sh -lc) ile yürütülür<br>• Komutlar arka planda yürütülür (ayrık)<br>• Test düğmeleri mevcut değerlerle yürütülür",
       "info-parameters-description": "• Wallpaper hook: $1 = duvar kağıdı yolu, $2 = ekran adı, $3 = tema (koyu/açık)<br>• Theme toggle hook: $1 = true/false (koyu mod durumu)<br>• Screen lock/unlock hooks: $1 = lock/unlock (ekran kilidi durumu)<br>• Performance mode hooks: Parametre yok<br>• Session hook: $1 = action (shutdown/reboot)",
       "info-parameters-label": "Kullanılabilir parametreler",
@@ -1298,8 +1309,12 @@
       "settings-annotation-tool-placeholder": "örn. 'gradia', 'satty -f -'",
       "settings-auto-paste-description": "Seçili panodaki öğeyi otomatik olarak yapıştır. Wtype gerektirir.",
       "settings-auto-paste-label": "Otomatik yapıştırma",
+      "settings-clip-chips-description": "Panoya geçmişini türe göre filtrelemek için bir sekme çubuğu göster (Görseller, Bağlantılar, Dosyalar, Kod vb.).",
+      "settings-clip-chips-label": "Kategori Çiplerini Etkinleştir",
       "settings-clip-preview-description": ">clip komutu kullanılırken panodaki içeriğin önizlemesini gösterir.",
       "settings-clip-preview-label": "Panoyu önizlemeyi etkinleştir",
+      "settings-clip-smart-icons-description": "Genel bir pano simgesi yerine bağlantılar, dosyalar, renkler ve kod için belirli simgeler göster.",
+      "settings-clip-smart-icons-label": "Akıllı Simgeleri Etkinleştir",
       "settings-clip-wrap-text-description": "Panodaki metni kırpmak yerine listeye sığdır.",
       "settings-clip-wrap-text-label": "Panoyu metni kaydır",
       "settings-clipboard-history-description": "Başlatıcıdan daha önce kopyalanan öğelere erişin.",
@@ -1441,6 +1456,21 @@
       "history-normal-urgency-description": "Normal öncelikli bildirimleri geçmişe kaydet.",
       "history-normal-urgency-label": "Normal aciliyeti geçmişe kaydet",
       "monitors-desc": "Bildirimleri belirli ekranlarda gösterin. Hiçbiri seçilmezse varsayılan olarak tümünde gösterilir.",
+      "rules-action-block": "Blok",
+      "rules-action-block-desc": "Tamamen atlar.",
+      "rules-action-hide": "Gizle",
+      "rules-action-hide-desc": "Açılır pencere yok, ses yok, geçmişe eklenir.",
+      "rules-action-label": "Eylem",
+      "rules-action-mute": "Sesi Kapat",
+      "rules-action-mute-desc": "Ses yok, yine de açılır pencere gösteriyor ve geçmişte.",
+      "rules-add": "Kural Ekle",
+      "rules-delete": "Kuralı Sil",
+      "rules-description": "Uygulama adı veya içerikle eşleştir. İlk eşleşme kazanır.",
+      "rules-edit": "Kuralı Düzenle",
+      "rules-label": "Filtre Kuralları",
+      "rules-pattern-label": "Desen",
+      "rules-pattern-placeholder": "firefox, discord, veya /regex/",
+      "rules-tab": "Kurallar",
       "settings-always-on-top-description": "Bildirimleri tam ekran pencerelerinin ve diğer katmanların üzerinde görüntüle.",
       "settings-background-opacity-description": "Bildirim arka planlarının opaklığını ayarlayın.",
       "settings-density-description": "Bildirim kartı yoğunluğunu seçin.",
@@ -1550,6 +1580,8 @@
       "installed-no-plugins-description": "\"Mevcut\" bölümünden eklentileri kurun.",
       "installed-no-plugins-label": "Eklenti kurulu değil",
       "installing": "{eklenti} kuruluyor...",
+      "notify-updates": "Eklenti güncelleme bildirimleri",
+      "notify-updates-description": "Yeni eklenti güncellemeleri olduğunda bir bildirim penceresi göster.",
       "open-plugin-page": "Eklenti sayfasını aç",
       "open-plugins-tab": "Eklenti ayarlarına git",
       "plugin-settings-title": "{plugin} ayarları",
@@ -1849,6 +1881,7 @@
   },
   "toast": {
     "airplane-mode": {
+      "description": "Tüm kablosuz iletişimleri devre dışı bırak.",
       "title": "Uçak modu"
     },
     "battery": {
@@ -2134,8 +2167,18 @@
     "tooltip-placeholder": "Yer tutucu"
   },
   "wifi": {
+    "enterprise": {
+      "anonymous-identity": "Anonim Kimlik",
+      "ca-cert": "CA Sertifikası",
+      "eap-method": "EAP Yöntemi",
+      "password": "Kullanıcı Şifresi",
+      "phase2-auth": "Faz 2 Kimlik Doğrulama",
+      "username": "Kimlik / Kullanıcı Adı"
+    },
     "panel": {
       "action-required": "Eylem gerekiyor",
+      "add-hidden-network": "Gizli ağ ekle",
+      "add-network": "Ağ ekle",
       "available-interfaces": "Kullanılabilir arayüzler",
       "available-networks": "Kullanılabilir ağlar",
       "disabled": "Kablosuz bağlantı devre dışı",
@@ -2146,25 +2189,38 @@
       "forget": "Unut",
       "forget-network": "Bu ağı unut?",
       "forgetting": "Unutuluyor...",
+      "hidden-network": "Gizli ağ",
       "interface": "Ağ arayüzü",
       "internet-connected": "İnternete bağlı",
       "internet-limited": "İnternet yok",
       "internet-status": "İnternet durumu",
       "ipv4": "IPv4",
+      "ipv6": "IPv6",
       "known-networks": "Bilinen ağlar",
       "link-speed": "Bağlantı hızı",
+      "network-name-ssid": "Ağ adı (SSID)",
       "no-ethernet-devices": "Ethernet aygıtı algılanmadı",
       "no-networks": "Ağ bulunamadı",
       "saved": "Kaydedildi",
       "scan-again": "Yeniden tara",
       "searching": "Yakındaki ağlar aranıyor...",
+      "security-open": "Aç",
+      "security-wep": "WEP",
+      "security-wpa": "WPA/WPA2/WPA3 Kişisel",
+      "security-wpa-ent": "WPA Enterprise",
+      "security-wpa2-ent": "WPA2 Enterprise",
+      "security-wpa23": "WPA2/WPA3",
+      "security-wpa3": "WPA3",
+      "security-wpa3-ent": "WPA3 Enterprise",
+      "show-password": "Şifreyi göster",
       "title": "Kablosuz bağlantı"
     },
     "signal": {
       "excellent": "Mükemmel",
       "fair": "Orta",
       "good": "İyi",
-      "poor": "Zayıf"
+      "poor": "Zayıf",
+      "weak": "Zayıf"
     }
   }
 }
