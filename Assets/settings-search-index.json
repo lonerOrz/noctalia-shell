@@ -63,6 +63,15 @@
     "subTabLabel": "common.visualizer"
   },
   {
+    "labelKey": "panels.audio.spectrum-mirrored-label",
+    "descriptionKey": "panels.audio.spectrum-mirrored-description",
+    "widget": "NToggle",
+    "tab": 14,
+    "tabLabel": "panels.audio.title",
+    "subTab": 3,
+    "subTabLabel": "common.visualizer"
+  },
+  {
     "labelKey": "panels.audio.media-frame-rate-label",
     "descriptionKey": "panels.audio.media-frame-rate-description",
     "widget": "NComboBox",
@@ -1898,6 +1907,15 @@
     "tabLabel": "common.notifications",
     "subTab": 2,
     "subTabLabel": "common.history"
+  },
+  {
+    "labelKey": "panels.notifications.rules-label",
+    "descriptionKey": "panels.notifications.rules-description",
+    "widget": "NLabel",
+    "tab": 9,
+    "tabLabel": "common.notifications",
+    "subTab": 5,
+    "subTabLabel": "panels.notifications.rules-tab"
   },
   {
     "labelKey": "panels.notifications.sounds-unavailable-label",

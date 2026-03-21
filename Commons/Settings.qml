@@ -28,8 +28,9 @@ Singleton {
   readonly property int settingsVersion: 59
   property bool isDebug: Quickshell.env("NOCTALIA_DEBUG") === "1"
   readonly property string shellName: "noctalia"
-  readonly property string configDir: Quickshell.env("NOCTALIA_CONFIG_DIR") || (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/" + shellName + "/"
-  readonly property string cacheDir: Quickshell.env("NOCTALIA_CACHE_DIR") || (Quickshell.env("XDG_CACHE_HOME") || Quickshell.env("HOME") + "/.cache") + "/" + shellName + "/"
+  readonly property string configDir: ensureTrailingSlash(Quickshell.env("NOCTALIA_CONFIG_DIR") || (Quickshell.env("XDG_CONFIG_HOME") || Quickshell.env("HOME") + "/.config") + "/" + shellName + "/")
+  readonly property string cacheDir: ensureTrailingSlash(Quickshell.env("NOCTALIA_CACHE_DIR") || (Quickshell.env("XDG_CACHE_HOME") || Quickshell.env("HOME") + "/.cache") + "/" + shellName + "/")
+
   readonly property string settingsFile: Quickshell.env("NOCTALIA_SETTINGS_FILE") || (configDir + "settings.json")
   readonly property string defaultLocation: "Tokyo"
   readonly property string defaultAvatar: Quickshell.env("HOME") + "/.face"
@@ -191,7 +192,6 @@ Singleton {
       property bool useSeparateOpacity: false
 
       // Floating bar settings
-      property bool floating: false
       property int marginVertical: 4
       property int marginHorizontal: 4
 
@@ -686,6 +686,7 @@ Singleton {
       property bool volumeOverdrive: false
       property int spectrumFrameRate: 30
       property string visualizerType: "linear"
+      property bool spectrumMirrored: true
       property list<string> mprisBlacklist: []
       property string preferredPlayer: ""
       property bool volumeFeedback: false
@@ -778,7 +779,13 @@ Singleton {
   }
 
   // -----------------------------------------------------
-  // Function to preprocess paths by expanding "~" to user's home directory
+  // Preprocess paths by adding trailing "/"
+  function ensureTrailingSlash(path) {
+    return path.endsWith("/") ? path : path + "/";
+  }
+
+  // -----------------------------------------------------
+  // Preprocess paths by expanding "~" to user's home directory
   function preprocessPath(path) {
     if (typeof path !== "string" || path === "") {
       return path;
