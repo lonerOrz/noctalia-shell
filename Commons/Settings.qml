@@ -394,6 +394,7 @@ Singleton {
       property real transitionEdgeSmoothness: 0.05
       property string panelPosition: "follow_bar"
       property bool hideWallpaperFilenames: false
+      property bool useOriginalImages: false
       property real overviewBlur: 0.4
       property real overviewTint: 0.6
       // Wallhaven settings
@@ -576,7 +577,6 @@ Singleton {
 
     // network
     property JsonObject network: JsonObject {
-      property bool wifiEnabled: true
       property bool airplaneModeEnabled: false
       property bool bluetoothRssiPollingEnabled: false  // Opt-in Bluetooth RSSI polling (uses bluetoothctl)
       property int bluetoothRssiPollIntervalMs: 60000 // Polling interval in milliseconds for RSSI queries
