@@ -944,6 +944,8 @@
       "predefined-desc": "从预定义配色方案集合中选择。",
       "predefined-generate-templates-label": "为预定义方案生成模板",
       "predefined-title": "预定义配色方案",
+      "sync-gsettings-description": "将系统主题与活动的浅色或深色变体匹配。",
+      "sync-gsettings-label": "同步系统主题",
       "templates-desc": "将颜色应用于外部应用程序。",
       "templates-filter-description": "显示特定类别的模板。",
       "templates-filter-label": "按类别筛选",
@@ -1458,8 +1460,8 @@
       "history-normal-urgency-description": "将正常优先级通知保存到历史记录。",
       "history-normal-urgency-label": "将正常紧急度保存到历史记录",
       "monitors-desc": "在特定显示器上显示通知。如果未选择，则默认为全部。",
-      "rules-action-block": "块",
-      "rules-action-block-desc": "完全跳过。",
+      "rules-action-block": "禁止",
+      "rules-action-block-desc": "完全禁止通知",
       "rules-action-hide": "隐藏",
       "rules-action-hide-desc": "无弹窗，无声音，添加到历史记录。",
       "rules-action-label": "操作",
@@ -2227,7 +2229,7 @@
       "excellent": "优秀",
       "fair": "一般",
       "good": "好",
-      "poor": "弱",
+      "poor": "差",
       "weak": "弱"
     }
   }

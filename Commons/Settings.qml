@@ -711,6 +711,7 @@ Singleton {
       property string manualSunset: "18:30"
       property string generationMethod: "tonal-spot"
       property string monitorForColors: ""
+      property bool syncGsettings: true
     }
 
     // templates toggles

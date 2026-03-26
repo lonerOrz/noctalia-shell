@@ -55,6 +55,9 @@ Singleton {
     function showBar() {
       BarService.show();
     }
+    function peek() {
+      BarService.peek();
+    }
     function setDisplayMode(mode: string, screen: string) {
       if (mode === "always_visible" || mode === "non_exclusive" || mode === "auto_hide") {
         if (!screen || screen === "all") {
@@ -668,6 +671,19 @@ Singleton {
     }
     function disableAutoConnect() {
       Settings.data.network.bluetoothAutoConnect = false;
+    }
+  }
+
+  IpcHandler {
+    target: "airplaneMode"
+    function toggle() {
+      BluetoothService.setAirplaneMode(!Settings.data.network.airplaneModeEnabled);
+    }
+    function enable() {
+      BluetoothService.setAirplaneMode(true);
+    }
+    function disable() {
+      BluetoothService.setAirplaneMode(false);
     }
   }
 

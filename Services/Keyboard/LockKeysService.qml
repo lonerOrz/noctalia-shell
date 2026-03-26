@@ -35,9 +35,6 @@ Singleton {
   signal numLockChanged(bool active)
   signal scrollLockChanged(bool active)
 
-  // Flag to track if this is the initial check to avoid OSD triggers
-  property bool initialCheckDone: false
-
   Instantiator {
     model: FolderListModel {
       id: folderModel
@@ -50,15 +47,31 @@ Singleton {
         id: fileView
         path: filePath + "/brightness"
         onTextChanged: () => {
-          if (!this.isWanted)
+          if (!fileView.isWanted)
           return;
-          if (!this.initialCheckDone) {
-            this.initialCheckDone = true;
+
+          var state = !fileView.text().startsWith("0");
+          var kind = fileName.split("::")[1];
+
+          // First read after polling starts: sync bar/UI from sysfs without firing
+          // *Changed signals (OSD listens to those and would flash on startup).
+          if (!fileView.initialCheckDone) {
+            fileView.initialCheckDone = true;
+            switch (kind) {
+              case "numlock":
+              root.numLockOn = state;
+              break;
+              case "capslock":
+              root.capsLockOn = state;
+              break;
+              case "scrolllock":
+              root.scrollLockOn = state;
+              break;
+            }
             return;
           }
 
-          var state = !this.text().startsWith("0");
-          switch (fileName.split("::")[1]) {
+          switch (kind) {
             case "numlock":
             root.numLockOn = state;
             root.numLockChanged(state);
@@ -87,17 +100,17 @@ Singleton {
               return true;
             }
           }
-          Logger.i("LockKeysService", "ignoring:", this.path);
+          Logger.i("LockKeysService", "ignoring:", fileView.path);
           return false;
         }
 
-        // Skip first OSD event if one fires immediately after enabling
+        // After shouldRun becomes true, first brightness read updates properties only (no *Changed signals).
         property bool initialCheckDone: false
         property variant connections: Connections {
           target: root
           function onShouldRunChanged() {
             if (root.shouldRun) {
-              this.initialCheckDone = false;
+              fileView.initialCheckDone = false;
             }
           }
         }
