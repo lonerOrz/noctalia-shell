@@ -320,6 +320,7 @@ Item {
           Layout.fillWidth: true
           Layout.alignment: Qt.AlignVCenter
           Layout.preferredHeight: capsuleHeight
+          fadeRoundLeftCorners: !(showAlbumArt || showProgressRing)
 
           text: title
 
@@ -333,9 +334,8 @@ Item {
           cursorShape: hasPlayer ? Qt.PointingHandCursor : Qt.ArrowCursor
           maxWidth: root.maxWidth - root.mainContentWidth
           forcedHover: mainMouseArea.containsMouse
-          gradientColor: Style.capsuleColor
-          gradientWidth: Math.round(8 * Style.uiScaleRatio)
-          cornerRadius: Style.radiusM
+          fadeExtent: 0.1
+          fadeCornerRadius: Style.radiusM
 
           NText {
             color: hasPlayer ? root.textColor : Color.mOnSurfaceVariant

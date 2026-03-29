@@ -259,6 +259,38 @@ Singleton {
     }
   }
 
+  IpcHandler {
+    target: "toast"
+
+    function send(json: string) {
+      try {
+        var data = JSON.parse(json);
+        var title = data.title || "";
+        var body = data.body || "";
+        var icon = data.icon || "";
+        var type = data.type || "notice";
+        var duration = data.duration;
+
+        switch (type) {
+        case "warning":
+          ToastService.showWarning(title, body, duration ?? 4000);
+          break;
+        case "error":
+          ToastService.showError(title, body, duration ?? 6000);
+          break;
+        default:
+          ToastService.showNotice(title, body, icon, duration ?? 3000);
+        }
+      } catch (error) {
+        Logger.e("IPC", "Failed to parse toast JSON: " + error);
+      }
+    }
+
+    function dismiss() {
+      ToastService.dismissToast();
+    }
+  }
+
   // Idle Inhibitor / Keep Awake
   IpcHandler {
     target: "idleInhibitor"
@@ -584,20 +616,16 @@ Singleton {
     function get(screen: string): string {
       if (screen === "all" || screen === "") {
         if (Quickshell.screens.length > 1) {
-          var map = {};
-          Quickshell.screens.forEach(s => {
-                                       map[s.name] = WallpaperService.currentWallpapers[s.name] ?? "";
-                                     });
-          return JSON.stringify(map);
+          return JSON.stringify(WallpaperService.getWallpapersEffectiveMap());
         }
-        return WallpaperService.currentWallpapers[Quickshell.screens[0].name] ?? "";
+        return WallpaperService.getWallpaper(Quickshell.screens[0].name) ?? "";
       } else {
         var found = Quickshell.screens.find(s => s.name === screen);
         if (!found) {
           Logger.w("IPC", "wallpaper get: unknown screen: " + screen);
           return "";
         }
-        return WallpaperService.currentWallpapers[screen] ?? "";
+        return WallpaperService.getWallpaper(screen) ?? "";
       }
     }
 
@@ -731,34 +759,6 @@ Singleton {
 
     function disableNoctaliaPerformance() {
       PowerProfileService.setNoctaliaPerformance(false);
-    }
-  }
-
-  IpcHandler {
-    target: "toast"
-
-    function send(json: string) {
-      try {
-        var data = JSON.parse(json);
-        var title = data.title || "";
-        var body = data.body || "";
-        var icon = data.icon || "";
-        var type = data.type || "notice";
-        var duration = data.duration;
-
-        switch (type) {
-        case "warning":
-          ToastService.showWarning(title, body, duration ?? 4000);
-          break;
-        case "error":
-          ToastService.showError(title, body, duration ?? 6000);
-          break;
-        default:
-          ToastService.showNotice(title, body, icon, duration ?? 3000);
-        }
-      } catch (error) {
-        Logger.e("IPC", "Failed to parse toast JSON: " + error);
-      }
     }
   }
 
