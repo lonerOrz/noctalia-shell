@@ -272,22 +272,26 @@ NBox {
     anchors.bottomMargin: Style.marginS
     spacing: Style.marginXS
 
-    // No media player detected - centered disc icon
-    NIcon {
-      Layout.alignment: Qt.AlignCenter
-      visible: !root.hasActivePlayer && SpectrumService.isIdle
-      icon: "disc"
-      pointSize: Style.fontSizeM * 2
-      color: Color.mOnSurfaceVariant
-      opacity: 1.0
-    }
-
     // MediaPlayer Main Content - use Loader for performance
     Loader {
       id: mainLoader
       Layout.fillWidth: true
       Layout.fillHeight: true
       active: root.hasActivePlayer
+
+      // No media player detected - centered disc icon
+      Item {
+        anchors.fill: parent
+        visible: !root.hasActivePlayer
+
+        NIcon {
+          anchors.centerIn: parent
+          icon: "disc"
+          pointSize: Style.fontSizeM * 2
+          color: Color.mOnSurfaceVariant
+          opacity: 1.0
+        }
+      }
 
       sourceComponent: Item {
         id: mainContent

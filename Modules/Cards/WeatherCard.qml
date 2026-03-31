@@ -29,7 +29,7 @@ NBox {
   readonly property bool isClearNight: testEffects === "clear_night" || (testEffects === "" && (currentWeatherCode === 0 && !isDayTime))
 
   visible: Settings.data.location.weatherEnabled
-  implicitHeight: Math.max(100 * Style.uiScaleRatio, content.implicitHeight + Style.margin2XL)
+  implicitHeight: Math.max(80 * Style.uiScaleRatio, content.implicitHeight + Style.marginM)
 
   // Weather effect layer (rain/snow)
   Loader {
@@ -92,8 +92,8 @@ NBox {
   ColumnLayout {
     id: content
     anchors.fill: parent
-    anchors.margins: Style.marginXL
-    spacing: Style.marginM
+    anchors.margins: Style.marginM
+    spacing: Style.marginS
     clip: true
 
     RowLayout {
@@ -105,13 +105,13 @@ NBox {
       }
 
       RowLayout {
-        spacing: Style.marginL
+        spacing: Style.marginM
         Layout.fillWidth: true
 
         NIcon {
           Layout.alignment: Qt.AlignVCenter
           icon: weatherReady ? LocationService.weatherSymbolFromCode(LocationService.data.weather.current_weather.weathercode, LocationService.data.weather.current_weather.is_day) : "weather-cloud-off"
-          pointSize: Style.fontSizeXXXL * 1.75
+          pointSize: Style.fontSizeXXXL * 1.5
           color: Color.mPrimary
         }
 
@@ -144,7 +144,7 @@ NBox {
                 temp = Math.round(temp);
                 return `${temp}°${suffix}`;
               }
-              pointSize: showLocation ? Style.fontSizeXL : Style.fontSizeXL * 1.6
+              pointSize: showLocation ? Style.fontSizeXL : Style.fontSizeXL * 1.4
               font.weight: Style.fontWeightBold
             }
 
@@ -174,7 +174,7 @@ NBox {
         model: weatherReady ? Math.min(root.forecastDays, LocationService.data.weather.daily.time.length) : 0
         delegate: ColumnLayout {
           Layout.fillWidth: true
-          spacing: Style.marginXS
+          spacing: Style.marginXXS
           Item {
             Layout.fillWidth: true
           }
@@ -185,11 +185,12 @@ NBox {
               return I18n.locale.toString(weatherDate, "ddd");
             }
             color: Color.mOnSurface
+            pointSize: Style.fontSizeXS
           }
           NIcon {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             icon: LocationService.weatherSymbolFromCode(LocationService.data.weather.daily.weathercode[index])
-            pointSize: Style.fontSizeXXL * 1.6
+            pointSize: Style.fontSizeXXL * 1.4
             color: Color.mPrimary
           }
           NText {
